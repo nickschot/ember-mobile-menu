@@ -1,0 +1,1 @@
+export { default } from 'ember-mobile-menu/components/gesture-wrapper';

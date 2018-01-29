@@ -1,0 +1,72 @@
+// variables
+$mobileMenuWidth: 85vw;
+$transition-duration: 0.3s;
+
+body.mobile-menu--open {
+  overflow: hidden;
+}
+
+.mobile-menu__toggler {
+  cursor: pointer!important;
+}
+
+.mobile-menu {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+
+  .mobile-menu__tray {
+    position: fixed;
+    top: 0;
+    left: -$mobileMenuWidth;
+
+    height: 100vh;
+    width: $mobileMenuWidth;
+
+    background: #FFF;
+    //border-right: 1px solid rgba(0,0,0,.14);
+
+    //TODO: decide if we want to have the shadow immediately appear or not when dragging/opening
+    //transition: box-shadow $transition-duration;
+  }
+
+  .mobile-menu__mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    cursor: pointer; // necessary to detect click on iOS
+
+    will-change: opacity;
+  }
+
+  &.mobile-menu--dragging {
+    .mobile-menu__tray {
+      will-change: transform;
+    }
+  }
+
+  &:not(.mobile-menu--dragging) {
+    .mobile-menu__tray {
+      transition: box-shadow $transition-duration, transform $transition-duration;
+    }
+    .mobile-menu__mask {
+      transition: opacity $transition-duration;
+    }
+  }
+}
+
+body.mobile-menu--open .mobile-menu,
+.mobile-menu.mobile-menu--dragging {
+  .mobile-menu__tray {
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  }
+}

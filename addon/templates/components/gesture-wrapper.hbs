@@ -1,0 +1,31 @@
+{{yield (hash toggle=(action 'toggle'))}}
+
+{{#mobile-menu
+  mask=mask
+  isOpen=isOpen
+  isDragging=isDragging
+  currentPosition=currentPosition
+  close='close'
+as |mobile-menu|
+}}
+  <div class="side-menu-header">
+    <h3>My Menu</h3>
+  </div>
+  <div class="side-menu-body">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        {{#mobile-menu.link-to 'index' class="nav-link"}}{{material-icon 'home'}} Home{{/mobile-menu.link-to}}
+      </li>
+      <li class="nav-item">
+        {{#mobile-menu.link-to 'posts' class="nav-link"}}{{material-icon 'archive'}} Archive{{/mobile-menu.link-to}}
+      </li>
+      <li class="divider"></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+{{/mobile-menu}}

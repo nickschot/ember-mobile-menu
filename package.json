@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "mobile",
+    "menu",
+    "sidebar",
+    "hamburger-menu"
   ],
   "license": "MIT",
   "author": "",
@@ -19,7 +23,9 @@
     "test": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^6.6.0"
+    "ember-cli-babel": "^6.6.0",
+    "ember-cli-sass": "^7.1.4",
+    "ember-gestures": "^0.4.8"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
