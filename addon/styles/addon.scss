@@ -1,6 +1,8 @@
 // variables
 $mobileMenuWidth: 85vw;
 $transition-duration: 0.3s;
+$mobileMenuZindex: 2000;
+$gestureWrapperMinHeight: 100vh;
 
 body.mobile-menu--open {
   overflow: hidden;
@@ -10,9 +12,13 @@ body.mobile-menu--open {
   cursor: pointer!important;
 }
 
+.gesture-wrapper {
+  min-height: 100vh;
+}
+
 .mobile-menu {
   position: fixed;
-  z-index: 2000;
+  z-index: $mobileMenuZindex;
   top: 0;
   left: 0;
   width: 0;

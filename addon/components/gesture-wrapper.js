@@ -8,6 +8,8 @@ import RecognizerMixin from 'ember-gestures/mixins/recognizers';
 export default Component.extend(RecognizerMixin, {
   layout,
 
+  classNames: ['gesture-wrapper'],
+
   fastboot: service(),
   isFastBoot: computed.reads('fastboot.isFastBoot'),
 
@@ -33,12 +35,12 @@ export default Component.extend(RecognizerMixin, {
         }
       } else {
         if(value){
-          $('body').addClass('mobile-menu-open');
+          $('body').addClass('mobile-menu--open');
 
           this.set('isDragging', false);
           this.set('currentPosition', this.get('mobileMenuOffset'));
         } else {
-          $('body').removeClass('mobile-menu-open');
+          $('body').removeClass('mobile-menu--open');
 
           this.set('isDragging', false);
           this.set('currentPosition', 0);
