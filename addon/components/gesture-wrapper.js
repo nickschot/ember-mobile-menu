@@ -176,8 +176,6 @@ export default Component.extend(RecognizerMixin, {
       // workaround for https://github.com/hammerjs/hammer.js/issues/1132
       if (center.x === 0 && center.y === 0) return;
 
-      console.log('touch end');
-
       const triggerVelocity = 0.25;
       const windowWidth = this._getWindowWidth();
       const mobileMenuOffset = this.get('mobileMenuOffset');
