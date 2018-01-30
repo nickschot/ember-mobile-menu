@@ -16,7 +16,7 @@ export default Component.extend(RecognizerMixin, {
   recognizers: 'pan',
 
   mask: true,
-  openDetectionWidth: 10,
+  openDetectionWidth: 25, // in px
   mobileMenuOffset: 85,
   currentPosition: 0,
   isDragging: false,
@@ -35,6 +35,7 @@ export default Component.extend(RecognizerMixin, {
         }
       } else {
         if(value){
+          //TODO: use ember-body-class addon
           $('body').addClass('mobile-menu--open');
 
           this.set('isDragging', false);
@@ -87,14 +88,11 @@ export default Component.extend(RecognizerMixin, {
       // workaround for https://github.com/hammerjs/hammer.js/issues/1132
       if (center.x === 0 && center.y === 0) return;
 
-      const windowWidth = this._getWindowWidth();
-      const startOffset = 100 * center.x / windowWidth;
-
       // add a dragging class so any css transitions are disabled
       // and the pan event is enabled
       if(!this.get('isOpen') && additionalEvent === 'panright' && !this.get('userAgent.os.isIOS')){
         // only detect initial drag from left mobile of the window
-        if(startOffset < this.get('openDetectionWidth')){
+        if(center.x < this.get('openDetectionWidth')){
           this.set('isDragging', true);
         }
       }
@@ -178,6 +176,7 @@ export default Component.extend(RecognizerMixin, {
       // workaround for https://github.com/hammerjs/hammer.js/issues/1132
       if (center.x === 0 && center.y === 0) return;
 
+      console.log('touch end');
 
       const triggerVelocity = 0.25;
       const windowWidth = this._getWindowWidth();
