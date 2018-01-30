@@ -1,7 +1,8 @@
 import Component from '@ember/component';
 import layout from '../templates/components/mobile-menu';
 
-import { get, computed } from '@ember/object';
+import { get, computed, observer } from '@ember/object';
+import { once } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
@@ -10,52 +11,34 @@ export default Component.extend({
   fastboot: service(),
   isFastBoot: computed.reads('fastboot.isFastBoot'),
 
+  mobileMenu: service(),
+
   classNames: ['mobile-menu'],
-  classNameBindings: ['isDragging:mobile-menu--dragging'],
+  classNameBindings: ['mobileMenu.isDragging:mobile-menu--dragging'],
 
   maskEnabled: true,
-  isOpen: false,
-  isDragging: false,
-  currentPosition: 0,
-  maskOpacityOffset: 5,
 
-  didRender(){
-    //TODO: fix fastboot, remove jquery usage
-    this.$('.mobile-menu__tray').css(get(this, 'style'));
-    if(get(this, 'maskEnabled')){
-      this.$('.mobile-menu__mask').css(get(this, 'maskStyle'));
+  positionChanged: observer(
+    'mobileMenu.position',
+    function(){
+      once(this, function() {
+        this.element.getElementsByClassName('mobile-menu__tray')[0].style.transform = get(this, 'style').transform;
+      });
     }
-  },
+  ),
 
-  style: computed('isOpen', 'currentPosition', function() {
-    return {
-      transform: `translateX(${this.get('currentPosition')}vw)`
-    };
-  }),
-
-  //TODO: remove
-  maskStyle: computed('isOpen', 'currentPosition', function() {
-    const style = {
-      visibility: '',
-      opacity: ''
-    };
-
-    if(!this.get('isOpen') && this.get('currentPosition') === 0){
-      style.visibility = 'hidden';
+  style: computed(
+    'mobileMenu.position',
+    function() {
+      return {
+        transform: `translateX(${this.get('mobileMenu.position')}vw)`
+      };
     }
-
-    style.opacity = this.get('currentPosition') > this.get('maskOpacityOffset')
-      ? (
-      this.get('currentPosition') - this.get('maskOpacityOffset'))
-      / (100 - this.get('maskOpacityOffset')
-      )
-      : 0;
-    return style;
-  }),
+  ),
 
   actions: {
     close(){
-      this.sendAction('close');
+      get(this, 'mobileMenu').close();
     }
   }
 });

@@ -1,13 +1,6 @@
 {{yield (hash toggle=(action 'toggle'))}}
 
-{{#mobile-menu
-  mask=mask
-  isOpen=isOpen
-  isDragging=isDragging
-  currentPosition=currentPosition
-  close=(action 'close')
-as |mobile-menu|
-}}
+{{#mobile-menu as |mobile-menu|}}
   <div class="mobile-menu__header">
     <h3>My Menu</h3>
   </div>

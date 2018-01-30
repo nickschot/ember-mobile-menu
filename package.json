@@ -26,7 +26,8 @@
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-sass": "^7.1.4",
-    "ember-gestures": "^0.4.8"
+    "ember-gestures": "^0.4.8",
+    "ember-set-body-class": "^0.2.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",

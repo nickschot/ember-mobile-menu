@@ -1,5 +1,9 @@
+{{#if mobileMenu.isOpen}}
+  {{set-body-class 'mobile-menu--open'}}
+{{/if}}
+
 {{#if maskEnabled}}
-  <div class="mobile-menu__mask" {{action 'close'}}></div>
+  {{mobile-menu/mask isOpen=mobileMenu.isOpen position=mobileMenu.position onClick=(action 'close')}}
   {{!--#if isFastBoot}}
     {{#if isOpen}}
       {{#link-to (query-params sideMenuOpen=false) class="mobile-menu__mask" style="opacity: 1;"}}{{/link-to}}
