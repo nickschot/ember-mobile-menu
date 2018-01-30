@@ -1,5 +1,6 @@
 import Component from '@ember/component';
-import layout from '../templates/components/side-menu';
+import layout from '../templates/components/mobile-menu';
+
 import { get, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
@@ -12,7 +13,7 @@ export default Component.extend({
   classNames: ['mobile-menu'],
   classNameBindings: ['isDragging:mobile-menu--dragging'],
 
-  mask: true,
+  maskEnabled: true,
   isOpen: false,
   isDragging: false,
   currentPosition: 0,
@@ -21,7 +22,7 @@ export default Component.extend({
   didRender(){
     //TODO: fix fastboot, remove jquery usage
     this.$('.mobile-menu__tray').css(get(this, 'style'));
-    if(get(this, 'mask')){
+    if(get(this, 'maskEnabled')){
       this.$('.mobile-menu__mask').css(get(this, 'maskStyle'));
     }
   },
@@ -32,6 +33,7 @@ export default Component.extend({
     };
   }),
 
+  //TODO: remove
   maskStyle: computed('isOpen', 'currentPosition', function() {
     const style = {
       visibility: '',

@@ -1,21 +1,28 @@
-// variables
-$mobileMenuWidth: 85vw;
+// variables ---------------------------------------------------------------- //
 $transition-duration: 0.3s;
-$mobileMenuZindex: 2000;
 $gestureWrapperMinHeight: 100vh;
 
+$mobileMenuHeight: 100vh;
+$mobileMenuWidth: 85vw;
+$mobileMenuZindex: 2000;
+// -------------------------------------------------------------------------- //
+
+// global ------------------------------------------------------------------- //
 body.mobile-menu--open {
   overflow: hidden;
 }
 
+// toggler ------------------------------------------------------------------ //
 .mobile-menu__toggler {
   cursor: pointer!important;
 }
 
+// pan recognizer ----------------------------------------------------------- //
 .gesture-wrapper {
-  min-height: 100vh;
+  min-height: $gestureWrapperMinHeight;
 }
 
+// mobile menu -------------------------------------------------------------- //
 .mobile-menu {
   position: fixed;
   z-index: $mobileMenuZindex;
@@ -29,14 +36,12 @@ body.mobile-menu--open {
     top: 0;
     left: -$mobileMenuWidth;
 
-    height: 100vh;
+    height: $mobileMenuHeight;
     width: $mobileMenuWidth;
 
-    background: #FFF;
-    //border-right: 1px solid rgba(0,0,0,.14);
+    overflow-y: auto;
 
-    //TODO: decide if we want to have the shadow immediately appear or not when dragging/opening
-    //transition: box-shadow $transition-duration;
+    background: #FFF;
   }
 
   .mobile-menu__mask {
