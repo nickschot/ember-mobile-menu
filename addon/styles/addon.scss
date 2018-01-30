@@ -59,7 +59,7 @@ body.mobile-menu--open {
       transition: box-shadow $transition-duration, transform $transition-duration;
     }
     .mobile-menu__mask {
-      transition: opacity $transition-duration;
+      transition: opacity $transition-duration, visibility $transition-duration;
     }
   }
 }

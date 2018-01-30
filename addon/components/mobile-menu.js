@@ -34,12 +34,12 @@ export default Component.extend({
 
   maskStyle: computed('isOpen', 'currentPosition', function() {
     const style = {
-      left: '',
+      visibility: '',
       opacity: ''
     };
 
     if(!this.get('isOpen') && this.get('currentPosition') === 0){
-      style.left = '-100vw';
+      style.visibility = 'hidden';
     }
 
     style.opacity = this.get('currentPosition') > this.get('maskOpacityOffset')

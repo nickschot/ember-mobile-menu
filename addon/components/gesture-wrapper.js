@@ -103,8 +103,6 @@ export default Component.extend(RecognizerMixin, {
     const {
       deltaX,
       isFinal,
-      additionalEvent,
-      overallVelocityX,
       center,
       pointerType
     } = e.originalEvent.gesture;
@@ -132,37 +130,9 @@ export default Component.extend(RecognizerMixin, {
         // TODO: limit size & disable drag for desktop
         //    (set mobileMenuOffset to pixel value and use deltaX directly instead of mapping to vw)
 
-        const triggerVelocity = 0.25;
         let targetOffset = 100 * deltaX / windowWidth;
 
-        if(isFinal && this.get('isDragging')){
-          // when overall horizontal velocity is high, force open/close and skip the rest
-          if(
-            !this.get('isOpen')
-            && overallVelocityX > triggerVelocity
-            && additionalEvent === 'panright'
-          ){
-            // force open
-            this.open();
-            return;
-          } else if(
-            this.get('isOpen')
-            && overallVelocityX < -1 * triggerVelocity
-            && additionalEvent === 'panleft'
-          ){
-            // force close
-            this.close();
-            return;
-          }
-          // the pan action is over, cleanup and set the correct final menu position
-          if(    (!this.get('isOpen') && targetOffset > mobileMenuOffset / 2)
-            || ( this.get('isOpen') && -1 * targetOffset < mobileMenuOffset / 2)
-          ){
-            this.open();
-          } else {
-            this.close();
-          }
-        } else {
+        if(!isFinal){
           // pass the new position taking limits into account
           if(this.get('isOpen')){
             const cursorPosition = 100 * center.x / windowWidth;
@@ -195,13 +165,49 @@ export default Component.extend(RecognizerMixin, {
 
   panEnd(e) {
     const {
+      additionalEvent,
       center,
-      pointerType
+      deltaX,
+      pointerType,
+      overallVelocityX,
     } = e.originalEvent.gesture;
 
     if(pointerType === 'touch'){
       // workaround for https://github.com/hammerjs/hammer.js/issues/1132
       if (center.x === 0 && center.y === 0) return;
+
+
+      const triggerVelocity = 0.25;
+      const windowWidth = this._getWindowWidth();
+      const mobileMenuOffset = this.get('mobileMenuOffset');
+      let targetOffset = 100 * deltaX / windowWidth;
+
+      // when overall horizontal velocity is high, force open/close and skip the rest
+      if(
+        !this.get('isOpen')
+        && overallVelocityX > triggerVelocity
+        && additionalEvent === 'panright'
+      ){
+        // force open
+        this.open();
+        return;
+      } else if(
+        this.get('isOpen')
+        && overallVelocityX < -1 * triggerVelocity
+        && additionalEvent === 'panleft'
+      ){
+        // force close
+        this.close();
+        return;
+      }
+      // the pan action is over, cleanup and set the correct final menu position
+      if(    (!this.get('isOpen') && targetOffset > mobileMenuOffset / 2)
+        || ( this.get('isOpen') && -1 * targetOffset < mobileMenuOffset / 2)
+      ){
+        this.open();
+      } else {
+        this.close();
+      }
 
       this.set('deltaXCorrection', 0);
     }

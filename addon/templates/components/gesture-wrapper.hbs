@@ -5,13 +5,13 @@
   isOpen=isOpen
   isDragging=isDragging
   currentPosition=currentPosition
-  close='close'
+  close=(action 'close')
 as |mobile-menu|
 }}
-  <div class="side-menu-header">
+  <div class="mobile-menu__header">
     <h3>My Menu</h3>
   </div>
-  <div class="side-menu-body">
+  <div class="mobile-menu__body">
     <ul class="nav flex-column">
       <li class="nav-item">
         {{#mobile-menu.link-to 'index' class="nav-link"}}{{material-icon 'home'}} Home{{/mobile-menu.link-to}}

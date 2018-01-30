@@ -1,12 +1,9 @@
-{{#if mask}}
-  <div class="mobile-menu__mask" {{action 'close'}}></div>
-
-  {{#if isFastBoot}}
-    {{#if isOpen}}
-      {{#link-to (query-params sideMenuOpen=false) class="mobile-menu__mask" style="opacity: 1;"}}{{/link-to}}
-    {{/if}}
+<div class="mobile-menu__mask" {{action 'close'}}></div>
+{{!--#if isFastBoot}}
+  {{#if isOpen}}
+    {{#link-to (query-params sideMenuOpen=false) class="mobile-menu__mask" style="opacity: 1;"}}{{/link-to}}
   {{/if}}
-{{/if}}
+{{/if--}}
 
 <div class="mobile-menu__tray">
   {{yield (hash
