@@ -11,8 +11,11 @@ export default Service.extend({
   position: 0,
 
   toggle(){
-    set(this, 'isDragging', false);
-    set(this, 'isOpen', !get(this, 'isOpen'));
+    if(get(this, 'isOpen')){
+      this.close();
+    } else {
+      this.open();
+    }
   },
 
   open(){
