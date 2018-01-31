@@ -4,7 +4,11 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports = {
-  description: '',
+  normalizeEntityName() {
+    // this prevents an error when the entityName is
+    // not specified (since that doesn't actually matter
+    // to us
+  },
 
   afterInstall() {
     let dependencies = this.project.dependencies();
