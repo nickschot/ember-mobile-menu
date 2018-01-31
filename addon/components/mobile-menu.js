@@ -14,9 +14,10 @@ export default Component.extend({
   mobileMenu: service(),
 
   classNames: ['mobile-menu'],
-  classNameBindings: ['mobileMenu.isDragging:mobile-menu--dragging'],
+  classNameBindings: ['mobileMenu.isDragging:mobile-menu--dragging', 'shadowEnabled:mobile-menu--shadow'],
 
   maskEnabled: true,
+  shadowEnabled: true,
 
   positionChanged: observer(
     'mobileMenu.position',

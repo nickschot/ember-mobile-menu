@@ -16,7 +16,7 @@ export default Component.extend(RecognizerMixin, {
 
   recognizers: 'pan',
 
-  openDetectionWidth: 25, // in px
+  openDetectionWidth: 30, // in px
   mobileMenuOffset: 85,
   currentPosition: 0,
 
