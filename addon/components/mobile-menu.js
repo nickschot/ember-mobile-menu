@@ -8,10 +8,8 @@ import { inject as service } from '@ember/service';
 export default Component.extend({
   layout,
 
-  fastboot: service(),
-  isFastBoot: computed.reads('fastboot.isFastBoot'),
-
   mobileMenu: service(),
+  isFastBoot: computed.reads('mobileMenu.isFastBoot'),
 
   classNames: ['mobile-menu'],
   classNameBindings: ['mobileMenu.isDragging:mobile-menu--dragging', 'shadowEnabled:mobile-menu--shadow'],

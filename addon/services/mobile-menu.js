@@ -1,5 +1,6 @@
 import Service from '@ember/service';
-import { get, set } from '@ember/object';
+import { computed, get, set } from '@ember/object';
+import { getOwner } from '@ember/application';
 
 export default Service.extend({
   side: 'left',
@@ -28,5 +29,13 @@ export default Service.extend({
     set(this, 'position', 0);
     set(this, 'isDragging', false);
     set(this, 'isOpen', false);
-  }
+  },
+
+  fastboot: computed(function() {
+    const owner = getOwner(this);
+    return owner.lookup('service:fastboot');
+  }),
+  isFastBoot: computed('fastboot', function(){
+    return !!get(this, 'fastboot.isFastBoot');
+  })
 });

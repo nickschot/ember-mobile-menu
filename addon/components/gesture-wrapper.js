@@ -9,10 +9,8 @@ export default Component.extend(RecognizerMixin, {
 
   classNames: ['gesture-wrapper'],
 
-  fastboot: service(),
-  isFastBoot: computed.reads('fastboot.isFastBoot'),
-
   mobileMenu: service(),
+  isFastBoot: computed.reads('mobileMenu.isFastBoot'),
 
   recognizers: 'pan',
 
