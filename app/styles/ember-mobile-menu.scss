@@ -1,11 +1,4 @@
-// variables ---------------------------------------------------------------- //
-$transition-duration: 0.3s;
-$gestureWrapperMinHeight: 100vh;
-
-$mobileMenuHeight: 100vh;
-$mobileMenuWidth: 85vw;
-$mobileMenuZindex: 2000;
-// -------------------------------------------------------------------------- //
+@import "ember-mobile-menu/variables";
 
 // global ------------------------------------------------------------------- //
 body.mobile-menu--open {
@@ -19,13 +12,13 @@ body.mobile-menu--open {
 
 // pan recognizer ----------------------------------------------------------- //
 .gesture-wrapper {
-  min-height: $gestureWrapperMinHeight;
+  min-height: $gesture-wrapper-min-height;
 }
 
 // mobile menu -------------------------------------------------------------- //
 .mobile-menu {
   position: fixed;
-  z-index: $mobileMenuZindex;
+  z-index: $mobile-menu-z-index;
   top: 0;
   left: 0;
   width: 0;
@@ -34,10 +27,10 @@ body.mobile-menu--open {
   .mobile-menu__tray {
     position: fixed;
     top: 0;
-    left: -$mobileMenuWidth;
+    left: -$mobile-menu-width;
 
-    height: $mobileMenuHeight;
-    width: $mobileMenuWidth;
+    height: $mobile-menu-height;
+    width: $mobile-menu-width;
 
     overflow-y: auto;
     touch-action: pan-y;
