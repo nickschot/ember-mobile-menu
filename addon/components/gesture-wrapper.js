@@ -15,8 +15,9 @@ export default Component.extend(RecognizerMixin, {
   recognizers: 'pan',
 
   openDetectionWidth: 30, // in px
-  mobileMenuOffset: 85,
-  currentPosition: 0,
+  mobileMenuOffset:   85,
+  currentPosition:    0,
+  breakPoint:         768, // in px
 
   deltaXCorrection: 0,
 
@@ -43,6 +44,16 @@ export default Component.extend(RecognizerMixin, {
   _getWindowWidth(){
     return window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
   },
+  _isEnabled(e){
+    const {
+      center,
+      pointerType
+    } = e.originalEvent.gesture;
+
+    return this._getWindowWidth() < get(this, 'breakPoint')
+      && pointerType === 'touch'
+      && !(center.x === 0 && center.y === 0); // workaround for https://github.com/hammerjs/hammer.js/issues/1132
+  },
 
   panStart(e){
     const {
@@ -51,10 +62,7 @@ export default Component.extend(RecognizerMixin, {
       additionalEvent,
     } = e.originalEvent.gesture;
 
-    if(pointerType === 'touch'){
-      // workaround for https://github.com/hammerjs/hammer.js/issues/1132
-      if (center.x === 0 && center.y === 0) return;
-
+    if(this._isEnabled(e)){
       // add a dragging class so any css transitions are disabled
       // and the pan event is enabled
       if(!this.get('mobileMenu.isOpen') && additionalEvent === 'panright' && !this.get('userAgent.os.isIOS')){
@@ -70,15 +78,10 @@ export default Component.extend(RecognizerMixin, {
     const {
       deltaX,
       isFinal,
-      center,
-      pointerType
+      center
     } = e.originalEvent.gesture;
 
-    if(pointerType === 'touch'){
-
-      // workaround for https://github.com/hammerjs/hammer.js/issues/1132
-      if (center.x === 0 && center.y === 0) return;
-
+    if(this._isEnabled(e)){
       const windowWidth = this._getWindowWidth();
       const mobileMenuOffset = this.get('mobileMenuOffset');
 
@@ -133,16 +136,11 @@ export default Component.extend(RecognizerMixin, {
   panEnd(e) {
     const {
       additionalEvent,
-      center,
       deltaX,
-      pointerType,
       overallVelocityX,
     } = e.originalEvent.gesture;
 
-    if(pointerType === 'touch'){
-      // workaround for https://github.com/hammerjs/hammer.js/issues/1132
-      if (center.x === 0 && center.y === 0) return;
-
+    if(this._isEnabled(e)){
       if(this.get('mobileMenu.isDragging')) {
         const triggerVelocity = 0.25;
         const windowWidth = this._getWindowWidth();
