@@ -1,6 +1,7 @@
 import Service from '@ember/service';
 import { computed, get, set } from '@ember/object';
 import { getOwner } from '@ember/application';
+import { next } from '@ember/runloop';
 
 export default Service.extend({
   side: 'left',
@@ -20,15 +21,21 @@ export default Service.extend({
   },
 
   open(){
-    set(this, 'position', get(this, 'mobileMenuOffset'));
     set(this, 'isDragging', false);
-    set(this, 'isOpen', true);
+
+    next(() => {
+      set(this, 'position', get(this, 'mobileMenuOffset'));
+      set(this, 'isOpen', true);
+    });
   },
 
   close(){
-    set(this, 'position', 0);
     set(this, 'isDragging', false);
-    set(this, 'isOpen', false);
+
+    next(() => {
+      set(this, 'position', 0);
+      set(this, 'isOpen', false);
+    });
   },
 
   fastboot: computed(function() {
