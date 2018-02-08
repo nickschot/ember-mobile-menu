@@ -151,7 +151,6 @@ export default Component.extend(RecognizerMixin, {
         if (
           !this.get('mobileMenu.isOpen')
           && overallVelocityX > triggerVelocity
-          && additionalEvent === 'panright'
         ) {
           // force open
           this.open();
@@ -159,7 +158,6 @@ export default Component.extend(RecognizerMixin, {
         } else if (
           this.get('mobileMenu.isOpen')
           && overallVelocityX < -1 * triggerVelocity
-          && additionalEvent === 'panleft'
         ) {
           // force close
           this.close();
