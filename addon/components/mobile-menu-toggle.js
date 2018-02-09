@@ -7,7 +7,7 @@ import { get } from '@ember/object';
 export default Component.extend({
   layout,
 
-  classNames: ['mobile-menu-toggle'],
+  classNames: ['mobile-menu__toggle'],
 
   mobileMenu: service(),
 

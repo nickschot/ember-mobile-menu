@@ -14,6 +14,7 @@ export default Component.extend(RecognizerMixin, {
 
   recognizers: 'pan',
 
+  //TODO: max-width support in px
   openDetectionWidth: 30, // in px
   mobileMenuOffset:   85,
   currentPosition:    0,

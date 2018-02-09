@@ -6,7 +6,8 @@ body.mobile-menu--open {
 }
 
 // toggler ------------------------------------------------------------------ //
-.mobile-menu__toggler {
+.mobile-menu__toggle {
+  display: inline-block;
   cursor: pointer!important;
 }
 
