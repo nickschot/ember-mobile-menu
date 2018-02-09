@@ -15,10 +15,14 @@ export default Component.extend(RecognizerMixin, {
   recognizers: 'pan',
 
   //TODO: max-width support in px
+
+  //public
   openDetectionWidth: 30, // in px
-  mobileMenuOffset:   85,
-  currentPosition:    0,
+  mobileMenuWidth:   85, // 0-100%
   breakPoint:         768, // in px
+
+  //private
+  currentPosition:    0,
 
   deltaXCorrection: 0,
 
@@ -59,7 +63,6 @@ export default Component.extend(RecognizerMixin, {
   panStart(e){
     const {
       center,
-      pointerType,
       additionalEvent,
     } = e.originalEvent.gesture;
 
@@ -84,14 +87,14 @@ export default Component.extend(RecognizerMixin, {
 
     if(this._isEnabled(e)){
       const windowWidth = this._getWindowWidth();
-      const mobileMenuOffset = this.get('mobileMenuOffset');
+      const mobileMenuWidth = this.get('mobileMenuWidth');
 
       if(this.get('mobileMenu.isOpen') && !this.get('mobileMenu.isDragging')){
         // start drag when center.x is at the menu edge
         const cursorPosition = 100 * center.x / windowWidth;
 
         // calculate and set a correction delta if the pan started outmobile the opened menu
-        if(cursorPosition < mobileMenuOffset) {
+        if(cursorPosition < mobileMenuWidth) {
           this.set('mobileMenu.isDragging', true);
           this.set('deltaXCorrection', 100 * deltaX / windowWidth);
         }
@@ -99,7 +102,7 @@ export default Component.extend(RecognizerMixin, {
 
       if(this.get('mobileMenu.isDragging')){
         // TODO: limit size & disable drag for desktop
-        //    (set mobileMenuOffset to pixel value and use deltaX directly instead of mapping to vw)
+        //    (set mobileMenuWidth to pixel value and use deltaX directly instead of mapping to vw)
 
         let targetOffset = 100 * deltaX / windowWidth;
 
@@ -111,21 +114,21 @@ export default Component.extend(RecognizerMixin, {
             // correct targetOffset with deltaXCorrection set earlier
             targetOffset -= this.get('deltaXCorrection');
 
-            // enforce limits on the offset [0, mobileMenuOffset]
-            if(cursorPosition < mobileMenuOffset){
+            // enforce limits on the offset [0, mobileMenuWidth]
+            if(cursorPosition < mobileMenuWidth){
               if(targetOffset > 0){
                 targetOffset = 0;
-              } else if(targetOffset < -1 * mobileMenuOffset){
-                targetOffset = -1 * mobileMenuOffset;
+              } else if(targetOffset < -1 * mobileMenuWidth){
+                targetOffset = -1 * mobileMenuWidth;
               }
-              this.set('mobileMenu.position', mobileMenuOffset + targetOffset);
+              this.set('mobileMenu.position', mobileMenuWidth + targetOffset);
             }
           } else {
-            // enforce limits on the offset [0, mobileMenuOffset]
+            // enforce limits on the offset [0, mobileMenuWidth]
             if(targetOffset < 0){
               targetOffset = 0;
-            } else if(targetOffset > mobileMenuOffset){
-              targetOffset = mobileMenuOffset;
+            } else if(targetOffset > mobileMenuWidth){
+              targetOffset = mobileMenuWidth;
             }
             this.set('mobileMenu.position', targetOffset);
           }
@@ -136,7 +139,6 @@ export default Component.extend(RecognizerMixin, {
 
   panEnd(e) {
     const {
-      additionalEvent,
       deltaX,
       overallVelocityX,
     } = e.originalEvent.gesture;
@@ -145,7 +147,7 @@ export default Component.extend(RecognizerMixin, {
       if(this.get('mobileMenu.isDragging')) {
         const triggerVelocity = 0.25;
         const windowWidth = this._getWindowWidth();
-        const mobileMenuOffset = this.get('mobileMenuOffset');
+        const mobileMenuWidth = this.get('mobileMenuWidth');
         let targetOffset = 100 * deltaX / windowWidth;
 
         // when overall horizontal velocity is high, force open/close and skip the rest
@@ -166,8 +168,8 @@ export default Component.extend(RecognizerMixin, {
         }
 
         // the pan action is over, cleanup and set the correct final menu position
-        if ((!this.get('mobileMenu.isOpen') && targetOffset > mobileMenuOffset / 2)
-          || (this.get('mobileMenu.isOpen') && -1 * targetOffset < mobileMenuOffset / 2)
+        if ((!this.get('mobileMenu.isOpen') && targetOffset > mobileMenuWidth / 2)
+          || (this.get('mobileMenu.isOpen') && -1 * targetOffset < mobileMenuWidth / 2)
         ) {
           this.open();
         } else {
