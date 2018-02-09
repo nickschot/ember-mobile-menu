@@ -3,7 +3,7 @@
 {{/if}}
 
 {{#if maskEnabled}}
-  {{mobile-menu/mask isOpen=mobileMenu.isOpen position=mobileMenu.position onClick=(action 'close')}}
+  {{mobile-menu/mask isOpen=isOpen position=currentPosition onClick=(action 'close')}}
   {{!--#if isFastBoot}}
     {{#if isOpen}}
       {{#link-to (query-params sideMenuOpen=false) class="mobile-menu__mask" style="opacity: 1;"}}{{/link-to}}

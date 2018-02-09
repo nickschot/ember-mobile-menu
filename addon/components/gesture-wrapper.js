@@ -1,48 +1,48 @@
 import Component from '@ember/component';
 import layout from '../templates/components/gesture-wrapper';
 import { computed, get, set } from '@ember/object';
-import { inject as service } from '@ember/service';
 import RecognizerMixin from 'ember-gestures/mixins/recognizers';
+import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
+import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
 
-export default Component.extend(RecognizerMixin, {
+export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   layout,
 
   classNames: ['gesture-wrapper'],
-
-  mobileMenu: service(),
-  isFastBoot: computed.reads('mobileMenu.isFastBoot'),
 
   recognizers: 'pan',
 
   //TODO: max-width support in px
 
   //public
-  openDetectionWidth: 30, // in px
-  mobileMenuWidth:   85, // 0-100%
+  openDetectionWidth: 30,  // in px
   breakPoint:         768, // in px
 
   //private
-  currentPosition:    0,
+  isDraggingOpen: false,
+  activeMenu: null,
+
+  childMenus: computed.filter('children', function(view){
+    return view instanceof MobileMenu;
+  }),
+  leftMenu: computed('children.@each.type', function(){
+    return get(this, 'children').find(menu => menu.get('isLeft'));
+  }),
+  rightMenu: computed('children.@each.type', function(){
+    return get(this, 'children').find(menu => menu.get('isRight'));
+  }),
 
   deltaXCorrection: 0,
 
-  open() {
-    get(this, 'mobileMenu').open();
-  },
-  close() {
-    get(this, 'mobileMenu').close();
-  },
-
   actions: {
-    close(){
-      this.close();
+    didCloseMenu(){
+      set(this, 'activeMenu', false);
+    },
+    didOpenMenu(){
+      // use this instead of toggle action
     },
     toggle(){
-      if(this.get('mobileMenu.isOpen')){
-        this.close();
-      } else {
-        this.open();
-      }
+      //TODO: set new activeMenu
     }
   },
 
@@ -61,123 +61,42 @@ export default Component.extend(RecognizerMixin, {
   },
 
   panStart(e){
-    const {
-      center,
-      additionalEvent,
-    } = e.originalEvent.gesture;
-
     if(this._isEnabled(e)){
       // add a dragging class so any css transitions are disabled
       // and the pan event is enabled
-      if(!this.get('mobileMenu.isOpen') && additionalEvent === 'panright' && !this.get('userAgent.os.isIOS')){
-        // only detect initial drag from left mobile of the window
+      if(!this.get('activeMenu') && !this.get('userAgent.os.isIOS')){
+        const {
+          center,
+        } = e.originalEvent.gesture;
+
+        // only detect initial drag from edges of the window
         if(center.x < this.get('openDetectionWidth')){
-          this.set('mobileMenu.isDragging', true);
+          set(this, 'activeMenu', get(this, 'leftMenu'));
+          this.set('isDraggingOpen', true);
+        } else if(center.x > this._getWindowWidth() - this.get('openDetectionWidth')){
+          set(this, 'activeMenu', get(this, 'rightMenu'));
+          this.set('isDraggingOpen', true);
         }
       }
     }
   },
 
   pan(e){
-    const {
-      deltaX,
-      isFinal,
-      center
-    } = e.originalEvent.gesture;
-
     if(this._isEnabled(e)){
-      const windowWidth = this._getWindowWidth();
-      const mobileMenuWidth = this.get('mobileMenuWidth');
+      const activeMenu = get(this, 'activeMenu');
 
-      if(this.get('mobileMenu.isOpen') && !this.get('mobileMenu.isDragging')){
-        // start drag when center.x is at the menu edge
-        const cursorPosition = 100 * center.x / windowWidth;
-
-        // calculate and set a correction delta if the pan started outmobile the opened menu
-        if(cursorPosition < mobileMenuWidth) {
-          this.set('mobileMenu.isDragging', true);
-          this.set('deltaXCorrection', 100 * deltaX / windowWidth);
-        }
-      }
-
-      if(this.get('mobileMenu.isDragging')){
-        // TODO: limit size & disable drag for desktop
-        //    (set mobileMenuWidth to pixel value and use deltaX directly instead of mapping to vw)
-
-        let targetOffset = 100 * deltaX / windowWidth;
-
-        if(!isFinal){
-          // pass the new position taking limits into account
-          if(this.get('mobileMenu.isOpen')){
-            const cursorPosition = 100 * center.x / windowWidth;
-
-            // correct targetOffset with deltaXCorrection set earlier
-            targetOffset -= this.get('deltaXCorrection');
-
-            // enforce limits on the offset [0, mobileMenuWidth]
-            if(cursorPosition < mobileMenuWidth){
-              if(targetOffset > 0){
-                targetOffset = 0;
-              } else if(targetOffset < -1 * mobileMenuWidth){
-                targetOffset = -1 * mobileMenuWidth;
-              }
-              this.set('mobileMenu.position', mobileMenuWidth + targetOffset);
-            }
-          } else {
-            // enforce limits on the offset [0, mobileMenuWidth]
-            if(targetOffset < 0){
-              targetOffset = 0;
-            } else if(targetOffset > mobileMenuWidth){
-              targetOffset = mobileMenuWidth;
-            }
-            this.set('mobileMenu.position', targetOffset);
-          }
-        }
+      if(activeMenu && get(this, 'isDraggingOpen')){
+        activeMenu.panOpen(e);
       }
     }
   },
 
   panEnd(e) {
-    const {
-      deltaX,
-      overallVelocityX,
-    } = e.originalEvent.gesture;
-
     if(this._isEnabled(e)){
-      if(this.get('mobileMenu.isDragging')) {
-        const triggerVelocity = 0.25;
-        const windowWidth = this._getWindowWidth();
-        const mobileMenuWidth = this.get('mobileMenuWidth');
-        let targetOffset = 100 * deltaX / windowWidth;
-
-        // when overall horizontal velocity is high, force open/close and skip the rest
-        if (
-          !this.get('mobileMenu.isOpen')
-          && overallVelocityX > triggerVelocity
-        ) {
-          // force open
-          this.open();
-          return;
-        } else if (
-          this.get('mobileMenu.isOpen')
-          && overallVelocityX < -1 * triggerVelocity
-        ) {
-          // force close
-          this.close();
-          return;
-        }
-
-        // the pan action is over, cleanup and set the correct final menu position
-        if ((!this.get('mobileMenu.isOpen') && targetOffset > mobileMenuWidth / 2)
-          || (this.get('mobileMenu.isOpen') && -1 * targetOffset < mobileMenuWidth / 2)
-        ) {
-          this.open();
-        } else {
-          this.close();
-        }
+      if(this.get('isDraggingOpen') && this.get('activeMenu')){
+        set(this, 'isDraggingOpen', false);
+        get(this, 'activeMenu').panOpenEnd(e);
       }
-
-      this.set('deltaXCorrection', 0);
     }
   }
 });

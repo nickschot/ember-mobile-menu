@@ -1,6 +1,8 @@
 {{yield
   (hash
-    mobile-menu=(component 'mobile-menu')
+    mobile-menu=(component 'mobile-menu'
+      onClose=(action 'didCloseMenu')
+    )
     actions=(hash
       toggle=(action 'toggle')
     )
