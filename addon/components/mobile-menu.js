@@ -12,7 +12,10 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   layout,
 
   classNames: ['mobile-menu'],
-  classNameBindings: ['isDragging:mobile-menu--dragging', 'shadowEnabled:mobile-menu--shadow'],
+  classNameBindings: [
+    'isDragging:mobile-menu--dragging',
+    'shadowEnabled:mobile-menu--shadow'
+  ],
 
   recognizers: 'pan',
 
