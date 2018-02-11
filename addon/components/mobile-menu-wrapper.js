@@ -1,5 +1,6 @@
 import Component from '@ember/component';
-import layout from '../templates/components/gesture-wrapper';
+import layout from '../templates/components/mobile-menu-wrapper';
+
 import { computed, get, set } from '@ember/object';
 import RecognizerMixin from 'ember-gestures/mixins/recognizers';
 import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
