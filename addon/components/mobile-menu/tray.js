@@ -10,18 +10,18 @@ export default Component.extend({
   classNames: ['mobile-menu__tray'],
   attributeBindings: ['style'],
 
-  width: 85,
+  width: 300,   // in px
   isLeft: true,
-  position: 0,
+  position: 0,  // in px
 
   style: computed('width', 'isLeft', 'position', function(){
     const width = get(this, 'width');
     const position = get(this, 'position');
 
-    let style = `width: ${width}vw;`;
+    let style = `width: ${width}px;`;
     style += get(this, 'isLeft')
-      ?  `left: -${width}vw; transform: translateX(${position}vw);`
-      : `right: -${width}vw; transform: translateX(-${position}vw);`;
+      ?  `left: -${width}px; transform: translateX(${position}px);`
+      : `right: -${width}px; transform: translateX(-${position}px);`;
 
     return htmlSafe(style);
   })

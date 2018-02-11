@@ -2,14 +2,16 @@
   {{set-body-class 'mobile-menu--open'}}
 {{/if}}
 
-{{mobile-menu/mask
-  isOpen=isOpen
-  position=position
-  onClick=(action 'close')
-}}
+{{#if maskEnabled}}
+  {{mobile-menu/mask
+    isOpen=isOpen
+    position=position
+    onClick=(action 'close')
+  }}
+{{/if}}
 
 {{#mobile-menu/tray
-  width=width
+  width=_width
   isLeft=isLeft
   position=position
   onClose=(action 'close')

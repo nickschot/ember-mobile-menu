@@ -24,10 +24,11 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   recognizers: 'pan',
 
   // public
-  type:             'left',
-  width:  85, // 0-100%
-  maskEnabled:      true,
-  shadowEnabled:    true,
+  type:           'left', // 'left' or 'right'
+  width:          85,     // 0-100
+  maxWidth:       300,    // in px
+  maskEnabled:    true,
+  shadowEnabled:  true,
 
   // private
   isDragging: false,
@@ -45,12 +46,19 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     return get(this, 'type') === 'right';
   }),
 
-  isOpen: computed('isDragging', 'position', 'width', 'isLeft', function(){
-    return !get(this, 'isDragging') && get(this, 'position') === get(this, 'width');
+  isOpen: computed('isDragging', 'position', '_width', 'isLeft', function(){
+    return !get(this, 'isDragging') && get(this, 'position') === get(this, '_width');
+  }),
+
+  /**
+   * Calculates current width in px
+   */
+  _width: computed('width', 'maxWidth', function(){
+    return Math.min(get(this, 'width') / 100 * getWindowWidth(), get(this, 'maxWidth'))
   }),
 
   open(){
-    set(this, 'position', get(this, 'width'));
+    set(this, 'position', get(this, '_width'));
     get(this, 'onOpen')(this);
   },
   close(){
@@ -73,14 +81,10 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     } = e.originalEvent.gesture;
 
     const dx = get(this, 'isLeft') ? deltaX : -deltaX;
-
-    const windowWidth = getWindowWidth();
-    const width = this.get('width');
-
-    let targetPosition = 100 * dx / windowWidth;
+    const width = this.get('_width');
 
     // enforce limits on the offset [0, width]
-    targetPosition = Math.min(Math.max(targetPosition, 0), width);
+    const targetPosition = Math.min(Math.max(dx, 0), width);
 
     this.set('position', targetPosition);
   },
@@ -95,16 +99,13 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     const triggerVelocity = 0.25; //TODO: make this an attribute
 
     const isLeft = get(this, 'isLeft');
-    const windowWidth = getWindowWidth();
-    const width = get(this, 'width');
+    const width = get(this, '_width');
 
     const dx = isLeft ? deltaX : -deltaX;
     const vx = isLeft ? overallVelocityX : -overallVelocityX;
 
-    const targetPosition = 100 * dx / windowWidth;
-
     // when overall horizontal velocity is high, force open/close and skip the rest
-    if (vx > triggerVelocity || targetPosition > width / 2) {
+    if (vx > triggerVelocity || dx > width / 2) {
       this.open();
     } else {
       this.close();
@@ -113,6 +114,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
   // pan handlers for closing the menu
   pan(e){
+    //TODO: add isEnabled check (check for touch Event etc.)
     const {
       deltaX,
       center
@@ -120,32 +122,27 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
     const isLeft = get(this, 'isLeft');
     const windowWidth = getWindowWidth();
-    const width = this.get('width');
+    const width = this.get('_width');
 
     const dx = isLeft ? deltaX : -deltaX;
     const cx = isLeft ? center.x : windowWidth - center.x;
 
     if(this.get('isOpen') && !this.get('isDragging')){
-
-      // start drag when center.x is at the menu edge
-      const cursorPosition = 100 * cx / windowWidth;
-
       // calculate and set a correction delta if the pan started outside the opened menu
-      if(cursorPosition < width) {
+      if(cx < width) {
         this.set('isDragging', true);
-        this.set('dxCorrection', 100 * dx / windowWidth);
+        this.set('dxCorrection', dx);
       }
     }
 
     if(this.get('isDragging')){
-      let targetPosition = 100 * dx / windowWidth;
-      const cursorPosition = 100 * cx / windowWidth;
+      let targetPosition = dx;
 
       // correct targetPosition with dxCorrection set earlier
       targetPosition -= this.get('dxCorrection');
 
       // enforce limits on the offset [0, width]
-      if(cursorPosition < width){
+      if(cx < width){
         if(targetPosition > 0){
           targetPosition = 0;
         } else if(targetPosition < -1 * width){
@@ -167,15 +164,13 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       const triggerVelocity = 0.25; //TODO: make this an attribute
 
       const isLeft = get(this, 'isLeft');
-      const windowWidth = this._getWindowWidth();
-      const width = this.get('width');
+      const width = this.get('_width');
 
       const dx = isLeft ? deltaX : -deltaX;
       const vx = isLeft ? overallVelocityX : -overallVelocityX;
-      const targetPosition = 100 * dx / windowWidth;
 
       // the pan action is over, cleanup and set the correct final menu position
-      if (vx < -1 * triggerVelocity || -1 * targetPosition > width / 2){
+      if (vx < -1 * triggerVelocity || -1 * dx > width / 2){
         this.close();
       } else {
         this.open();
