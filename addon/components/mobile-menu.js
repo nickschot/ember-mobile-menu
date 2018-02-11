@@ -45,29 +45,24 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   }),
 
   isOpen: computed('isDragging', 'currentPosition', 'mobileMenuWidth', 'isLeft', function(){
-    return !get(this, 'isDragging') && (
-         get(this, 'isLeft')  && get(this, 'currentPosition') === get(this, 'mobileMenuWidth')
-      || get(this, 'isRight') && get(this, 'currentPosition') === -1 * get(this, 'mobileMenuWidth')
-    );
+    return !get(this, 'isDragging') && get(this, 'currentPosition') === get(this, 'mobileMenuWidth');
   }),
 
   positionChanged: observer(
     'currentPosition',
     function(){
       once(this, function() {
-        this.element.getElementsByClassName('mobile-menu__tray')[0].style.transform = `translateX(${get(this, 'currentPosition')}vw)`;
+        this.element.getElementsByClassName('mobile-menu__tray')[0].style.transform = `translateX(${
+          get(this, 'isLeft')
+            ? get(this, 'currentPosition')
+            : -get(this, 'currentPosition')
+        }vw)`;
       });
     }
   ),
 
   open(){
-    let openPosition = get(this, 'mobileMenuWidth');
-
-    if(get(this, 'isRight')){
-      openPosition *= -1;
-    }
-
-    set(this, 'currentPosition', openPosition);
+    set(this, 'currentPosition', get(this, 'mobileMenuWidth'));
     get(this, 'onOpen')(this);
   },
   close(){
@@ -75,6 +70,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     get(this, 'onClose')();
   },
 
+  // pan handlers for opening the menu
   panOpen(e){
     set(this, 'isDragging', true);
 
@@ -82,15 +78,15 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       deltaX
     } = e.originalEvent.gesture;
 
+    const dx = get(this, 'isLeft') ? deltaX : -deltaX;
+
     const windowWidth     = this._getWindowWidth();
     const mobileMenuWidth = this.get('mobileMenuWidth');
 
-    let targetPosition = 100 * deltaX / windowWidth;
+    let targetPosition = 100 * dx / windowWidth;
 
     // enforce limits on the offset [0, mobileMenuWidth]
-    targetPosition = get(this, 'isLeft')
-      ? Math.min(Math.max(targetPosition, 0), mobileMenuWidth)
-      : Math.max(Math.min(targetPosition, 0), -1 * mobileMenuWidth);
+    targetPosition = Math.min(Math.max(targetPosition, 0), mobileMenuWidth);
 
     this.set('currentPosition', targetPosition);
   },
@@ -103,22 +99,25 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     } = e.originalEvent.gesture;
 
     const triggerVelocity = 0.25; //TODO: make this an attribute
+
+    const isLeft = get(this, 'isLeft');
     const windowWidth = this._getWindowWidth();
     const mobileMenuWidth = get(this, 'mobileMenuWidth');
-    const isLeft = get(this, 'isLeft');
-    const isRight = get(this, 'isRight');
 
-    let targetPosition = 100 * deltaX / windowWidth;
+    const dx = isLeft ? deltaX : -deltaX;
+    const vx = isLeft ? overallVelocityX : -overallVelocityX;
+
+    const targetPosition = 100 * dx / windowWidth;
 
     // when overall horizontal velocity is high, force open/close and skip the rest
-    if (isLeft && (overallVelocityX > triggerVelocity || targetPosition > mobileMenuWidth / 2)
-      || isRight && (-1 * overallVelocityX > triggerVelocity || -1 * targetPosition > mobileMenuWidth / 2)) {
+    if (vx > triggerVelocity || targetPosition > mobileMenuWidth / 2) {
       this.open();
     } else {
       this.close();
     }
   },
 
+  // pan handlers for closing the menu
   pan(e){
     const {
       deltaX,
@@ -126,48 +125,39 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     } = e.originalEvent.gesture;
 
     const isLeft = get(this, 'isLeft');
-    const isRight = get(this, 'isRight');
-
     const windowWidth = this._getWindowWidth();
     const mobileMenuWidth = this.get('mobileMenuWidth');
+
+    const dx = isLeft ? deltaX : -deltaX;
+    const cx = isLeft ? center.x : windowWidth - center.x;
 
     if(this.get('isOpen') && !this.get('isDragging')){
 
       // start drag when center.x is at the menu edge
-      const cursorPosition = 100 * center.x / windowWidth;
+      const cursorPosition = 100 * cx / windowWidth;
 
       // calculate and set a correction delta if the pan started outside the opened menu
-      if(
-        isLeft && cursorPosition < mobileMenuWidth
-        || isRight && cursorPosition > 100 - mobileMenuWidth
-      ) {
+      if(cursorPosition < mobileMenuWidth) {
         this.set('isDragging', true);
-        this.set('dxCorrection', 100 * deltaX / windowWidth);
+        this.set('dxCorrection', 100 * dx / windowWidth);
       }
     }
 
     if(this.get('isDragging')){
-      let targetPosition = 100 * deltaX / windowWidth;
-      const cursorPosition = 100 * center.x / windowWidth;
+      let targetPosition = 100 * dx / windowWidth;
+      const cursorPosition = 100 * cx / windowWidth;
 
       // correct targetPosition with dxCorrection set earlier
       targetPosition -= this.get('dxCorrection');
 
       // enforce limits on the offset [0, mobileMenuWidth]
-      if(isLeft && cursorPosition < mobileMenuWidth){
+      if(cursorPosition < mobileMenuWidth){
         if(targetPosition > 0){
           targetPosition = 0;
         } else if(targetPosition < -1 * mobileMenuWidth){
           targetPosition = -1 * mobileMenuWidth;
         }
         this.set('currentPosition', mobileMenuWidth + targetPosition);
-      } else if(isRight && cursorPosition > 100 - mobileMenuWidth){
-        if(targetPosition < 0){
-          targetPosition = 0;
-        } else if(targetPosition > mobileMenuWidth){
-          targetPosition = mobileMenuWidth;
-        }
-        this.set('currentPosition', -1 * mobileMenuWidth + targetPosition);
       }
     }
   },
@@ -181,20 +171,19 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       } = e.originalEvent.gesture;
 
       const triggerVelocity = 0.25; //TODO: make this an attribute
-      const windowWidth = this._getWindowWidth();
-      const mobileMenuWidth = this.get('mobileMenuWidth');
-      const targetPosition = 100 * deltaX / windowWidth;
 
       const isLeft = get(this, 'isLeft');
-      const isRight = get(this, 'isRight');
+      const windowWidth = this._getWindowWidth();
+      const mobileMenuWidth = this.get('mobileMenuWidth');
+
+      const dx = isLeft ? deltaX : -deltaX;
+      const vx = isLeft ? overallVelocityX : -overallVelocityX;
+      const targetPosition = 100 * dx / windowWidth;
 
       // the pan action is over, cleanup and set the correct final menu position
-      if (
-           isLeft  && (overallVelocityX < -1 * triggerVelocity || -1 * targetPosition > mobileMenuWidth / 2)
-        || isRight && (overallVelocityX > triggerVelocity || targetPosition > mobileMenuWidth / 2)
-      ) {
+      if (vx < -1 * triggerVelocity || -1 * targetPosition > mobileMenuWidth / 2){
         this.close();
-      } else{
+      } else {
         this.open();
       }
 
