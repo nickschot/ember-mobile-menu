@@ -22,14 +22,15 @@ export default Component.extend({
     'maskOpacityOffset',
     function() {
       let style = '';
+      const position = Math.abs(get(this, 'position'));
 
-      style += !this.get('isOpen') && this.get('position') === 0
+      style += !this.get('isOpen') && position === 0
         ? 'visibility: hidden;'
         : 'visibility: visible;';
 
       style += `opacity: ${
-        this.get('position') > this.get('maskOpacityOffset')
-          ? (this.get('position') - this.get('maskOpacityOffset'))
+        position > this.get('maskOpacityOffset')
+          ? (position - this.get('maskOpacityOffset'))
             / (100 - this.get('maskOpacityOffset'))
           : 0
       };`;
