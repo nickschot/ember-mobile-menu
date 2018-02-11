@@ -51,12 +51,10 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   ),
 
   open(){
-    console.log('opening');
     set(this, 'currentPosition', get(this, 'mobileMenuWidth'));
     set(this, 'isOpen', true);
   },
   close(){
-    console.log('closing');
     set(this, 'currentPosition', 0);
     set(this, 'isOpen', false);
     get(this, 'onClose')();
