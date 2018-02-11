@@ -54,7 +54,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * Calculates current width in px
    */
   _width: computed('width', 'maxWidth', function(){
-    return Math.min(get(this, 'width') / 100 * getWindowWidth(), get(this, 'maxWidth'))
+    return Math.min(get(this, 'width') / 100 * getWindowWidth(), get(this, 'maxWidth'));
   }),
 
   open(){
@@ -114,46 +114,47 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
   // pan handlers for closing the menu
   pan(e){
-    //TODO: add isEnabled check (check for touch Event etc.)
-    const {
-      deltaX,
-      center
-    } = e.originalEvent.gesture;
+    if(this._isEnabled(e)){
+      const {
+        deltaX,
+        center
+      } = e.originalEvent.gesture;
 
-    const isLeft = get(this, 'isLeft');
-    const windowWidth = getWindowWidth();
-    const width = this.get('_width');
+      const isLeft = get(this, 'isLeft');
+      const windowWidth = getWindowWidth();
+      const width = this.get('_width');
 
-    const dx = isLeft ? deltaX : -deltaX;
-    const cx = isLeft ? center.x : windowWidth - center.x;
+      const dx = isLeft ? deltaX : -deltaX;
+      const cx = isLeft ? center.x : windowWidth - center.x;
 
-    if(this.get('isOpen') && !this.get('isDragging')){
-      // calculate and set a correction delta if the pan started outside the opened menu
-      if(cx < width) {
-        this.set('isDragging', true);
-        this.set('dxCorrection', dx);
-      }
-    }
-
-    if(this.get('isDragging')){
-      let targetPosition = dx;
-
-      // correct targetPosition with dxCorrection set earlier
-      targetPosition -= this.get('dxCorrection');
-
-      // enforce limits on the offset [0, width]
-      if(cx < width){
-        if(targetPosition > 0){
-          targetPosition = 0;
-        } else if(targetPosition < -1 * width){
-          targetPosition = -1 * width;
+      if(this.get('isOpen') && !this.get('isDragging')){
+        // calculate and set a correction delta if the pan started outside the opened menu
+        if(cx < width) {
+          this.set('isDragging', true);
+          this.set('dxCorrection', dx);
         }
-        this.set('position', width + targetPosition);
+      }
+
+      if(this.get('isDragging')){
+        let targetPosition = dx;
+
+        // correct targetPosition with dxCorrection set earlier
+        targetPosition -= this.get('dxCorrection');
+
+        // enforce limits on the offset [0, width]
+        if(cx < width){
+          if(targetPosition > 0){
+            targetPosition = 0;
+          } else if(targetPosition < -1 * width){
+            targetPosition = -1 * width;
+          }
+          this.set('position', width + targetPosition);
+        }
       }
     }
   },
   panEnd(e){
-    if(get(this, 'isDragging')){
+    if(this._isEnabled(e) && get(this, 'isDragging')){
       set(this, 'isDragging', false);
 
       const {
@@ -178,5 +179,15 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
       this.set('dxCorrection', 0);
     }
-  }
+  },
+
+  _isEnabled(e){
+    const {
+      center,
+      pointerType
+    } = e.originalEvent.gesture;
+
+    return pointerType === 'touch'
+      && !(center.x === 0 && center.y === 0); // workaround for https://github.com/hammerjs/hammer.js/issues/1132
+  },
 });

@@ -18,7 +18,6 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
 
   //public
   openDetectionWidth: 30,  // in px
-  breakPoint:         768, // in px
 
   //private
   isDraggingOpen: false,
@@ -80,8 +79,7 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
       pointerType
     } = e.originalEvent.gesture;
 
-    return windowWidth() < get(this, 'breakPoint')
-      && pointerType === 'touch'
+    return pointerType === 'touch'
       && !(center.x === 0 && center.y === 0); // workaround for https://github.com/hammerjs/hammer.js/issues/1132
   },
 
