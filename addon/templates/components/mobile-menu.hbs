@@ -4,14 +4,14 @@
 
 {{mobile-menu/mask
   isOpen=isOpen
-  position=currentPosition
+  position=position
   onClick=(action 'close')
 }}
 
 {{#mobile-menu/tray
-  width=mobileMenuWidth
+  width=width
   isLeft=isLeft
-  position=currentPosition
+  position=position
   onClose=(action 'close')
 }}
   {{yield (hash
