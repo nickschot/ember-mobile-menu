@@ -56,12 +56,10 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
   open(){
     set(this, 'currentPosition', get(this, 'mobileMenuWidth'));
-
     get(this, 'onOpen')(this);
   },
   close(){
     set(this, 'currentPosition', 0);
-
     get(this, 'onClose')();
   },
 
@@ -116,7 +114,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       // start drag when center.x is at the menu edge
       const cursorPosition = 100 * center.x / windowWidth;
 
-      // calculate and set a correction delta if the pan started outmobile the opened menu
+      // calculate and set a correction delta if the pan started outside the opened menu
       if(cursorPosition < mobileMenuWidth) {
         this.set('isDragging', true);
         this.set('deltaXCorrection', 100 * deltaX / windowWidth);
@@ -155,17 +153,11 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       const mobileMenuWidth = this.get('mobileMenuWidth');
       const targetOffset = 100 * deltaX / windowWidth;
 
-      if (overallVelocityX < -1 * triggerVelocity) {
-        // force close
-        this.close();
-        return;
-      }
-
       // the pan action is over, cleanup and set the correct final menu position
-      if (this.get('isOpen') && -1 * targetOffset < mobileMenuWidth / 2) {
-        this.open();
-      } else {
+      if (overallVelocityX < -1 * triggerVelocity || -1 * targetOffset > mobileMenuWidth / 2) {
         this.close();
+      } else{
+        this.open();
       }
 
       this.set('deltaXCorrection', 0);

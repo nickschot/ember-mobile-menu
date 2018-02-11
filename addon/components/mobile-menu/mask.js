@@ -11,17 +11,11 @@ export default Component.extend({
   maskOpacityOffset: 5,
 
   // protected
-  activeMenu: null,
+  isOpen: false,
+  position: 0,
 
   // hooks
   onClick(){},
-
-  isOpen: computed('activeMenu.isOpen', function(){
-    return !!get(this, 'activeMenu.isOpen');
-  }),
-  position: computed('activeMenu.currentPosition', function(){
-    return get(this, 'activeMenu.currentPosition') || 0;
-  }),
 
   style: computed(
     'isOpen', 'position',
@@ -29,18 +23,16 @@ export default Component.extend({
     function() {
       let style = '';
 
-      if(!this.get('isOpen') && this.get('position') === 0){
-        style += 'visibility: hidden;';
-      } else {
-        style += 'visibility: visible;';
-      }
+      style += !this.get('isOpen') && this.get('position') === 0
+        ? 'visibility: hidden;'
+        : 'visibility: visible;';
 
-      style += `opacity: ${this.get('position') > this.get('maskOpacityOffset')
-        ? (
-          this.get('position') - this.get('maskOpacityOffset'))
-          / (100 - this.get('maskOpacityOffset')
-        )
-        : 0};`;
+      style += `opacity: ${
+        this.get('position') > this.get('maskOpacityOffset')
+          ? (this.get('position') - this.get('maskOpacityOffset'))
+            / (100 - this.get('maskOpacityOffset'))
+          : 0
+      };`;
 
       return htmlSafe(style);
     }

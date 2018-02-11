@@ -9,7 +9,6 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   layout,
 
   classNames: ['mobile-menu-wrapper'],
-  classNameBindings: ['isDragging:mobile-menu-wrapper--dragging'],
 
   recognizers: 'pan',
 
@@ -23,9 +22,6 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   isDraggingOpen: false,
   activeMenu: null,
 
-  isDragging: computed.readOnly('activeMenu.isDragging', function(){
-    return !!get(this, 'activeMenu.isDragging');
-  }),
   childMenus: computed.filter('children', function(view){
     return view instanceof MobileMenu;
   }),
