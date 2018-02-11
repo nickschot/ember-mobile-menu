@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 
-import { inject as service } from '@ember/service';
 import { computed, get } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 
@@ -8,8 +7,6 @@ export default Component.extend({
   classNames: ['mobile-menu__mask'],
 
   maskOpacityOffset: 5,
-
-  mobileMenu: service(),
 
   didReceiveAttrs(){
     if(this.element){

@@ -32,7 +32,13 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
     return get(this, 'children').find(menu => menu.get('isRight'));
   }),
 
-  deltaXCorrection: 0,
+  fastboot: computed(function() {
+    const owner = getOwner(this);
+    return owner.lookup('service:fastboot');
+  }),
+  isFastBoot: computed('fastboot', function(){
+    return !!get(this, 'fastboot.isFastBoot');
+  }),
 
   actions: {
     didCloseMenu(){
