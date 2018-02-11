@@ -5,14 +5,23 @@ import { htmlSafe } from '@ember/string';
 
 export default Component.extend({
   classNames: ['mobile-menu__mask'],
+  attributeBindings: ['style'],
 
+  // public
   maskOpacityOffset: 5,
 
-  didReceiveAttrs(){
-    if(this.element){
-      this.element.setAttribute('style', get(this, 'style'));
-    }
-  },
+  // protected
+  activeMenu: null,
+
+  // hooks
+  onClick(){},
+
+  isOpen: computed('activeMenu.isOpen', function(){
+    return !!get(this, 'activeMenu.isOpen');
+  }),
+  position: computed('activeMenu.currentPosition', function(){
+    return get(this, 'activeMenu.currentPosition') || 0;
+  }),
 
   style: computed(
     'isOpen', 'position',
@@ -33,13 +42,11 @@ export default Component.extend({
         )
         : 0};`;
 
-      return style;
+      return htmlSafe(style);
     }
   ),
 
-  onClick(){},
-
   click(){
-    this.onClick();
+    get(this, 'onClick')();
   }
 });

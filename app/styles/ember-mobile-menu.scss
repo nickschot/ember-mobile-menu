@@ -12,8 +12,40 @@ body.mobile-menu--open {
 }
 
 // pan recognizer ----------------------------------------------------------- //
-.gesture-wrapper {
+.mobile-menu-wrapper {
   min-height: $gesture-wrapper-min-height;
+
+  .mobile-menu__mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    cursor: pointer; // necessary to detect click on iOS
+
+    will-change: opacity;
+
+    visibility: hidden;
+  }
+
+  &.mobile-menu-wrapper--dragging {
+    .mobile-menu__tray {
+      will-change: transform;
+    }
+  }
+
+  &:not(.mobile-menu-wrapper--dragging) {
+    .mobile-menu__tray {
+      transition: box-shadow $transition-duration, transform $transition-duration;
+    }
+    .mobile-menu__mask {
+      transition: opacity $transition-duration, visibility $transition-duration;
+    }
+  }
 }
 
 // mobile menu -------------------------------------------------------------- //
@@ -37,38 +69,6 @@ body.mobile-menu--open {
     touch-action: pan-y;
 
     background: #FFF;
-  }
-
-  .mobile-menu__mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100vw;
-    height: 100vh;
-
-    background: rgba(0,0,0,0.5);
-    opacity: 0;
-    cursor: pointer; // necessary to detect click on iOS
-
-    will-change: opacity;
-
-    visibility: hidden;
-  }
-
-  &.mobile-menu--dragging {
-    .mobile-menu__tray {
-      will-change: transform;
-    }
-  }
-
-  &:not(.mobile-menu--dragging) {
-    .mobile-menu__tray {
-      transition: box-shadow $transition-duration, transform $transition-duration;
-    }
-    .mobile-menu__mask {
-      transition: opacity $transition-duration, visibility $transition-duration;
-    }
   }
 }
 

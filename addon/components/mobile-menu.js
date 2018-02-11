@@ -26,12 +26,12 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   shadowEnabled:    true,
 
   // private
-  isOpen: false,
   isDragging: false,
   currentPosition:  0,
   deltaXCorrection: 0,
 
   // hooks
+  onOpen(){},
   onClose(){},
 
   isLeft: computed('type', function(){
@@ -39,6 +39,10 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   }),
   isRight: computed('type', function(){
     return get(this, 'type') === 'right';
+  }),
+
+  isOpen: computed('isDragging', 'currentPosition', 'mobileMenuWidth', function(){
+    return !get(this, 'isDragging') && get(this, 'currentPosition') === get(this, 'mobileMenuWidth');
   }),
 
   positionChanged: observer(
@@ -52,11 +56,12 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
   open(){
     set(this, 'currentPosition', get(this, 'mobileMenuWidth'));
-    set(this, 'isOpen', true);
+
+    get(this, 'onOpen')(this);
   },
   close(){
     set(this, 'currentPosition', 0);
-    set(this, 'isOpen', false);
+
     get(this, 'onClose')();
   },
 
