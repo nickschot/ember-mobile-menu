@@ -7,6 +7,7 @@ import { htmlSafe } from '@ember/string';
 
 import ComponentChildMixin from 'ember-mobile-menu/mixins/component-child';
 import RecognizerMixin from 'ember-gestures/mixins/recognizers';
+import getWindowWidth from 'ember-mobile-menu/utils/get-window-width';
 
 export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   layout,
@@ -48,19 +49,6 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     return !get(this, 'isDragging') && get(this, 'currentPosition') === get(this, 'mobileMenuWidth');
   }),
 
-  positionChanged: observer(
-    'currentPosition',
-    function(){
-      once(this, function() {
-        this.element.getElementsByClassName('mobile-menu__tray')[0].style.transform = `translateX(${
-          get(this, 'isLeft')
-            ? get(this, 'currentPosition')
-            : -get(this, 'currentPosition')
-        }vw)`;
-      });
-    }
-  ),
-
   open(){
     set(this, 'currentPosition', get(this, 'mobileMenuWidth'));
     get(this, 'onOpen')(this);
@@ -68,6 +56,12 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   close(){
     set(this, 'currentPosition', 0);
     get(this, 'onClose')();
+  },
+
+  actions: {
+    close(){
+      this.close();
+    }
   },
 
   // pan handlers for opening the menu
@@ -80,7 +74,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
     const dx = get(this, 'isLeft') ? deltaX : -deltaX;
 
-    const windowWidth     = this._getWindowWidth();
+    const windowWidth = getWindowWidth();
     const mobileMenuWidth = this.get('mobileMenuWidth');
 
     let targetPosition = 100 * dx / windowWidth;
@@ -101,7 +95,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     const triggerVelocity = 0.25; //TODO: make this an attribute
 
     const isLeft = get(this, 'isLeft');
-    const windowWidth = this._getWindowWidth();
+    const windowWidth = getWindowWidth();
     const mobileMenuWidth = get(this, 'mobileMenuWidth');
 
     const dx = isLeft ? deltaX : -deltaX;
@@ -125,7 +119,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     } = e.originalEvent.gesture;
 
     const isLeft = get(this, 'isLeft');
-    const windowWidth = this._getWindowWidth();
+    const windowWidth = getWindowWidth();
     const mobileMenuWidth = this.get('mobileMenuWidth');
 
     const dx = isLeft ? deltaX : -deltaX;
@@ -189,15 +183,5 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
       this.set('dxCorrection', 0);
     }
-  },
-
-  actions: {
-    close(){
-      this.close();
-    }
-  },
-
-  _getWindowWidth(){
-    return window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-  },
+  }
 });

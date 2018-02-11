@@ -5,6 +5,7 @@ import { computed, get, set } from '@ember/object';
 import RecognizerMixin from 'ember-gestures/mixins/recognizers';
 import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
+import windowWidth from 'ember-mobile-menu/utils/get-window-width';
 
 export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   layout,
@@ -73,16 +74,13 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
     }
   },
 
-  _getWindowWidth(){
-    return window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-  },
   _isEnabled(e){
     const {
       center,
       pointerType
     } = e.originalEvent.gesture;
 
-    return this._getWindowWidth() < get(this, 'breakPoint')
+    return windowWidth() < get(this, 'breakPoint')
       && pointerType === 'touch'
       && !(center.x === 0 && center.y === 0); // workaround for https://github.com/hammerjs/hammer.js/issues/1132
   },
@@ -100,7 +98,7 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
         if(center.x < this.get('openDetectionWidth')){
           set(this, 'activeMenu', get(this, 'leftMenu'));
           this.set('isDraggingOpen', true);
-        } else if(center.x > this._getWindowWidth() - this.get('openDetectionWidth')){
+        } else if(center.x > windowWidth() - this.get('openDetectionWidth')){
           set(this, 'activeMenu', get(this, 'rightMenu'));
           this.set('isDraggingOpen', true);
         }
