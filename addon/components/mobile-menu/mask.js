@@ -8,7 +8,7 @@ export default Component.extend({
   attributeBindings: ['style'],
 
   // public
-  maskOpacityOffset: 5,
+  maskOpacityOffset: 0.1,
 
   // protected
   isOpen: false,
@@ -22,7 +22,7 @@ export default Component.extend({
     'maskOpacityOffset',
     function() {
       let style = '';
-      const position = Math.abs(get(this, 'position'));
+      const position = get(this, 'position');
 
       style += !this.get('isOpen') && position === 0
         ? 'visibility: hidden;'
@@ -31,7 +31,7 @@ export default Component.extend({
       style += `opacity: ${
         position > this.get('maskOpacityOffset')
           ? (position - this.get('maskOpacityOffset'))
-            / (100 - this.get('maskOpacityOffset'))
+            / (1 - this.get('maskOpacityOffset'))
           : 0
       };`;
 

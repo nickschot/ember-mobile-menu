@@ -45,9 +45,11 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   isRight: computed('type', function(){
     return get(this, 'type') === 'right';
   }),
-
   isOpen: computed('isDragging', 'position', '_width', 'isLeft', function(){
     return !get(this, 'isDragging') && get(this, 'position') === get(this, '_width');
+  }),
+  relativePosition: computed('position', function(){
+    return Math.abs(get(this, 'position')) / get(this, '_width');
   }),
 
   /**
