@@ -41,8 +41,21 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
     didOpenMenu(){
       // use this instead of toggle action
     },
-    toggle(){
-      //TODO: set new activeMenu
+    toggle(target){
+      const activeMenu = get(this, 'activeMenu');
+      const targetMenu = target === 'right'
+        ? get(this, 'rightMenu')
+        : get(this, 'leftMenu');
+
+      if(targetMenu){
+        if(activeMenu){
+          activeMenu.close();
+        }
+
+        if(activeMenu !== targetMenu){
+          targetMenu.open();
+        }
+      }
     }
   },
 
