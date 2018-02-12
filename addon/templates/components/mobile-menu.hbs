@@ -18,5 +18,8 @@
 }}
   {{yield (hash
     link-to=(component 'mobile-menu/link-to' onClick=(action 'close'))
+    actions=(hash
+      close=(action 'close')
+    )
   )}}
 {{/mobile-menu/tray}}
