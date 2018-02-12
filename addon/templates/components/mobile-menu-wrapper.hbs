@@ -1,0 +1,14 @@
+{{yield
+  (hash
+    mobile-menu=(component 'mobile-menu'
+      onOpen=(action 'didOpenMenu')
+      onClose=(action 'didCloseMenu')
+    )
+    toggle=(component 'mobile-menu-toggle'
+      onClick=(action 'toggle')
+    )
+    actions=(hash
+      toggle=(action 'toggle')
+    )
+  )
+}}

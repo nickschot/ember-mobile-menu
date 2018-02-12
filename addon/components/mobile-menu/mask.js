@@ -1,48 +1,45 @@
 import Component from '@ember/component';
 
-import { inject as service } from '@ember/service';
 import { computed, get } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 
 export default Component.extend({
   classNames: ['mobile-menu__mask'],
+  attributeBindings: ['style'],
 
-  maskOpacityOffset: 5,
+  // public
+  maskOpacityOffset: 0.1,
 
-  mobileMenu: service(),
+  // protected
+  isOpen: false,
+  position: 0,
 
-  didReceiveAttrs(){
-    if(this.element){
-      this.element.setAttribute('style', get(this, 'style'));
-    }
-  },
+  // hooks
+  onClick(){},
 
   style: computed(
     'isOpen', 'position',
     'maskOpacityOffset',
     function() {
       let style = '';
+      const position = get(this, 'position');
 
-      if(!this.get('isOpen') && this.get('position') === 0){
-        style += 'visibility: hidden;';
-      } else {
-        style += 'visibility: visible;';
-      }
+      style += !this.get('isOpen') && position === 0
+        ? 'visibility: hidden;'
+        : 'visibility: visible;';
 
-      style += `opacity: ${this.get('position') > this.get('maskOpacityOffset')
-        ? (
-          this.get('position') - this.get('maskOpacityOffset'))
-          / (100 - this.get('maskOpacityOffset')
-        )
-        : 0};`;
+      style += `opacity: ${
+        position > this.get('maskOpacityOffset')
+          ? (position - this.get('maskOpacityOffset'))
+            / (1 - this.get('maskOpacityOffset'))
+          : 0
+      };`;
 
-      return style;
+      return htmlSafe(style);
     }
   ),
 
-  onClick(){},
-
   click(){
-    this.onClick();
+    get(this, 'onClick')();
   }
 });

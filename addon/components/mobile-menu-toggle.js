@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/mobile-menu-toggle';
 
-import { inject as service } from '@ember/service';
 import { get } from '@ember/object';
 
 export default Component.extend({
@@ -9,9 +8,11 @@ export default Component.extend({
 
   classNames: ['mobile-menu__toggle'],
 
-  mobileMenu: service(),
+  target: 'left',
+
+  onClick(){},
 
   click(){
-    get(this, 'mobileMenu').toggle();
+    get(this, 'onClick')(get(this, 'target'));
   }
 });

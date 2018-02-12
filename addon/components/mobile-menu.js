@@ -1,43 +1,195 @@
 import Component from '@ember/component';
 import layout from '../templates/components/mobile-menu';
 
-import { get, computed, observer } from '@ember/object';
+import { get, set, computed, observer } from '@ember/object';
 import { once } from '@ember/runloop';
-import { inject as service } from '@ember/service';
+import { htmlSafe } from '@ember/string';
 
-export default Component.extend({
+import ComponentChildMixin from 'ember-mobile-menu/mixins/component-child';
+import RecognizerMixin from 'ember-gestures/mixins/recognizers';
+import getWindowWidth from 'ember-mobile-menu/utils/get-window-width';
+
+export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   layout,
 
-  mobileMenu: service(),
-  isFastBoot: computed.reads('mobileMenu.isFastBoot'),
-
   classNames: ['mobile-menu'],
-  classNameBindings: ['mobileMenu.isDragging:mobile-menu--dragging', 'shadowEnabled:mobile-menu--shadow'],
+  classNameBindings: [
+    'isLeft:mobile-menu--left',
+    'isRight:mobile-menu--right',
+    'isDragging:mobile-menu--dragging',
+    'isOpen:mobile-menu--open',
+    'shadowEnabled:mobile-menu--shadow'
+  ],
 
-  maskEnabled: true,
-  shadowEnabled: true,
+  recognizers: 'pan',
 
-  positionChanged: observer(
-    'mobileMenu.position',
-    function(){
-      once(this, function() {
-        this.element.getElementsByClassName('mobile-menu__tray')[0].style.transform = get(this, 'style').transform;
-      });
-    }
-  ),
+  // public
+  type:           'left', // 'left' or 'right'
+  width:          85,     // 0-100
+  maxWidth:       300,    // in px
+  maskEnabled:    true,
+  shadowEnabled:  true,
 
-  style: computed(
-    'mobileMenu.position',
-    function() {
-      return {
-        transform: `translateX(${this.get('mobileMenu.position')}vw)`
-      };
-    }
-  ),
+  // private
+  isDragging: false,
+  position:  0,
+  dxCorrection: 0,
+
+  // hooks
+  onOpen(){},
+  onClose(){},
+
+  isLeft: computed('type', function(){
+    return get(this, 'type') === 'left';
+  }),
+  isRight: computed('type', function(){
+    return get(this, 'type') === 'right';
+  }),
+  isOpen: computed('isDragging', 'position', '_width', 'isLeft', function(){
+    return !get(this, 'isDragging') && get(this, 'position') === get(this, '_width');
+  }),
+  relativePosition: computed('position', function(){
+    return Math.abs(get(this, 'position')) / get(this, '_width');
+  }),
+
+  /**
+   * Calculates current width in px
+   */
+  _width: computed('width', 'maxWidth', function(){
+    return Math.min(get(this, 'width') / 100 * getWindowWidth(), get(this, 'maxWidth'));
+  }),
+
+  open(){
+    set(this, 'position', get(this, '_width'));
+    get(this, 'onOpen')(this);
+  },
+  close(){
+    set(this, 'position', 0);
+    get(this, 'onClose')();
+  },
 
   actions: {
     close(){
-      get(this, 'mobileMenu').close();
+      this.close();
     }
-  }
+  },
+
+  // pan handlers for opening the menu
+  panOpen(e){
+    set(this, 'isDragging', true);
+
+    const {
+      deltaX
+    } = e.originalEvent.gesture;
+
+    const dx = get(this, 'isLeft') ? deltaX : -deltaX;
+    const width = this.get('_width');
+
+    // enforce limits on the offset [0, width]
+    const targetPosition = Math.min(Math.max(dx, 0), width);
+
+    this.set('position', targetPosition);
+  },
+  panOpenEnd(e){
+    set(this, 'isDragging', false);
+
+    const {
+      deltaX,
+      overallVelocityX,
+    } = e.originalEvent.gesture;
+
+    const triggerVelocity = 0.25; //TODO: make this an attribute
+
+    const isLeft = get(this, 'isLeft');
+    const width = get(this, '_width');
+
+    const dx = isLeft ? deltaX : -deltaX;
+    const vx = isLeft ? overallVelocityX : -overallVelocityX;
+
+    // when overall horizontal velocity is high, force open/close and skip the rest
+    if (vx > triggerVelocity || dx > width / 2) {
+      this.open();
+    } else {
+      this.close();
+    }
+  },
+
+  // pan handlers for closing the menu
+  pan(e){
+    if(this._isEnabled(e)){
+      const {
+        deltaX,
+        center
+      } = e.originalEvent.gesture;
+
+      const isLeft = get(this, 'isLeft');
+      const windowWidth = getWindowWidth();
+      const width = this.get('_width');
+
+      const dx = isLeft ? deltaX : -deltaX;
+      const cx = isLeft ? center.x : windowWidth - center.x;
+
+      if(this.get('isOpen') && !this.get('isDragging')){
+        // calculate and set a correction delta if the pan started outside the opened menu
+        if(cx < width) {
+          this.set('isDragging', true);
+          this.set('dxCorrection', dx);
+        }
+      }
+
+      if(this.get('isDragging')){
+        let targetPosition = dx;
+
+        // correct targetPosition with dxCorrection set earlier
+        targetPosition -= this.get('dxCorrection');
+
+        // enforce limits on the offset [0, width]
+        if(cx < width){
+          if(targetPosition > 0){
+            targetPosition = 0;
+          } else if(targetPosition < -1 * width){
+            targetPosition = -1 * width;
+          }
+          this.set('position', width + targetPosition);
+        }
+      }
+    }
+  },
+  panEnd(e){
+    if(this._isEnabled(e) && get(this, 'isDragging')){
+      set(this, 'isDragging', false);
+
+      const {
+        deltaX,
+        overallVelocityX,
+      } = e.originalEvent.gesture;
+
+      const triggerVelocity = 0.25; //TODO: make this an attribute
+
+      const isLeft = get(this, 'isLeft');
+      const width = this.get('_width');
+
+      const dx = isLeft ? deltaX : -deltaX;
+      const vx = isLeft ? overallVelocityX : -overallVelocityX;
+
+      // the pan action is over, cleanup and set the correct final menu position
+      if (vx < -1 * triggerVelocity || -1 * dx > width / 2){
+        this.close();
+      } else {
+        this.open();
+      }
+
+      this.set('dxCorrection', 0);
+    }
+  },
+
+  _isEnabled(e){
+    const {
+      center,
+      pointerType
+    } = e.originalEvent.gesture;
+
+    return pointerType === 'touch'
+      && !(center.x === 0 && center.y === 0); // workaround for https://github.com/hammerjs/hammer.js/issues/1132
+  },
 });
