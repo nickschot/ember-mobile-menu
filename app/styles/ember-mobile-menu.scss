@@ -64,10 +64,10 @@ body.mobile-menu--open {
 
   &:not(.mobile-menu--dragging) {
     .mobile-menu__tray {
-      transition: box-shadow $transition-duration, transform $transition-duration;
+      transition: box-shadow $mobile-menu-transition-duration, transform $mobile-menu-transition-duration;
     }
     .mobile-menu__mask {
-      transition: opacity $transition-duration, visibility $transition-duration;
+      transition: opacity $mobile-menu-transition-duration, visibility $mobile-menu-transition-duration;
     }
   }
 
