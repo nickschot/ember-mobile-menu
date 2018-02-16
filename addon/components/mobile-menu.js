@@ -6,7 +6,7 @@ import { once } from '@ember/runloop';
 import { htmlSafe } from '@ember/string';
 
 import ComponentChildMixin from 'ember-mobile-menu/mixins/component-child';
-import RecognizerMixin from 'ember-gestures/mixins/recognizers';
+import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import getWindowWidth from 'ember-mobile-menu/utils/get-window-width';
 
 export default Component.extend(ComponentChildMixin, RecognizerMixin, {
@@ -79,10 +79,12 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     set(this, 'isDragging', true);
 
     const {
-      deltaX
-    } = e.originalEvent.gesture;
+      current: {
+        distanceX
+      }
+    } = e;
 
-    const dx = get(this, 'isLeft') ? deltaX : -deltaX;
+    const dx = get(this, 'isLeft') ? distanceX : -distanceX;
     const width = this.get('_width');
 
     // enforce limits on the offset [0, width]
@@ -94,17 +96,19 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     set(this, 'isDragging', false);
 
     const {
-      deltaX,
-      overallVelocityX,
-    } = e.originalEvent.gesture;
+      current: {
+        distanceX,
+        velocityX,
+      }
+    } = e;
 
     const triggerVelocity = 0.25; //TODO: make this an attribute
 
     const isLeft = get(this, 'isLeft');
     const width = get(this, '_width');
 
-    const dx = isLeft ? deltaX : -deltaX;
-    const vx = isLeft ? overallVelocityX : -overallVelocityX;
+    const dx = isLeft ? distanceX : -distanceX;
+    const vx = isLeft ? velocityX : -velocityX;
 
     // when overall horizontal velocity is high, force open/close and skip the rest
     if (vx > triggerVelocity || dx > width / 2) {
@@ -115,19 +119,21 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   },
 
   // pan handlers for closing the menu
-  pan(e){
+  didPan(e){
     if(this._isEnabled(e)){
       const {
-        deltaX,
-        center
-      } = e.originalEvent.gesture;
+        current: {
+          distanceX,
+          x
+        }
+      } = e;
 
       const isLeft = get(this, 'isLeft');
       const windowWidth = getWindowWidth();
       const width = this.get('_width');
 
-      const dx = isLeft ? deltaX : -deltaX;
-      const cx = isLeft ? center.x : windowWidth - center.x;
+      const dx = isLeft ? distanceX : -distanceX;
+      const cx = isLeft ? x : windowWidth - x;
 
       if(this.get('isOpen') && !this.get('isDragging')){
         // calculate and set a correction delta if the pan started outside the opened menu
@@ -155,22 +161,24 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       }
     }
   },
-  panEnd(e){
+  didPanEnd(e){
     if(this._isEnabled(e) && get(this, 'isDragging')){
       set(this, 'isDragging', false);
 
       const {
-        deltaX,
-        overallVelocityX,
-      } = e.originalEvent.gesture;
+        current: {
+          distanceX,
+          velocityX
+        }
+      } = e;
 
       const triggerVelocity = 0.25; //TODO: make this an attribute
 
       const isLeft = get(this, 'isLeft');
       const width = this.get('_width');
 
-      const dx = isLeft ? deltaX : -deltaX;
-      const vx = isLeft ? overallVelocityX : -overallVelocityX;
+      const dx = isLeft ? distanceX : -distanceX;
+      const vx = isLeft ? velocityX : -velocityX;
 
       // the pan action is over, cleanup and set the correct final menu position
       if (vx < -1 * triggerVelocity || -1 * dx > width / 2){
@@ -184,6 +192,8 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   },
 
   _isEnabled(e){
+    return true;
+
     const {
       center,
       pointerType
