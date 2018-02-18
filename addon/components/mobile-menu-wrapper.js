@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/mobile-menu-wrapper';
 
+import { getOwner } from "@ember/application"
 import { computed, get, set } from '@ember/object';
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
