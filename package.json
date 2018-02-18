@@ -10,12 +10,15 @@
     "hamburger-menu"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Nick Schot <nickschot@webhub.nl>",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickschot/ember-mobile-menu"
+  },
   "scripts": {
     "build": "ember build",
     "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
@@ -25,7 +28,7 @@
   "dependencies": {
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
-    "ember-gestures": "^0.4.8",
+    "ember-mobile-core": "git+https://github.com/nickschot/ember-mobile-core.git",
     "ember-set-body-class": "^0.2.1"
   },
   "devDependencies": {

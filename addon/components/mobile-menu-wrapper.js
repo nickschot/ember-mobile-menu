@@ -3,27 +3,23 @@ import layout from '../templates/components/mobile-menu-wrapper';
 
 import { computed, get, set } from '@ember/object';
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
-//import RecognizerMixin from 'ember-gestures/mixins/recognizers';
 import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
 import windowWidth from 'ember-mobile-menu/utils/get-window-width';
 
 export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   layout,
-
   classNames: ['mobile-menu-wrapper'],
 
-  recognizers: 'pan',
-  useCapture: true,
-
-  //TODO: max-width support in px
-
   //public
-  openDetectionWidth: 30,  // in px
+  openDetectionWidth: 15,  // in px
 
   //private
   isDraggingOpen: false,
   activeMenu: null,
+
+  // ember-mobile-core options
+  useCapture: true,
 
   childMenus: computed.filter('children', function(view){
     return view instanceof MobileMenu;
