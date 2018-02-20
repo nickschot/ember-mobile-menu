@@ -8,6 +8,7 @@ import { htmlSafe } from '@ember/string';
 import ComponentChildMixin from 'ember-mobile-menu/mixins/component-child';
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import getWindowWidth from 'ember-mobile-menu/utils/get-window-width';
+import Tween from 'ember-mobile-core/tween';
 
 export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   layout,
@@ -27,6 +28,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   maxWidth:       300,    // in px
   maskEnabled:    true,
   shadowEnabled:  true,
+  triggerVelocity: 0.3,
 
   // private
   isDragging: false,
@@ -57,12 +59,25 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     return Math.min(get(this, 'width') / 100 * getWindowWidth(), get(this, 'maxWidth'));
   }),
 
-  open(){
-    set(this, 'position', get(this, '_width'));
+  async open(){
+    const startPos = get(this, 'position');
+    const diff = get(this, '_width') - startPos;
+
+    const anim = new Tween((progress) => {
+      set(this, 'position', startPos + diff * progress);
+    }, { duration: 300});
+    await anim.start();
+
     get(this, 'onOpen')(this);
   },
-  close(){
-    set(this, 'position', 0);
+  async close(){
+    const startPos = get(this, 'position');
+
+    const anim = new Tween((progress) => {
+      set(this, 'position', startPos * (1 - progress));
+    }, { duration: 300});
+    await anim.start();
+
     get(this, 'onClose')();
   },
 
@@ -100,7 +115,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       }
     } = e;
 
-    const triggerVelocity = 0.25; //TODO: make this an attribute
+    const triggerVelocity = get(this, 'triggerVelocity');
 
     const isLeft = get(this, 'isLeft');
     const width = get(this, '_width');
@@ -168,7 +183,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
         }
       } = e;
 
-      const triggerVelocity = 0.25; //TODO: make this an attribute
+      const triggerVelocity = get(this, 'triggerVelocity');
 
       const isLeft = get(this, 'isLeft');
       const width = this.get('_width');
