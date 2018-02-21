@@ -62,15 +62,6 @@ body.mobile-menu--open {
     visibility: hidden;
   }
 
-  &:not(.mobile-menu--dragging) {
-    .mobile-menu__tray {
-      transition: box-shadow $mobile-menu-transition-duration, transform $mobile-menu-transition-duration;
-    }
-    .mobile-menu__mask {
-      transition: opacity $mobile-menu-transition-duration, visibility $mobile-menu-transition-duration;
-    }
-  }
-
   &.mobile-menu--shadow.mobile-menu--open,
   &.mobile-menu--shadow.mobile-menu--dragging {
     .mobile-menu__tray {
