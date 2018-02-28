@@ -6,7 +6,7 @@ import { computed, get, set } from '@ember/object';
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
-import windowWidth from 'ember-mobile-menu/utils/get-window-width';
+import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 
 export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   layout,
@@ -87,7 +87,7 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
         this.lockPan();
         set(this, 'activeMenu', get(this, 'leftMenu'));
         this.set('isDraggingOpen', true);
-      } else if(x > windowWidth() - this.get('openDetectionWidth')){
+      } else if(x > getWindowWidth() - this.get('openDetectionWidth')){
         this.lockPan();
         set(this, 'activeMenu', get(this, 'rightMenu'));
         this.set('isDraggingOpen', true);
