@@ -21,6 +21,7 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
 
   // ember-mobile-core options
   useCapture: true,
+  preventScroll: false,
 
   childMenus: computed.filter('children', function(view){
     return view instanceof MobileMenu;
