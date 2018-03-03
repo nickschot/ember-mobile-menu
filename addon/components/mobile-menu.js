@@ -7,7 +7,7 @@ import { htmlSafe } from '@ember/string';
 
 import ComponentChildMixin from 'ember-mobile-menu/mixins/component-child';
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
-import getWindowWidth from 'ember-mobile-menu/utils/get-window-width';
+import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 import Tween from 'ember-mobile-core/tween';
 
 export default Component.extend(ComponentChildMixin, RecognizerMixin, {
