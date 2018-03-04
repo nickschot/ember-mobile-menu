@@ -1,0 +1,51 @@
+@import "../variables";
+
+.mobile-menu__tray {
+  .mobile-menu__header {
+    min-height: 150px;
+    background: $mobile-menu-header-bg;
+    color: #FFF;
+    margin-bottom: 8px;
+
+    .header__text {
+      padding: 16px;
+    }
+
+    .header__btn {
+      padding: 16px;
+      color: #FFF;
+      text-decoration: none;
+    }
+  }
+
+  .mobile-menu__nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .mobile-menu__nav-item a {
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      color: $mobile-menu-item-color;
+      line-height: 1.5;
+      text-decoration: none!important;
+
+      padding: 12px;
+
+      &.mobile-menu__nav-link.disabled {
+        color: $mobile-menu-item-link-disabled-color;
+      }
+
+      &.active {
+        background: $mobile-menu-item-active-bg;
+      }
+    }
+
+    .mobile-menu__nav-divider {
+      margin: 8px 0;
+      height: 0;
+      border-bottom: 1px solid $mobile-menu-item-active-bg;
+    }
+  }
+}
