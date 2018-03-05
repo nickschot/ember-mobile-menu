@@ -3,6 +3,8 @@ import layout from '../templates/components/mobile-menu-wrapper';
 
 import { getOwner } from "@ember/application"
 import { computed, get, set } from '@ember/object';
+import { inject as service } from '@ember/service';
+
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
@@ -11,6 +13,8 @@ import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   layout,
   classNames: ['mobile-menu-wrapper'],
+
+  userAgent: service(),
 
   //public
   openDetectionWidth: 15,  // in px
@@ -74,21 +78,23 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   },
 
   didPanStart(e){
-    // add a dragging class so any css transitions are disabled
-    // and the pan event is enabled
-    if(!this.get('activeMenu') && !this.get('userAgent.os.isIOS')){
+    // only detect the pan if there is no currently active menu
+    // disable edge pan for iOS browsers in non-standalone mode as it conflicts
+    // with iOS's pan to go back/forward
+    if(!this.get('activeMenu') && !this._isIOSbrowser()){
       const {
         initial: {
           x
         },
       } = e;
 
-      // only detect initial drag from edges of the window
-      if(x < this.get('openDetectionWidth')){
+      // only detect initial drag from edges of the window if a menu is defined
+      // for that side
+      if(x < this.get('openDetectionWidth') && get(this, 'leftMenu')){
         this.lockPan();
         set(this, 'activeMenu', get(this, 'leftMenu'));
         this.set('isDraggingOpen', true);
-      } else if(x > getWindowWidth() - this.get('openDetectionWidth')){
+      } else if(x > getWindowWidth() - this.get('openDetectionWidth') && get(this, 'rightMenu')){
         this.lockPan();
         set(this, 'activeMenu', get(this, 'rightMenu'));
         this.set('isDraggingOpen', true);
@@ -109,5 +115,14 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
       set(this, 'isDraggingOpen', false);
       get(this, 'activeMenu').panOpenEnd(e);
     }
+  },
+
+  /**
+   * Detect if the user is using the app from a browser on iOS
+   * @returns Boolean
+   * @private
+   */
+  _isIOSbrowser(){
+    return this.get('userAgent.os.isIOS') && !window.navigator.standalone;
   }
 });

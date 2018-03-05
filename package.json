@@ -29,7 +29,8 @@
     "ember-cli-babel": "^6.12.0",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-mobile-core": "git+https://github.com/nickschot/ember-mobile-core.git",
-    "ember-set-body-class": "^0.2.1"
+    "ember-set-body-class": "^0.2.1",
+    "ember-useragent": "^0.4.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
