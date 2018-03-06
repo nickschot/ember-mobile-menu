@@ -12,6 +12,7 @@ body.mobile-menu--open {
 }
 
 // pan recognizer ----------------------------------------------------------- //
+//TODO: this causes glitches when a disappearing bar is present in the browser itself
 .mobile-menu-wrapper {
   min-height: $mobile-menu-wrapper-min-height;
 }
