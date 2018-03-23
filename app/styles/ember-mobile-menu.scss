@@ -64,6 +64,7 @@ body.mobile-menu--open {
   }
 
   &.mobile-menu--shadow.mobile-menu--open,
+  &.mobile-menu--shadow.mobile-menu--transitioning,
   &.mobile-menu--shadow.mobile-menu--dragging {
     .mobile-menu__tray {
       box-shadow: 0 0 20px rgba(0,0,0,0.3);

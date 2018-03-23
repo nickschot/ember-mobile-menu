@@ -19,6 +19,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     'isRight:mobile-menu--right',
     'isDragging:mobile-menu--dragging',
     'isOpen:mobile-menu--open',
+    'isTransitioning:mobile-menu--transitioning',
     'shadowEnabled:mobile-menu--shadow'
   ],
 
@@ -32,6 +33,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
   // private
   isDragging: false,
+  isTransitioning: false,
   position:  0,
   dxCorrection: 0,
 
@@ -66,7 +68,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     const anim = new Tween((progress) => {
       set(this, 'position', startPos + diff * progress);
     }, { duration: 300});
+    set(this, 'isTransitioning', true);
     await anim.start();
+    set(this, 'isTransitioning', false);
 
     get(this, 'onOpen')(this);
   },
@@ -76,7 +80,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     const anim = new Tween((progress) => {
       set(this, 'position', startPos * (1 - progress));
     }, { duration: 300});
+    set(this, 'isTransitioning', true);
     await anim.start();
+    set(this, 'isTransitioning', false);
 
     get(this, 'onClose')();
   },
