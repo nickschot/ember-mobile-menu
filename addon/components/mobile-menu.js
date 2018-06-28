@@ -58,7 +58,10 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * Calculates current width in px
    */
   _width: computed('width', 'maxWidth', function(){
-    return Math.min(get(this, 'width') / 100 * getWindowWidth(), get(this, 'maxWidth'));
+    //FastBoot validation to prevent getWindowWidth which uses document
+    return typeof FastBoot !== 'undefined' ? 0 :
+        Math.min(get(this, 'width') / 100 * getWindowWidth(), get(this, 'maxWidth'));
+        
   }),
 
   async open(){
