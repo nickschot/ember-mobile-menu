@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('gesture-wrapper', 'Integration | Component | gesture wrapper', {
+moduleForComponent('mobile-menu-wrapper', 'Integration | Component | mobile menu wrapper', {
   integration: true
 });
 
@@ -9,15 +9,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{gesture-wrapper}}`);
+  this.render(hbs`{{mobile-menu-wrapper}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#gesture-wrapper}}
+    {{#mobile-menu-wrapper}}
       template block text
-    {{/gesture-wrapper}}
+    {{/mobile-menu-wrapper}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');
