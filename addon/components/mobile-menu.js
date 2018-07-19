@@ -1,9 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/mobile-menu';
 
-import { get, set, computed, observer } from '@ember/object';
-import { once } from '@ember/runloop';
-import { htmlSafe } from '@ember/string';
+import { get, set, computed } from '@ember/object';
 
 import ComponentChildMixin from 'ember-mobile-menu/mixins/component-child';
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
