@@ -1,24 +1,26 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('mobile-menu-wrapper', 'Integration | Component | mobile menu wrapper', {
-  integration: true
-});
+module('Integration | Component | mobile-menu-wrapper', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  test('it renders', async function(assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.set('myAction', function(val) { ... });
 
-  this.render(hbs`{{mobile-menu-wrapper}}`);
+    await render(hbs`{{mobile-menu-wrapper}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.equal(this.element.textContent.trim(), '');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#mobile-menu-wrapper}}
-      template block text
-    {{/mobile-menu-wrapper}}
-  `);
+    // Template block usage:
+    await render(hbs`
+      {{#mobile-menu-wrapper}}
+        template block text
+      {{/mobile-menu-wrapper}}
+    `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), 'template block text');
+  });
 });
