@@ -1,7 +1,7 @@
 {
   "name": "ember-mobile-menu",
   "version": "0.1.0-alpha.4",
-  "description": "Provides a pan recognizer and some utils for the ember-mobile-* addons",
+  "description": "A draggable sidebar menu for Ember.",
   "keywords": [
     "ember-addon",
     "mobile",
