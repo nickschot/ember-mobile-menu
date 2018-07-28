@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import layout from '../templates/components/mobile-menu';
 
 import { get, set, computed } from '@ember/object';
+import { getOwner } from '@ember/application';
 
 import ComponentChildMixin from 'ember-mobile-menu/mixins/component-child';
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
@@ -51,12 +52,22 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   relativePosition: computed('position', function(){
     return Math.abs(get(this, 'position')) / get(this, '_width');
   }),
+  
+  fastboot: computed(function() {
+    const owner = getOwner(this);
+    return owner.lookup('service:fastboot');
+  }),
+  isFastBoot: computed('fastboot', function(){
+    return !!get(this, 'fastboot.isFastBoot');
+  }),
 
   /**
    * Calculates current width in px
    */
   _width: computed('width', 'maxWidth', function(){
-    return Math.min(get(this, 'width') / 100 * getWindowWidth(), get(this, 'maxWidth'));
+    return this.get('isFastBoot')
+      ? this.get('maxWidth')
+      : Math.min(get(this, 'width') / 100 * getWindowWidth(), get(this, 'maxWidth'));
   }),
 
   async open(){
