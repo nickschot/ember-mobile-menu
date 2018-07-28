@@ -1,7 +1,7 @@
 {
   "name": "ember-mobile-menu",
   "version": "0.1.0-alpha.4",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Provides a pan recognizer and some utils for the ember-mobile-* addons",
   "keywords": [
     "ember-addon",
     "mobile",
