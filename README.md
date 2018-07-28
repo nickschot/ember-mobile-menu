@@ -1,5 +1,7 @@
 # ember-mobile-menu
 
+[![Build Status](https://travis-ci.org/nickschot/ember-mobile-menu.svg?branch=master)](https://travis-ci.org/nickschot/ember-mobile-menu) [![Ember Observer Score](https://emberobserver.com/badges/ember-mobile-menu.svg)](https://emberobserver.com/addons/ember-mobile-menu)
+
 An [ember-cli](http://www.ember-cli.com) addon providing a draggable sidebar specifically tailored to mobile devices.
 
 Both a left and a right menu are supported. Dragging is supported through touch events as supported by any modern (mobile) browser. The sidebar provides an empty canvas suitable for any content. An optional Android theme is supplied.
