@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/mobile-menu-wrapper';
 
-import { getOwner } from "@ember/application"
 import { computed, get, set } from '@ember/object';
 import { inject as service } from '@ember/service';
 
@@ -35,14 +34,6 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   }),
   rightMenu: computed('children.@each.type', function(){
     return get(this, 'children').find(menu => menu.get('isRight'));
-  }),
-
-  fastboot: computed(function() {
-    const owner = getOwner(this);
-    return owner.lookup('service:fastboot');
-  }),
-  isFastBoot: computed('fastboot', function(){
-    return !!get(this, 'fastboot.isFastBoot');
   }),
 
   actions: {
