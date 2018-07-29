@@ -4,6 +4,12 @@ import layout from '../../templates/components/mobile-menu/tray';
 import { get, computed } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 
+/**
+ * The tray that resides within the menu. Menu content can be placed in here.
+ *
+ * @class Tray
+ * @public
+ */
 export default Component.extend({
   layout,
 

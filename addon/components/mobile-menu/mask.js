@@ -3,6 +3,12 @@ import Component from '@ember/component';
 import { computed, get } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 
+/**
+ * A mask component.
+ *
+ * @class Mask
+ * @public
+ */
 export default Component.extend({
   classNames: ['mobile-menu__mask'],
   attributeBindings: ['style'],

@@ -9,6 +9,12 @@ import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 import Tween from 'ember-mobile-core/tween';
 
+/**
+ * Menu component
+ *
+ * @class MobileMenu
+ * @public
+ */
 export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   layout,
 
@@ -23,11 +29,59 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   ],
 
   // public
+
+  /**
+   * The type of menu. Currently 'left' and 'right' are supported.
+   *
+   * @argument type
+   * @type String
+   * @default 'left'
+   */
   type:           'left', // 'left' or 'right'
+
+  /**
+   * The percentage of the screen the menu will take when opened.
+   *
+   * @argument width
+   * @type Number [0-100]
+   * @default 85
+   */
   width:          85,     // 0-100
+
+  /**
+   * The maximum width of the menu in pixels.
+   *
+   * @argument maxWidth
+   * @type Number
+   * @default 300
+   */
   maxWidth:       300,    // in px
+
+  /**
+   * Whether or not a mask is added when the menu is opened.
+   *
+   * @argument maskEnabled
+   * @type Boolean
+   * @default true
+   */
   maskEnabled:    true,
+
+  /**
+   * Whether or not a shadow is added to the menu.
+   *
+   * @argument shadowEnabled
+   * @type Boolean
+   * @default true
+   */
   shadowEnabled:  true,
+
+  /**
+   * The default swipe velocity needed to fully open the menu.
+   *
+   * @argument triggerVelocity
+   * @type Number
+   * @default 0.3
+   */
   triggerVelocity: 0.3,
 
   // private
@@ -37,7 +91,23 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   dxCorrection: 0,
 
   // hooks
+
+  /**
+   * Hook fired when the menu is opened. You can pass in an action. The menu instance will be passed to the action.
+   *
+   * @property onOpen
+   * @type Action
+   * @public
+   */
   onOpen(){},
+
+  /**
+   * Hook fired when the menu is closed. You can pass in an action. The menu instance will be passed to the action.
+   *
+   * @property onClose
+   * @type Action
+   * @public
+   */
   onClose(){},
 
   isLeft: computed('type', function(){
@@ -62,7 +132,10 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   }),
 
   /**
-   * Calculates current width in px
+   * Current menu width in px
+   *
+   * @property _width
+   * @return {Boolean}
    */
   _width: computed('width', 'maxWidth', function(){
     return this.get('isFastBoot')

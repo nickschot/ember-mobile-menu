@@ -9,21 +9,74 @@ import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
 import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 
+/**
+ * Wrapper component for menu's. Provides pan recognition and management.
+ *
+ * @class MobileMenuWrapper
+ * @yield {Hash} wrapper
+ * @yield {Component} wrapper.MobileMenu
+ * @yield {Component} wrapper.MobileMenuToggle
+ * @yield {Hash} wrapper.actions
+ * @yield {Action} wrapper.actions.toggle
+ * @yield {Action} wrapper.actions.close
+ * @public
+ */
 export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   layout,
   classNames: ['mobile-menu-wrapper'],
 
   userAgent: service(),
 
-  //public
+  /**
+   * Horizontal width of the detection zone in pixels
+   *
+   * @argument openDetectionWidth
+   * @type Number
+   * @public
+   */
   openDetectionWidth: 15,  // in px
 
-  //private
+  /**
+   * Denotes whether or not a menu is currently being dragged open. Turns false when the user releases the menu.
+   *
+   * @property isDraggingOpen
+   * @type Boolean
+   * @private
+   */
   isDraggingOpen: false,
+
+  /**
+   * The currently active menu component.
+   *
+   * @property activeMenu
+   * @type MobileMenu
+   * @private
+   */
   activeMenu: null,
 
   // ember-mobile-core options
+  /**
+   * If true the capture phase will be used for the event, giving it precedence over events in the (default)
+   * bubble phase. This is handy for menus as they are usually defined high in the dom, are opened with edge gestures
+   * and thus must take precedence over deeper nested elements by using the capture phase.
+   *
+   * See <https://www.w3.org/TR/DOM-Level-3-Events/#event-flow> for more details.
+   *
+   * @argument useCapture
+   * @type Boolean
+   * @default true
+   * @public
+   */
   useCapture: true,
+
+  /**
+   * If true, the component tries to prevent scroll when a menu is open
+   *
+   * @argument preventScroll
+   * @type Boolean
+   * @default false
+   * @public
+   */
   preventScroll: false,
 
   childMenus: computed.filter('children', function(view){
@@ -43,6 +96,13 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
     didOpenMenu(menu){
       set(this, 'activeMenu', menu);
     },
+
+    /**
+     * Toggles the active menu
+     *
+     * @action toggle
+     * @param {String} target ['left', 'right']
+     */
     toggle(target){
       const activeMenu = get(this, 'activeMenu');
       const targetMenu = target === 'right'
@@ -59,6 +119,12 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
         }
       }
     },
+
+    /**
+     * Closes the active menu
+     *
+     * @action close
+     */
     close(){
       const activeMenu = get(this, 'activeMenu');
 
@@ -110,7 +176,9 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
 
   /**
    * Detect if the user is using the app from a browser on iOS
-   * @returns Boolean
+   *
+   * @method _isIOSbrowser
+   * @return {Boolean} Returns true when the user is using iOS and is inside a browser
    * @private
    */
   _isIOSbrowser(){
