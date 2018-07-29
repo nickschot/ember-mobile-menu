@@ -6,8 +6,11 @@ import { htmlSafe } from '@ember/string';
 /**
  * A mask component.
  *
+ * You usually do not need to use this component yourself. Whether or not a mask is present can be set by passing an
+ * argument to the MobileMenu component.
+ *
  * @class Mask
- * @public
+ * @private
  */
 export default Component.extend({
   classNames: ['mobile-menu__mask'],

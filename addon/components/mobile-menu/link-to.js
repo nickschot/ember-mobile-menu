@@ -1,7 +1,7 @@
 import LinkComponent from '@ember/routing/link-component';
 
 /**
- * An extended LinkTo component which closes the menu when clicked.
+ * An extended LinkTo component which provides an onClick hook.
  *
  * @class LinkTo
  * @public
