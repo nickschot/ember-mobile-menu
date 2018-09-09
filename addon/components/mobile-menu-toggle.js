@@ -19,6 +19,7 @@ export default Component.extend({
    *
    * @property target
    * @type String 'left' or 'right'
+   * @default 'left'
    * @public
    */
   target: 'left',

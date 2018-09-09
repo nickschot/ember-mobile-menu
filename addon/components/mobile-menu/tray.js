@@ -21,7 +21,8 @@ export default Component.extend({
   /**
    * Width of the menu in px.
    *
-   * @argument width
+   * @property width
+   * @type Number
    * @default 300
    * @private
    */
@@ -30,7 +31,8 @@ export default Component.extend({
   /**
    * Whether the menu is a left menu (otherwise it's a right menu)
    *
-   * @argument isLeft
+   * @property isLeft
+   * @type Boolean
    * @default true
    * @private
    */
@@ -39,7 +41,8 @@ export default Component.extend({
   /**
    * Current relative position of the menu in px.
    *
-   * @argument position
+   * @property position
+   * @type Number
    * @default 0
    * @private
    */

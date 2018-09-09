@@ -32,27 +32,16 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    *
    * @argument openDetectionWidth
    * @type Number
-   * @public
    */
   openDetectionWidth: 15,  // in px
 
   /**
    * Denotes whether or not a menu is currently being dragged open. Turns false when the user releases the menu.
    *
-   * @property isDraggingOpen
+   * @argument isDraggingOpen
    * @type Boolean
-   * @private
    */
   isDraggingOpen: false,
-
-  /**
-   * The currently active menu component.
-   *
-   * @property activeMenu
-   * @type MobileMenu
-   * @private
-   */
-  activeMenu: null,
 
   // ember-mobile-core options
   /**
@@ -65,7 +54,6 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    * @argument useCapture
    * @type Boolean
    * @default true
-   * @public
    */
   useCapture: true,
 
@@ -75,9 +63,16 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    * @argument preventScroll
    * @type Boolean
    * @default false
-   * @public
    */
   preventScroll: false,
+
+  /**
+   * The currently active menu component.
+   *
+   * @property activeMenu
+   * @type MobileMenu
+   */
+  activeMenu: null,
 
   childMenus: computed.filter('children', function(view){
     return view instanceof MobileMenu;
@@ -97,12 +92,6 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
       set(this, 'activeMenu', menu);
     },
 
-    /**
-     * Toggles the active menu
-     *
-     * @action toggle
-     * @param {String} target ['left', 'right']
-     */
     toggle(target){
       const activeMenu = get(this, 'activeMenu');
       const targetMenu = target === 'right'
@@ -120,11 +109,6 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
       }
     },
 
-    /**
-     * Closes the active menu
-     *
-     * @action close
-     */
     close(){
       const activeMenu = get(this, 'activeMenu');
 

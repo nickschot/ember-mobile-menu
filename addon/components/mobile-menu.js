@@ -95,9 +95,8 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   /**
    * Hook fired when the menu is opened. You can pass in an action. The menu instance will be passed to the action.
    *
-   * @property onOpen
-   * @type Action
-   * @public
+   * @argument onOpen
+   * @type Function
    */
   onOpen(){},
 
@@ -136,6 +135,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    *
    * @property _width
    * @return {Boolean}
+   * @private
    */
   _width: computed('width', 'maxWidth', function(){
     return this.get('isFastBoot')
