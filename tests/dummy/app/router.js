@@ -9,6 +9,12 @@ const Router = AddonDocsRouter.extend({
 Router.map(function() {
   docsRoute(this, function() {
     this.route('usage');
+    this.route('quickstart');
+
+    this.route('components', function(){
+      this.route('menu-wrapper');
+      this.route('menu');
+    });
   });
   this.route('not-found', { path: '/*path' });
 });

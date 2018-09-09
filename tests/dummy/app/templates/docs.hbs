@@ -1,8 +1,14 @@
 {{#docs-viewer as |viewer|}}
 
   {{#viewer.nav as |nav|}}
+    {{nav.section 'Introduction'}}
     {{nav.item 'Introduction' 'docs.index'}}
     {{nav.item 'Usage' 'docs.usage'}}
+    {{nav.item 'Quickstart' 'docs.quickstart'}}
+
+    {{nav.section 'Components'}}
+    {{nav.item 'Menu Wrapper' 'docs.components.menu-wrapper'}}
+    {{nav.item 'Menu' 'docs.components.menu'}}
   {{/viewer.nav}}
 
   {{#viewer.main}}
