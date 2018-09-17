@@ -7,7 +7,7 @@ import { getOwner } from '@ember/application';
 import ComponentChildMixin from 'ember-mobile-menu/mixins/component-child';
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
-import Tween from 'ember-mobile-core/tween';
+import Spring from 'ember-mobile-core/spring';
 
 export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   layout,
@@ -70,30 +70,44 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       : Math.min(get(this, 'width') / 100 * getWindowWidth(), get(this, 'maxWidth'));
   }),
 
-  async open(){
+  async open(currentVelocity = 0){
     const startPos = get(this, 'position');
     const diff = get(this, '_width') - startPos;
 
-    const anim = new Tween((progress) => {
-      set(this, 'position', startPos + diff * progress);
-    }, { duration: 300});
-    set(this, 'isTransitioning', true);
-    await anim.start();
-    set(this, 'isTransitioning', false);
+    const initialVelocity = startPos === 0 ? 0 : currentVelocity / startPos * diff;
 
+    const spring = new Spring(s => set(this, 'position', s.currentValue), {
+      overshootClamping: true,
+
+      fromValue: startPos,
+      toValue: startPos + diff,
+
+      initialVelocity
+    });
+
+    set(this, 'isTransitioning', true);
+    await spring.start();
+    set(this, 'isTransitioning', false);
     get(this, 'onOpen')(this);
   },
-  async close(){
+  async close(currentVelocity = 0){
     const startPos = get(this, 'position');
 
-    const anim = new Tween((progress) => {
-      set(this, 'position', startPos * (1 - progress));
-    }, { duration: 300});
-    set(this, 'isTransitioning', true);
-    await anim.start();
-    set(this, 'isTransitioning', false);
+    const initialVelocity = currentVelocity / this.get('_width') * startPos;
 
-    get(this, 'onClose')();
+    const spring = new Spring(s => set(this, 'position', s.currentValue), {
+      overshootClamping: true,
+
+      fromValue: startPos,
+      toValue: 0,
+
+      initialVelocity
+    });
+
+    set(this, 'isTransitioning', true);
+    await spring.start();
+    set(this, 'isTransitioning', false);
+    get(this, 'onClose')(this);
   },
 
   actions: {
@@ -140,9 +154,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
     // when overall horizontal velocity is high, force open/close and skip the rest
     if (vx > triggerVelocity || dx > width / 2) {
-      this.open();
+      this.open(vx);
     } else {
-      this.close();
+      this.close(vx);
     }
   },
 
@@ -208,9 +222,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
       // the pan action is over, cleanup and set the correct final menu position
       if (vx < -1 * triggerVelocity || -1 * dx > width / 2){
-        this.close();
+        this.close(vx);
       } else {
-        this.open();
+        this.open(vx);
       }
 
       this.set('dxCorrection', 0);
