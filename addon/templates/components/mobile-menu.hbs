@@ -1,12 +1,12 @@
 {{#if isOpen}}
-  {{set-body-class 'mobile-menu--open'}}
+  {{set-body-class "mobile-menu--open"}}
 {{/if}}
 
 {{#if maskEnabled}}
   {{mobile-menu/mask
     isOpen=isOpen
     position=relativePosition
-    onClick=(action 'close')
+    onClick=(action "close")
   }}
 {{/if}}
 
@@ -14,12 +14,14 @@
   width=_width
   isLeft=isLeft
   position=position
-  onClose=(action 'close')
+  onClose=(action "close")
 }}
-  {{yield (hash
-    link-to=(component 'mobile-menu/link-to' onClick=(action 'close'))
-    actions=(hash
-      close=(action 'close')
+  {{yield
+    (hash
+      link-to=(component "mobile-menu/link-to" onClick=(action "close"))
+      actions=(hash
+        close=(action "close")
+      )
     )
-  )}}
+  }}
 {{/mobile-menu/tray}}

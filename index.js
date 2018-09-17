@@ -1,5 +1,7 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-mobile-menu'
+  name: require('./package').name,
+
+  importTransforms: require('ember-cli-cjs-transform').importTransforms
 };
