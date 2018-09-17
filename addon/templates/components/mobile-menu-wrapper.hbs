@@ -1,15 +1,15 @@
 {{yield
   (hash
-    mobile-menu=(component 'mobile-menu'
-      onOpen=(action 'didOpenMenu')
-      onClose=(action 'didCloseMenu')
+    mobile-menu=(component "mobile-menu"
+      onOpen=(action "didOpenMenu")
+      onClose=(action "didCloseMenu")
     )
-    toggle=(component 'mobile-menu-toggle'
-      onClick=(action 'toggle')
+    toggle=(component "mobile-menu-toggle"
+      onClick=(action "toggle")
     )
     actions=(hash
-      toggle=(action 'toggle')
-      close=(action 'close')
+      toggle=(action "toggle")
+      close=(action "close")
     )
   )
 }}
