@@ -86,7 +86,7 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
 
   actions: {
     didCloseMenu(){
-      set(this, 'activeMenu', false);
+      set(this, 'activeMenu', null);
     },
     didOpenMenu(menu){
       set(this, 'activeMenu', menu);
