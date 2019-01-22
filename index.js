@@ -17,7 +17,5 @@ module.exports = {
         app.import('vendor/ember-model-select.css');
       }
     }
-  },
-
-  importTransforms: require('ember-cli-cjs-transform').importTransforms
+  }
 };
