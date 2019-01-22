@@ -1,4 +1,5 @@
-# ember-mobile-menu
+ember-mobile-menu
+==============================================================================
 
 [![Build Status](https://travis-ci.org/nickschot/ember-mobile-menu.svg?branch=master)](https://travis-ci.org/nickschot/ember-mobile-menu) [![Ember Observer Score](https://emberobserver.com/badges/ember-mobile-menu.svg)](https://emberobserver.com/addons/ember-mobile-menu)
 
@@ -8,10 +9,12 @@ Both a left and a right menu are supported. Dragging is supported through touch 
 
 *Please note this is a pre-alpha release. Breaking changes will very likely still happen*
 
-## Requirements
+Requirements
+------------------------------------------------------------------------------
 This addon currently requires `ember-cli-sass` to be used in the main application. Support for pre-compiled CSS will be added at a later time.
 
-## Installation
+Installation
+------------------------------------------------------------------------------
 
 From your application directory run: 
 
@@ -19,7 +22,8 @@ From your application directory run:
 
 The addon will automatically add the necessary SCSS import to your `app.scss`.
 
-## Usage
+Usage
+------------------------------------------------------------------------------
 This addon consists of several components. The main `mobile-menu-wrapper` component is obligatory.
 
 ### `mobile-menu-wrapper`
@@ -58,7 +62,8 @@ Several hooks are available for when menu state changes. You can pass an action 
 ### `link-to`
 The `mobile-menu` component yields a modified link-to component which closes the menu on transition. See the Ember documentation help with the `link-to` component.
  
-## Example
+Example
+------------------------------------------------------------------------------
 
 ```handlebars
 {{#mobile-menu-wrapper as |mmw|}}
@@ -76,7 +81,8 @@ The `mobile-menu` component yields a modified link-to component which closes the
 {{/mobile-menu-wrapper}}
 ```
 
-## Themes
+Themes
+------------------------------------------------------------------------------
 An optional Android-like theme is supplied. Include it by adding `@import 'ember-mobile-menu/themes/android` in your `app.scss`.
 
 ### Example
@@ -97,6 +103,7 @@ TBD. A header is also supported, but not fully worked out yet.
 {{/mmw.mobile-menu}}
 ```
 
-## Copyright and license
+Copyright and license
+------------------------------------------------------------------------------
 
 Code and documentation copyright 2018 Nick Schot. The code is released under [the MIT license](LICENSE.md).
