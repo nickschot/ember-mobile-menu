@@ -40,7 +40,7 @@ export default Mixin.create({
    * Array of registered child components
    *
    * @property children
-   * @type array
+   * @type Array
    * @protected
    */
   children: null,
@@ -54,7 +54,7 @@ export default Mixin.create({
    * Register a component as a child of this parent
    *
    * @method registerChild
-   * @param child
+   * @param {ComponentChild} child
    * @public
    */
   registerChild(child) {
@@ -67,7 +67,7 @@ export default Mixin.create({
    * Remove the child component from this parent component
    *
    * @method removeChild
-   * @param child
+   * @param {ComponentChild} child
    * @public
    */
   removeChild(child) {
