@@ -3,6 +3,15 @@ import Component from '@ember/component';
 import { computed, get } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 
+/**
+ * A mask component.
+ *
+ * You usually do not need to use this component yourself. Whether or not a mask is present can be set by passing an
+ * argument to the MobileMenu component.
+ *
+ * @class Mask
+ * @private
+ */
 export default Component.extend({
   classNames: ['mobile-menu__mask'],
   attributeBindings: ['style'],
