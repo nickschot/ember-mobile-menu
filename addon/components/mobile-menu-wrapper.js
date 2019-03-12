@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/mobile-menu-wrapper';
 
-import { computed, get, set } from '@ember/object';
+import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
@@ -14,8 +14,8 @@ import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
  *
  * @class MobileMenuWrapper
  * @yield {Hash} wrapper
- * @yield {Component} wrapper.MobileMenu
- * @yield {Component} wrapper.MobileMenuToggle
+ * @yield {MobileMenu component} wrapper.mobile-menu
+ * @yield {MobileMenuToggle component} wrapper.toggle
  * @yield {Hash} wrapper.actions
  * @yield {Action} wrapper.actions.toggle
  * @yield {Action} wrapper.actions.close
@@ -78,25 +78,25 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
     return view instanceof MobileMenu;
   }),
   leftMenu: computed('children.@each.type', function(){
-    return get(this, 'children').find(menu => menu.get('isLeft'));
+    return this.get('children').find(menu => menu.get('isLeft'));
   }),
   rightMenu: computed('children.@each.type', function(){
-    return get(this, 'children').find(menu => menu.get('isRight'));
+    return this.get('children').find(menu => menu.get('isRight'));
   }),
 
   actions: {
     didCloseMenu(){
-      set(this, 'activeMenu', null);
+      this.set('activeMenu', null);
     },
     didOpenMenu(menu){
-      set(this, 'activeMenu', menu);
+      this.set('activeMenu', menu);
     },
 
     toggle(target){
-      const activeMenu = get(this, 'activeMenu');
+      const activeMenu = this.get('activeMenu');
       const targetMenu = target === 'right'
-        ? get(this, 'rightMenu')
-        : get(this, 'leftMenu');
+        ? this.get('rightMenu')
+        : this.get('leftMenu');
 
       if(targetMenu){
         if(activeMenu){
@@ -110,7 +110,7 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
     },
 
     close(){
-      const activeMenu = get(this, 'activeMenu');
+      const activeMenu = this.get('activeMenu');
 
       if(activeMenu){
         activeMenu.close();
@@ -131,30 +131,30 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
 
       // only detect initial drag from edges of the window if a menu is defined
       // for that side
-      if(x < this.get('openDetectionWidth') && get(this, 'leftMenu')){
+      if(x < this.get('openDetectionWidth') && this.get('leftMenu')){
         this.lockPan();
-        set(this, 'activeMenu', get(this, 'leftMenu'));
+        this.set('activeMenu', this.get('leftMenu'));
         this.set('isDraggingOpen', true);
-      } else if(x > getWindowWidth() - this.get('openDetectionWidth') && get(this, 'rightMenu')){
+      } else if(x > getWindowWidth() - this.get('openDetectionWidth') && this.get('rightMenu')){
         this.lockPan();
-        set(this, 'activeMenu', get(this, 'rightMenu'));
+        this.set('activeMenu', this.get('rightMenu'));
         this.set('isDraggingOpen', true);
       }
     }
   },
 
   didPan(e){
-    const activeMenu = get(this, 'activeMenu');
+    const activeMenu = this.get('activeMenu');
 
-    if(activeMenu && get(this, 'isDraggingOpen')){
+    if(activeMenu && this.get('isDraggingOpen')){
       activeMenu.panOpen(e);
     }
   },
 
   didPanEnd(e) {
     if(this.get('isDraggingOpen') && this.get('activeMenu')){
-      set(this, 'isDraggingOpen', false);
-      get(this, 'activeMenu').panOpenEnd(e);
+      this.set('isDraggingOpen', false);
+      this.get('activeMenu').panOpenEnd(e);
     }
   },
 
