@@ -33,6 +33,7 @@ import Mixin from '@ember/object/mixin';
  * @class ComponentParent
  * @namespace Mixins
  * @private
+ * @hide
  */
 export default Mixin.create({
 

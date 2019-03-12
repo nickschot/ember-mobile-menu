@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 
-import { computed, get } from '@ember/object';
+import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 
 /**
@@ -16,14 +16,41 @@ export default Component.extend({
   classNames: ['mobile-menu__mask'],
   attributeBindings: ['style'],
 
-  // public
+  /**
+   * Offset (or "deadzone") used when calculating what opacity the mask should
+   * currently be.
+   *
+   * Example: the default value is 0.1. This means the mask will only become
+   * visible after the position is over 10% of the screen width.
+   *
+   * @argument maskOpacityOffset
+   * @type number
+   * @default 0.1
+   */
   maskOpacityOffset: 0.1,
 
-  // protected
+  /**
+   * @argument isOpen
+   * @type boolean
+   * @default false
+   * @protected
+   */
   isOpen: false,
+
+  /**
+   * @argument position
+   * @type number
+   * @default 0
+   * @protected
+   */
   position: 0,
 
-  // hooks
+  /**
+   * @argument onClick
+   * @type function
+   * @default function(){}
+   * @protected
+   */
   onClick(){},
 
   style: computed(
@@ -31,7 +58,7 @@ export default Component.extend({
     'maskOpacityOffset',
     function() {
       let style = '';
-      const position = get(this, 'position');
+      const position = this.get('position');
 
       style += !this.get('isOpen') && position === 0
         ? 'visibility: hidden;'
@@ -49,6 +76,6 @@ export default Component.extend({
   ),
 
   click(){
-    get(this, 'onClick')();
+    this.get('onClick')();
   }
 });

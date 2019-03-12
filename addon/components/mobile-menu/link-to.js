@@ -13,9 +13,16 @@ export default LinkComponent.extend({
     this.set('current-when', this.get('qualifiedRouteName'));
   },
 
-  onClick() {},
+  /**
+   * Hook called when the link is clicked.
+   *
+   * @argument onClick
+   * @type function
+   * @default function(){}
+   */
+  onClick(){},
 
   click(){
-    this.onClick();
+    this.get('onClick')();
   }
 });

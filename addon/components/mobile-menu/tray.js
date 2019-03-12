@@ -11,6 +11,7 @@ import { htmlSafe } from '@ember/string';
  *
  * @class Tray
  * @private
+ * @hide
  */
 export default Component.extend({
   layout,

@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/mobile-menu';
 
-import { get, set, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import { getOwner } from '@ember/application';
 
 import ComponentChildMixin from 'ember-mobile-menu/mixins/component-child';
@@ -27,8 +27,6 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     'isTransitioning:mobile-menu--transitioning',
     'shadowEnabled:mobile-menu--shadow'
   ],
-
-  // public
 
   /**
    * The type of menu. Currently 'left' and 'right' are supported.
@@ -84,14 +82,6 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    */
   triggerVelocity: 0.3,
 
-  // private
-  isDragging: false,
-  isTransitioning: false,
-  position:  0,
-  dxCorrection: 0,
-
-  // hooks
-
   /**
    * Hook fired when the menu is opened. You can pass in an action. The menu instance will be passed to the action.
    *
@@ -109,17 +99,49 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    */
   onClose(){},
 
+  /**
+   * @property isDragging
+   * @type boolean
+   * @default false
+   * @private
+   */
+  isDragging: false,
+
+  /**
+   * @property isTransitioning
+   * @type boolean
+   * @default false
+   * @private
+   */
+  isTransitioning: false,
+
+  /**
+   * @property position
+   * @type number
+   * @default 0
+   * @private
+   */
+  position:  0,
+
+  /**
+   * @property dxCorrection
+   * @type number
+   * @default 0
+   * @private
+   */
+  dxCorrection: 0,
+
   isLeft: computed('type', function(){
-    return get(this, 'type') === 'left';
+    return this.get('type') === 'left';
   }),
   isRight: computed('type', function(){
-    return get(this, 'type') === 'right';
+    return this.get('type') === 'right';
   }),
   isOpen: computed('isDragging', 'position', '_width', 'isLeft', function(){
-    return !get(this, 'isDragging') && get(this, 'position') === get(this, '_width');
+    return !this.get('isDragging') && this.get('position') === this.get('_width');
   }),
   relativePosition: computed('position', function(){
-    return Math.abs(get(this, 'position')) / get(this, '_width');
+    return Math.abs(this.get('position')) / this.get('_width');
   }),
   
   fastboot: computed(function() {
@@ -127,7 +149,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     return owner.lookup('service:fastboot');
   }),
   isFastBoot: computed('fastboot', function(){
-    return !!get(this, 'fastboot.isFastBoot');
+    return !!this.get('fastboot.isFastBoot');
   }),
 
   /**
@@ -140,33 +162,33 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   _width: computed('width', 'maxWidth', function(){
     return this.get('isFastBoot')
       ? this.get('maxWidth')
-      : Math.min(get(this, 'width') / 100 * getWindowWidth(), get(this, 'maxWidth'));
+      : Math.min(this.get('width') / 100 * getWindowWidth(), this.get('maxWidth'));
   }),
 
   async open(){
-    const startPos = get(this, 'position');
-    const diff = get(this, '_width') - startPos;
+    const startPos = this.get('position');
+    const diff = this.get('_width') - startPos;
 
     const anim = new Tween((progress) => {
-      set(this, 'position', startPos + diff * progress);
+      this.set('position', startPos + diff * progress);
     }, { duration: 300});
-    set(this, 'isTransitioning', true);
+    this.set('isTransitioning', true);
     await anim.start();
-    set(this, 'isTransitioning', false);
+    this.set('isTransitioning', false);
 
-    get(this, 'onOpen')(this);
+    this.get('onOpen')(this);
   },
   async close(){
-    const startPos = get(this, 'position');
+    const startPos = this.get('position');
 
     const anim = new Tween((progress) => {
-      set(this, 'position', startPos * (1 - progress));
+      this.set('position', startPos * (1 - progress));
     }, { duration: 300});
-    set(this, 'isTransitioning', true);
+    this.set('isTransitioning', true);
     await anim.start();
-    set(this, 'isTransitioning', false);
+    this.set('isTransitioning', false);
 
-    get(this, 'onClose')();
+    this.get('onClose')();
   },
 
   actions: {
@@ -177,7 +199,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
   // pan handlers for opening the menu
   panOpen(e){
-    set(this, 'isDragging', true);
+    this.set('isDragging', true);
 
     const {
       current: {
@@ -185,7 +207,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       }
     } = e;
 
-    const dx = get(this, 'isLeft') ? distanceX : -distanceX;
+    const dx = this.get('isLeft') ? distanceX : -distanceX;
     const width = this.get('_width');
 
     // enforce limits on the offset [0, width]
@@ -194,7 +216,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     this.set('position', targetPosition);
   },
   panOpenEnd(e){
-    set(this, 'isDragging', false);
+    this.set('isDragging', false);
 
     const {
       current: {
@@ -203,10 +225,10 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       }
     } = e;
 
-    const triggerVelocity = get(this, 'triggerVelocity');
+    const triggerVelocity = this.get('triggerVelocity');
 
-    const isLeft = get(this, 'isLeft');
-    const width = get(this, '_width');
+    const isLeft = this.get('isLeft');
+    const width = this.get('_width');
 
     const dx = isLeft ? distanceX : -distanceX;
     const vx = isLeft ? velocityX : -velocityX;
@@ -228,7 +250,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       }
     } = e;
 
-    const isLeft = get(this, 'isLeft');
+    const isLeft = this.get('isLeft');
     const windowWidth = getWindowWidth();
     const width = this.get('_width');
 
@@ -261,8 +283,8 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     }
   },
   didPanEnd(e){
-    if(get(this, 'isDragging')){
-      set(this, 'isDragging', false);
+    if(this.get('isDragging')){
+      this.set('isDragging', false);
 
       const {
         current: {
@@ -271,9 +293,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
         }
       } = e;
 
-      const triggerVelocity = get(this, 'triggerVelocity');
+      const triggerVelocity = this.get('triggerVelocity');
 
-      const isLeft = get(this, 'isLeft');
+      const isLeft = this.get('isLeft');
       const width = this.get('_width');
 
       const dx = isLeft ? distanceX : -distanceX;

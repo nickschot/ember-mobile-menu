@@ -1,8 +1,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/mobile-menu-toggle';
 
-import { get } from '@ember/object';
-
 /**
  * A toggle component to open or close a menu.
  *
@@ -34,6 +32,6 @@ export default Component.extend({
   onClick(){},
 
   click(){
-    get(this, 'onClick')(get(this, 'target'));
+    this.get('onClick')(this.get('target'));
   }
 });

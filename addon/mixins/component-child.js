@@ -33,6 +33,7 @@ import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
  * @class ComponentChild
  * @namespace Mixins
  * @private
+ * @hide
  */
 export default Mixin.create({
 
