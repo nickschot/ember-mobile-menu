@@ -87,6 +87,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    *
    * @argument onOpen
    * @type Function
+   * @protected
    */
   onOpen(){},
 
@@ -95,7 +96,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    *
    * @property onClose
    * @type Action
-   * @public
+   * @protected
    */
   onClose(){},
 
