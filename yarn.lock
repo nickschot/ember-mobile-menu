@@ -5206,10 +5206,10 @@ ember-maybe-import-regenerator@^0.1.5, ember-maybe-import-regenerator@^0.1.6:
     ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
 
-ember-mobile-core@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/ember-mobile-core/-/ember-mobile-core-0.1.0.tgz#0d546dede8270326d66dd3090885486b32a26585"
-  integrity sha512-pFAZ04O8eaekFP4Q0w3Gp4xsNvWyRSQVPqi49BSNmVixYNInujAOcCf5aLMEamOa1W9xvY1XhS0ZAjhAXzaB9Q==
+ember-mobile-core@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ember-mobile-core/-/ember-mobile-core-0.2.0.tgz#bac4ba0ccdfdf360e5753526613026b14b457d60"
+  integrity sha512-kHxIF/AIc4CLePSo+8jlUm3Z2WYxZTda7HfgO/a0bUJLqa2sEtWTTrqh0LV/Y2yh9zmjL2uwRZOGFyRcx1dYjw==
   dependencies:
     ember-auto-import "^1.2.13"
     ember-cli-babel "^7.1.2"
