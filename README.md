@@ -103,6 +103,13 @@ TBD. A header is also supported, but not fully worked out yet.
 {{/mmw.mobile-menu}}
 ```
 
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+
+
 Copyright and license
 ------------------------------------------------------------------------------
 
