@@ -2,12 +2,15 @@ import Component from '@ember/component';
 import layout from '../templates/components/mobile-menu';
 
 import { computed } from '@ember/object';
+import { or } from '@ember/object/computed';
 import { getOwner } from '@ember/application';
 
 import ComponentChildMixin from 'ember-mobile-menu/mixins/component-child';
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 import Tween from 'ember-mobile-core/tween';
+import { task } from 'ember-concurrency';
+import withTestWaiter from 'ember-concurrency-test-waiter/with-test-waiter';
 
 /**
  * Menu component
@@ -109,14 +112,6 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   isDragging: false,
 
   /**
-   * @property isTransitioning
-   * @type boolean
-   * @default false
-   * @private
-   */
-  isTransitioning: false,
-
-  /**
    * @property position
    * @type number
    * @default 0
@@ -141,6 +136,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   isOpen: computed('isDragging', 'position', '_width', 'isLeft', function(){
     return !this.get('isDragging') && this.get('position') === this.get('_width');
   }),
+  isTransitioning: or('open.isRunning', 'close.isRunning'),
   relativePosition: computed('position', function(){
     return Math.abs(this.get('position')) / this.get('_width');
   }),
@@ -166,35 +162,35 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       : Math.min(this.get('width') / 100 * getWindowWidth(), this.get('maxWidth'));
   }),
 
-  async open(){
+  open: withTestWaiter(task(function * (){
     const startPos = this.get('position');
     const diff = this.get('_width') - startPos;
 
     const anim = new Tween((progress) => {
       this.set('position', startPos + diff * progress);
     }, { duration: 300});
-    this.set('isTransitioning', true);
-    await anim.start();
-    this.set('isTransitioning', false);
+    yield anim.start();
 
     this.get('onOpen')(this);
-  },
-  async close(){
+  }).restartable()),
+
+  close: withTestWaiter(task(function * (){
     const startPos = this.get('position');
 
     const anim = new Tween((progress) => {
       this.set('position', startPos * (1 - progress));
     }, { duration: 300});
-    this.set('isTransitioning', true);
-    await anim.start();
-    this.set('isTransitioning', false);
+    yield anim.start();
 
     this.get('onClose')();
-  },
+  }).restartable()),
 
   actions: {
+    open(){
+      this.get('open').perform();
+    },
     close(){
-      this.close();
+      this.get('close').perform();
     }
   },
 
@@ -236,9 +232,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
     // when overall horizontal velocity is high, force open/close and skip the rest
     if (vx > triggerVelocity || dx > width / 2) {
-      this.open();
+      this.get('open').perform();
     } else {
-      this.close();
+      this.get('close').perform();
     }
   },
 
@@ -304,9 +300,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
       // the pan action is over, cleanup and set the correct final menu position
       if (vx < -1 * triggerVelocity || -1 * dx > width / 2){
-        this.close();
+        this.get('close').perform();
       } else {
-        this.open();
+        this.get('open').perform();
       }
 
       this.set('dxCorrection', 0);
