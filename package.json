@@ -78,5 +78,8 @@
   "ember-addon": {
     "configPath": "tests/dummy/config"
   },
-  "homepage": "https://nickschot.github.io/ember-mobile-menu"
+  "homepage": "https://nickschot.github.io/ember-mobile-menu",
+  "resolutions": {
+    "nwsapi": "2.1.0"
+  }
 }
