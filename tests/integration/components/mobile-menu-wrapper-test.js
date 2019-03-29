@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, waitFor } from '@ember/test-helpers';
+import { render, click, waitFor, settled } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | mobile-menu-wrapper', function(hooks) {
@@ -25,6 +25,31 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
   });
 
   test('it opens the menu when the toggle is clicked', async function(assert){
+    assert.expect(5);
+
+    await render(hbs`
+      {{#mobile-menu-wrapper as |mmw|}}
+        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      
+        {{#mmw.mobile-menu as |mm|}}
+          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+        {{/mmw.mobile-menu}}
+      {{/mobile-menu-wrapper}}
+    `);
+
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
+    click('.mobile-menu__toggle');
+
+    await waitFor('.mobile-menu--transitioning');
+    assert.dom('.mobile-menu').hasClass('mobile-menu--transitioning');
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
+
+    await settled();
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--transitioning');
+    assert.dom('.mobile-menu').hasClass('mobile-menu--open');
+  });
+
+  test('it closes the menu when the mask is clicked', async function(assert){
     assert.expect(4);
 
     await render(hbs`
@@ -38,11 +63,14 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     `);
 
     await click('.mobile-menu__toggle');
-    assert.dom('.mobile-menu').hasClass('mobile-menu--transitioning');
-    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu-open');
-
-    await waitFor('.mobile-menu--open', { count: 1 });
-    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--transitioning');
     assert.dom('.mobile-menu').hasClass('mobile-menu--open');
+
+    click('.mobile-menu__mask');
+    await waitFor('.mobile-menu--transitioning');
+    assert.dom('.mobile-menu').hasClass('mobile-menu--transitioning');
+
+    await settled();
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--transitioning');
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
   });
 });
