@@ -100,11 +100,11 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
 
       if(targetMenu){
         if(activeMenu){
-          activeMenu.close();
+          activeMenu.send('close');
         }
 
         if(activeMenu !== targetMenu){
-          targetMenu.open();
+          targetMenu.send('open');
         }
       }
     },
@@ -113,7 +113,7 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
       const activeMenu = this.get('activeMenu');
 
       if(activeMenu){
-        activeMenu.close();
+        activeMenu.send('close');
       }
     }
   },
