@@ -5272,7 +5272,7 @@ ember-set-body-class@^0.4.0:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-sinon-qunit@^3.3.0:
+ember-sinon-qunit@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/ember-sinon-qunit/-/ember-sinon-qunit-3.4.0.tgz#6c6ea96273572825e8789c7214e3fd3d9ef4c376"
   integrity sha512-Xn8+GEkxBNngtfOYy3qo5Mw1m0o3PJgd1/veGU2BdixxWrEd2U5ZolYFxd6vNHM1/EVx5urlDqWl6jeedJr/Xw==
