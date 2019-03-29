@@ -32,6 +32,7 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    *
    * @argument openDetectionWidth
    * @type Number
+   * @default 15
    */
   openDetectionWidth: 15,  // in px
 
@@ -40,6 +41,7 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    *
    * @argument isDraggingOpen
    * @type Boolean
+   * @default false
    */
   isDraggingOpen: false,
 
@@ -71,6 +73,8 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    *
    * @property activeMenu
    * @type MobileMenu
+   * @default null
+   * @private
    */
   activeMenu: null,
 
