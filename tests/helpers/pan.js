@@ -44,10 +44,11 @@ async function _pan(element, options = {}){
   const {
     startX = isLeft ? right -1 : left + 1,
     endX = isLeft ? left + 1 : right - 1,
-    duration = 100
+    duration = 100,
+    resolution = 17 // ms per step
   } = options;
 
-  const steps = Math.abs(endX - startX) / duration;
+  const steps = Math.ceil(duration / resolution);
   const middleY = top + height/2;
 
   sendEvent(element, 'touchstart', startX, middleY);
