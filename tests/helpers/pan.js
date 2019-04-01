@@ -30,7 +30,7 @@ function sendEvent(element, type, x, y){
 }
 
 // currently only horizontal
-async function _pan(element){
+async function _pan(element, options = {}){
   const {
     clientTop: top,
     clientLeft: left,
@@ -39,16 +39,23 @@ async function _pan(element){
   } = element;
 
   const right = left + width;
+  const isLeft = options.direction === 'left';
 
-  const steps = 50;
-  const startX = left + 1;
-  const endX = right - 1;
+  const {
+    steps = 50,
+    startX = isLeft ? right -1 : left + 1,
+    endX = isLeft ? left + 1 : right - 1,
+  } = options;
+
   const middleY = top + height/2;
 
   sendEvent(element, 'touchstart', startX, middleY);
   for(let i = 1; i < steps; i++){
     await timeout(1);
-    sendEvent(element, 'touchmove', (endX - startX)/steps * i, middleY);
+    const x = isLeft
+      ? startX - (startX - endX)/steps*i
+      : (endX - startX)/steps * i;
+    sendEvent(element, 'touchmove',  x, middleY);
   }
   sendEvent(element, 'touchend', endX, middleY);
 }
@@ -65,7 +72,7 @@ export default async function pan(target, direction) {
     throw new Error(`Element not found when calling \`pan('${target}')\`.`);
   }
 
-  await _pan(element, direction);
+  await _pan(element, { direction });
 
   return settled();
 }

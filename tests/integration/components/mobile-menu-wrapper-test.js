@@ -93,4 +93,46 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     assert.dom('.mobile-menu').hasClass('mobile-menu--open');
   });
+
+  test('it closes the menu when dragged from outside the menu', async function(assert){
+    assert.expect(2);
+
+    await render(hbs`
+      {{#mobile-menu-wrapper as |mmw|}}
+        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      
+        {{#mmw.mobile-menu as |mm|}}
+          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+        {{/mmw.mobile-menu}}
+      {{/mobile-menu-wrapper}}
+    `);
+
+    await click('.mobile-menu__toggle');
+    assert.dom('.mobile-menu').hasClass('mobile-menu--open');
+
+    await pan('.mobile-menu__mask', 'left');
+    await settled();
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
+  });
+
+  test('it closes the menu when dragged on the menu itself', async function(assert){
+    assert.expect(2);
+
+    await render(hbs`
+      {{#mobile-menu-wrapper as |mmw|}}
+        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      
+        {{#mmw.mobile-menu as |mm|}}
+          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+        {{/mmw.mobile-menu}}
+      {{/mobile-menu-wrapper}}
+    `);
+
+    await click('.mobile-menu__toggle');
+    assert.dom('.mobile-menu').hasClass('mobile-menu--open');
+
+    await pan('.mobile-menu__tray', 'left');
+    await settled();
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
+  });
 });

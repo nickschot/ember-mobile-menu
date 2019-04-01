@@ -17,6 +17,7 @@ export default function createTouchEvent(target, eventType, x, y, identifier = 0
 
   // we mock it using an object because we can't otherwise set the timeStamp
   return new TouchEvent(eventType, {
+    bubbles: true,
     type: eventType,
     touches: [touch],
     changedTouches: [touch]
