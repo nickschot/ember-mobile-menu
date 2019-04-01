@@ -42,11 +42,12 @@ async function _pan(element, options = {}){
   const isLeft = options.direction === 'left';
 
   const {
-    steps = 50,
     startX = isLeft ? right -1 : left + 1,
     endX = isLeft ? left + 1 : right - 1,
+    duration = 100
   } = options;
 
+  const steps = Math.abs(endX - startX) / duration;
   const middleY = top + height/2;
 
   sendEvent(element, 'touchstart', startX, middleY);
