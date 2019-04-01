@@ -25,13 +25,12 @@ function getElement(target) {
 }
 
 function sendEvent(element, type, x, y){
-  console.log(element, type, x, y);
-  const event = createTouchEvent(1234, type, x, y, element);
-  dispatchEvent(event);
+  const event = createTouchEvent(element, type, x, y);
+  element.dispatchEvent(event);
 }
 
 // currently only horizontal
-async function _pan(element, options){
+async function _pan(element){
   const {
     clientTop: top,
     clientLeft: left,
@@ -40,20 +39,15 @@ async function _pan(element, options){
   } = element;
 
   const right = left + width;
-  const bottom = top + height;
 
-  console.log(element, top, right, bottom, left, width, height);
-
-  const steps = 10;
+  const steps = 50;
   const startX = left + 1;
   const endX = right - 1;
   const middleY = top + height/2;
 
   sendEvent(element, 'touchstart', startX, middleY);
-  sendEvent(element, 'touchmove', startX, middleY);
-  for(let i = 1; i <= steps; i++){
-    await timeout(30);
-    console.log('loop', i);
+  for(let i = 1; i < steps; i++){
+    await timeout(1);
     sendEvent(element, 'touchmove', (endX - startX)/steps * i, middleY);
   }
   sendEvent(element, 'touchend', endX, middleY);

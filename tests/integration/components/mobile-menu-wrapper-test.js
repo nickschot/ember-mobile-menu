@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, waitFor, settled } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import pan from '../../helpers/pan';
 
 module('Integration | Component | mobile-menu-wrapper', function(hooks) {
   setupRenderingTest(hooks);
@@ -72,5 +73,24 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await settled();
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--transitioning');
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
+  });
+
+  test('it opens the menu when dragged', async function(assert){
+    assert.expect(1);
+
+    await render(hbs`
+      {{#mobile-menu-wrapper as |mmw|}}
+        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      
+        {{#mmw.mobile-menu as |mm|}}
+          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+        {{/mmw.mobile-menu}}
+      {{/mobile-menu-wrapper}}
+    `);
+
+    await pan('.mobile-menu-wrapper', 'right');
+    await settled();
+
+    assert.dom('.mobile-menu').hasClass('mobile-menu--open');
   });
 });

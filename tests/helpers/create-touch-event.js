@@ -1,15 +1,15 @@
 /**
  * Generates a mock touchEvent like object for testing purposes
- * @param {number} identifier
+ * @param {Element} target
  * @param {string} eventType touchstart, touchmove or touchend
  * @param {number} x
  * @param {number} y
- * @param {Element} target
+ * @param {number} identifier
  * @returns {TouchEvent}
  */
-export default function createTouchEvent(identifier, eventType, x, y, target) {
+export default function createTouchEvent(target, eventType, x, y, identifier = 0) {
   let touch = new Touch({
-    identifier,
+    identifier: identifier || 0,
     target,
     clientX: x,
     clientY: y
