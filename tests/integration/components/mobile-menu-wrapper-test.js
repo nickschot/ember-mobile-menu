@@ -25,6 +25,36 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.equal(this.element.textContent.trim(), 'template block text');
   });
 
+  test('it renders a "left" menu by default', async function(assert) {
+    assert.expect(2);
+
+    await render(hbs`
+      {{#mobile-menu-wrapper as |mmw|}}
+        {{#mmw.mobile-menu as |mm|}}
+          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+        {{/mmw.mobile-menu}}
+      {{/mobile-menu-wrapper}}
+    `);
+
+    assert.dom('.mobile-menu').hasClass('mobile-menu--left');
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--right');
+  });
+
+  test('it renders a "right" menu', async function(assert) {
+    assert.expect(2);
+
+    await render(hbs`
+      {{#mobile-menu-wrapper as |mmw|}}
+        {{#mmw.mobile-menu type="right" as |mm|}}
+          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+        {{/mmw.mobile-menu}}
+      {{/mobile-menu-wrapper}}
+    `);
+
+    assert.dom('.mobile-menu').hasClass('mobile-menu--right');
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--left');
+  });
+
   test('it opens the menu when the toggle is clicked', async function(assert){
     assert.expect(5);
 
@@ -76,7 +106,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
   });
 
   test('it opens the menu when dragged', async function(assert){
-    assert.expect(1);
+    assert.expect(2);
 
     await render(hbs`
       {{#mobile-menu-wrapper as |mmw|}}
@@ -91,7 +121,49 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await pan('.mobile-menu-wrapper', 'right');
     await settled();
 
+    assert.dom('.mobile-menu').hasClass('mobile-menu--left');
     assert.dom('.mobile-menu').hasClass('mobile-menu--open');
+  });
+
+  test('it opens the "right" menu when dragged', async function(assert){
+    assert.expect(2);
+
+    await render(hbs`
+      {{#mobile-menu-wrapper as |mmw|}}
+        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      
+        {{#mmw.mobile-menu type="right" as |mm|}}
+          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+        {{/mmw.mobile-menu}}
+      {{/mobile-menu-wrapper}}
+    `);
+
+    await pan('.mobile-menu-wrapper', 'left');
+    await settled();
+
+    assert.dom('.mobile-menu').hasClass('mobile-menu--right');
+    assert.dom('.mobile-menu').hasClass('mobile-menu--open');
+  });
+
+
+  test('it does not open the menu when dragged in the wrong direction', async function(assert){
+    assert.expect(2);
+
+    await render(hbs`
+      {{#mobile-menu-wrapper as |mmw|}}
+        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      
+        {{#mmw.mobile-menu as |mm|}}
+          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+        {{/mmw.mobile-menu}}
+      {{/mobile-menu-wrapper}}
+    `);
+
+    await pan('.mobile-menu-wrapper', 'left');
+    await settled();
+
+    assert.dom('.mobile-menu').hasClass('mobile-menu--left');
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
   });
 
   test('it closes the menu when dragged from outside the menu', async function(assert){
