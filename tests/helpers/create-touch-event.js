@@ -1,5 +1,6 @@
 /**
- * Generates a mock touchEvent like object for testing purposes
+ * Generates a TouchEvent for testing purposes
+ *
  * @param {Element} target
  * @param {string} eventType touchstart, touchmove or touchend
  * @param {number} x
