@@ -42,7 +42,7 @@ async function _pan(element, options = {}){
   const isLeft = options.direction === 'left';
 
   const {
-    startX = isLeft ? right -1 : left + 1,
+    startX = isLeft ? right - 1 : left + 1,
     endX = isLeft ? left + 1 : right - 1,
     duration = 300,
     resolution = 17 // ms per step
