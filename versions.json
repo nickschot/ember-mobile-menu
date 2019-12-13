@@ -16,5 +16,11 @@
     "name": "Latest",
     "sha": "13d0e052cd35a8e9ffd01a90ff32a36c126cfd87",
     "tag": null
+  },
+  "v0.1.0-beta.2": {
+    "path": "versions/v0.1.0-beta.2",
+    "name": "v0.1.0-beta.2",
+    "sha": "3329b85a7d823331949fba4b45c8890a662c2270",
+    "tag": "v0.1.0-beta.2"
   }
 }
