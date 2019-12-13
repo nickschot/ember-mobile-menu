@@ -24,6 +24,7 @@ import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   layout,
   classNames: ['mobile-menu-wrapper'],
+  classNameBindings: ['embed:mobile-menu-wrapper--embedded'],
 
   userAgent: service(),
 
@@ -67,6 +68,8 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    * @default false
    */
   preventScroll: false,
+
+  embed: false,
 
   /**
    * The currently active menu component.
@@ -123,6 +126,7 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   },
 
   didPanStart(e){
+    console.log('pan started', e);
     // only detect the pan if there is no currently active menu
     // disable edge pan for iOS browsers in non-standalone mode as it conflicts
     // with iOS's pan to go back/forward
@@ -132,6 +136,10 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
           x
         },
       } = e;
+
+      if(this.get('embed')){
+        this.normalizeCoordinates(e);
+      }
 
       // only detect initial drag from edges of the window if a menu is defined
       // for that side

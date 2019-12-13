@@ -11,3 +11,17 @@ To get started the `{{mobile-menu-wrapper}}` component, which detects the gestur
   {{/mmw.mobile-menu}}
 {{/mobile-menu-wrapper}}
 ```
+
+{{#docs-demo as |demo|}}
+  {{#demo.example name='menu-quickstart.hbs' class="demo-height" }}
+    {{#mobile-menu-wrapper embed=true as |mmw|}}
+      {{#mmw.toggle}}Menu{{/mmw.toggle}}
+    
+      {{#mmw.mobile-menu as |mm|}}
+        {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+      {{/mmw.mobile-menu}}
+    {{/mobile-menu-wrapper}}
+  {{/demo.example}}
+
+  {{demo.snippet 'menu-quickstart.hbs'}}
+{{/docs-demo}}

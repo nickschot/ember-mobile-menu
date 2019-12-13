@@ -86,6 +86,14 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   triggerVelocity: 0.3,
 
   /**
+   * @property embed
+   * @type boolean
+   * @default false
+   * @protected
+   */
+  embed: false,
+
+  /**
    * Hook fired when the menu is opened. You can pass in an action. The menu instance will be passed to the action.
    *
    * @argument onOpen

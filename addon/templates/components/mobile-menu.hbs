@@ -1,6 +1,8 @@
-{{#if isOpen}}
-  {{set-body-class "mobile-menu--open"}}
-{{/if}}
+{{#unless embed}}
+  {{#if isOpen}}
+    {{set-body-class "mobile-menu--open"}}
+  {{/if}}
+{{/unless}}
 
 {{#if maskEnabled}}
   {{mobile-menu/mask
