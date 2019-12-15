@@ -1,4 +1,16 @@
 
+## v0.1.0-beta.2 (2019-12-13)
+
+#### :rocket: Enhancement
+* [#28](https://github.com/nickschot/ember-mobile-menu/pull/28) upgrade to ember-cli 3.12.0 & upgrade dependencies ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#24](https://github.com/nickschot/ember-mobile-menu/pull/24) Add drag tests & pan simulator ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v0.1.0-beta.1 (2019-03-29)
 
 #### :boom: Breaking Change
