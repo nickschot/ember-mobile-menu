@@ -11,6 +11,7 @@ import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 import Tween from 'ember-mobile-core/tween';
 import { task } from 'ember-concurrency';
 import withTestWaiter from 'ember-concurrency-test-waiter/with-test-waiter';
+import normalizeCoordinates from '../utils/normalize-coordinates';
 
 /**
  * Menu component
@@ -148,7 +149,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   relativePosition: computed('position', function(){
     return Math.abs(this.get('position')) / this.get('_width');
   }),
-  
+
   fastboot: computed(function() {
     const owner = getOwner(this);
     return owner.lookup('service:fastboot');
@@ -206,11 +207,12 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   panOpen(e){
     this.set('isDragging', true);
 
+    const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
     const {
       current: {
         distanceX
       }
-    } = e;
+    } = _e;
 
     const dx = this.get('isLeft') ? distanceX : -distanceX;
     const width = this.get('_width');
@@ -223,12 +225,13 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   panOpenEnd(e){
     this.set('isDragging', false);
 
+    const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
     const {
       current: {
         distanceX,
         velocityX,
       }
-    } = e;
+    } = _e;
 
     const triggerVelocity = this.get('triggerVelocity');
 
@@ -248,12 +251,13 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
   // pan handlers for closing the menu
   didPan(e){
+    const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
     const {
       current: {
         distanceX,
         x
       }
-    } = e;
+    } = _e;
 
     const isLeft = this.get('isLeft');
     const windowWidth = getWindowWidth();
@@ -291,12 +295,13 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     if(this.get('isDragging')){
       this.set('isDragging', false);
 
+      const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
       const {
         current: {
           distanceX,
           velocityX
         }
-      } = e;
+      } = _e;
 
       const triggerVelocity = this.get('triggerVelocity');
 

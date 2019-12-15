@@ -8,6 +8,7 @@ import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
 import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
+import normalizeCoordinates from '../utils/normalize-coordinates';
 
 /**
  * Wrapper component for menu's. Provides pan recognition and management.
@@ -126,20 +127,16 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   },
 
   didPanStart(e){
-    console.log('pan started', e);
     // only detect the pan if there is no currently active menu
     // disable edge pan for iOS browsers in non-standalone mode as it conflicts
     // with iOS's pan to go back/forward
     if(!this.get('activeMenu') && !this._isIOSbrowser()){
+      const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
       const {
         initial: {
           x
         },
-      } = e;
-
-      if(this.get('embed')){
-        this.normalizeCoordinates(e);
-      }
+      } = _e;
 
       // only detect initial drag from edges of the window if a menu is defined
       // for that side
@@ -159,14 +156,16 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
     const activeMenu = this.get('activeMenu');
 
     if(activeMenu && this.get('isDraggingOpen')){
-      activeMenu.panOpen(e);
+      const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
+      activeMenu.panOpen(_e);
     }
   },
 
   didPanEnd(e) {
     if(this.get('isDraggingOpen') && this.get('activeMenu')){
+      const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
       this.set('isDraggingOpen', false);
-      this.get('activeMenu').panOpenEnd(e);
+      this.get('activeMenu').panOpenEnd(_e);
     }
   },
 
