@@ -32,11 +32,11 @@ function sendEvent(element, type, x, y){
 // currently only horizontal
 async function _pan(element, options = {}){
   const {
-    clientTop: top,
-    clientLeft: left,
-    clientWidth: width,
-    clientHeight: height
-  } = element;
+    top,
+    left,
+    width,
+    height
+  } = element.getBoundingClientRect();
 
   const right = left + width;
   const isLeft = options.direction === 'left';
