@@ -7,7 +7,6 @@ import { inject as service } from '@ember/service';
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
-import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 import normalizeCoordinates from '../utils/normalize-coordinates';
 
 /**
@@ -131,7 +130,7 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
     // disable edge pan for iOS browsers in non-standalone mode as it conflicts
     // with iOS's pan to go back/forward
     if(!this.get('activeMenu') && !this._isIOSbrowser()){
-      const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
+      const _e = normalizeCoordinates(e, this.element);
       const {
         initial: {
           x
@@ -144,7 +143,10 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
         this.lockPan();
         this.set('activeMenu', this.get('leftMenu'));
         this.set('isDraggingOpen', true);
-      } else if(x > getWindowWidth() - this.get('openDetectionWidth') && this.get('rightMenu')){
+      } else if(
+        x > this.element.getBoundingClientRect().width - this.get('openDetectionWidth')
+        && this.get('rightMenu')
+      ){
         this.lockPan();
         this.set('activeMenu', this.get('rightMenu'));
         this.set('isDraggingOpen', true);

@@ -166,6 +166,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @private
    */
   _width: computed('width', 'maxWidth', function(){
+    // TODO: check if getWindowWidth usage is correct here for embedded use cases
     return this.get('isFastBoot')
       ? this.get('maxWidth')
       : Math.min(this.get('width') / 100 * getWindowWidth(), this.get('maxWidth'));
@@ -207,7 +208,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   panOpen(e){
     this.set('isDragging', true);
 
-    const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
+    const _e = normalizeCoordinates(e, this.parentElement);
     const {
       current: {
         distanceX
@@ -225,7 +226,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   panOpenEnd(e){
     this.set('isDragging', false);
 
-    const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
+    const _e = normalizeCoordinates(e, this.parentElement);
     const {
       current: {
         distanceX,
@@ -251,7 +252,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
 
   // pan handlers for closing the menu
   didPan(e){
-    const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
+    const _e = normalizeCoordinates(e, this.parentElement);
     const {
       current: {
         distanceX,
@@ -260,7 +261,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     } = _e;
 
     const isLeft = this.get('isLeft');
-    const windowWidth = getWindowWidth();
+    const windowWidth = this.parentElement.getBoundingClientRect().width;
     const width = this.get('_width');
 
     const dx = isLeft ? distanceX : -distanceX;
@@ -295,7 +296,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
     if(this.get('isDragging')){
       this.set('isDragging', false);
 
-      const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
+      const _e = normalizeCoordinates(e, this.parentElement);
       const {
         current: {
           distanceX,
