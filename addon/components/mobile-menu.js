@@ -97,7 +97,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   /**
    * Hook fired when the menu is closed. You can pass in an action. The menu instance will be passed to the action.
    *
-   * @property onClose
+   * @argument onClose
    * @type Action
    * @protected
    */
@@ -140,7 +140,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
   relativePosition: computed('position', function(){
     return Math.abs(this.get('position')) / this.get('_width');
   }),
-  
+
   fastboot: computed(function() {
     const owner = getOwner(this);
     return owner.lookup('service:fastboot');
