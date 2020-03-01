@@ -15,19 +15,17 @@ export default Component.extend({
   /**
    * Target menu for the toggle
    *
-   * @property target
+   * @argument target
    * @type String 'left' or 'right'
    * @default 'left'
-   * @public
    */
   target: 'left',
 
   /**
    * Hook fired when the toggle is clicked. You can pass in an action.
    *
-   * @property onClick
+   * @argument onClick
    * @type Action
-   * @public
    */
   onClick(){},
 
