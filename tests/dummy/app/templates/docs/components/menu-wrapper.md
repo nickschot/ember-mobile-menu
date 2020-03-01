@@ -8,7 +8,7 @@ By default it is set up to detect a pan from respectively the left or the right 
   {{#mmw.toggle}}Menu{{/mmw.toggle}}
 
   {{#mmw.mobile-menu as |mm|}}
-    {{#mm.link-to "index"}}Home{{/mm.link-to}}
+    {{#mm.LinkTo "index"}}Home{{/mm.LinkTo}}
   {{/mmw.mobile-menu}}
 {{/mobile-menu-wrapper}}
 ```
@@ -21,7 +21,7 @@ By default the menu is setup to be a left menu. By passing `type=right` to the m
   {{#mmw.toggle target="right"}}Menu{{/mmw.toggle}}
   
   {{#mmw.mobile-menu type="right" as |mm|}}
-    {{#mm.link-to "index"}}Home{{/mm.link-to}}
+    {{#mm.LinkTo "index"}}Home{{/mm.LinkTo}}
   {{/mmw.mobile-menu}}
 {{/mobile-menu-wrapper}}
 ```
@@ -35,11 +35,11 @@ You can also use both a left and a right menu.
   {{#mmw.toggle target="right"}}Right Menu{{/mmw.toggle}}
   
   {{#mmw.mobile-menu type="left" as |mm|}}
-    {{#mm.link-to "index"}}Home{{/mm.link-to}}
+    {{#mm.LinkTo "index"}}Home{{/mm.LinkTo}}
   {{/mmw.mobile-menu}}
 
   {{#mmw.mobile-menu type="right" as |mm|}}
-    {{#mm.link-to "index"}}Home{{/mm.link-to}}
+    {{#mm.LinkTo "index"}}Home{{/mm.LinkTo}}
   {{/mmw.mobile-menu}}
 {{/mobile-menu-wrapper}}
 ```
@@ -49,13 +49,13 @@ The menu can also be used embedded on a page by passing `embed=true` to the `{{m
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="menu-quickstart.hbs" class="demo-height" }}
-    {{#mobile-menu-wrapper embed=true as |mmw|}}
-      {{#mmw.toggle}}Menu{{/mmw.toggle}}
-    
-      {{#mmw.mobile-menu as |mm|}}
-        {{#mm.link-to "index"}}Home{{/mm.link-to}}
-      {{/mmw.mobile-menu}}
-    {{/mobile-menu-wrapper}}
+    <MobileMenuWrapper @embed={{true}} as |mmw|>
+      <mmw.Toggle>Menu</mmw.Toggle>
+      
+      <mmw.MobileMenu as |mm|>
+        {{#mm.LinkTo "index"}}Home{{/mm.LinkTo}}
+      </mmw.MobileMenu>
+    </MobileMenuWrapper>
   {{/demo.example}}
 
   {{demo.snippet 'menu-quickstart.hbs'}}

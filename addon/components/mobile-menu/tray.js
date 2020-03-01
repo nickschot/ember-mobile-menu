@@ -1,7 +1,4 @@
-import Component from '@ember/component';
-import layout from '../../templates/components/mobile-menu/tray';
-
-import { get, computed } from '@ember/object';
+import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/string';
 
 /**
@@ -13,12 +10,7 @@ import { htmlSafe } from '@ember/string';
  * @private
  * @hide
  */
-export default Component.extend({
-  layout,
-
-  classNames: ['mobile-menu__tray'],
-  attributeBindings: ['style'],
-
+export default class TrayComponent extends Component {
   /**
    * Width of the menu in px.
    *
@@ -27,7 +19,9 @@ export default Component.extend({
    * @default 300
    * @private
    */
-  width: 300,
+  get width() {
+    return this.args.width ?? 300;
+  }
 
   /**
    * Whether the menu is a left menu (otherwise it's a right menu)
@@ -37,7 +31,9 @@ export default Component.extend({
    * @default true
    * @private
    */
-  isLeft: true,
+  get isLeft() {
+    return this.args.isLeft ?? true;
+  }
 
   /**
    * Current relative position of the menu in px.
@@ -47,17 +43,16 @@ export default Component.extend({
    * @default 0
    * @private
    */
-  position: 0,  // in px
+  get position() {
+    return this.args.position ?? 0;
+  }
 
-  style: computed('width', 'isLeft', 'position', function(){
-    const width = get(this, 'width');
-    const position = get(this, 'position');
-
-    let style = `width: ${width}px;`;
-    style += get(this, 'isLeft')
-      ?  `left: -${width}px; transform: translateX(${position}px);`
-      : `right: -${width}px; transform: translateX(-${position}px);`;
+  get style() {
+    let style = `width: ${this.width}px;`;
+    style += this.isLeft
+      ?  `left: -${this.width}px; transform: translateX(${this.position}px);`
+      : `right: -${this.width}px; transform: translateX(-${this.position}px);`;
 
     return htmlSafe(style);
-  })
-});
+  }
+}

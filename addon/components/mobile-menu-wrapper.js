@@ -137,11 +137,11 @@ export default class MobileMenuWrapper extends Component {
 
     if(targetMenu){
       if(this.activeMenu){
-        this.activeMenu.send('close');
+        this.activeMenu.close();
       }
 
       if(this.activeMenu !== targetMenu){
-        targetMenu.send('open');
+        targetMenu.open();
       }
     }
   }
@@ -149,7 +149,7 @@ export default class MobileMenuWrapper extends Component {
   @action
   close(){
     if(this.activeMenu){
-      this.activeMenu.send('close');
+      this.activeMenu.close();
     }
   }
 

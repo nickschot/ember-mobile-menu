@@ -1,5 +1,6 @@
-import Component from '@ember/component';
-import layout from '../templates/components/mobile-menu-toggle';
+import Component from '@glimmer/component';
+
+const _fn = () => {};
 
 /**
  * A toggle component to open or close a menu.
@@ -7,11 +8,7 @@ import layout from '../templates/components/mobile-menu-toggle';
  * @class MobileMenuToggle
  * @public
  */
-export default Component.extend({
-  layout,
-
-  classNames: ['mobile-menu__toggle'],
-
+export default class MobileMenuToggle extends Component {
   /**
    * Target menu for the toggle
    *
@@ -19,7 +16,9 @@ export default Component.extend({
    * @type String 'left' or 'right'
    * @default 'left'
    */
-  target: 'left',
+  get target() {
+    return this.args.target ?? 'left';
+  }
 
   /**
    * Hook fired when the toggle is clicked. You can pass in an action.
@@ -27,9 +26,7 @@ export default Component.extend({
    * @argument onClick
    * @type Action
    */
-  onClick(){},
-
-  click(){
-    this.get('onClick')(this.get('target'));
+  get onClick() {
+    return this.args.onClick ?? _fn;
   }
-});
+}

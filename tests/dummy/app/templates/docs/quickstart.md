@@ -7,7 +7,7 @@ To get started the `{{mobile-menu-wrapper}}` component, which detects the gestur
   {{#mmw.toggle}}Menu{{/mmw.toggle}}
 
   {{#mmw.mobile-menu as |mm|}}
-    {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+    {{#mm.LinkTo 'index'}}Home{{/mm.LinkTo}}
   {{/mmw.mobile-menu}}
 {{/mobile-menu-wrapper}}
 ```
