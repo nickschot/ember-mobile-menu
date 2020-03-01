@@ -61,7 +61,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await render(hbs`
       {{#mobile-menu-wrapper as |mmw|}}
         {{#mmw.toggle}}Menu{{/mmw.toggle}}
-      
+
         {{#mmw.mobile-menu as |mm|}}
           {{#mm.link-to 'index'}}Home{{/mm.link-to}}
         {{/mmw.mobile-menu}}
@@ -86,7 +86,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await render(hbs`
       {{#mobile-menu-wrapper as |mmw|}}
         {{#mmw.toggle}}Menu{{/mmw.toggle}}
-      
+
         {{#mmw.mobile-menu as |mm|}}
           {{#mm.link-to 'index'}}Home{{/mm.link-to}}
         {{/mmw.mobile-menu}}
@@ -111,7 +111,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await render(hbs`
       {{#mobile-menu-wrapper as |mmw|}}
         {{#mmw.toggle}}Menu{{/mmw.toggle}}
-      
+
         {{#mmw.mobile-menu as |mm|}}
           {{#mm.link-to 'index'}}Home{{/mm.link-to}}
         {{/mmw.mobile-menu}}
@@ -131,7 +131,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await render(hbs`
       {{#mobile-menu-wrapper as |mmw|}}
         {{#mmw.toggle}}Menu{{/mmw.toggle}}
-      
+
         {{#mmw.mobile-menu type="right" as |mm|}}
           {{#mm.link-to 'index'}}Home{{/mm.link-to}}
         {{/mmw.mobile-menu}}
@@ -152,7 +152,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await render(hbs`
       {{#mobile-menu-wrapper as |mmw|}}
         {{#mmw.toggle}}Menu{{/mmw.toggle}}
-      
+
         {{#mmw.mobile-menu as |mm|}}
           {{#mm.link-to 'index'}}Home{{/mm.link-to}}
         {{/mmw.mobile-menu}}
@@ -172,7 +172,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await render(hbs`
       {{#mobile-menu-wrapper as |mmw|}}
         {{#mmw.toggle}}Menu{{/mmw.toggle}}
-      
+
         {{#mmw.mobile-menu as |mm|}}
           {{#mm.link-to 'index'}}Home{{/mm.link-to}}
         {{/mmw.mobile-menu}}
@@ -193,7 +193,106 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await render(hbs`
       {{#mobile-menu-wrapper as |mmw|}}
         {{#mmw.toggle}}Menu{{/mmw.toggle}}
-      
+
+        {{#mmw.mobile-menu as |mm|}}
+          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+        {{/mmw.mobile-menu}}
+      {{/mobile-menu-wrapper}}
+    `);
+
+    await click('.mobile-menu__toggle');
+    assert.dom('.mobile-menu').hasClass('mobile-menu--open');
+
+    await pan('.mobile-menu__tray', 'left');
+    await settled();
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
+  });
+
+  test('it opens the embedded menu when dragged', async function(assert){
+    assert.expect(4);
+
+    await render(hbs`
+      <div class="root-div" style="padding: 100px; height: 500px; background: red;">
+        {{#mobile-menu-wrapper embed=true as |mmw|}}
+          {{#mmw.toggle}}Menu{{/mmw.toggle}}
+
+          {{#mmw.mobile-menu as |mm|}}
+            {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+          {{/mmw.mobile-menu}}
+        {{/mobile-menu-wrapper}}
+      </div>
+    `);
+
+    await pan('.root-div', 'right');
+    await settled();
+
+    assert.dom('.mobile-menu').hasClass('mobile-menu--left');
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
+
+    await pan('.mobile-menu-wrapper', 'right');
+    await settled();
+
+    assert.dom('.mobile-menu').hasClass('mobile-menu--left');
+    assert.dom('.mobile-menu').hasClass('mobile-menu--open');
+  });
+
+  test('it opens the "right" embedded menu when dragged', async function(assert){
+    assert.expect(4);
+
+    await render(hbs`
+      <div class="root-div" style="padding: 100px; height: 500px; background: red;">
+        {{#mobile-menu-wrapper embed=true as |mmw|}}
+          {{#mmw.toggle}}Menu{{/mmw.toggle}}
+
+          {{#mmw.mobile-menu type="right" as |mm|}}
+            {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+          {{/mmw.mobile-menu}}
+        {{/mobile-menu-wrapper}}
+      </div>
+    `);
+
+    await pan('.root-div', 'left');
+    await settled();
+
+    assert.dom('.mobile-menu').hasClass('mobile-menu--right');
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
+
+    await pan('.mobile-menu-wrapper--embedded', 'left');
+    await settled();
+
+    assert.dom('.mobile-menu').hasClass('mobile-menu--right');
+    assert.dom('.mobile-menu').hasClass('mobile-menu--open');
+  });
+
+  // TODO: make it test embedded
+  test('it closes the menu when dragged from outside the menu', async function(assert){
+    assert.expect(2);
+
+    await render(hbs`
+      {{#mobile-menu-wrapper as |mmw|}}
+        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+
+        {{#mmw.mobile-menu as |mm|}}
+          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
+        {{/mmw.mobile-menu}}
+      {{/mobile-menu-wrapper}}
+    `);
+
+    await click('.mobile-menu__toggle');
+    assert.dom('.mobile-menu').hasClass('mobile-menu--open');
+
+    await pan('.mobile-menu__mask', 'left');
+    await settled();
+    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
+  });
+
+  test('it closes the menu when dragged on the menu itself', async function(assert){
+    assert.expect(2);
+
+    await render(hbs`
+      {{#mobile-menu-wrapper as |mmw|}}
+        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+
         {{#mmw.mobile-menu as |mm|}}
           {{#mm.link-to 'index'}}Home{{/mm.link-to}}
         {{/mmw.mobile-menu}}

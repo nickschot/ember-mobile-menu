@@ -7,7 +7,7 @@ import { inject as service } from '@ember/service';
 import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
-import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
+import normalizeCoordinates from '../utils/normalize-coordinates';
 
 /**
  * Wrapper component for menu's. Provides pan recognition and management.
@@ -24,6 +24,7 @@ import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 export default Component.extend(RecognizerMixin, ComponentParentMixin, {
   layout,
   classNames: ['mobile-menu-wrapper'],
+  classNameBindings: ['embed:mobile-menu-wrapper--embedded'],
 
   userAgent: service(),
 
@@ -67,6 +68,8 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    * @default false
    */
   preventScroll: false,
+
+  embed: false,
 
   /**
    * The currently active menu component.
@@ -127,11 +130,12 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
     // disable edge pan for iOS browsers in non-standalone mode as it conflicts
     // with iOS's pan to go back/forward
     if(!this.get('activeMenu') && !this._isIOSbrowser()){
+      const _e = normalizeCoordinates(e, this.element);
       const {
         initial: {
           x
         },
-      } = e;
+      } = _e;
 
       // only detect initial drag from edges of the window if a menu is defined
       // for that side
@@ -139,7 +143,10 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
         this.lockPan();
         this.set('activeMenu', this.get('leftMenu'));
         this.set('isDraggingOpen', true);
-      } else if(x > getWindowWidth() - this.get('openDetectionWidth') && this.get('rightMenu')){
+      } else if(
+        x > this.element.getBoundingClientRect().width - this.get('openDetectionWidth')
+        && this.get('rightMenu')
+      ){
         this.lockPan();
         this.set('activeMenu', this.get('rightMenu'));
         this.set('isDraggingOpen', true);
@@ -151,14 +158,16 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
     const activeMenu = this.get('activeMenu');
 
     if(activeMenu && this.get('isDraggingOpen')){
-      activeMenu.panOpen(e);
+      const _e = normalizeCoordinates(e, this.element);
+      activeMenu.panOpen(_e);
     }
   },
 
   didPanEnd(e) {
     if(this.get('isDraggingOpen') && this.get('activeMenu')){
+      const _e = normalizeCoordinates(e, this.element);
       this.set('isDraggingOpen', false);
-      this.get('activeMenu').panOpenEnd(e);
+      this.get('activeMenu').panOpenEnd(_e);
     }
   },
 

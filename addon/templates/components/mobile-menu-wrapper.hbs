@@ -1,8 +1,10 @@
 {{yield
   (hash
     mobile-menu=(component "mobile-menu"
+      embed=this.embed
       onOpen=(action "didOpenMenu")
       onClose=(action "didCloseMenu")
+      parentElement=this.element
     )
     toggle=(component "mobile-menu-toggle"
       onClick=(action "toggle")
