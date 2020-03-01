@@ -166,7 +166,6 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @private
    */
   _width: computed('width', 'maxWidth', function(){
-    // TODO: check if getWindowWidth usage is correct here for embedded use cases
     return this.get('isFastBoot')
       ? this.get('maxWidth')
       : Math.min(this.get('width') / 100 * getWindowWidth(), this.get('maxWidth'));
