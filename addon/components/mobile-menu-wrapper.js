@@ -158,14 +158,14 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
     const activeMenu = this.get('activeMenu');
 
     if(activeMenu && this.get('isDraggingOpen')){
-      const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
+      const _e = normalizeCoordinates(e, this.element);
       activeMenu.panOpen(_e);
     }
   },
 
   didPanEnd(e) {
     if(this.get('isDraggingOpen') && this.get('activeMenu')){
-      const _e = this.get('embed') ? normalizeCoordinates(e, this.element) : e;
+      const _e = normalizeCoordinates(e, this.element);
       this.set('isDraggingOpen', false);
       this.get('activeMenu').panOpenEnd(_e);
     }
