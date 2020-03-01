@@ -1,0 +1,32 @@
+<div
+  class="mobile-menu-wrapper {{if this.embed 'mobile-menu-wrapper--embedded'}}"
+  {{ref this "_element"}}
+  {{did-pan
+    onPanStart=this.didPanStart
+    onPan=this.didPan
+    onPanEnd=this.didPanEnd
+    capture=this.capture
+    preventScroll=this.preventScroll
+  }}
+  ...attributes
+>
+  {{yield
+    (hash
+      MobileMenu=(component "mobile-menu"
+        embed=this.embed
+        onOpen=this.didOpenMenu
+        onClose=this.didCloseMenu
+        parentElement=this._element
+        register=this.registerChild
+        unregister=this.unregisterChild
+      )
+      Toggle=(component "mobile-menu-toggle"
+        onClick=this.toggle
+      )
+      actions=(hash
+        toggle=this.toggle
+        close=this.close
+      )
+    )
+  }}
+</div>
