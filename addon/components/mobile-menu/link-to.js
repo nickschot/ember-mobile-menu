@@ -10,7 +10,7 @@ export default LinkComponent.extend({
   didReceiveAttrs() {
     this._super(...arguments);
 
-    this.set('current-when', this.get('qualifiedRouteName'));
+    this.set('current-when', this.qualifiedRouteName);
   },
 
   /**
@@ -23,6 +23,6 @@ export default LinkComponent.extend({
   onClick(){},
 
   click(){
-    this.get('onClick')();
+    this.onClick();
   }
 });

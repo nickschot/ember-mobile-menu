@@ -1,6 +1,6 @@
-{{#docs-viewer as |viewer|}}
+<DocsViewer as |viewer|>
 
-  {{#viewer.nav as |nav|}}
+  <viewer.nav as |nav|>
     {{nav.section "Introduction"}}
     {{nav.item "Introduction" "docs.index"}}
     {{nav.item "Usage" "docs.usage"}}
@@ -9,14 +9,14 @@
     {{nav.section "Components"}}
     {{nav.item "Menu Wrapper" "docs.components.menu-wrapper"}}
     {{nav.item "Menu" "docs.components.menu"}}
-  {{/viewer.nav}}
+  </viewer.nav>
 
-  {{#viewer.main}}
+  <viewer.main>
     <div class="docs-container">
       <div class="docs-section">
         {{outlet}}
       </div>
     </div>
-  {{/viewer.main}}
+  </viewer.main>
 
-{{/docs-viewer}}
+</DocsViewer>

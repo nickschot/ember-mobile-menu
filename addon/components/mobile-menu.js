@@ -8,6 +8,7 @@ import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 import Tween from 'ember-mobile-core/tween';
 import { restartableTask } from 'ember-concurrency-decorators';
 import normalizeCoordinates from '../utils/normalize-coordinates';
+import { assert } from '@ember/debug';
 
 import defineModifier from 'ember-concurrency-test-waiter/define-modifier';
 defineModifier();
@@ -145,6 +146,10 @@ export default class MobileMenu extends Component {
 
   constructor() {
     super(...arguments);
+
+    assert('register function argument not passed. You should not be using <MobileMenu/> directly.', typeof this.args.register === 'function');
+    assert('unregister function argument not passed. You should not be using <MobileMenu/> directly.', typeof this.args.unregister === 'function');
+
     this.args.register(this);
   }
 
