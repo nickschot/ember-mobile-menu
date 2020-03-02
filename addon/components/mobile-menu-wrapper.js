@@ -106,7 +106,7 @@ export default class MobileMenuWrapper extends Component {
 
   @computed('children')
   get childMenus() {
-    this.children.filter((view) => view instanceof MobileMenu);
+    return this.children.filter((view) => view instanceof MobileMenu);
   }
 
   @computed('children.@each.type')

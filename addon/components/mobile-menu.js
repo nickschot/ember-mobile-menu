@@ -177,7 +177,7 @@ export default class MobileMenu extends Component {
   }
 
   get isTransitioning() {
-    return this.open.isRunning || this.close.isRunning;
+    return this._open.isRunning || this._close.isRunning;
   }
 
   get relativePosition() {

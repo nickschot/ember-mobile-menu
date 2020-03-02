@@ -67,8 +67,7 @@ export default class MaskComponent extends Component {
 
     style += `opacity: ${
       this.position > this.maskOpacityOffset
-        ? (this.position - this.maskOpacityOffset)
-          / (1 - this.maskOpacityOffset)
+        ? (this.position - this.maskOpacityOffset) / (1 - this.maskOpacityOffset)
         : 0
     };`;
 

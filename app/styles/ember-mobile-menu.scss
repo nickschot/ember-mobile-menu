@@ -83,18 +83,16 @@ body.mobile-menu--open {
 .mobile-menu-wrapper--embedded .mobile-menu {
   position: absolute;
 
+  &__mask,
   &.mobile-menu--open,
   &.mobile-menu--transitioning,
   &.mobile-menu--dragging {
     width: 100%;
   }
 
-  &, .mobile-menu__tray {
-    height: 100%;
-  }
-
-  .mobile-menu__mask {
-    width: 100%;
+  &,
+  &__mask,
+  .mobile-menu__tray {
     height: 100%;
   }
 }
