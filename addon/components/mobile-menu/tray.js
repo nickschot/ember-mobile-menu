@@ -47,11 +47,19 @@ export default class TrayComponent extends Component {
     return this.args.position ?? 0;
   }
 
+  get progress() {
+    return this.position / this.width;
+  }
+
   get style() {
     let style = `width: ${this.width}px;`;
     style += this.isLeft
       ?  `left: -${this.width}px; transform: translateX(${this.position}px);`
       : `right: -${this.width}px; transform: translateX(-${this.position}px);`;
+
+    if (this.args.shadowEnabled && this.progress > 0) {
+      style += `box-shadow: 0 5px 10px rgba(0,0,0,${0.3 * this.progress + 0.05});`
+    }
 
     return htmlSafe(style);
   }
