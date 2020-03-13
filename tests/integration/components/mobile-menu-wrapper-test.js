@@ -261,7 +261,6 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.dom('.mobile-menu').hasClass('mobile-menu--open');
   });
 
-  // TODO: make it test embedded
   test('it closes the menu when dragged from outside the menu', async function(assert){
     assert.expect(2);
 
