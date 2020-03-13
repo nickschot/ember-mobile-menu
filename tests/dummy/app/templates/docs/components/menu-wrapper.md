@@ -45,7 +45,7 @@ You can also use both a left and a right menu.
 ```
 
 ## Embedded menu
-The menu can also be used embedded on a page by passing `embed=true` to the `{{mobile-menu-wrapper}}` component.
+The menu can also be used embedded on a page by passing `embed=true` to the `{{mobile-menu-wrapper}}` component. This means the menus will stay within the boundaries of the `<MobileMenuWrapper/>` component.
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="menu-quickstart.hbs" class="demo-height" }}
