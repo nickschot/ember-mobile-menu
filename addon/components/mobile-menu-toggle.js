@@ -14,11 +14,7 @@ export default class MobileMenuToggle extends Component {
    *
    * @argument target
    * @type String 'left' or 'right'
-   * @default 'left'
    */
-  get target() {
-    return this.args.target ?? 'left';
-  }
 
   /**
    * Hook fired when the toggle is clicked. You can pass in an action.
@@ -27,6 +23,6 @@ export default class MobileMenuToggle extends Component {
    * @type function
    */
   get onClick() {
-    return () => this.args.onClick(this.target) ?? _fn;
+    return () => this.args.onClick(this.args.target) ?? _fn;
   }
 }

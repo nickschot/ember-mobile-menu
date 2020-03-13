@@ -25,7 +25,7 @@ module('Integration | Component | mobile-menu-toggle', function(hooks) {
     assert.equal(this.element.textContent.trim(), 'template block text');
   });
 
-  test('it fires the `onClick` hook with the "left" argument when clicked', async function(assert){
+  test('it fires the `onClick` hook with no argument when clicked', async function(assert){
     assert.expect(2);
 
     this.handleClick = this.spy();
@@ -34,7 +34,7 @@ module('Integration | Component | mobile-menu-toggle', function(hooks) {
     await click('.mobile-menu__toggle');
 
     assert.ok(this.handleClick.calledOnce, 'onClick was called once');
-    assert.ok(this.handleClick.calledWithExactly('left'));
+    assert.ok(this.handleClick.calledWithExactly(undefined));
   });
 
   test('it fires the `onClick` hook with the passed target when clicked', async function(assert){
