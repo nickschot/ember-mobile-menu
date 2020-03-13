@@ -14,11 +14,11 @@ By default it is set up to detect a pan from respectively the left or the right 
 ```
 
 ## Left & Right menus
-By default the menu is setup to be a left menu. By passing `type=right` to the menu you can make the menu slide in from the right. A `target` option is available on the toggle component to target a specific menu (defaults to `left`).
+By default the menu is setup to be a left menu. By passing `type=right` to the menu you can make the menu slide in from the right.
 
 ```handlebars
 <MobileMenuWrapper as |mmw|>
-  <mmw.Toggle @target="right">Menu</mmw.Toggle>
+  <mmw.Toggle>Menu</mmw.Toggle>
 
   <mmw.MobileMenu @type="right" as |mm|>
     <mm.LinkTo @route="index">Home</mm.LinkTo>
@@ -27,7 +27,7 @@ By default the menu is setup to be a left menu. By passing `type=right` to the m
 ```
 
 ## Multiple menus
-You can also use both a left and a right menu.
+You can also use both a left and a right menu. A `target` option is available on the toggle component to target a specific menu (defaults to `left` or the only available menu if there is just one).
 
 ```handlebars
 <MobileMenuWrapper as |mmw|>
