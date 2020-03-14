@@ -58,7 +58,7 @@ export default class TrayComponent extends Component {
       : `right: -${this.width}px; transform: translateX(-${this.position}px);`;
 
     if (this.args.shadowEnabled && this.progress > 0) {
-      style += `box-shadow: 0 5px 10px rgba(0,0,0,${0.3 * this.progress + 0.05});`
+      style += `box-shadow: 0 5px 10px rgba(0,0,0,${0.3 * this.progress});`
     }
 
     return htmlSafe(style);
