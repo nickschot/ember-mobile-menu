@@ -77,6 +77,61 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.dom('.mobile-menu').hasClass('mobile-menu--open');
   });
 
+  test('it toggles the right menu when it is the only one', async function(assert){
+    assert.expect(2);
+
+    await render(hbs`
+      <MobileMenuWrapper as |mmw|>
+        <mmw.Toggle>Menu</mmw.Toggle>
+
+        <mmw.MobileMenu @type="right" as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
+    `);
+
+    assert.dom('.mobile-menu--right').doesNotHaveClass('mobile-menu--open');
+    await click('.mobile-menu__toggle');
+
+    assert.dom('.mobile-menu--right').hasClass('mobile-menu--open');
+  });
+
+  test('it toggles the targetted menu', async function(assert){
+    assert.expect(8);
+
+    this.set('target', 'right');
+
+    await render(hbs`
+      <MobileMenuWrapper as |mmw|>
+        <mmw.Toggle @target={{this.target}}>Menu</mmw.Toggle>
+
+        <mmw.MobileMenu @type="left" as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+        <mmw.MobileMenu @type="right" as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
+    `);
+
+    assert.dom('.mobile-menu--left').doesNotHaveClass('mobile-menu--open');
+    assert.dom('.mobile-menu--right').doesNotHaveClass('mobile-menu--open');
+    await click('.mobile-menu__toggle');
+
+    assert.dom('.mobile-menu--left').doesNotHaveClass('mobile-menu--open');
+    assert.dom('.mobile-menu--right').hasClass('mobile-menu--open');
+
+    await click('.mobile-menu__toggle');
+    this.set('target', 'left');
+
+    assert.dom('.mobile-menu--left').doesNotHaveClass('mobile-menu--open');
+    assert.dom('.mobile-menu--right').doesNotHaveClass('mobile-menu--open');
+    await click('.mobile-menu__toggle');
+
+    assert.dom('.mobile-menu--left').hasClass('mobile-menu--open');
+    assert.dom('.mobile-menu--right').doesNotHaveClass('mobile-menu--open');
+  });
+
   test('it closes the menu when the mask is clicked', async function(assert){
     assert.expect(4);
 

@@ -131,9 +131,15 @@ export default class MobileMenuWrapper extends Component {
 
   @action
   toggle(target){
-    const targetMenu = target === 'right'
-      ? this.rightMenu
-      : this.leftMenu;
+    let targetMenu = this.leftMenu;
+
+    if (target === 'right') {
+      targetMenu = this.rightMenu;
+    } else if (target === 'left') {
+      targetMenu = this.leftMenu;
+    } else if (this.rightMenu && !this.leftMenu) {
+      targetMenu = this.rightMenu;
+    }
 
     if(targetMenu){
       if(this.activeMenu){
