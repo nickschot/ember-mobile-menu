@@ -1,14 +1,11 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-
 import { action } from '@ember/object';
-import { getOwner } from '@ember/application';
+import { assert } from '@ember/debug';
 
-import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 import Tween from 'ember-mobile-core/tween';
 import { restartableTask } from 'ember-concurrency-decorators';
 import normalizeCoordinates from '../utils/normalize-coordinates';
-import { assert } from '@ember/debug';
 
 import defineModifier from 'ember-concurrency-test-waiter/define-modifier';
 defineModifier();
@@ -45,7 +42,7 @@ export default class MobileMenu extends Component {
   }
 
   /**
-   * The maximum width of the menu in pixels.
+   * The maximum width of the menu in pixels. Set to -1 to disable;
    *
    * @argument maxWidth
    * @type Number
@@ -189,15 +186,6 @@ export default class MobileMenu extends Component {
     return Math.abs(this.position) / this._width;
   }
 
-  get fastboot() {
-    const owner = getOwner(this);
-    return owner.lookup('service:fastboot');
-  }
-
-  get isFastBoot() {
-    return !!this.fastboot?.isFastBoot;
-  }
-
   /**
    * Current menu width in px
    *
@@ -206,9 +194,11 @@ export default class MobileMenu extends Component {
    * @private
    */
   get _width() {
-    return this.isFastBoot
-      ? this.maxWidth
-      : Math.min(this.width / 100 * getWindowWidth(), this.maxWidth);
+    const width = this.args.parentBoundingClientRect
+      ? this.width / 100 * this.args.parentBoundingClientRect?.width
+      : this.width;
+
+    return this.maxWidth === -1 ? width : Math.min(width, this.maxWidth);
   }
 
   @restartableTask({
