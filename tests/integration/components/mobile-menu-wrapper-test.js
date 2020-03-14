@@ -357,4 +357,32 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await settled();
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
   });
+
+  test('it renders the menu width the correct width/maxWidth', async function(assert){
+    assert.expect(2);
+
+    this.set('maxWidth', -1);
+
+    await render(hbs`
+      <MobileMenuWrapper as |mmw|>
+        <mmw.Toggle>Menu</mmw.Toggle>
+
+        <mmw.MobileMenu @width={{100}} @maxWidth={{this.maxWidth}} as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
+    `);
+
+    const containerWidth = document.getElementById('ember-testing').getBoundingClientRect().width;
+
+    await click('.mobile-menu__toggle');
+    assert.dom('.mobile-menu__tray').hasStyle({
+      width: `${containerWidth}px`
+    });
+
+    this.set('maxWidth', 100);
+    assert.dom('.mobile-menu__tray').hasStyle({
+      width: `100px`
+    });
+  });
 });
