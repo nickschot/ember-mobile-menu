@@ -8,20 +8,13 @@ module('Integration | Component | mobile-menu/link-to', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    assert.expect(2);
-
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{mobile-menu/link-to 'My Link' 'index'}}`);
-
-    assert.equal(this.element.textContent.trim(), 'My Link');
+    assert.expect(1);
 
     // Template block usage:
     await render(hbs`
-      {{#mobile-menu/link-to 'index'}}
+      <MobileMenu::LinkTo @route="index">
         My Link
-      {{/mobile-menu/link-to}}
+      </MobileMenu::LinkTo>
     `);
 
     assert.equal(this.element.textContent.trim(), 'My Link');
@@ -30,11 +23,13 @@ module('Integration | Component | mobile-menu/link-to', function(hooks) {
   test('it fires the onClick hook when clicked', async function(assert){
     assert.expect(1);
 
-    this.set('handleClick', this.spy());
+    this.owner.register('service:router', this.spy());
 
-    await render(hbs`{{mobile-menu/link-to 'index' onClick=(action handleClick)}}`);
+    this.handleClick = this.spy();
+
+    await render(hbs`{{mobile-menu/link-to "index" onClick=this.handleClick}}`);
     await click('a');
 
-    assert.ok(this.get('handleClick').calledOnce, 'onClick was called once');
+    assert.ok(this.handleClick.calledOnce, 'onClick was called once');
   });
 });

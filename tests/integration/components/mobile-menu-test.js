@@ -6,19 +6,21 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | mobile-menu', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  hooks.before(function() {
+    this.register = () => {};
+    this.unregister = () => {};
+  });
 
-    await render(hbs`{{mobile-menu}}`);
+  test('it renders', async function(assert) {
+    await render(hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}}/>`);
 
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      {{#mobile-menu}}
+      <MobileMenu @register={{this.register}} @unregister={{this.unregister}}>
         template block text
-      {{/mobile-menu}}
+      </MobileMenu>
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
@@ -27,42 +29,42 @@ module('Integration | Component | mobile-menu', function(hooks) {
   test('it is a left menu by default', async function(assert){
     assert.expect(1);
 
-    await render(hbs`{{mobile-menu}}`);
+    await render(hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}}/>`);
     assert.dom('.mobile-menu').hasClass('mobile-menu--left');
   });
 
   test(`it is a right menu if type is 'right'`, async function(assert){
     assert.expect(1);
 
-    await render(hbs`{{mobile-menu type="right"}}`);
+    await render(hbs`<MobileMenu @type="right" @register={{this.register}} @unregister={{this.unregister}}/>`);
     assert.dom('.mobile-menu').hasClass('mobile-menu--right');
   });
 
   test(`it adds a mask by default`, async function(assert){
     assert.expect(1);
 
-    await render(hbs`{{mobile-menu}}`);
+    await render(hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}}/>`);
     assert.dom('.mobile-menu__mask').exists({ count: 1 });
   });
 
   test(`it doesn't add a mask by if maskEnabled=false`, async function(assert){
     assert.expect(1);
 
-    await render(hbs`{{mobile-menu maskEnabled=false}}`);
+    await render(hbs`<MobileMenu @maskEnabled={{false}} @register={{this.register}} @unregister={{this.unregister}}/>`);
     assert.dom('.mobile-menu__mask').doesNotExist();
   });
 
   test(`it adds a shadow by default`, async function(assert){
     assert.expect(1);
 
-    await render(hbs`{{mobile-menu}}`);
+    await render(hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}}/>`);
     assert.dom('.mobile-menu').hasClass('mobile-menu--shadow');
   });
 
   test(`it doesn't add a shadow by if shadowEnabled=false`, async function(assert){
     assert.expect(1);
 
-    await render(hbs`{{mobile-menu shadowEnabled=false}}`);
+    await render(hbs`<MobileMenu @shadowEnabled={{false}} @register={{this.register}} @unregister={{this.unregister}}/>`);
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--shadow');
   });
 });

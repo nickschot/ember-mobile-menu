@@ -1,17 +1,19 @@
-import Component from '@ember/component';
-import layout from '../templates/components/mobile-menu';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
-import { computed } from '@ember/object';
-import { or } from '@ember/object/computed';
+import { action } from '@ember/object';
 import { getOwner } from '@ember/application';
 
-import ComponentChildMixin from 'ember-mobile-menu/mixins/component-child';
-import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
 import getWindowWidth from 'ember-mobile-core/utils/get-window-width';
 import Tween from 'ember-mobile-core/tween';
-import { task } from 'ember-concurrency';
-import withTestWaiter from 'ember-concurrency-test-waiter/with-test-waiter';
+import { restartableTask } from 'ember-concurrency-decorators';
 import normalizeCoordinates from '../utils/normalize-coordinates';
+import { assert } from '@ember/debug';
+
+import defineModifier from 'ember-concurrency-test-waiter/define-modifier';
+defineModifier();
+
+const _fn = () => {};
 
 /**
  * Menu component
@@ -19,19 +21,7 @@ import normalizeCoordinates from '../utils/normalize-coordinates';
  * @class MobileMenu
  * @public
  */
-export default Component.extend(ComponentChildMixin, RecognizerMixin, {
-  layout,
-
-  classNames: ['mobile-menu'],
-  classNameBindings: [
-    'isLeft:mobile-menu--left',
-    'isRight:mobile-menu--right',
-    'isDragging:mobile-menu--dragging',
-    'isOpen:mobile-menu--open',
-    'isTransitioning:mobile-menu--transitioning',
-    'shadowEnabled:mobile-menu--shadow'
-  ],
-
+export default class MobileMenu extends Component {
   /**
    * The type of menu. Currently 'left' and 'right' are supported.
    *
@@ -39,7 +29,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @type String
    * @default 'left'
    */
-  type:           'left', // 'left' or 'right'
+  get type() {
+    return this.args.type ?? 'left';
+  }
 
   /**
    * The percentage of the screen the menu will take when opened.
@@ -48,7 +40,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @type Number [0-100]
    * @default 85
    */
-  width:          85,     // 0-100
+  get width() {
+    return this.args.width ?? 85;
+  }
 
   /**
    * The maximum width of the menu in pixels.
@@ -57,7 +51,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @type Number
    * @default 300
    */
-  maxWidth:       300,    // in px
+  get maxWidth() {
+    return this.args.maxWidth ?? 300;
+  }
 
   /**
    * Whether or not a mask is added when the menu is opened.
@@ -66,7 +62,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @type Boolean
    * @default true
    */
-  maskEnabled:    true,
+  get maskEnabled() {
+    return this.args.maskEnabled ?? true;
+  }
 
   /**
    * Whether or not a shadow is added to the menu.
@@ -75,7 +73,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @type Boolean
    * @default true
    */
-  shadowEnabled:  true,
+  get shadowEnabled() {
+    return this.args.shadowEnabled ?? true;
+  }
 
   /**
    * The default swipe velocity needed to fully open the menu.
@@ -84,15 +84,19 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @type Number
    * @default 0.3
    */
-  triggerVelocity: 0.3,
+  get triggerVelocity() {
+    return this.args.triggerVelocity ?? 0.3;
+  }
 
   /**
-   * @property embed
+   * @argument embed
    * @type boolean
    * @default false
    * @protected
    */
-  embed: false,
+  get embed() {
+    return this.args.embed ?? false;
+  }
 
   /**
    * Hook fired when the menu is opened. You can pass in an action. The menu instance will be passed to the action.
@@ -101,7 +105,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @type Function
    * @protected
    */
-  onOpen(){},
+  get onOpen() {
+    return this.args.onOpen ?? _fn;
+  }
 
   /**
    * Hook fired when the menu is closed. You can pass in an action. The menu instance will be passed to the action.
@@ -110,7 +116,9 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @type Action
    * @protected
    */
-  onClose(){},
+  get onClose() {
+    return this.args.onClose ?? _fn;
+  }
 
   /**
    * @property isDragging
@@ -118,7 +126,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @default false
    * @private
    */
-  isDragging: false,
+  @tracked isDragging = false;
 
   /**
    * @property position
@@ -126,7 +134,7 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @default 0
    * @private
    */
-  position:  0,
+  @tracked position = 0;
 
   /**
    * @property dxCorrection
@@ -134,29 +142,61 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @default 0
    * @private
    */
-  dxCorrection: 0,
+  @tracked dxCorrection = 0;
 
-  isLeft: computed('type', function(){
-    return this.get('type') === 'left';
-  }),
-  isRight: computed('type', function(){
-    return this.get('type') === 'right';
-  }),
-  isOpen: computed('isDragging', 'position', '_width', 'isLeft', function(){
-    return !this.get('isDragging') && this.get('position') === this.get('_width');
-  }),
-  isTransitioning: or('open.isRunning', 'close.isRunning'),
-  relativePosition: computed('position', function(){
-    return Math.abs(this.get('position')) / this.get('_width');
-  }),
+  constructor() {
+    super(...arguments);
 
-  fastboot: computed(function() {
+    assert('register function argument not passed. You should not be using <MobileMenu/> directly.', typeof this.args.register === 'function');
+    assert('unregister function argument not passed. You should not be using <MobileMenu/> directly.', typeof this.args.unregister === 'function');
+
+    this.args.register(this);
+  }
+
+  willDestroy() {
+    this.args.unregister(this);
+    super.willDestroy(...arguments);
+  }
+
+  get classNames() {
+    let classes = 'mobile-menu';
+    if (this.isLeft) classes += ' mobile-menu--left';
+    if (this.isRight) classes += ' mobile-menu--right';
+    if (this.isDragging) classes += ' mobile-menu--dragging';
+    if (this.isOpen) classes += ' mobile-menu--open';
+    if (this.isTransitioning) classes += ' mobile-menu--transitioning';
+    if (this.shadowEnabled) classes += ' mobile-menu--shadow';
+    return classes;
+  }
+
+  get isLeft() {
+    return this.type === 'left';
+  }
+
+  get isRight() {
+    return this.type === 'right';
+  }
+
+  get isOpen() {
+    return !this.isDragging && this.position === this._width;
+  }
+
+  get isTransitioning() {
+    return this._open.isRunning || this._close.isRunning;
+  }
+
+  get relativePosition() {
+    return Math.abs(this.position) / this._width;
+  }
+
+  get fastboot() {
     const owner = getOwner(this);
     return owner.lookup('service:fastboot');
-  }),
-  isFastBoot: computed('fastboot', function(){
-    return !!this.get('fastboot.isFastBoot');
-  }),
+  }
+
+  get isFastBoot() {
+    return !!this.fastboot?.isFastBoot;
+  }
 
   /**
    * Current menu width in px
@@ -165,67 +205,72 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
    * @return {Boolean}
    * @private
    */
-  _width: computed('width', 'maxWidth', function(){
-    return this.get('isFastBoot')
-      ? this.get('maxWidth')
-      : Math.min(this.get('width') / 100 * getWindowWidth(), this.get('maxWidth'));
-  }),
+  get _width() {
+    return this.isFastBoot
+      ? this.maxWidth
+      : Math.min(this.width / 100 * getWindowWidth(), this.maxWidth);
+  }
 
-  open: withTestWaiter(task(function * (){
-    const startPos = this.get('position');
-    const diff = this.get('_width') - startPos;
+  @restartableTask({
+    withTestWaiter: true
+  })
+  *_open(){
+    const startPos = this.position;
+    const diff = this._width - startPos;
 
     const anim = new Tween((progress) => {
-      this.set('position', startPos + diff * progress);
+      this.position = startPos + diff * progress;
     }, { duration: 300});
     yield anim.start();
 
-    this.get('onOpen')(this);
-  }).restartable()),
+    this.onOpen(this);
+  }
 
-  close: withTestWaiter(task(function * (){
-    const startPos = this.get('position');
-
+  @restartableTask({
+    withTestWaiter: true
+  })
+  *_close(){
     const anim = new Tween((progress) => {
-      this.set('position', startPos * (1 - progress));
+      this.position = this.position * (1 - progress);
     }, { duration: 300});
     yield anim.start();
 
-    this.get('onClose')();
-  }).restartable()),
+    this.onClose();
+  }
 
-  actions: {
-    open(){
-      this.get('open').perform();
-    },
-    close(){
-      this.get('close').perform();
-    }
-  },
+  @action
+  open(){
+    this._open.perform();
+  }
 
-  // pan handlers for opening the menu
+  @action
+  close(){
+    this._close.perform();
+  }
+
+  @action
   panOpen(e){
-    this.set('isDragging', true);
+    this.isDragging = true;
 
-    const _e = normalizeCoordinates(e, this.parentElement);
+    const _e = normalizeCoordinates(e, this.args.parentElement);
     const {
       current: {
         distanceX
       }
     } = _e;
 
-    const dx = this.get('isLeft') ? distanceX : -distanceX;
-    const width = this.get('_width');
+    const dx = this.isLeft ? distanceX : -distanceX;
+    const width = this._width;
 
     // enforce limits on the offset [0, width]
-    const targetPosition = Math.min(Math.max(dx, 0), width);
+    this.position = Math.min(Math.max(dx, 0), width);
+  }
 
-    this.set('position', targetPosition);
-  },
+  @action
   panOpenEnd(e){
-    this.set('isDragging', false);
+    this.isDragging = false;
 
-    const _e = normalizeCoordinates(e, this.parentElement);
+    const _e = normalizeCoordinates(e, this.args.parentElement);
     const {
       current: {
         distanceX,
@@ -233,25 +278,25 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       }
     } = _e;
 
-    const triggerVelocity = this.get('triggerVelocity');
+    const triggerVelocity = this.triggerVelocity;
 
-    const isLeft = this.get('isLeft');
-    const width = this.get('_width');
+    const isLeft = this.isLeft;
+    const width = this._width;
 
     const dx = isLeft ? distanceX : -distanceX;
     const vx = isLeft ? velocityX : -velocityX;
 
     // when overall horizontal velocity is high, force open/close and skip the rest
     if (vx > triggerVelocity || dx > width / 2) {
-      this.get('open').perform();
+      this._open.perform();
     } else {
-      this.get('close').perform();
+      this._close.perform();
     }
-  },
+  }
 
-  // pan handlers for closing the menu
+  @action
   didPan(e){
-    const _e = normalizeCoordinates(e, this.parentElement);
+    const _e = normalizeCoordinates(e, this.args.parentElement);
     const {
       current: {
         distanceX,
@@ -259,26 +304,26 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
       }
     } = _e;
 
-    const isLeft = this.get('isLeft');
-    const windowWidth = this.parentElement.getBoundingClientRect().width;
-    const width = this.get('_width');
+    const isLeft = this.isLeft;
+    const windowWidth = this.args.parentElement.getBoundingClientRect().width;
+    const width = this._width;
 
     const dx = isLeft ? distanceX : -distanceX;
     const cx = isLeft ? x : windowWidth - x;
 
-    if(this.get('isOpen') && !this.get('isDragging')){
+    if(this.isOpen && !this.isDragging){
       // calculate and set a correction delta if the pan started outside the opened menu
       if(cx < width) {
-        this.set('isDragging', true);
-        this.set('dxCorrection', dx);
+        this.isDragging = true;
+        this.dxCorrection = dx;
       }
     }
 
-    if(this.get('isDragging')){
+    if(this.isDragging){
       let targetPosition = dx;
 
       // correct targetPosition with dxCorrection set earlier
-      targetPosition -= this.get('dxCorrection');
+      targetPosition -= this.dxCorrection;
 
       // enforce limits on the offset [0, width]
       if(cx < width){
@@ -287,15 +332,17 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
         } else if(targetPosition < -1 * width){
           targetPosition = -1 * width;
         }
-        this.set('position', width + targetPosition);
+        this.position = width + targetPosition;
       }
     }
-  },
-  didPanEnd(e){
-    if(this.get('isDragging')){
-      this.set('isDragging', false);
+  }
 
-      const _e = normalizeCoordinates(e, this.parentElement);
+  @action
+  didPanEnd(e){
+    if(this.isDragging){
+      this.isDragging = false;
+
+      const _e = normalizeCoordinates(e, this.args.parentElement);
       const {
         current: {
           distanceX,
@@ -303,22 +350,22 @@ export default Component.extend(ComponentChildMixin, RecognizerMixin, {
         }
       } = _e;
 
-      const triggerVelocity = this.get('triggerVelocity');
+      const triggerVelocity = this.triggerVelocity;
 
-      const isLeft = this.get('isLeft');
-      const width = this.get('_width');
+      const isLeft = this.isLeft;
+      const width = this._width;
 
       const dx = isLeft ? distanceX : -distanceX;
       const vx = isLeft ? velocityX : -velocityX;
 
       // the pan action is over, cleanup and set the correct final menu position
       if (vx < -1 * triggerVelocity || -1 * dx > width / 2){
-        this.get('close').perform();
+        this._close.perform();
       } else {
-        this.get('open').perform();
+        this._open.perform();
       }
 
-      this.set('dxCorrection', 0);
+      this.dxCorrection = 0;
     }
   }
-});
+}

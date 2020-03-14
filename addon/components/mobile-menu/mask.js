@@ -1,7 +1,7 @@
-import Component from '@ember/component';
-
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/string';
+
+const _fn = () => {};
 
 /**
  * A mask component.
@@ -12,10 +12,7 @@ import { htmlSafe } from '@ember/string';
  * @class Mask
  * @private
  */
-export default Component.extend({
-  classNames: ['mobile-menu__mask'],
-  attributeBindings: ['style'],
-
+export default class MaskComponent extends Component {
   /**
    * Offset (or "deadzone") used when calculating what opacity the mask should
    * currently be.
@@ -27,7 +24,9 @@ export default Component.extend({
    * @type number
    * @default 0.1
    */
-  maskOpacityOffset: 0.1,
+  get maskOpacityOffset() {
+    return this.args.maskOpacityOffset ?? 0.1;
+  }
 
   /**
    * @argument isOpen
@@ -35,7 +34,9 @@ export default Component.extend({
    * @default false
    * @protected
    */
-  isOpen: false,
+  get isOpen() {
+    return this.args.isOpen ?? false;
+  }
 
   /**
    * @argument position
@@ -43,7 +44,9 @@ export default Component.extend({
    * @default 0
    * @protected
    */
-  position: 0,
+  get position() {
+    return this.args.position ?? 0;
+  }
 
   /**
    * @argument onClick
@@ -51,31 +54,23 @@ export default Component.extend({
    * @default function(){}
    * @protected
    */
-  onClick(){},
-
-  style: computed(
-    'isOpen', 'position',
-    'maskOpacityOffset',
-    function() {
-      let style = '';
-      const position = this.get('position');
-
-      style += !this.get('isOpen') && position === 0
-        ? 'visibility: hidden;'
-        : 'visibility: visible;';
-
-      style += `opacity: ${
-        position > this.get('maskOpacityOffset')
-          ? (position - this.get('maskOpacityOffset'))
-            / (1 - this.get('maskOpacityOffset'))
-          : 0
-      };`;
-
-      return htmlSafe(style);
-    }
-  ),
-
-  click(){
-    this.get('onClick')();
+  get onClick(){
+    return this.args.onClick ?? _fn;
   }
-});
+
+  get style() {
+    let style = '';
+
+    style += !this.isOpen && this.position === 0
+      ? 'visibility: hidden;'
+      : 'visibility: visible;';
+
+    style += `opacity: ${
+      this.position > this.maskOpacityOffset
+        ? (this.position - this.maskOpacityOffset) / (1 - this.maskOpacityOffset)
+        : 0
+    };`;
+
+    return htmlSafe(style);
+  }
+}

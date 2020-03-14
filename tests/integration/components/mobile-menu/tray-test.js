@@ -10,15 +10,15 @@ module('Integration | Component | mobile-menu/tray', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{mobile-menu/tray}}`);
+    await render(hbs`<MobileMenu::Tray/>`);
 
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      {{#mobile-menu/tray}}
+      <MobileMenu::Tray>
         template block text
-      {{/mobile-menu/tray}}
+      </MobileMenu::Tray>
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');

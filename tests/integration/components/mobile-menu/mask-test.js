@@ -10,7 +10,7 @@ module('Integration | Component | mobile-menu/mask', function(hooks) {
   test('it renders', async function(assert) {
     assert.expect(1);
 
-    await render(hbs`{{mobile-menu/mask}}`);
+    await render(hbs`<MobileMenu::Mask/>`);
 
     assert.equal(this.element.textContent.trim(), '');
   });
@@ -18,18 +18,17 @@ module('Integration | Component | mobile-menu/mask', function(hooks) {
   test('it triggers the onClick hook when clicked', async function(assert) {
     assert.expect(1);
 
-    let handleClick = this.spy();
-    this.actions = { handleClick };
+    this.handleClick = this.spy();
 
     // Template block usage:
     await render(hbs`
-      {{#mobile-menu/mask 'index' onClick=(action 'handleClick')}}
+      <MobileMenu::Mask @onClick={{this.handleClick}}>
         My Link
-      {{/mobile-menu/mask}}
+      </MobileMenu::Mask>
     `);
 
     await click('.mobile-menu__mask');
 
-    assert.ok(handleClick.calledOnce, 'onClick hook has been called');
+    assert.ok(this.handleClick.calledOnce, 'onClick hook has been called');
   });
 });

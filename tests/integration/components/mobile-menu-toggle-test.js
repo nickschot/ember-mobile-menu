@@ -11,15 +11,15 @@ module('Integration | Component | mobile-menu-toggle', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{mobile-menu-toggle}}`);
+    await render(hbs`<MobileMenuToggle/>`);
 
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      {{#mobile-menu-toggle}}
+      <MobileMenuToggle>
         template block text
-      {{/mobile-menu-toggle}}
+      </MobileMenuToggle>
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
@@ -28,26 +28,24 @@ module('Integration | Component | mobile-menu-toggle', function(hooks) {
   test('it fires the `onClick` hook with the "left" argument when clicked', async function(assert){
     assert.expect(2);
 
-    const handleClick = this.spy();
-    this.set('actions', { handleClick });
+    this.handleClick = this.spy();
 
-    await render(hbs`{{mobile-menu-toggle onClick=(action "handleClick")}}`);
+    await render(hbs`<MobileMenuToggle @onClick={{this.handleClick}}/>`);
     await click('.mobile-menu__toggle');
 
-    assert.ok(handleClick.calledOnce, 'onClick was called once');
-    assert.ok(handleClick.calledWithExactly('left'));
+    assert.ok(this.handleClick.calledOnce, 'onClick was called once');
+    assert.ok(this.handleClick.calledWithExactly('left'));
   });
 
   test('it fires the `onClick` hook with the passed target when clicked', async function(assert){
     assert.expect(2);
 
-    const handleClick = this.spy();
-    this.set('actions', { handleClick });
+    this.handleClick = this.spy();
 
-    await render(hbs`{{mobile-menu-toggle target="right" onClick=(action "handleClick")}}`);
+    await render(hbs`<MobileMenuToggle @target="right" @onClick={{this.handleClick}}/>`);
     await click('.mobile-menu__toggle');
 
-    assert.ok(handleClick.calledOnce, 'onClick was called once');
-    assert.ok(handleClick.calledWithExactly('right'));
+    assert.ok(this.handleClick.calledOnce, 'onClick was called once');
+    assert.ok(this.handleClick.calledWithExactly('right'));
   });
 });

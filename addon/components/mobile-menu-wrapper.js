@@ -1,13 +1,13 @@
-import Component from '@ember/component';
-import layout from '../templates/components/mobile-menu-wrapper';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
-import { computed } from '@ember/object';
+import { action, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-import RecognizerMixin from 'ember-mobile-core/mixins/pan-recognizer';
-import ComponentParentMixin from 'ember-mobile-menu/mixins/component-parent';
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
 import normalizeCoordinates from '../utils/normalize-coordinates';
+
+import { assert } from '@ember/debug';
 
 /**
  * Wrapper component for menu's. Provides pan recognition and management.
@@ -21,12 +21,8 @@ import normalizeCoordinates from '../utils/normalize-coordinates';
  * @yield {Action} wrapper.actions.close
  * @public
  */
-export default Component.extend(RecognizerMixin, ComponentParentMixin, {
-  layout,
-  classNames: ['mobile-menu-wrapper'],
-  classNameBindings: ['embed:mobile-menu-wrapper--embedded'],
-
-  userAgent: service(),
+export default class MobileMenuWrapper extends Component {
+  @service userAgent;
 
   /**
    * Horizontal width of the detection zone in pixels
@@ -35,18 +31,10 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    * @type Number
    * @default 15
    */
-  openDetectionWidth: 15,  // in px
+  get openDetectionWidth() {
+    return this.args.openDetectionWidth ?? 15;
+  }
 
-  /**
-   * Denotes whether or not a menu is currently being dragged open. Turns false when the user releases the menu.
-   *
-   * @argument isDraggingOpen
-   * @type Boolean
-   * @default false
-   */
-  isDraggingOpen: false,
-
-  // ember-mobile-core options
   /**
    * If true the capture phase will be used for the event, giving it precedence over events in the (default)
    * bubble phase. This is handy for menus as they are usually defined high in the dom, are opened with edge gestures
@@ -54,11 +42,13 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    *
    * See <https://www.w3.org/TR/DOM-Level-3-Events/#event-flow> for more details.
    *
-   * @argument useCapture
+   * @argument capture
    * @type Boolean
    * @default true
    */
-  useCapture: true,
+  get capture() {
+    return this.args.capture ?? true;
+  }
 
   /**
    * If true, the component tries to prevent scroll when a menu is open
@@ -67,9 +57,27 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    * @type Boolean
    * @default false
    */
-  preventScroll: false,
+  get preventScroll() {
+    return this.args.preventScroll ?? false;
+  }
 
-  embed: false,
+  /**
+   * @argument embed
+   * @type Boolean
+   * @default false
+   */
+  get embed() {
+    return this.args.embed ?? false;
+  }
+
+  /**
+   * Denotes whether or not a menu is currently being dragged open. Turns false when the user releases the menu.
+   *
+   * @property isDraggingOpen
+   * @type Boolean
+   * @default false
+   */
+  @tracked isDraggingOpen = false;
 
   /**
    * The currently active menu component.
@@ -79,58 +87,79 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    * @default null
    * @private
    */
-  activeMenu: null,
+  @tracked activeMenu = null;
 
-  childMenus: computed.filter('children', function(view){
-    return view instanceof MobileMenu;
-  }),
-  leftMenu: computed('children.@each.type', function(){
-    return this.get('children').find(menu => menu.get('isLeft'));
-  }),
-  rightMenu: computed('children.@each.type', function(){
-    return this.get('children').find(menu => menu.get('isRight'));
-  }),
+  @tracked _element = null;
+  @tracked children = [];
 
-  actions: {
-    didCloseMenu(){
-      this.set('activeMenu', null);
-    },
-    didOpenMenu(menu){
-      this.set('activeMenu', menu);
-    },
+  @action
+  registerChild(component) {
+    assert('component was already registered as a child', !this.children.includes(component));
 
-    toggle(target){
-      const activeMenu = this.get('activeMenu');
-      const targetMenu = target === 'right'
-        ? this.get('rightMenu')
-        : this.get('leftMenu');
+    this.children.push(component);
+  }
 
-      if(targetMenu){
-        if(activeMenu){
-          activeMenu.send('close');
-        }
+  @action
+  unregisterChild(component) {
+    this.children.unshift(component);
+  }
 
-        if(activeMenu !== targetMenu){
-          targetMenu.send('open');
-        }
+  @computed('children')
+  get childMenus() {
+    return this.children.filter((view) => view instanceof MobileMenu);
+  }
+
+  @computed('children.@each.type')
+  get leftMenu() {
+    return this.children.find(menu => menu.isLeft);
+  }
+
+  @computed('children.@each.type')
+  get rightMenu() {
+    return this.children.find(menu => menu.isRight);
+  }
+
+  @action
+  didCloseMenu(){
+    this.activeMenu = null;
+  }
+
+  @action
+  didOpenMenu(menu){
+    this.activeMenu = menu;
+  }
+
+  @action
+  toggle(target){
+    const targetMenu = target === 'right'
+      ? this.rightMenu
+      : this.leftMenu;
+
+    if(targetMenu){
+      if(this.activeMenu){
+        this.activeMenu.close();
       }
-    },
 
-    close(){
-      const activeMenu = this.get('activeMenu');
-
-      if(activeMenu){
-        activeMenu.send('close');
+      if(this.activeMenu !== targetMenu){
+        targetMenu.open();
       }
     }
-  },
+  }
 
+  @action
+  close(){
+    if(this.activeMenu){
+      this.activeMenu.close();
+    }
+  }
+
+  @action
   didPanStart(e){
     // only detect the pan if there is no currently active menu
     // disable edge pan for iOS browsers in non-standalone mode as it conflicts
     // with iOS's pan to go back/forward
-    if(!this.get('activeMenu') && !this._isIOSbrowser()){
-      const _e = normalizeCoordinates(e, this.element);
+    if(!this.activeMenu && !this._isIOSbrowser()){
+      const _e = normalizeCoordinates(e, this._element);
       const {
         initial: {
           x
@@ -139,37 +168,37 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
 
       // only detect initial drag from edges of the window if a menu is defined
       // for that side
-      if(x < this.get('openDetectionWidth') && this.get('leftMenu')){
-        this.lockPan();
-        this.set('activeMenu', this.get('leftMenu'));
-        this.set('isDraggingOpen', true);
+      if(x < this.openDetectionWidth && this.leftMenu){
+        // TODO: this.lockPan();
+        this.activeMenu = this.leftMenu;
+        this.isDraggingOpen = true;
       } else if(
-        x > this.element.getBoundingClientRect().width - this.get('openDetectionWidth')
-        && this.get('rightMenu')
+        x > this._element.getBoundingClientRect().width - this.openDetectionWidth
+        && this.rightMenu
       ){
-        this.lockPan();
-        this.set('activeMenu', this.get('rightMenu'));
-        this.set('isDraggingOpen', true);
+        // TODO: this.lockPan();
+        this.activeMenu = this.rightMenu;
+        this.isDraggingOpen = true;
       }
     }
-  },
+  }
 
+  @action
   didPan(e){
-    const activeMenu = this.get('activeMenu');
-
-    if(activeMenu && this.get('isDraggingOpen')){
-      const _e = normalizeCoordinates(e, this.element);
-      activeMenu.panOpen(_e);
+    if(this.activeMenu && this.isDraggingOpen){
+      const _e = normalizeCoordinates(e, this._element);
+      this.activeMenu.panOpen(_e);
     }
-  },
+  }
 
+  @action
   didPanEnd(e) {
-    if(this.get('isDraggingOpen') && this.get('activeMenu')){
-      const _e = normalizeCoordinates(e, this.element);
-      this.set('isDraggingOpen', false);
-      this.get('activeMenu').panOpenEnd(_e);
+    if(this.isDraggingOpen && this.activeMenu){
+      const _e = normalizeCoordinates(e, this._element);
+      this.isDraggingOpen = false;
+      this.activeMenu.panOpenEnd(_e);
     }
-  },
+  }
 
   /**
    * Detect if the user is using the app from a browser on iOS
@@ -179,6 +208,6 @@ export default Component.extend(RecognizerMixin, ComponentParentMixin, {
    * @private
    */
   _isIOSbrowser(){
-    return this.get('userAgent.os.isIOS') && !window.navigator.standalone;
+    return this.userAgent.os.isIOS && !window.navigator.standalone;
   }
-});
+}

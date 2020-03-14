@@ -8,18 +8,15 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{mobile-menu-wrapper}}`);
+    await render(hbs`<MobileMenuWrapper/>`);
 
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      {{#mobile-menu-wrapper}}
+      <MobileMenuWrapper>
         template block text
-      {{/mobile-menu-wrapper}}
+      </MobileMenuWrapper>
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
@@ -29,11 +26,11 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.expect(2);
 
     await render(hbs`
-      {{#mobile-menu-wrapper as |mmw|}}
-        {{#mmw.mobile-menu as |mm|}}
-          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-        {{/mmw.mobile-menu}}
-      {{/mobile-menu-wrapper}}
+      <MobileMenuWrapper as |mmw|>
+        <mmw.MobileMenu as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
     `);
 
     assert.dom('.mobile-menu').hasClass('mobile-menu--left');
@@ -44,11 +41,11 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.expect(2);
 
     await render(hbs`
-      {{#mobile-menu-wrapper as |mmw|}}
-        {{#mmw.mobile-menu type="right" as |mm|}}
-          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-        {{/mmw.mobile-menu}}
-      {{/mobile-menu-wrapper}}
+      <MobileMenuWrapper as |mmw|>
+        <mmw.MobileMenu @type="right" as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
     `);
 
     assert.dom('.mobile-menu').hasClass('mobile-menu--right');
@@ -59,13 +56,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.expect(5);
 
     await render(hbs`
-      {{#mobile-menu-wrapper as |mmw|}}
-        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      <MobileMenuWrapper as |mmw|>
+        <mmw.Toggle>Menu</mmw.Toggle>
 
-        {{#mmw.mobile-menu as |mm|}}
-          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-        {{/mmw.mobile-menu}}
-      {{/mobile-menu-wrapper}}
+        <mmw.MobileMenu as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
     `);
 
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
@@ -84,13 +81,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.expect(4);
 
     await render(hbs`
-      {{#mobile-menu-wrapper as |mmw|}}
-        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      <MobileMenuWrapper as |mmw|>
+        <mmw.Toggle>Menu</mmw.Toggle>
 
-        {{#mmw.mobile-menu as |mm|}}
-          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-        {{/mmw.mobile-menu}}
-      {{/mobile-menu-wrapper}}
+        <mmw.MobileMenu as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
     `);
 
     await click('.mobile-menu__toggle');
@@ -109,13 +106,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.expect(2);
 
     await render(hbs`
-      {{#mobile-menu-wrapper as |mmw|}}
-        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      <MobileMenuWrapper as |mmw|>
+        <mmw.Toggle>Menu</mmw.Toggle>
 
-        {{#mmw.mobile-menu as |mm|}}
-          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-        {{/mmw.mobile-menu}}
-      {{/mobile-menu-wrapper}}
+        <mmw.MobileMenu as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
     `);
 
     await pan('.mobile-menu-wrapper', 'right');
@@ -129,13 +126,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.expect(2);
 
     await render(hbs`
-      {{#mobile-menu-wrapper as |mmw|}}
-        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      <MobileMenuWrapper as |mmw|>
+        <mmw.Toggle>Menu</mmw.Toggle>
 
-        {{#mmw.mobile-menu type="right" as |mm|}}
-          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-        {{/mmw.mobile-menu}}
-      {{/mobile-menu-wrapper}}
+        <mmw.MobileMenu @type="right" as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
     `);
 
     await pan('.mobile-menu-wrapper', 'left');
@@ -150,13 +147,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.expect(2);
 
     await render(hbs`
-      {{#mobile-menu-wrapper as |mmw|}}
-        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      <MobileMenuWrapper as |mmw|>
+        <mmw.Toggle>Menu</mmw.Toggle>
 
-        {{#mmw.mobile-menu as |mm|}}
-          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-        {{/mmw.mobile-menu}}
-      {{/mobile-menu-wrapper}}
+        <mmw.MobileMenu as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
     `);
 
     await pan('.mobile-menu-wrapper', 'left');
@@ -170,13 +167,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.expect(2);
 
     await render(hbs`
-      {{#mobile-menu-wrapper as |mmw|}}
-        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      <MobileMenuWrapper as |mmw|>
+        <mmw.Toggle>Menu</mmw.Toggle>
 
-        {{#mmw.mobile-menu as |mm|}}
-          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-        {{/mmw.mobile-menu}}
-      {{/mobile-menu-wrapper}}
+        <mmw.MobileMenu as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
     `);
 
     await click('.mobile-menu__toggle');
@@ -191,13 +188,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.expect(2);
 
     await render(hbs`
-      {{#mobile-menu-wrapper as |mmw|}}
-        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      <MobileMenuWrapper as |mmw|>
+        <mmw.Toggle>Menu</mmw.Toggle>
 
-        {{#mmw.mobile-menu as |mm|}}
-          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-        {{/mmw.mobile-menu}}
-      {{/mobile-menu-wrapper}}
+        <mmw.MobileMenu as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
     `);
 
     await click('.mobile-menu__toggle');
@@ -213,13 +210,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <div class="root-div" style="padding: 100px; height: 500px; background: red;">
-        {{#mobile-menu-wrapper embed=true as |mmw|}}
-          {{#mmw.toggle}}Menu{{/mmw.toggle}}
+        <MobileMenuWrapper @embed={{true}} as |mmw|>
+          <mmw.Toggle>Menu</mmw.Toggle>
 
-          {{#mmw.mobile-menu as |mm|}}
-            {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-          {{/mmw.mobile-menu}}
-        {{/mobile-menu-wrapper}}
+          <mmw.MobileMenu as |mm|>
+            <mm.LinkTo @route="index">Home</mm.LinkTo>
+          </mmw.MobileMenu>
+        </MobileMenuWrapper>
       </div>
     `);
 
@@ -241,13 +238,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <div class="root-div" style="padding: 100px; height: 500px; background: red;">
-        {{#mobile-menu-wrapper embed=true as |mmw|}}
-          {{#mmw.toggle}}Menu{{/mmw.toggle}}
+        <MobileMenuWrapper @embed={{true}} as |mmw|>
+          <mmw.Toggle>Menu</mmw.Toggle>
 
-          {{#mmw.mobile-menu type="right" as |mm|}}
-            {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-          {{/mmw.mobile-menu}}
-        {{/mobile-menu-wrapper}}
+          <mmw.MobileMenu @type="right" as |mm|>
+            <mm.LinkTo @route="index">Home</mm.LinkTo>
+          </mmw.MobileMenu>
+        </MobileMenuWrapper>
       </div>
     `);
 
@@ -264,18 +261,17 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.dom('.mobile-menu').hasClass('mobile-menu--open');
   });
 
-  // TODO: make it test embedded
   test('it closes the menu when dragged from outside the menu', async function(assert){
     assert.expect(2);
 
     await render(hbs`
-      {{#mobile-menu-wrapper as |mmw|}}
-        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+        <MobileMenuWrapper @embed={{true}} as |mmw|>
+        <mmw.Toggle>Menu</mmw.Toggle>
 
-        {{#mmw.mobile-menu as |mm|}}
-          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-        {{/mmw.mobile-menu}}
-      {{/mobile-menu-wrapper}}
+        <mmw.MobileMenu as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
     `);
 
     await click('.mobile-menu__toggle');
@@ -290,13 +286,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.expect(2);
 
     await render(hbs`
-      {{#mobile-menu-wrapper as |mmw|}}
-        {{#mmw.toggle}}Menu{{/mmw.toggle}}
+      <MobileMenuWrapper as |mmw|>
+        <mmw.Toggle>Menu</mmw.Toggle>
 
-        {{#mmw.mobile-menu as |mm|}}
-          {{#mm.link-to 'index'}}Home{{/mm.link-to}}
-        {{/mmw.mobile-menu}}
-      {{/mobile-menu-wrapper}}
+        <mmw.MobileMenu as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
     `);
 
     await click('.mobile-menu__toggle');

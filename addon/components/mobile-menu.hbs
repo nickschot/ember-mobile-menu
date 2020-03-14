@@ -1,0 +1,37 @@
+<div
+  class={{this.classNames}}
+  {{did-pan
+    onPan=this.didPan
+    onPanEnd=this.didPanEnd
+  }}
+  ...attributes
+>
+  {{#unless this.embed}}
+    {{#if this.isOpen}}
+      {{set-body-class "mobile-menu--open"}}
+    {{/if}}
+  {{/unless}}
+
+  {{#if this.maskEnabled}}
+    <MobileMenu::Mask
+      @isOpen={{this.isOpen}}
+      @position={{this.relativePosition}}
+      @onClick={{this.close}}
+    />
+  {{/if}}
+
+  <MobileMenu::Tray
+    @width={{this._width}}
+    @isLeft={{this.isLeft}}
+    @position={{this.position}}
+  >
+    {{yield
+      (hash
+        LinkTo=(component "mobile-menu/link-to" onClick=this.close)
+        actions=(hash
+          close=this.close
+        )
+      )
+    }}
+  </MobileMenu::Tray>
+</div>
