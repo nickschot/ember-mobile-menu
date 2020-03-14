@@ -3,4 +3,39 @@
   @slimHeading="Mobile"
   @strongHeading="Menu"
   @byline="A gesture enabled hamburger menu for Ember."
-/>
+  @class="docs-hero"
+>
+  <DocsDemo @class="mobile-menu-demo" as |demo|>
+    <demo.example @name="landing-demo.hbs" class="example docs-text-left docs-text-black">
+      <MobileMenuWrapper @embed={{true}} as |mmw|>
+        <mmw.Toggle class="docs-no-underline docs-bg-white docs-text-brand docs-text-xs docs-px-3 docs-py-2 docs-rounded docs-mt-4 docs-ml-4 docs-shadow-md hover:docs-shadow-lg docs-transition hover:docs-nudge-t docs-font-bold docs-inline-block docs-uppercase">Menu</mmw.Toggle>
+
+        <p class="docs-m-16 docs-text-center docs-italic">
+          Open your dev tools and switch to responsive mode to try the gestures!
+        </p>
+
+        <mmw.MobileMenu as |mm|>
+          <div class="mobile-menu__header docs-flex docs-flex-col docs-justify-between">
+            <div class="header__text">
+            </div>
+            <div class="header__btn docs-flex docs-justify-between">
+              <div>
+                Nick Schot
+                <small class="docs-block">
+                  info@example.com
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-menu__body">
+            <ul class="mobile-menu__nav">
+              <li class="mobile-menu__nav-item">
+                <mm.LinkTo @route="index">Home</mm.LinkTo>
+              </li>
+            </ul>
+          </div>
+        </mmw.MobileMenu>
+      </MobileMenuWrapper>
+    </demo.example>
+  </DocsDemo>
+</DocsHero>
