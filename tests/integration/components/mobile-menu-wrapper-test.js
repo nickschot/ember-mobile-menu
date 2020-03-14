@@ -373,7 +373,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
       </MobileMenuWrapper>
     `);
 
-    const containerWidth = document.getElementById('ember-testing').getBoundingClientRect().width;
+    const containerWidth = document.querySelector('.mobile-menu-wrapper').getBoundingClientRect().width;
 
     await click('.mobile-menu__toggle');
     assert.dom('.mobile-menu__tray').hasStyle({
