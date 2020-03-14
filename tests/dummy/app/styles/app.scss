@@ -1,5 +1,27 @@
 @import "ember-mobile-menu";
+@import "ember-mobile-menu/themes/android";
 
 .demo-height {
   height: 500px;
+}
+
+.mobile-menu-demo {
+  background: #FFF;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+  border-width: 2px;
+
+  > .example {
+    padding: 0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .mobile-menu-wrapper {
+    height: 500px;
+    max-height: 60vh;
+  }
+
+  .mobile-menu__header {
+    background: lighten(#E04E39, 5%);
+  }
 }
