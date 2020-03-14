@@ -9,10 +9,8 @@ Both a left and a right menu are supported. Dragging is supported through touch 
 
 Requirements
 ------------------------------------------------------------------------------
-This addon currently requires `ember-cli-sass` to be used in the main application. Support for pre-compiled CSS will be added at a later time.
-
-* Ember.js v3.12 or above
-* Ember CLI v2.13 or above
+* Ember.js v3.13 or above
+* Ember CLI v3.12 or above
 * Node.js v10 or above
 
 Installation
