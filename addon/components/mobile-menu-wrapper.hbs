@@ -1,6 +1,7 @@
 <div
   class="mobile-menu-wrapper {{if this.embed 'mobile-menu-wrapper--embedded'}}"
-  {{ref this "_element"}}
+  {{did-insert this.updateBoundingClientRect}}
+  {{did-resize this.updateBoundingClientRect}}
   {{did-pan
     onPanStart=this.didPanStart
     onPan=this.didPan
@@ -16,7 +17,7 @@
         embed=this.embed
         onOpen=this.didOpenMenu
         onClose=this.didCloseMenu
-        parentElement=this._element
+        parentBoundingClientRect=this.boundingClientRect
         register=this.registerChild
         unregister=this.unregisterChild
       )

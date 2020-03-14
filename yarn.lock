@@ -978,6 +978,14 @@
     ember-cli-babel "^6.16.0"
     ember-compatibility-helpers "^1.1.1"
 
+"@ember/render-modifiers@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@ember/render-modifiers/-/render-modifiers-1.0.2.tgz#2e87c48db49d922ce4850d707215caaac60d8444"
+  integrity sha512-6tEnHl5+62NTSAG2mwhGMFPhUrJQjoVqV+slsn+rlTknm2Zik+iwxBQEbwaiQOU1FUYxkS8RWcieovRNMR8inQ==
+  dependencies:
+    ember-cli-babel "^7.10.0"
+    ember-modifier-manager-polyfill "^1.1.0"
+
 "@ember/test-helpers@^1.7.1":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-1.7.1.tgz#cc22a954b3b46856518f034bd492a74e0482389f"
@@ -2815,6 +2823,11 @@ basic-auth@~2.0.0:
   integrity sha512-NF+epuEdnUYVlGuhaxbbq+dvJttwLnGY+YixlXlME5KpQ5W3CnXA5cVTneY3SPbPDRkcjMbifrwmFYcClgOZeg==
   dependencies:
     safe-buffer "5.1.2"
+
+batch-processor@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/batch-processor/-/batch-processor-1.0.0.tgz#75c95c32b748e0850d10c2b168f6bdbe9891ace8"
+  integrity sha1-dclcMrdI4IUNEMKxaPa9vpiRrOg=
 
 bcrypt-pbkdf@^1.0.0:
   version "1.0.2"
@@ -5143,6 +5156,13 @@ electron-to-chromium@^1.3.30, electron-to-chromium@^1.3.363, electron-to-chromiu
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.364.tgz#524bd0cf9c45ba49c508fd3b731a07efbf310b1c"
   integrity sha512-V6hyxQ9jzt6Jy6w8tAv4HHKhIaVS6psG/gmwtQ+2+itdkWMHJLHJ4m1sFep/fWkdKvfJcPXuywfnECRzfNa7gw==
 
+element-resize-detector@^1.1.15:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/element-resize-detector/-/element-resize-detector-1.2.1.tgz#b0305194447a4863155e58f13323a0aef30851d1"
+  integrity sha512-BdFsPepnQr9fznNPF9nF4vQ457U/ZJXQDSNF1zBe7yaga8v9AdZf3/NElYxFdUh7SitSGt040QygiTo6dtatIw==
+  dependencies:
+    batch-processor "1.0.0"
+
 elliptic@^6.0.0:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.2.tgz#05c5678d7173c049d8ca433552224a495d0e3762"
@@ -5491,7 +5511,7 @@ ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.0.1:
     json-stable-stringify "^1.0.1"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^4.0.7, ember-cli-htmlbars@^4.2.2:
+ember-cli-htmlbars@^4.0.0, ember-cli-htmlbars@^4.0.7, ember-cli-htmlbars@^4.2.2:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.2.3.tgz#ca1a4ce3806594f0a69a1ada3eed749a125cc2bf"
   integrity sha512-AA5N5a7T+9Bc3m+5X076WFYIN4EQL0o/g8acPBZnEolFJhc3TmnSlWay4JwEuvszA1MLFKmZET/VD9CfRw8+EQ==
@@ -5931,6 +5951,17 @@ ember-concurrency-test-waiter@^0.3.1:
     ember-cli-typescript "^3.1.3"
     ember-inflector "^3.0.1"
 
+ember-did-resize-modifier@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-did-resize-modifier/-/ember-did-resize-modifier-1.0.0.tgz#01b7d96be91c5ee31a19505fe8e911a7bd97947f"
+  integrity sha512-W64HlxKaBoDVOPxJOTNa/rriHKe2jyDKE3SD+QJtixSoAK8TR6ume6zNtR7+vWC8R0q4WA6BX+I5FYNN4n687w==
+  dependencies:
+    element-resize-detector "^1.1.15"
+    ember-auto-import "^1.5.3"
+    ember-cli-babel "^7.12.0"
+    ember-cli-htmlbars "^4.0.0"
+    ember-modifier-manager-polyfill "^1.2.0"
+
 ember-disable-prototype-extensions@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/ember-disable-prototype-extensions/-/ember-disable-prototype-extensions-1.1.3.tgz#1969135217654b5e278f9fe2d9d4e49b5720329e"
@@ -6066,7 +6097,7 @@ ember-modal-dialog@^3.0.0-beta.4:
     ember-ignore-children-helper "^1.0.1"
     ember-wormhole "^0.5.5"
 
-ember-modifier-manager-polyfill@^1.2.0:
+ember-modifier-manager-polyfill@^1.1.0, ember-modifier-manager-polyfill@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ember-modifier-manager-polyfill/-/ember-modifier-manager-polyfill-1.2.0.tgz#cf4444e11a42ac84f5c8badd85e635df57565dda"
   integrity sha512-bnaKF1LLKMkBNeDoetvIJ4vhwRPKIIumWr6dbVuW6W6p4QV8ZiO+GdF8J7mxDNlog9CeL9Z/7wam4YS86G8BYA==
@@ -6106,13 +6137,6 @@ ember-qunit@^4.6.0:
     ember-cli-babel "^7.12.0"
     ember-cli-test-loader "^2.2.0"
     qunit "^2.9.3"
-
-ember-ref-modifier@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-ref-modifier/-/ember-ref-modifier-1.0.0.tgz#3e98d8c26eda7cf4da4b2d82d6a0c80c5058efed"
-  integrity sha512-JPCwlKerzZCbc5GO01xcgRJv5JcK1O61FF5PE6UxMNRwgDxT33mjTPO2JFhn4HGoG0NvpnkpLLxw+qf1KuX8kw==
-  dependencies:
-    ember-cli-babel "^7.13.2"
 
 ember-resolver@^7.0.0:
   version "7.0.0"
