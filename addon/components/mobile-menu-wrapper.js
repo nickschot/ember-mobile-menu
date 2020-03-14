@@ -89,7 +89,14 @@ export default class MobileMenuWrapper extends Component {
    */
   @tracked activeMenu = null;
 
-  @tracked _element = null;
+  /**
+   * Current BoundingClientRect of the mobile menu wrapper root element
+   * @type DOMRect
+   * @default null
+   * @private
+   */
+  @tracked boundingClientRect = null;
+
   @tracked children = [];
 
   @action
@@ -165,7 +172,7 @@ export default class MobileMenuWrapper extends Component {
     // disable edge pan for iOS browsers in non-standalone mode as it conflicts
     // with iOS's pan to go back/forward
     if(!this.activeMenu && !this._isIOSbrowser()){
-      const _e = normalizeCoordinates(e, this._element);
+      const _e = normalizeCoordinates(e, this.boundingClientRect);
       const {
         initial: {
           x
@@ -179,7 +186,7 @@ export default class MobileMenuWrapper extends Component {
         this.activeMenu = this.leftMenu;
         this.isDraggingOpen = true;
       } else if(
-        x > this._element.getBoundingClientRect().width - this.openDetectionWidth
+        x > this.boundingClientRect.width - this.openDetectionWidth
         && this.rightMenu
       ){
         // TODO: this.lockPan();
@@ -192,7 +199,7 @@ export default class MobileMenuWrapper extends Component {
   @action
   didPan(e){
     if(this.activeMenu && this.isDraggingOpen){
-      const _e = normalizeCoordinates(e, this._element);
+      const _e = normalizeCoordinates(e, this.boundingClientRect);
       this.activeMenu.panOpen(_e);
     }
   }
@@ -200,10 +207,15 @@ export default class MobileMenuWrapper extends Component {
   @action
   didPanEnd(e) {
     if(this.isDraggingOpen && this.activeMenu){
-      const _e = normalizeCoordinates(e, this._element);
+      const _e = normalizeCoordinates(e, this.boundingClientRect);
       this.isDraggingOpen = false;
       this.activeMenu.panOpenEnd(_e);
     }
+  }
+
+  @action
+  updateBoundingClientRect(element) {
+    this.boundingClientRect = element.getBoundingClientRect();
   }
 
   /**

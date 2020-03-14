@@ -252,7 +252,7 @@ export default class MobileMenu extends Component {
   panOpen(e){
     this.isDragging = true;
 
-    const _e = normalizeCoordinates(e, this.args.parentElement);
+    const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
     const {
       current: {
         distanceX
@@ -270,7 +270,7 @@ export default class MobileMenu extends Component {
   panOpenEnd(e){
     this.isDragging = false;
 
-    const _e = normalizeCoordinates(e, this.args.parentElement);
+    const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
     const {
       current: {
         distanceX,
@@ -296,7 +296,7 @@ export default class MobileMenu extends Component {
 
   @action
   didPan(e){
-    const _e = normalizeCoordinates(e, this.args.parentElement);
+    const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
     const {
       current: {
         distanceX,
@@ -305,7 +305,7 @@ export default class MobileMenu extends Component {
     } = _e;
 
     const isLeft = this.isLeft;
-    const windowWidth = this.args.parentElement.getBoundingClientRect().width;
+    const windowWidth = this.args.parentBoundingClientRect.width;
     const width = this._width;
 
     const dx = isLeft ? distanceX : -distanceX;
@@ -342,7 +342,7 @@ export default class MobileMenu extends Component {
     if(this.isDragging){
       this.isDragging = false;
 
-      const _e = normalizeCoordinates(e, this.args.parentElement);
+      const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
       const {
         current: {
           distanceX,

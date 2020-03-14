@@ -30,12 +30,14 @@
     "prepare": "node ./compile-css.js"
   },
   "dependencies": {
+    "@ember/render-modifiers": "^1.0.2",
     "@glimmer/component": "^1.0.0",
     "@glimmer/tracking": "^1.0.0",
     "ember-cli-babel": "^7.17.2",
     "ember-cli-htmlbars": "^4.2.2",
     "ember-concurrency-decorators": "^1.0.0",
     "ember-concurrency-test-waiter": "^0.3.1",
+    "ember-did-resize-modifier": "^1.0.0",
     "ember-gesture-modifiers": "^0.1.1",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-mobile-core": "^0.2.0",
@@ -65,7 +67,6 @@
     "ember-export-application-global": "^2.0.1",
     "ember-load-initializers": "^2.1.1",
     "ember-qunit": "^4.6.0",
-    "ember-ref-modifier": "^1.0.0",
     "ember-resolver": "^7.0.0",
     "ember-sinon": "^3.1.0",
     "ember-sinon-qunit": "^3.4.0",
