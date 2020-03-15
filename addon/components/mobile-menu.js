@@ -125,6 +125,12 @@ export default class MobileMenu extends Component {
    */
 
   /**
+   * @argument mode
+   * @type string
+   * @protected
+   */
+
+  /**
    * @property isDragging
    * @type boolean
    * @default false
@@ -192,6 +198,10 @@ export default class MobileMenu extends Component {
     return Math.abs(this.position) / this._width;
   }
 
+  get invertOpacity() {
+    return ['ios', 'reveal', 'squeeze-reveal'].includes(this.args.mode);
+  }
+
   /**
    * Current menu width in px
    *
@@ -209,7 +219,7 @@ export default class MobileMenu extends Component {
 
   get style() {
     let styles = '';
-    if ((this.args.mode === 'squeeze' || this.args.mode === 'squeeze-reveal') && !this.args.maskEnabled && this.isOpen) {
+    if (['squeeze', 'squeeze-reveal'].includes(this.args.mode) && !this.maskEnabled && this.isOpen) {
       styles =`width: ${this._width}px;`;
     }
     return htmlSafe(styles);

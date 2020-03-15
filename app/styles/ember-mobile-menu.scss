@@ -29,6 +29,7 @@ body.mobile-menu--open {
     position: relative;
     background: #FFF;
     will-change: transform, margin-left, margin-right;
+    z-index: 1;
 
     &--shadow {
       box-shadow: 0 5px 10px rgba(0,0,0,0.3);
@@ -42,14 +43,6 @@ body.mobile-menu--open {
   top: 0;
   width: 0;
   height: 0;
-
-  &--squeeze, &--push {
-    z-index: 1;
-  }
-
-  &--default {
-    z-index: $mobile-menu-z-index;
-  }
 
   .mobile-menu__tray {
     position: absolute;
@@ -72,7 +65,7 @@ body.mobile-menu--open {
     right: 0;
   }
 
-  .mobile-menu__mask {
+  &__mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -91,6 +84,27 @@ body.mobile-menu--open {
     will-change: opacity;
 
     visibility: hidden;
+  }
+
+  // mode specific modifications ------------------------------------------- //
+  &--default {
+    z-index: $mobile-menu-z-index;
+  }
+
+  &--squeeze, &--push {
+    z-index: 2;
+  }
+
+  &--ios, &--reveal, &--squeeze-reveal {
+    .mobile-menu__mask {
+      z-index: 1;
+    }
+
+    &.mobile-menu--open {
+      .mobile-menu__mask {
+        display: none;
+      }
+    }
   }
 }
 
