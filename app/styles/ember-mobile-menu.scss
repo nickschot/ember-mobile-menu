@@ -23,15 +23,33 @@ body.mobile-menu--open {
     min-width: 100%;
     overflow: hidden;
   }
+
+  &__content {
+    min-height: 100%;
+    position: relative;
+    background: #FFF;
+    will-change: transform, margin-left, margin-right;
+
+    &--shadow {
+      box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    }
+  }
 }
 
 // mobile menu -------------------------------------------------------------- //
 .mobile-menu {
   position: fixed;
-  z-index: $mobile-menu-z-index;
   top: 0;
   width: 0;
   height: 0;
+
+  &--squeeze, &--push {
+    z-index: 1;
+  }
+
+  &--default {
+    z-index: $mobile-menu-z-index;
+  }
 
   .mobile-menu__tray {
     position: absolute;

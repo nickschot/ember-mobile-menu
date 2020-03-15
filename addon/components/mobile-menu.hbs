@@ -4,6 +4,7 @@
     onPan=this.didPan
     onPanEnd=this.didPanEnd
   }}
+  style={{this.style}}
   ...attributes
 >
   {{#unless this.embed}}
@@ -25,6 +26,7 @@
     @isLeft={{this.isLeft}}
     @position={{this.position}}
     @shadowEnabled={{this.shadowEnabled}}
+    @mode={{@mode}}
   >
     {{yield
       (hash

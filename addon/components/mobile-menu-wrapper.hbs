@@ -17,12 +17,18 @@
         embed=this.embed
         onOpen=this.didOpenMenu
         onClose=this.didCloseMenu
+        didUpdatePosition=(if this.requiresUpdatedPosition this.setPosition)
         parentBoundingClientRect=this.boundingClientRect
         register=this.registerChild
         unregister=this.unregisterChild
+        mode=this.mode
       )
       Toggle=(component "mobile-menu-toggle"
         onClick=this.toggle
+      )
+      Content=(component "mobile-menu-wrapper/content"
+        style=this.contentStyle
+        shadowEnabled=this.contentShadowEnabled
       )
       actions=(hash
         toggle=this.toggle

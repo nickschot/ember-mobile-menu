@@ -7,7 +7,17 @@ import { inject as service } from '@ember/service';
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
 import normalizeCoordinates from '../utils/normalize-coordinates';
 
+import { htmlSafe } from '@ember/string';
 import { assert } from '@ember/debug';
+
+const MODES = new Map([
+  ['default', () => ''],
+  ['push',    (p, side) => `transform: translateX(${side === 'right' ? -p : p}px);`],
+  ['reveal',  (p, side) => `transform: translateX(${side === 'right' ? -p : p}px);`],
+  ['ios',     (p, side) => `transform: translateX(${side === 'right' ? -p : p}px);`],
+  ['squeeze', (p, side) => `margin-${side}: ${p}px;`],
+  ['squeeze-reveal', (p, side) => `margin-${side}: ${p}px;`]
+]);
 
 /**
  * Wrapper component for menu's. Provides pan recognition and management.
@@ -23,6 +33,30 @@ import { assert } from '@ember/debug';
  */
 export default class MobileMenuWrapper extends Component {
   @service userAgent;
+
+  @tracked position;
+
+  get mode() {
+    return this.args.mode ?? 'default';
+  }
+
+  get contentStyle() {
+    let styles = '';
+    if (this.activeMenu?.isRight) {
+      styles = MODES.get(this.mode)(this.position, 'right');
+    } else if (this.activeMenu?.isLeft) {
+      styles = MODES.get(this.mode)(this.position, 'left');
+    }
+    return htmlSafe(styles);
+  }
+
+  get contentShadowEnabled() {
+    return this.activeMenu?.shadowEnabled && ['reveal', 'ios', 'squeeze-reveal'].includes(this.mode);
+  }
+
+  get requiresUpdatedPosition() {
+    return this.mode !== 'default';
+  }
 
   /**
    * Horizontal width of the detection zone in pixels
@@ -155,6 +189,7 @@ export default class MobileMenuWrapper extends Component {
 
       if(this.activeMenu !== targetMenu){
         targetMenu.open();
+        this.activeMenu = targetMenu;
       }
     }
   }
@@ -216,6 +251,11 @@ export default class MobileMenuWrapper extends Component {
   @action
   updateBoundingClientRect(element) {
     this.boundingClientRect = element.getBoundingClientRect();
+  }
+
+  @action
+  setPosition(position) {
+    this.position = position;
   }
 
   /**
