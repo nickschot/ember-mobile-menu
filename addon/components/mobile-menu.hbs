@@ -1,10 +1,13 @@
 <div
   class={{this.classNames}}
-  {{did-pan
-    onPan=this.didPan
-    onPanEnd=this.didPanEnd
-  }}
   style={{this.style}}
+  {{did-pan
+    onPanStart=@onPanStart
+    onPan=@onPan
+    onPanEnd=@onPanEnd
+    capture=@capture
+    preventScroll=@preventScroll
+  }}
   ...attributes
 >
   {{#unless this.embed}}
@@ -18,7 +21,7 @@
       @isOpen={{this.isOpen}}
       @position={{this.relativePosition}}
       @invertOpacity={{this.invertOpacity}}
-      @onClick={{this.close}}
+      @onClick={{@onClose}}
     />
   {{/if}}
 

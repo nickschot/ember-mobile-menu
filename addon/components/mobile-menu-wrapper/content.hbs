@@ -1,3 +1,14 @@
-<div class="mobile-menu-wrapper__content {{if @shadowEnabled "mobile-menu-wrapper__content--shadow"}}" style={{@style}}>
+<div
+  class="mobile-menu-wrapper__content {{if @shadowEnabled "mobile-menu-wrapper__content--shadow"}}"
+  style={{this.style}}
+  {{did-pan
+    onPanStart=@onPanStart
+    onPan=@onPan
+    onPanEnd=@onPanEnd
+    capture=@capture
+    preventScroll=@preventScroll
+  }}
+  ...attributes
+>
   {{yield}}
 </div>

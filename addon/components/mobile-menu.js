@@ -4,14 +4,10 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/string';
 
-import Tween from 'ember-mobile-core/tween';
-import { restartableTask } from 'ember-concurrency-decorators';
-import normalizeCoordinates from '../utils/normalize-coordinates';
-
 import defineModifier from 'ember-concurrency-test-waiter/define-modifier';
 defineModifier();
 
-const _fn = () => {};
+const _fn = function(){};
 
 /**
  * Menu component
@@ -119,32 +115,10 @@ export default class MobileMenu extends Component {
   }
 
   /**
-   * @argument didPositionUpdate
-   * @type function
-   * @protected
-   */
-
-  /**
    * @argument mode
    * @type string
    * @protected
    */
-
-  /**
-   * @property isDragging
-   * @type boolean
-   * @default false
-   * @private
-   */
-  @tracked isDragging = false;
-
-  /**
-   * @property position
-   * @type number
-   * @default 0
-   * @private
-   */
-  @tracked position = 0;
 
   /**
    * @property dxCorrection
@@ -187,11 +161,21 @@ export default class MobileMenu extends Component {
   }
 
   get isOpen() {
-    return !this.isDragging && this.position === this._width;
+    return !this.isDragging && Math.abs(this.position) === this._width;
   }
 
   get isTransitioning() {
-    return this._open.isRunning || this._close.isRunning;
+    return !this.isDragging && (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0);
+  }
+
+  get position() {
+    return (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0)
+      ? this.args.position
+      : 0;
+  }
+
+  get isDragging() {
+    return this.args.isDragging && (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0);
   }
 
   get relativePosition() {
@@ -225,101 +209,17 @@ export default class MobileMenu extends Component {
     return htmlSafe(styles);
   }
 
-  @restartableTask({
-    withTestWaiter: true
-  })
-  *_open(){
-    const startPos = this.position;
-    const diff = this._width - startPos;
-
-    const anim = new Tween((progress) => {
-      this.position = startPos + diff * progress;
-
-      if (this.args.didUpdatePosition) {
-        this.args.didUpdatePosition(this.position);
-      }
-    }, { duration: 300});
-    yield anim.start();
-
-    this.onOpen(this);
-  }
-
-  @restartableTask({
-    withTestWaiter: true
-  })
-  *_close(){
-    const anim = new Tween((progress) => {
-      this.position = this.position * (1 - progress);
-
-      if (this.args.didUpdatePosition) {
-        this.args.didUpdatePosition(this.position);
-      }
-    }, { duration: 300});
-    yield anim.start();
-
-    this.onClose();
-  }
-
   @action
   open(){
-    this._open.perform();
+    this.onOpen(this);
   }
 
   @action
   close(){
-    this._close.perform();
+    this.onClose(this);
   }
 
-  @action
-  panOpen(e){
-    this.isDragging = true;
-
-    const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
-    const {
-      current: {
-        distanceX
-      }
-    } = _e;
-
-    const dx = this.isLeft ? distanceX : -distanceX;
-    const width = this._width;
-
-    // enforce limits on the offset [0, width]
-    this.position = Math.min(Math.max(dx, 0), width);
-
-    if (this.args.didUpdatePosition) {
-      this.args.didUpdatePosition(this.position);
-    }
-  }
-
-  @action
-  panOpenEnd(e){
-    this.isDragging = false;
-
-    const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
-    const {
-      current: {
-        distanceX,
-        velocityX,
-      }
-    } = _e;
-
-    const triggerVelocity = this.triggerVelocity;
-
-    const isLeft = this.isLeft;
-    const width = this._width;
-
-    const dx = isLeft ? distanceX : -distanceX;
-    const vx = isLeft ? velocityX : -velocityX;
-
-    // when overall horizontal velocity is high, force open/close and skip the rest
-    if (vx > triggerVelocity || dx > width / 2) {
-      this._open.perform();
-    } else {
-      this._close.perform();
-    }
-  }
-
+  /*
   @action
   didPan(e){
     const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
@@ -397,5 +297,5 @@ export default class MobileMenu extends Component {
 
       this.dxCorrection = 0;
     }
-  }
+  }*/
 }

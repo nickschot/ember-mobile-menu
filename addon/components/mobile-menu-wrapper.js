@@ -1,23 +1,15 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
 import normalizeCoordinates from '../utils/normalize-coordinates';
 
-import { htmlSafe } from '@ember/string';
 import { assert } from '@ember/debug';
-
-const MODES = new Map([
-  ['default', () => ''],
-  ['push',    (p, side) => `transform: translateX(${side === 'right' ? -p : p}px);`],
-  ['reveal',  (p, side) => `transform: translateX(${side === 'right' ? -p : p}px);`],
-  ['ios',     (p, side) => `transform: translateX(${side === 'right' ? -p : p}px);`],
-  ['squeeze', (p, side) => `margin-${side}: ${p}px;`],
-  ['squeeze-reveal', (p, side) => `margin-${side}: ${p}px;`]
-]);
+import { restartableTask } from 'ember-concurrency-decorators';
+import Tween from 'ember-mobile-core/tween';
 
 /**
  * Wrapper component for menu's. Provides pan recognition and management.
@@ -34,20 +26,11 @@ const MODES = new Map([
 export default class MobileMenuWrapper extends Component {
   @service userAgent;
 
-  @tracked position;
+  @tracked position = 0;
+  @tracked dragging = false;
 
   get mode() {
     return this.args.mode ?? 'default';
-  }
-
-  get contentStyle() {
-    let styles = '';
-    if (this.activeMenu?.isRight) {
-      styles = MODES.get(this.mode)(this.position, 'right');
-    } else if (this.activeMenu?.isLeft) {
-      styles = MODES.get(this.mode)(this.position, 'left');
-    }
-    return htmlSafe(styles);
   }
 
   get contentShadowEnabled() {
@@ -59,7 +42,7 @@ export default class MobileMenuWrapper extends Component {
   }
 
   /**
-   * Horizontal width of the detection zone in pixels
+   * Horizontal width of the detection zone in pixels. Set to -1 to use full width.
    *
    * @argument openDetectionWidth
    * @type Number
@@ -104,6 +87,10 @@ export default class MobileMenuWrapper extends Component {
     return this.args.embed ?? false;
   }
 
+  get triggerVelocity() {
+    return this.args.triggerVelocity ?? 0.3;
+  }
+
   /**
    * Denotes whether or not a menu is currently being dragged open. Turns false when the user releases the menu.
    *
@@ -121,7 +108,15 @@ export default class MobileMenuWrapper extends Component {
    * @default null
    * @private
    */
-  @tracked activeMenu = null;
+  get activeMenu () {
+    if (this.leftMenu && this.position > 0) {
+      return this.leftMenu;
+    } else if(this.rightMenu && this.position < 0) {
+      return this.rightMenu;
+    } else {
+      return null;
+    }
+  }
 
   /**
    * Current BoundingClientRect of the mobile menu wrapper root element
@@ -145,29 +140,16 @@ export default class MobileMenuWrapper extends Component {
     this.children.unshift(component);
   }
 
-  @computed('children')
   get childMenus() {
     return this.children.filter((view) => view instanceof MobileMenu);
   }
 
-  @computed('children.@each.type')
   get leftMenu() {
     return this.children.find(menu => menu.isLeft);
   }
 
-  @computed('children.@each.type')
   get rightMenu() {
     return this.children.find(menu => menu.isRight);
-  }
-
-  @action
-  didCloseMenu(){
-    this.activeMenu = null;
-  }
-
-  @action
-  didOpenMenu(menu){
-    this.activeMenu = menu;
   }
 
   @action
@@ -184,78 +166,102 @@ export default class MobileMenuWrapper extends Component {
 
     if(targetMenu){
       if(this.activeMenu){
-        this.activeMenu.close();
+        this._close.perform();
       }
 
       if(this.activeMenu !== targetMenu){
-        targetMenu.open();
-        this.activeMenu = targetMenu;
+        this._open.perform(targetMenu);
       }
     }
   }
 
   @action
   close(){
-    if(this.activeMenu){
-      this.activeMenu.close();
+    this._close.perform();
+  }
+
+  @action
+  updatePosition(pan) {
+    const {
+      current: {
+        distanceX
+      }
+    } = pan;
+
+    if (this.dragging && (this.leftMenu && distanceX > 0 || this.rightMenu && distanceX < 0)) {
+      const menu = distanceX > 0 ? this.leftMenu : this.rightMenu;
+      this.position = Math.min(Math.max(Math.abs(distanceX), 0), menu._width) * (distanceX > 0 ? 1 : -1);
+    } else {
+      this.position = 0;
     }
   }
 
   @action
   didPanStart(e){
-    // only detect the pan if there is no currently active menu
-    // disable edge pan for iOS browsers in non-standalone mode as it conflicts
-    // with iOS's pan to go back/forward
-    if(!this.activeMenu && !this._isIOSbrowser()){
-      const _e = normalizeCoordinates(e, this.boundingClientRect);
-      const {
-        initial: {
-          x
-        },
-      } = _e;
-
-      // only detect initial drag from edges of the window if a menu is defined
-      // for that side
-      if(x < this.openDetectionWidth && this.leftMenu){
-        // TODO: this.lockPan();
-        this.activeMenu = this.leftMenu;
-        this.isDraggingOpen = true;
-      } else if(
-        x > this.boundingClientRect.width - this.openDetectionWidth
-        && this.rightMenu
-      ){
-        // TODO: this.lockPan();
-        this.activeMenu = this.rightMenu;
-        this.isDraggingOpen = true;
-      }
-    }
+    this.dragging = true;
+    this.updatePosition(normalizeCoordinates(e, this.boundingClientRect));
   }
 
   @action
   didPan(e){
-    if(this.activeMenu && this.isDraggingOpen){
-      const _e = normalizeCoordinates(e, this.boundingClientRect);
-      this.activeMenu.panOpen(_e);
-    }
+    this.updatePosition(normalizeCoordinates(e, this.boundingClientRect));
   }
 
   @action
   didPanEnd(e) {
-    if(this.isDraggingOpen && this.activeMenu){
-      const _e = normalizeCoordinates(e, this.boundingClientRect);
-      this.isDraggingOpen = false;
-      this.activeMenu.panOpenEnd(_e);
+    this.dragging = false;
+    const pan = normalizeCoordinates(e, this.boundingClientRect);
+    const menu = this.activeMenu;
+
+    if (menu) {
+      const {
+        current: {
+          distanceX,
+          velocityX
+        }
+      } = pan;
+
+      const isLeft = menu.isLeft;
+      const width = menu._width;
+
+      const dx = isLeft ? distanceX : -distanceX;
+      const vx = isLeft ? velocityX : -velocityX;
+
+      // the pan action is over, cleanup and set the correct final menu position
+      if (vx < this.triggerVelocity && dx < width / 2) {
+        this._close.perform(menu);
+      } else {
+        this._open.perform(menu);
+      }
     }
+  }
+
+  @restartableTask({
+    withTestWaiter: true
+  })
+  *_open(menu){
+    const startPos = this.position;
+    const diff = (menu.isLeft ? 1 : -1) * menu._width - startPos;
+
+    const anim = new Tween((progress) => {
+      this.position = startPos + diff * progress
+    }, { duration: 300});
+    yield anim.start();
+  }
+
+  @restartableTask({
+    withTestWaiter: true
+  })
+  *_close(){
+    const anim = new Tween((progress) => {
+      this.position = this.position * (1 - progress);
+    }, { duration: 300});
+    yield anim.start();
   }
 
   @action
   updateBoundingClientRect(element) {
     this.boundingClientRect = element.getBoundingClientRect();
-  }
-
-  @action
-  setPosition(position) {
-    this.position = position;
   }
 
   /**

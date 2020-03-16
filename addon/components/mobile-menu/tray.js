@@ -66,7 +66,7 @@ export default class TrayComponent extends Component {
 
     style += this.isLeft
       ?  `left: -${offset}px; transform: translateX(${translation}px);`
-      : `right: -${offset}px; transform: translateX(-${translation}px);`;
+      : `right: -${offset}px; transform: translateX(${translation}px);`;
 
     if (this.args.shadowEnabled && this.progress > 0) {
       style += `box-shadow: 0 5px 10px rgba(0,0,0,${0.3 * this.progress});`
