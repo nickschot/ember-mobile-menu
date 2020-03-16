@@ -27,6 +27,7 @@ export default class MobileMenuWrapper extends Component {
   @service userAgent;
 
   @tracked position = 0;
+  @tracked fromPosition = 0;
   @tracked dragging = false;
 
   get mode() {
@@ -190,7 +191,8 @@ export default class MobileMenuWrapper extends Component {
 
     if (this.dragging && (this.leftMenu && distanceX > 0 || this.rightMenu && distanceX < 0)) {
       const menu = distanceX > 0 ? this.leftMenu : this.rightMenu;
-      this.position = Math.min(Math.max(Math.abs(distanceX), 0), menu._width) * (distanceX > 0 ? 1 : -1);
+      const distance = distanceX + this.fromPosition;
+      this.position = Math.min(Math.max(Math.abs(distance), 0), menu._width) * (distance > 0 ? 1 : -1);
     } else {
       this.position = 0;
     }
@@ -199,6 +201,7 @@ export default class MobileMenuWrapper extends Component {
   @action
   didPanStart(e){
     this.dragging = true;
+    this.fromPosition = this.position;
     this.updatePosition(normalizeCoordinates(e, this.boundingClientRect));
   }
 
