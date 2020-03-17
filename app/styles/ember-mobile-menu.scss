@@ -96,14 +96,20 @@ body.mobile-menu--open {
   }
 
   &--ios, &--reveal, &--squeeze-reveal {
+    z-index: -1;
+
+    &.mobile-menu--dragging,
+    &.mobile-menu--transitioning,
+    &.mobile-menu--open {
+      z-index: unset;
+    }
+
     .mobile-menu__mask {
       z-index: 1;
     }
 
-    &.mobile-menu--open {
-      .mobile-menu__mask {
-        display: none;
-      }
+    &.mobile-menu--open .mobile-menu__mask {
+      display: none;
     }
   }
 }
