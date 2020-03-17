@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/string';
@@ -155,26 +154,30 @@ export default class MobileMenu extends Component {
     return this.type === 'right';
   }
 
-  get isOpen() {
-    return !this.isDragging && Math.abs(this.position) === this._width;
-  }
-
-  get isTransitioning() {
-    return !this.isDragging && (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0);
-  }
-
   get position() {
     return (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0)
       ? this.args.position
       : 0;
   }
 
-  get isDragging() {
-    return this.args.isDragging && (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0);
-  }
-
   get relativePosition() {
     return Math.abs(this.position) / this._width;
+  }
+
+  get isDragging() {
+    return this.args.isDragging && this.position !== 0;
+  }
+
+  get isClosed() {
+    return !this.isDragging && this.position === 0;
+  }
+
+  get isOpen() {
+    return !this.isDragging && Math.abs(this.position) === this._width;
+  }
+
+  get isTransitioning() {
+    return !this.isDragging && !this.isOpen && !this.isClosed;
   }
 
   get invertOpacity() {
