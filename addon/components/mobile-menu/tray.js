@@ -48,7 +48,7 @@ export default class TrayComponent extends Component {
   }
 
   get progress() {
-    return this.position / this.width;
+    return Math.abs(this.position) / this.width;
   }
 
   get style() {
