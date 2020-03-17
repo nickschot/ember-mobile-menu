@@ -1,5 +1,5 @@
 <div
-  class="mobile-menu-wrapper__content {{if @shadowEnabled "mobile-menu-wrapper__content--shadow"}}"
+  class="mobile-menu-wrapper__content {{if @shadowEnabled "mobile-menu-wrapper__content--shadow"}} {{concat "mobile-menu-wrapper__content--" @mode}}"
   style={{this.style}}
   {{did-pan
     onPanStart=@onPanStart
