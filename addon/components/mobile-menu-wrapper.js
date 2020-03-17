@@ -26,6 +26,15 @@ import Tween from 'ember-mobile-core/tween';
 export default class MobileMenuWrapper extends Component {
   @service userAgent;
 
+  /**
+   * Current BoundingClientRect of the mobile menu wrapper root element
+   * @type DOMRect
+   * @default null
+   * @private
+   */
+  @tracked boundingClientRect = null;
+
+  @tracked children = [];
   @tracked position = 0;
   @tracked dragging = false;
   fromPosition = 0;
@@ -94,15 +103,6 @@ export default class MobileMenuWrapper extends Component {
   }
 
   /**
-   * Denotes whether or not a menu is currently being dragged open. Turns false when the user releases the menu.
-   *
-   * @property isDraggingOpen
-   * @type Boolean
-   * @default false
-   */
-  @tracked isDraggingOpen = false;
-
-  /**
    * The currently active menu component.
    *
    * @property activeMenu
@@ -119,16 +119,6 @@ export default class MobileMenuWrapper extends Component {
       return null;
     }
   }
-
-  /**
-   * Current BoundingClientRect of the mobile menu wrapper root element
-   * @type DOMRect
-   * @default null
-   * @private
-   */
-  @tracked boundingClientRect = null;
-
-  @tracked children = [];
 
   @action
   registerChild(component) {
@@ -202,8 +192,8 @@ export default class MobileMenuWrapper extends Component {
   @action
   didPanStart(e){
     this.fromOpen = !!this.activeMenu?.isOpen;
-    this.dragging = true;
     this.fromPosition = this.position;
+    this.dragging = true;
     this.updatePosition(normalizeCoordinates(e, this.boundingClientRect));
   }
 

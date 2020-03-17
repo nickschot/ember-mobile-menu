@@ -119,14 +119,9 @@ export default class MobileMenu extends Component {
    * @type string
    * @protected
    */
-
-  /**
-   * @property dxCorrection
-   * @type number
-   * @default 0
-   * @private
-   */
-  @tracked dxCorrection = 0;
+  get mode() {
+    return this.args.mode ?? 'default';
+  }
 
   constructor() {
     super(...arguments);
@@ -143,7 +138,7 @@ export default class MobileMenu extends Component {
   }
 
   get classNames() {
-    let classes = `mobile-menu mobile-menu--${this.args.mode}`;
+    let classes = `mobile-menu mobile-menu--${this.mode}`;
     if (this.isLeft) classes += ' mobile-menu--left';
     if (this.isRight) classes += ' mobile-menu--right';
     if (this.isDragging) classes += ' mobile-menu--dragging';
@@ -203,7 +198,7 @@ export default class MobileMenu extends Component {
 
   get style() {
     let styles = '';
-    if (['squeeze', 'squeeze-reveal'].includes(this.args.mode) && !this.maskEnabled && this.isOpen) {
+    if (['squeeze', 'squeeze-reveal'].includes(this.mode) && !this.maskEnabled && this.isOpen) {
       styles =`width: ${this._width}px;`;
     }
     return htmlSafe(styles);
@@ -218,84 +213,4 @@ export default class MobileMenu extends Component {
   close(){
     this.onClose(this);
   }
-
-  /*
-  @action
-  didPan(e){
-    const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
-    const {
-      current: {
-        distanceX,
-        x
-      }
-    } = _e;
-
-    const isLeft = this.isLeft;
-    const windowWidth = this.args.parentBoundingClientRect.width;
-    const width = this._width;
-
-    const dx = isLeft ? distanceX : -distanceX;
-    const cx = isLeft ? x : windowWidth - x;
-
-    if(this.isOpen && !this.isDragging){
-      // calculate and set a correction delta if the pan started outside the opened menu
-      if(cx < width) {
-        this.isDragging = true;
-        this.dxCorrection = dx;
-      }
-    }
-
-    if(this.isDragging){
-      let targetPosition = dx;
-
-      // correct targetPosition with dxCorrection set earlier
-      targetPosition -= this.dxCorrection;
-
-      // enforce limits on the offset [0, width]
-      if(cx < width){
-        if(targetPosition > 0){
-          targetPosition = 0;
-        } else if(targetPosition < -1 * width){
-          targetPosition = -1 * width;
-        }
-        this.position = width + targetPosition;
-
-        if (this.args.didUpdatePosition) {
-          this.args.didUpdatePosition(this.position);
-        }
-      }
-    }
-  }
-
-  @action
-  didPanEnd(e){
-    if(this.isDragging){
-      this.isDragging = false;
-
-      const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
-      const {
-        current: {
-          distanceX,
-          velocityX
-        }
-      } = _e;
-
-      const triggerVelocity = this.triggerVelocity;
-
-      const isLeft = this.isLeft;
-      const width = this._width;
-
-      const dx = isLeft ? distanceX : -distanceX;
-      const vx = isLeft ? velocityX : -velocityX;
-
-      // the pan action is over, cleanup and set the correct final menu position
-      if (vx < -1 * triggerVelocity || -1 * dx > width / 2){
-        this._close.perform();
-      } else {
-        this._open.perform();
-      }
-
-      this.dxCorrection = 0;
-    }
-  }*/
 }

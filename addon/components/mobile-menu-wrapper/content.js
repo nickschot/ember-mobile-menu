@@ -16,12 +16,21 @@ const MODES = new Map([
  * @hide
  */
 export default class ContentComponent extends Component {
+  /**
+   * @argument mode
+   * @type string
+   * @protected
+   */
+  get mode() {
+    return this.args.mode ?? 'default';
+  }
+
   get style() {
     let styles = '';
     if (this.args.position > 0) {
-      styles = MODES.get(this.args.mode)(this.args.position, 'left');
+      styles = MODES.get(this.mode)(this.args.position, 'left');
     } else if (this.args.position < 0) {
-      styles = MODES.get(this.args.mode)(this.args.position, 'right');
+      styles = MODES.get(this.mode)(this.args.position, 'right');
     }
 
     return htmlSafe(styles);
