@@ -27,8 +27,9 @@ export default class MobileMenuWrapper extends Component {
   @service userAgent;
 
   @tracked position = 0;
-  @tracked fromPosition = 0;
   @tracked dragging = false;
+  fromPosition = 0;
+  fromOpen = false;
 
   get mode() {
     return this.args.mode ?? 'default';
