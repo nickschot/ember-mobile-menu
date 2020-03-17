@@ -200,6 +200,7 @@ export default class MobileMenuWrapper extends Component {
 
   @action
   didPanStart(e){
+    this.fromOpen = !!this.activeMenu?.isOpen;
     this.dragging = true;
     this.fromPosition = this.position;
     this.updatePosition(normalizeCoordinates(e, this.boundingClientRect));
@@ -227,14 +228,23 @@ export default class MobileMenuWrapper extends Component {
       const isLeft = menu.isLeft;
       const width = menu._width;
 
-      const dx = isLeft ? distanceX : -distanceX;
-      const vx = isLeft ? velocityX : -velocityX;
+      const condition = isLeft && !this.fromOpen || this.fromOpen && !isLeft;
+      const dx = condition ? distanceX : -distanceX;
+      const vx = condition ? velocityX : -velocityX;
 
       // the pan action is over, cleanup and set the correct final menu position
-      if (vx < this.triggerVelocity && dx < width / 2) {
-        this._close.perform(menu);
+      if (!this.fromOpen) {
+        if (vx > this.triggerVelocity || dx > width / 2) {
+          this._open.perform(menu);
+        } else {
+          this._close.perform(menu);
+        }
       } else {
-        this._open.perform(menu);
+        if (vx > this.triggerVelocity || dx > width / 2) {
+          this._close.perform(menu);
+        } else {
+          this._open.perform(menu);
+        }
       }
     }
   }
