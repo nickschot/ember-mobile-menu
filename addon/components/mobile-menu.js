@@ -27,6 +27,18 @@ export default class MobileMenu extends Component {
   }
 
   /**
+   * Sets the mode of the menu. Currently 'default', 'push', 'ios', 'reveal', 'squeeze' and 'squeeze-reveal' are supported.
+   *
+   * @argument mode
+   * @type string
+   * @default default''
+   */
+  get mode() {
+    return this.args.mode ?? 'default';
+  }
+
+
+  /**
    * The percentage of the screen the menu will take when opened.
    *
    * @argument width
@@ -111,15 +123,6 @@ export default class MobileMenu extends Component {
    */
   get onClose() {
     return this.args.onClose ?? _fn;
-  }
-
-  /**
-   * @argument mode
-   * @type string
-   * @protected
-   */
-  get mode() {
-    return this.args.mode ?? 'default';
   }
 
   constructor() {
