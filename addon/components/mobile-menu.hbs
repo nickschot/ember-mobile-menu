@@ -1,13 +1,6 @@
 <div
   class={{this.classNames}}
   style={{this.style}}
-  {{did-pan
-    onPanStart=@onPanStart
-    onPan=@onPan
-    onPanEnd=@onPanEnd
-    capture=@capture
-    preventScroll=@preventScroll
-  }}
   ...attributes
 >
   {{!-- TODO: allow scroll in desktop mode --}}
@@ -23,6 +16,12 @@
       @position={{this.relativePosition}}
       @invertOpacity={{this.invertOpacity}}
       @onClick={{@onClose}}
+
+      @onPanStart={{@onPanStart}}
+      @onPan={{@onPan}}
+      @onPanEnd={{@onPanEnd}}
+      @capture={{@capture}}
+      @preventScroll={{@preventScroll}}
     />
   {{/if}}
 
@@ -32,6 +31,12 @@
     @position={{this.position}}
     @shadowEnabled={{this.shadowEnabled}}
     @mode={{@mode}}
+
+    @onPanStart={{@onPanStart}}
+    @onPan={{@onPan}}
+    @onPanEnd={{@onPanEnd}}
+    @capture={{@capture}}
+    @preventScroll={{@preventScroll}}
   >
     {{yield
       (hash
