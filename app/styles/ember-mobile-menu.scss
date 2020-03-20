@@ -28,7 +28,7 @@ body.mobile-menu--open {
     min-height: 100%;
     position: relative;
     background: #FFF;
-    will-change: transform, margin-left, margin-right;
+    will-change: transform, margin-left, margin-right; // TODO: optimize per mode
     z-index: 1;
 
     &--shadow {

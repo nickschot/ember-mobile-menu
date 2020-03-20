@@ -180,11 +180,20 @@ export default class MobileMenuWrapper extends Component {
       }
     } = pan;
 
-    if (this.dragging && (this.leftMenu && distanceX > 0 || this.rightMenu && distanceX < 0)) {
+    if (this.dragging && this.fromOpen) {
+      const menu = this.fromMenu;
+      let distance = distanceX + this.fromPosition;
+
+      if (menu.isLeft) {
+        this.position = Math.min(Math.max(distance, 0), menu._width);
+      } else {
+        this.position = Math.max(Math.min(distance, 0), -1 * menu._width);
+      }
+    } else if (this.dragging && (this.leftMenu && distanceX > 0 || this.rightMenu && distanceX < 0)) {
       const menu = distanceX > 0 ? this.leftMenu : this.rightMenu;
       const distance = distanceX + this.fromPosition;
       this.position = Math.min(Math.max(Math.abs(distance), 0), menu._width) * (distance > 0 ? 1 : -1);
-    } else {
+    } else if (this.position !== 0) {
       this.position = 0;
     }
   }
@@ -192,6 +201,7 @@ export default class MobileMenuWrapper extends Component {
   @action
   didPanStart(e){
     this.fromOpen = !!this.activeMenu?.isOpen;
+    this.fromMenu = this.activeMenu;
     this.fromPosition = this.position;
     this.dragging = true;
     this.updatePosition(normalizeCoordinates(e, this.boundingClientRect));
