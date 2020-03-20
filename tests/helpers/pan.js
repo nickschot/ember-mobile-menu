@@ -2,6 +2,8 @@ import { settled, getRootElement } from '@ember/test-helpers';
 import createTouchEvent from './create-touch-event';
 import { timeout } from 'ember-concurrency';
 
+let panPoint;
+
 function nextTickPromise() {
   return new Promise(resolve => {
     setTimeout(resolve);
@@ -25,6 +27,25 @@ function getElement(target) {
 }
 
 function sendEvent(element, type, x, y){
+  if (!panPoint) {
+    const elem = document.createElement('div');
+    elem.id = 'pan-point';
+    document.body.appendChild(elem);
+
+    panPoint = elem;
+  }
+
+  panPoint.style = `
+    background: blue;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    position: fixed;
+    top: ${y-15}px;
+    left: ${x-15}px;
+    z-index:9999;
+  `;
+
   const event = createTouchEvent(element, type, x, y);
   element.dispatchEvent(event);
 }
@@ -56,10 +77,15 @@ async function _pan(element, options = {}){
     await timeout(resolution);
     const x = isLeft
       ? startX - (startX - endX)/steps*i
-      : (endX - startX)/steps * i;
+      : startX + (endX - startX)/steps*i;
     sendEvent(element, 'touchmove',  x, middleY);
   }
   sendEvent(element, 'touchend', endX, middleY);
+
+  if (panPoint) {
+    panPoint.remove();
+    panPoint = null;
+  }
 }
 
 export default async function pan(target, direction) {
