@@ -41,7 +41,7 @@ export default class MobileMenuWrapper extends Component {
   fromOpen = false;
 
   get mode() {
-    return this.args.mode ?? 'default';
+    return this.activeMenu?.mode ?? 'default';
   }
 
   get contentShadowEnabled() {
