@@ -201,7 +201,7 @@ export default class MobileMenu extends Component {
 
   get style() {
     let styles = '';
-    if ((!this.maskEnabled || ['squeeze', 'squeeze-reveal'].includes(this.mode)) && this.isOpen) {
+    if ((!this.maskEnabled && ['squeeze', 'squeeze-reveal'].includes(this.mode)) && this.isOpen) {
       styles =`width: ${this._width}px;`;
     }
     return htmlSafe(styles);
