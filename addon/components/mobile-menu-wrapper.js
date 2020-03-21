@@ -199,52 +199,65 @@ export default class MobileMenuWrapper extends Component {
   }
 
   @action
-  didPanStart(e){
-    this.fromOpen = !!this.activeMenu?.isOpen;
-    this.fromMenu = this.activeMenu;
-    this.fromPosition = this.position;
-    this.dragging = true;
-    this.updatePosition(normalizeCoordinates(e, this.boundingClientRect));
+  didPanStart(e) {
+    const fromOpen = !!this.activeMenu?.isOpen;
+    const pan = normalizeCoordinates(e, this.boundingClientRect);
+
+    if (
+      fromOpen
+      || this.openDetectionWidth < 0
+      || (pan.initial.x <= this.openDetectionWidth || pan.initial.x >= this.boundingClientRect.width - this.openDetectionWidth)
+    ) {
+      this.fromOpen = fromOpen;
+      this.fromMenu = this.activeMenu;
+      this.fromPosition = this.position;
+      this.dragging = true;
+      this.updatePosition(pan);
+    }
   }
 
   @action
-  didPan(e){
-    this.updatePosition(normalizeCoordinates(e, this.boundingClientRect));
+  didPan(e) {
+    if (this.dragging) {
+      this.updatePosition(normalizeCoordinates(e, this.boundingClientRect));
+    }
   }
 
   @action
   didPanEnd(e) {
-    this.dragging = false;
-    const pan = normalizeCoordinates(e, this.boundingClientRect);
-    const menu = this.activeMenu;
+    if (this.dragging) {
+      this.dragging = false;
+      const pan = normalizeCoordinates(e, this.boundingClientRect);
+      const menu = this.activeMenu;
 
-    if (menu) {
-      const {
-        current: {
-          distanceX,
-          velocityX
-        }
-      } = pan;
+      if (menu) {
+        const {
+          current: {
+            distanceX,
+            velocityX
+          }
+        } = pan;
 
-      const isLeft = menu.isLeft;
-      const width = menu._width;
+        const isLeft = menu.isLeft;
+        const width = menu._width;
 
-      const condition = isLeft && !this.fromOpen || this.fromOpen && !isLeft;
-      const dx = condition ? distanceX : -distanceX;
-      const vx = condition ? velocityX : -velocityX;
+        const condition = isLeft && !this.fromOpen || this.fromOpen && !isLeft;
+        const dx = condition ? distanceX : -distanceX;
+        const vx = condition ? velocityX : -velocityX;
 
-      // the pan action is over, cleanup and set the correct final menu position
-      if (!this.fromOpen) {
-        if (vx > this.triggerVelocity || dx > width / 2) {
-          this._open.perform(menu);
+        // the pan action is over, cleanup and set the correct final menu position
+        if (!this.fromOpen) {
+          if (vx > this.triggerVelocity || dx > width / 2) {
+            this._open.perform(menu);
+          } else {
+            this._close.perform(menu);
+          }
         } else {
-          this._close.perform(menu);
-        }
-      } else {
-        if (vx > this.triggerVelocity || dx > width / 2) {
-          this._close.perform(menu);
-        } else {
-          this._open.perform(menu);
+          if (vx > this.triggerVelocity || dx > width / 2) {
+            this._close.perform(menu);
+          } else {
+            this._open.perform(menu);
+          }
         }
       }
     }
