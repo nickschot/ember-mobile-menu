@@ -37,7 +37,6 @@ export default class MobileMenu extends Component {
     return this.args.mode ?? 'default';
   }
 
-
   /**
    * The percentage of the screen the menu will take when opened.
    *
@@ -125,6 +124,26 @@ export default class MobileMenu extends Component {
     return this.args.onClose ?? _fn;
   }
 
+  /**
+   * @argument position
+   * @type number
+   * @protected
+   */
+  get position() {
+    return (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0)
+      ? this.args.position
+      : 0;
+  }
+
+  /**
+   * @argument isDragging
+   * @type boolean
+   * @protected
+   */
+  get isDragging() {
+    return this.args.isDragging && this.position !== 0;
+  }
+
   constructor() {
     super(...arguments);
 
@@ -157,18 +176,8 @@ export default class MobileMenu extends Component {
     return this.type === 'right';
   }
 
-  get position() {
-    return (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0)
-      ? this.args.position
-      : 0;
-  }
-
   get relativePosition() {
     return Math.abs(this.position) / this._width;
-  }
-
-  get isDragging() {
-    return this.args.isDragging && this.position !== 0;
   }
 
   get isClosed() {

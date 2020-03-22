@@ -28,7 +28,9 @@ export default class MobileMenuWrapper extends Component {
 
   /**
    * Current BoundingClientRect of the mobile menu wrapper root element
-   * @type DOMRect
+   *
+   * @property boundingClientRect
+   * @type {DOMRect}
    * @default null
    * @private
    */
