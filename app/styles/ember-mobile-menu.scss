@@ -28,11 +28,16 @@ body.mobile-menu--open {
     min-height: 100%;
     position: relative;
     background: #FFF;
-    will-change: transform, margin-left, margin-right;
+    will-change: transform, margin-left, margin-right; // TODO: optimize per mode
     z-index: 1;
+    touch-action: pan-y;
 
     &--shadow {
       box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    }
+
+    &--ios, &--reveal, &--squeeze-reveal {
+      z-index: 2;
     }
   }
 }
@@ -77,9 +82,10 @@ body.mobile-menu--open {
     width: 100vw;
     height: 100vh;
 
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.3);
     opacity: 0;
     cursor: pointer; // necessary to detect click on iOS
+    touch-action: pan-y;
 
     will-change: opacity;
 
@@ -96,14 +102,20 @@ body.mobile-menu--open {
   }
 
   &--ios, &--reveal, &--squeeze-reveal {
+    z-index: -1;
+
+    &.mobile-menu--dragging,
+    &.mobile-menu--transitioning,
+    &.mobile-menu--open {
+      z-index: unset;
+    }
+
     .mobile-menu__mask {
       z-index: 1;
     }
 
-    &.mobile-menu--open {
-      .mobile-menu__mask {
-        display: none;
-      }
+    &.mobile-menu--open .mobile-menu__mask {
+      display: none;
     }
   }
 }

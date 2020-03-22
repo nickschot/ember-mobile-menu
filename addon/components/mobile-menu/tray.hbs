@@ -1,6 +1,13 @@
 <div
   class="mobile-menu__tray"
   style={{this.style}}
+  {{did-pan
+    onPanStart=@onPanStart
+    onPan=@onPan
+    onPanEnd=@onPanEnd
+    capture=@capture
+    preventScroll=@preventScroll
+  }}
   ...attributes
 >
   {{yield}}

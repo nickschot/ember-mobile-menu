@@ -57,11 +57,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
-        <mmw.Toggle>Menu</mmw.Toggle>
-
         <mmw.MobileMenu as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 
@@ -82,11 +84,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
-        <mmw.Toggle>Menu</mmw.Toggle>
-
         <mmw.MobileMenu @type="right" as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 
@@ -103,14 +107,16 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
-        <mmw.Toggle @target={{this.target}}>Menu</mmw.Toggle>
-
         <mmw.MobileMenu @type="left" as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
         <mmw.MobileMenu @type="right" as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle @target={{this.target}}>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 
@@ -137,11 +143,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
-        <mmw.Toggle>Menu</mmw.Toggle>
-
         <mmw.MobileMenu as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 
@@ -162,15 +170,17 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
-        <mmw.Toggle>Menu</mmw.Toggle>
-
         <mmw.MobileMenu as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 
-    await pan('.mobile-menu-wrapper', 'right');
+    await pan('.mobile-menu-wrapper__content', 'right');
     await settled();
 
     assert.dom('.mobile-menu').hasClass('mobile-menu--left');
@@ -182,15 +192,17 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
-        <mmw.Toggle>Menu</mmw.Toggle>
-
         <mmw.MobileMenu @type="right" as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 
-    await pan('.mobile-menu-wrapper', 'left');
+    await pan('.mobile-menu-wrapper__content', 'left');
     await settled();
 
     assert.dom('.mobile-menu').hasClass('mobile-menu--right');
@@ -203,15 +215,17 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
-        <mmw.Toggle>Menu</mmw.Toggle>
-
         <mmw.MobileMenu as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 
-    await pan('.mobile-menu-wrapper', 'left');
+    await pan('.mobile-menu-wrapper__content', 'left');
     await settled();
 
     assert.dom('.mobile-menu').hasClass('mobile-menu--left');
@@ -223,11 +237,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
-        <mmw.Toggle>Menu</mmw.Toggle>
-
         <mmw.MobileMenu as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 
@@ -244,11 +260,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
-        <mmw.Toggle>Menu</mmw.Toggle>
-
         <mmw.MobileMenu as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 
@@ -266,11 +284,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await render(hbs`
       <div class="root-div" style="padding: 100px; height: 500px; background: red;">
         <MobileMenuWrapper @embed={{true}} as |mmw|>
-          <mmw.Toggle>Menu</mmw.Toggle>
-
           <mmw.MobileMenu as |mm|>
             <mm.LinkTo @route="index">Home</mm.LinkTo>
           </mmw.MobileMenu>
+
+          <mmw.Content>
+            <mmw.Toggle>Menu</mmw.Toggle>
+          </mmw.Content>
         </MobileMenuWrapper>
       </div>
     `);
@@ -281,7 +301,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.dom('.mobile-menu').hasClass('mobile-menu--left');
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
 
-    await pan('.mobile-menu-wrapper', 'right');
+    await pan('.mobile-menu-wrapper__content', 'right');
     await settled();
 
     assert.dom('.mobile-menu').hasClass('mobile-menu--left');
@@ -294,11 +314,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     await render(hbs`
       <div class="root-div" style="padding: 100px; height: 500px; background: red;">
         <MobileMenuWrapper @embed={{true}} as |mmw|>
-          <mmw.Toggle>Menu</mmw.Toggle>
-
           <mmw.MobileMenu @type="right" as |mm|>
             <mm.LinkTo @route="index">Home</mm.LinkTo>
           </mmw.MobileMenu>
+
+          <mmw.Content>
+            <mmw.Toggle>Menu</mmw.Toggle>
+          </mmw.Content>
         </MobileMenuWrapper>
       </div>
     `);
@@ -309,7 +331,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.dom('.mobile-menu').hasClass('mobile-menu--right');
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
 
-    await pan('.mobile-menu-wrapper--embedded', 'left');
+    await pan('.mobile-menu-wrapper--embedded .mobile-menu-wrapper__content', 'left');
     await settled();
 
     assert.dom('.mobile-menu').hasClass('mobile-menu--right');
@@ -320,12 +342,14 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.expect(2);
 
     await render(hbs`
-        <MobileMenuWrapper @embed={{true}} as |mmw|>
-        <mmw.Toggle>Menu</mmw.Toggle>
-
+      <MobileMenuWrapper @embed={{true}} as |mmw|>
         <mmw.MobileMenu as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 
@@ -342,11 +366,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
-        <mmw.Toggle>Menu</mmw.Toggle>
-
         <mmw.MobileMenu as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 
@@ -365,11 +391,13 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
-        <mmw.Toggle>Menu</mmw.Toggle>
-
         <mmw.MobileMenu @width={{100}} @maxWidth={{this.maxWidth}} as |mm|>
           <mm.LinkTo @route="index">Home</mm.LinkTo>
         </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
       </MobileMenuWrapper>
     `);
 

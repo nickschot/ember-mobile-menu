@@ -1,12 +1,9 @@
 <div
   class={{this.classNames}}
-  {{did-pan
-    onPan=this.didPan
-    onPanEnd=this.didPanEnd
-  }}
   style={{this.style}}
   ...attributes
 >
+  {{!-- TODO: allow scroll in desktop mode --}}
   {{#unless this.embed}}
     {{#if this.isOpen}}
       {{set-body-class "mobile-menu--open"}}
@@ -18,7 +15,13 @@
       @isOpen={{this.isOpen}}
       @position={{this.relativePosition}}
       @invertOpacity={{this.invertOpacity}}
-      @onClick={{this.close}}
+      @onClick={{@onClose}}
+
+      @onPanStart={{@onPanStart}}
+      @onPan={{@onPan}}
+      @onPanEnd={{@onPanEnd}}
+      @capture={{@capture}}
+      @preventScroll={{@preventScroll}}
     />
   {{/if}}
 
@@ -28,6 +31,12 @@
     @position={{this.position}}
     @shadowEnabled={{this.shadowEnabled}}
     @mode={{@mode}}
+
+    @onPanStart={{@onPanStart}}
+    @onPan={{@onPan}}
+    @onPanEnd={{@onPanEnd}}
+    @capture={{@capture}}
+    @preventScroll={{@preventScroll}}
   >
     {{yield
       (hash

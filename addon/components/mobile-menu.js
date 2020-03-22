@@ -1,17 +1,12 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/string';
 
-import Tween from 'ember-mobile-core/tween';
-import { restartableTask } from 'ember-concurrency-decorators';
-import normalizeCoordinates from '../utils/normalize-coordinates';
-
 import defineModifier from 'ember-concurrency-test-waiter/define-modifier';
 defineModifier();
 
-const _fn = () => {};
+const _fn = function(){};
 
 /**
  * Menu component
@@ -119,40 +114,13 @@ export default class MobileMenu extends Component {
   }
 
   /**
-   * @argument didPositionUpdate
-   * @type function
-   * @protected
-   */
-
-  /**
    * @argument mode
    * @type string
    * @protected
    */
-
-  /**
-   * @property isDragging
-   * @type boolean
-   * @default false
-   * @private
-   */
-  @tracked isDragging = false;
-
-  /**
-   * @property position
-   * @type number
-   * @default 0
-   * @private
-   */
-  @tracked position = 0;
-
-  /**
-   * @property dxCorrection
-   * @type number
-   * @default 0
-   * @private
-   */
-  @tracked dxCorrection = 0;
+  get mode() {
+    return this.args.mode ?? 'default';
+  }
 
   constructor() {
     super(...arguments);
@@ -169,7 +137,7 @@ export default class MobileMenu extends Component {
   }
 
   get classNames() {
-    let classes = `mobile-menu mobile-menu--${this.args.mode}`;
+    let classes = `mobile-menu mobile-menu--${this.mode}`;
     if (this.isLeft) classes += ' mobile-menu--left';
     if (this.isRight) classes += ' mobile-menu--right';
     if (this.isDragging) classes += ' mobile-menu--dragging';
@@ -186,16 +154,30 @@ export default class MobileMenu extends Component {
     return this.type === 'right';
   }
 
-  get isOpen() {
-    return !this.isDragging && this.position === this._width;
-  }
-
-  get isTransitioning() {
-    return this._open.isRunning || this._close.isRunning;
+  get position() {
+    return (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0)
+      ? this.args.position
+      : 0;
   }
 
   get relativePosition() {
     return Math.abs(this.position) / this._width;
+  }
+
+  get isDragging() {
+    return this.args.isDragging && this.position !== 0;
+  }
+
+  get isClosed() {
+    return !this.isDragging && this.position === 0;
+  }
+
+  get isOpen() {
+    return !this.isDragging && Math.abs(this.position) === this._width;
+  }
+
+  get isTransitioning() {
+    return !this.isDragging && !this.isOpen && !this.isClosed;
   }
 
   get invertOpacity() {
@@ -219,183 +201,19 @@ export default class MobileMenu extends Component {
 
   get style() {
     let styles = '';
-    if (['squeeze', 'squeeze-reveal'].includes(this.args.mode) && !this.maskEnabled && this.isOpen) {
+    if ((!this.maskEnabled && ['squeeze', 'squeeze-reveal'].includes(this.mode)) && this.isOpen) {
       styles =`width: ${this._width}px;`;
     }
     return htmlSafe(styles);
   }
 
-  @restartableTask({
-    withTestWaiter: true
-  })
-  *_open(){
-    const startPos = this.position;
-    const diff = this._width - startPos;
-
-    const anim = new Tween((progress) => {
-      this.position = startPos + diff * progress;
-
-      if (this.args.didUpdatePosition) {
-        this.args.didUpdatePosition(this.position);
-      }
-    }, { duration: 300});
-    yield anim.start();
-
-    this.onOpen(this);
-  }
-
-  @restartableTask({
-    withTestWaiter: true
-  })
-  *_close(){
-    const anim = new Tween((progress) => {
-      this.position = this.position * (1 - progress);
-
-      if (this.args.didUpdatePosition) {
-        this.args.didUpdatePosition(this.position);
-      }
-    }, { duration: 300});
-    yield anim.start();
-
-    this.onClose();
-  }
-
   @action
   open(){
-    this._open.perform();
+    this.onOpen(this);
   }
 
   @action
   close(){
-    this._close.perform();
-  }
-
-  @action
-  panOpen(e){
-    this.isDragging = true;
-
-    const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
-    const {
-      current: {
-        distanceX
-      }
-    } = _e;
-
-    const dx = this.isLeft ? distanceX : -distanceX;
-    const width = this._width;
-
-    // enforce limits on the offset [0, width]
-    this.position = Math.min(Math.max(dx, 0), width);
-
-    if (this.args.didUpdatePosition) {
-      this.args.didUpdatePosition(this.position);
-    }
-  }
-
-  @action
-  panOpenEnd(e){
-    this.isDragging = false;
-
-    const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
-    const {
-      current: {
-        distanceX,
-        velocityX,
-      }
-    } = _e;
-
-    const triggerVelocity = this.triggerVelocity;
-
-    const isLeft = this.isLeft;
-    const width = this._width;
-
-    const dx = isLeft ? distanceX : -distanceX;
-    const vx = isLeft ? velocityX : -velocityX;
-
-    // when overall horizontal velocity is high, force open/close and skip the rest
-    if (vx > triggerVelocity || dx > width / 2) {
-      this._open.perform();
-    } else {
-      this._close.perform();
-    }
-  }
-
-  @action
-  didPan(e){
-    const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
-    const {
-      current: {
-        distanceX,
-        x
-      }
-    } = _e;
-
-    const isLeft = this.isLeft;
-    const windowWidth = this.args.parentBoundingClientRect.width;
-    const width = this._width;
-
-    const dx = isLeft ? distanceX : -distanceX;
-    const cx = isLeft ? x : windowWidth - x;
-
-    if(this.isOpen && !this.isDragging){
-      // calculate and set a correction delta if the pan started outside the opened menu
-      if(cx < width) {
-        this.isDragging = true;
-        this.dxCorrection = dx;
-      }
-    }
-
-    if(this.isDragging){
-      let targetPosition = dx;
-
-      // correct targetPosition with dxCorrection set earlier
-      targetPosition -= this.dxCorrection;
-
-      // enforce limits on the offset [0, width]
-      if(cx < width){
-        if(targetPosition > 0){
-          targetPosition = 0;
-        } else if(targetPosition < -1 * width){
-          targetPosition = -1 * width;
-        }
-        this.position = width + targetPosition;
-
-        if (this.args.didUpdatePosition) {
-          this.args.didUpdatePosition(this.position);
-        }
-      }
-    }
-  }
-
-  @action
-  didPanEnd(e){
-    if(this.isDragging){
-      this.isDragging = false;
-
-      const _e = normalizeCoordinates(e, this.args.parentBoundingClientRect);
-      const {
-        current: {
-          distanceX,
-          velocityX
-        }
-      } = _e;
-
-      const triggerVelocity = this.triggerVelocity;
-
-      const isLeft = this.isLeft;
-      const width = this._width;
-
-      const dx = isLeft ? distanceX : -distanceX;
-      const vx = isLeft ? velocityX : -velocityX;
-
-      // the pan action is over, cleanup and set the correct final menu position
-      if (vx < -1 * triggerVelocity || -1 * dx > width / 2){
-        this._close.perform();
-      } else {
-        this._open.perform();
-      }
-
-      this.dxCorrection = 0;
-    }
+    this.onClose(this);
   }
 }
