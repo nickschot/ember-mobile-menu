@@ -53,18 +53,4 @@ module('Integration | Component | mobile-menu', function(hooks) {
     await render(hbs`<MobileMenu @maskEnabled={{false}} @register={{this.register}} @unregister={{this.unregister}}/>`);
     assert.dom('.mobile-menu__mask').doesNotExist();
   });
-
-  test(`it adds a shadow by default`, async function(assert){
-    assert.expect(1);
-
-    await render(hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}}/>`);
-    assert.dom('.mobile-menu').hasClass('mobile-menu--shadow');
-  });
-
-  test(`it doesn't add a shadow by if shadowEnabled=false`, async function(assert){
-    assert.expect(1);
-
-    await render(hbs`<MobileMenu @shadowEnabled={{false}} @register={{this.register}} @unregister={{this.unregister}}/>`);
-    assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--shadow');
-  });
 });
