@@ -29,6 +29,13 @@ export default class MaskComponent extends Component {
   }
 
   /**
+   * @argument invertOpacity
+   * @type boolean
+   * @default undefined
+   * @protected
+   */
+
+  /**
    * @argument isOpen
    * @type boolean
    * @default false
@@ -65,11 +72,15 @@ export default class MaskComponent extends Component {
       ? 'visibility: hidden;'
       : 'visibility: visible;';
 
-    style += `opacity: ${
-      this.position > this.maskOpacityOffset
-        ? (this.position - this.maskOpacityOffset) / (1 - this.maskOpacityOffset)
-        : 0
-    };`;
+    let opacity = this.position > this.maskOpacityOffset
+      ? (this.position - this.maskOpacityOffset) / (1 - this.maskOpacityOffset)
+      : 0;
+
+    if (this.args.invertOpacity) {
+      opacity = 1 - opacity;
+    }
+
+    style += `opacity: ${opacity};`;
 
     return htmlSafe(style);
   }

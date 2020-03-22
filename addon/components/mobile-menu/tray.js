@@ -53,9 +53,20 @@ export default class TrayComponent extends Component {
 
   get style() {
     let style = `width: ${this.width}px;`;
+
+    let offset = this.width;
+    let translation = this.position;
+    if (this.args.mode === 'ios') {
+      offset /= 3;
+      translation /= 3;
+    } else if (['reveal', 'squeeze-reveal'].includes(this.args.mode)) {
+      offset = 0;
+      translation = 0;
+    }
+
     style += this.isLeft
-      ?  `left: -${this.width}px; transform: translateX(${this.position}px);`
-      : `right: -${this.width}px; transform: translateX(-${this.position}px);`;
+      ?  `left: -${offset}px; transform: translateX(${translation}px);`
+      : `right: -${offset}px; transform: translateX(-${translation}px);`;
 
     if (this.args.shadowEnabled && this.progress > 0) {
       style += `box-shadow: 0 5px 10px rgba(0,0,0,${0.3 * this.progress});`

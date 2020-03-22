@@ -4,6 +4,7 @@
     onPan=this.didPan
     onPanEnd=this.didPanEnd
   }}
+  style={{this.style}}
   ...attributes
 >
   {{#unless this.embed}}
@@ -16,6 +17,7 @@
     <MobileMenu::Mask
       @isOpen={{this.isOpen}}
       @position={{this.relativePosition}}
+      @invertOpacity={{this.invertOpacity}}
       @onClick={{this.close}}
     />
   {{/if}}
@@ -25,6 +27,7 @@
     @isLeft={{this.isLeft}}
     @position={{this.position}}
     @shadowEnabled={{this.shadowEnabled}}
+    @mode={{@mode}}
   >
     {{yield
       (hash

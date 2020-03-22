@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { htmlSafe } from '@ember/string';
 
 import Tween from 'ember-mobile-core/tween';
 import { restartableTask } from 'ember-concurrency-decorators';
@@ -118,6 +119,18 @@ export default class MobileMenu extends Component {
   }
 
   /**
+   * @argument didPositionUpdate
+   * @type function
+   * @protected
+   */
+
+  /**
+   * @argument mode
+   * @type string
+   * @protected
+   */
+
+  /**
    * @property isDragging
    * @type boolean
    * @default false
@@ -156,13 +169,12 @@ export default class MobileMenu extends Component {
   }
 
   get classNames() {
-    let classes = 'mobile-menu';
+    let classes = `mobile-menu mobile-menu--${this.args.mode}`;
     if (this.isLeft) classes += ' mobile-menu--left';
     if (this.isRight) classes += ' mobile-menu--right';
     if (this.isDragging) classes += ' mobile-menu--dragging';
     if (this.isOpen) classes += ' mobile-menu--open';
     if (this.isTransitioning) classes += ' mobile-menu--transitioning';
-    if (this.shadowEnabled) classes += ' mobile-menu--shadow';
     return classes;
   }
 
@@ -186,6 +198,10 @@ export default class MobileMenu extends Component {
     return Math.abs(this.position) / this._width;
   }
 
+  get invertOpacity() {
+    return ['ios', 'reveal', 'squeeze-reveal'].includes(this.args.mode);
+  }
+
   /**
    * Current menu width in px
    *
@@ -201,6 +217,14 @@ export default class MobileMenu extends Component {
     return this.maxWidth === -1 ? width : Math.min(width, this.maxWidth);
   }
 
+  get style() {
+    let styles = '';
+    if (['squeeze', 'squeeze-reveal'].includes(this.args.mode) && !this.maskEnabled && this.isOpen) {
+      styles =`width: ${this._width}px;`;
+    }
+    return htmlSafe(styles);
+  }
+
   @restartableTask({
     withTestWaiter: true
   })
@@ -210,6 +234,10 @@ export default class MobileMenu extends Component {
 
     const anim = new Tween((progress) => {
       this.position = startPos + diff * progress;
+
+      if (this.args.didUpdatePosition) {
+        this.args.didUpdatePosition(this.position);
+      }
     }, { duration: 300});
     yield anim.start();
 
@@ -222,6 +250,10 @@ export default class MobileMenu extends Component {
   *_close(){
     const anim = new Tween((progress) => {
       this.position = this.position * (1 - progress);
+
+      if (this.args.didUpdatePosition) {
+        this.args.didUpdatePosition(this.position);
+      }
     }, { duration: 300});
     yield anim.start();
 
@@ -254,6 +286,10 @@ export default class MobileMenu extends Component {
 
     // enforce limits on the offset [0, width]
     this.position = Math.min(Math.max(dx, 0), width);
+
+    if (this.args.didUpdatePosition) {
+      this.args.didUpdatePosition(this.position);
+    }
   }
 
   @action
@@ -323,6 +359,10 @@ export default class MobileMenu extends Component {
           targetPosition = -1 * width;
         }
         this.position = width + targetPosition;
+
+        if (this.args.didUpdatePosition) {
+          this.args.didUpdatePosition(this.position);
+        }
       }
     }
   }
