@@ -231,7 +231,10 @@ export default class MobileMenuWrapper extends Component {
     if (
       fromOpen
       || this.openDetectionWidth < 0
-      || (pan.initial.x <= this.openDetectionWidth || pan.initial.x >= this.boundingClientRect.width - this.openDetectionWidth)
+      || (
+        (this.leftMenu && pan.initial.x <= this.openDetectionWidth)
+        || (this.rightMenu && pan.initial.x >= this.boundingClientRect.width - this.openDetectionWidth)
+      )
     ) {
       this.fromOpen = fromOpen;
       this.fromMenu = this.activeMenu;
