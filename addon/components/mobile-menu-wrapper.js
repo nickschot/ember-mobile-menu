@@ -28,7 +28,9 @@ export default class MobileMenuWrapper extends Component {
 
   /**
    * Current BoundingClientRect of the mobile menu wrapper root element
-   * @type DOMRect
+   *
+   * @property boundingClientRect
+   * @type {DOMRect}
    * @default null
    * @private
    */
@@ -42,7 +44,7 @@ export default class MobileMenuWrapper extends Component {
   defaultMenuDx = 0;
 
   get mode() {
-    return this.args.mode ?? 'default';
+    return this.activeMenu?.mode ?? 'default';
   }
 
   get contentShadowEnabled() {

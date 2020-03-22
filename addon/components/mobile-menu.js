@@ -27,6 +27,17 @@ export default class MobileMenu extends Component {
   }
 
   /**
+   * Sets the mode of the menu. Currently 'default', 'push', 'ios', 'reveal', 'squeeze' and 'squeeze-reveal' are supported.
+   *
+   * @argument mode
+   * @type string
+   * @default default''
+   */
+  get mode() {
+    return this.args.mode ?? 'default';
+  }
+
+  /**
    * The percentage of the screen the menu will take when opened.
    *
    * @argument width
@@ -114,12 +125,23 @@ export default class MobileMenu extends Component {
   }
 
   /**
-   * @argument mode
-   * @type string
+   * @argument position
+   * @type number
    * @protected
    */
-  get mode() {
-    return this.args.mode ?? 'default';
+  get position() {
+    return (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0)
+      ? this.args.position
+      : 0;
+  }
+
+  /**
+   * @argument isDragging
+   * @type boolean
+   * @protected
+   */
+  get isDragging() {
+    return this.args.isDragging && this.position !== 0;
   }
 
   constructor() {
@@ -154,18 +176,8 @@ export default class MobileMenu extends Component {
     return this.type === 'right';
   }
 
-  get position() {
-    return (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0)
-      ? this.args.position
-      : 0;
-  }
-
   get relativePosition() {
     return Math.abs(this.position) / this._width;
-  }
-
-  get isDragging() {
-    return this.args.isDragging && this.position !== 0;
   }
 
   get isClosed() {
@@ -201,8 +213,8 @@ export default class MobileMenu extends Component {
 
   get style() {
     let styles = '';
-    if ((!this.maskEnabled && ['squeeze', 'squeeze-reveal'].includes(this.mode)) && this.isOpen) {
-      styles =`width: ${this._width}px;`;
+    if (!this.maskEnabled && this.isOpen) {
+      styles = `width: ${this._width}px;`;
     }
     return htmlSafe(styles);
   }
