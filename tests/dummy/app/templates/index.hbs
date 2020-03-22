@@ -44,10 +44,10 @@
                   <h3>Mode</h3>
                   <div class="docs-flex docs-flex-col">
                     <label><input type="radio" name="mode" {{on "click" (fn (mut this.mode) "default")}} checked="checked">default</label>
+                    <label><input type="radio" name="mode" {{on "click" (fn (mut this.mode) "reveal")}}>reveal</label>
+                    <label><input type="radio" name="mode" {{on "click" (fn (mut this.mode) "ios")}}>ios</label>
                     <label><input type="radio" name="mode" {{on "click" (fn (mut this.mode) "push")}}>push</label>
                     <label><input type="radio" name="mode" {{on "click" (fn (mut this.mode) "squeeze")}}>squeeze</label>
-                    <label><input type="radio" name="mode" {{on "click" (fn (mut this.mode) "ios")}}>ios</label>
-                    <label><input type="radio" name="mode" {{on "click" (fn (mut this.mode) "reveal")}}>reveal</label>
                     <label><input type="radio" name="mode" {{on "click" (fn (mut this.mode) "squeeze-reveal")}}>squeeze-reveal</label>
                   </div>
                 </div>
@@ -55,8 +55,8 @@
                 <div>
                   <h3>Type</h3>
                   <div class="docs-flex docs-flex-col docs-mb-3">
-                    <label><input type="radio" name="side" {{on "click" (fn (mut this.type) "left")}} checked="checked">left menu</label>
-                    <label><input type="radio" name="side" {{on "click" (fn (mut this.type) "right")}}>right menu</label>
+                    <label><input type="radio" name="side" {{on "click" (fn (mut this.type) "left")}} checked="checked">left</label>
+                    <label><input type="radio" name="side" {{on "click" (fn (mut this.type) "right")}}>right</label>
                   </div>
 
                   <h3>Open detection width</h3>
@@ -67,8 +67,8 @@
 
                   <h3>Other options</h3>
                   <div class="docs-flex docs-flex-col">
-                    <label><input type="checkbox" {{on "click" (fn (mut this.mask) (not this.mask))}} checked="checked">mask enabled</label>
-                    <label><input type="checkbox" {{on "click" (fn (mut this.shadow) (not this.shadow))}} checked="checked">shadow enabled</label>
+                    <label><input type="checkbox" {{on "click" (fn (mut this.mask) (not this.mask))}} checked="checked">mask</label>
+                    <label><input type="checkbox" {{on "click" (fn (mut this.shadow) (not this.shadow))}} checked="checked">shadow</label>
                   </div>
                 </div>
               </div>
