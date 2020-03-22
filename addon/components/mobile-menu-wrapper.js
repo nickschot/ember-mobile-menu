@@ -191,15 +191,13 @@ export default class MobileMenuWrapper extends Component {
       // default menu dx correction
       if (this.mode === 'default') {
         if (menu.isLeft && initialX > menu._width) {
-          if (initialX + distanceX <= menu._width) {
-            this.defaultMenuDx = initialX - menu._width;
-          } else {
+          this.defaultMenuDx = initialX - menu._width;
+          if (initialX + distanceX > menu._width) {
             return;
           }
         } else if(menu.isRight && initialX < this.boundingClientRect.width - menu._width) {
-          if (initialX + distanceX >= this.boundingClientRect.width - menu._width) {
-            this.defaultMenuDx = initialX - (this.boundingClientRect.width - menu._width);
-          } else {
+          this.defaultMenuDx = initialX - (this.boundingClientRect.width - menu._width);
+          if (initialX + distanceX < this.boundingClientRect.width - menu._width) {
             return;
           }
         } else {
@@ -289,7 +287,7 @@ export default class MobileMenuWrapper extends Component {
         } else {
           if (
             this.mode === 'default'
-              ? vx > this.triggerVelocity && dx > width / 2
+              ? vx > this.triggerVelocity && dx > 0 || dx > width / 2
               : vx > this.triggerVelocity || dx > width / 2
           ) {
             this._close.perform(menu);
