@@ -31,7 +31,7 @@ export default class MobileMenu extends Component {
    *
    * @argument mode
    * @type string
-   * @default default''
+   * @default 'default'
    */
   get mode() {
     return this.args.mode ?? 'default';

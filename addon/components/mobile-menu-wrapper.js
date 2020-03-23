@@ -16,8 +16,9 @@ import Tween from 'ember-mobile-core/tween';
  *
  * @class MobileMenuWrapper
  * @yield {Hash} wrapper
- * @yield {MobileMenu component} wrapper.mobile-menu
- * @yield {MobileMenuToggle component} wrapper.toggle
+ * @yield {MobileMenu component} wrapper.MobileMenu
+ * @yield {Content component} wrapper.Content
+ * @yield {MobileMenuToggle component} wrapper.Toggle
  * @yield {Hash} wrapper.actions
  * @yield {Action} wrapper.actions.toggle
  * @yield {Action} wrapper.actions.close
@@ -42,18 +43,6 @@ export default class MobileMenuWrapper extends Component {
   fromPosition = 0;
   fromOpen = false;
   defaultMenuDx = 0;
-
-  get mode() {
-    return this.activeMenu?.mode;
-  }
-
-  get contentShadowEnabled() {
-    return this.activeMenu?.shadowEnabled && ['reveal', 'ios', 'squeeze-reveal'].includes(this.mode);
-  }
-
-  get requiresUpdatedPosition() {
-    return this.mode !== 'default';
-  }
 
   /**
    * Horizontal width of the detection zone in pixels. Set to -1 to use full width.
@@ -121,6 +110,18 @@ export default class MobileMenuWrapper extends Component {
     } else {
       return null;
     }
+  }
+
+  get mode() {
+    return this.activeMenu?.mode;
+  }
+
+  get contentShadowEnabled() {
+    return this.activeMenu?.shadowEnabled && ['reveal', 'ios', 'squeeze-reveal'].includes(this.mode);
+  }
+
+  get requiresUpdatedPosition() {
+    return this.mode !== 'default';
   }
 
   @action
