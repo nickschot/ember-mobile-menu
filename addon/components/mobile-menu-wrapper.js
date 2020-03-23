@@ -226,6 +226,11 @@ export default class MobileMenuWrapper extends Component {
 
   @action
   didPanStart(e) {
+    // don't conflict with iOS browser's drag to go back/forward functionality
+    if (this._isIOSbrowser && (e.initial.x < 15 || e.initial.x > this._windowWidth - 15)) {
+      return;
+    }
+
     const fromOpen = !!this.activeMenu?.isOpen;
     const pan = normalizeCoordinates(e, this.boundingClientRect);
 
@@ -340,7 +345,11 @@ export default class MobileMenuWrapper extends Component {
    * @return {Boolean} Returns true when the user is using iOS and is inside a browser
    * @private
    */
-  _isIOSbrowser(){
+  get _isIOSbrowser(){
     return this.userAgent.os.isIOS && !window.navigator.standalone;
+  }
+
+  get _windowWidth() {
+    return window.innerWidth;
   }
 }
