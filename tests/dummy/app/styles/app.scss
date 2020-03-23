@@ -3,6 +3,10 @@
 
 .demo-height {
   height: 500px;
+
+  .mobile-menu-wrapper {
+    height: 100%;
+  }
 }
 
 .mobile-menu-example-options {
@@ -39,5 +43,19 @@
 
   .mobile-menu__header {
     background: lighten(#E04E39, 5%);
+  }
+}
+
+table {
+  margin-bottom: 1rem;
+
+  th {
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  th, td {
+    border: 1px solid #6c757d;
+    padding: 0.25rem 0.5rem;
   }
 }

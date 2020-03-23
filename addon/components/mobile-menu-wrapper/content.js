@@ -13,7 +13,6 @@ const MODES = new Map([
 /**
  * @class ContentComponent
  * @private
- * @hide
  */
 export default class ContentComponent extends Component {
   /**
