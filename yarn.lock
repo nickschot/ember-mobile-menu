@@ -5265,7 +5265,7 @@ ember-assign-polyfill@^2.5.0, ember-assign-polyfill@^2.6.0:
     ember-cli-babel "^6.16.0"
     ember-cli-version-checker "^2.0.0"
 
-ember-auto-import@^1.2.13, ember-auto-import@^1.2.15, ember-auto-import@^1.5.3:
+ember-auto-import@^1.2.15, ember-auto-import@^1.5.3:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-1.5.3.tgz#b32936f874d1ed7057ad2ed3f6116357820be44b"
   integrity sha512-7JfdunM1BmLy/lyUXu7uEoi0Gi4+dxkGM23FgIEyW5g7z4MidhP53Fc61t49oPSnq7+J4lLpbH1f6C+mDMgb4A==
@@ -6136,15 +6136,6 @@ ember-maybe-import-regenerator@^0.1.6:
     broccoli-merge-trees "^1.0.0"
     ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
-
-ember-mobile-core@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ember-mobile-core/-/ember-mobile-core-0.2.0.tgz#bac4ba0ccdfdf360e5753526613026b14b457d60"
-  integrity sha512-kHxIF/AIc4CLePSo+8jlUm3Z2WYxZTda7HfgO/a0bUJLqa2sEtWTTrqh0LV/Y2yh9zmjL2uwRZOGFyRcx1dYjw==
-  dependencies:
-    ember-auto-import "^1.2.13"
-    ember-cli-babel "^7.1.2"
-    wobble "^1.5.0"
 
 ember-modal-dialog@^3.0.0-beta.4:
   version "3.0.0-beta.4"
@@ -13029,11 +13020,6 @@ wide-align@^1.1.0:
   integrity sha512-QGkOQc8XL6Bt5PwnsExKBPuMKBxnGxWWW3fU55Xt4feHozMUhdUMaBCk290qpm/wG5u/RSKzwdAC4i51YigihA==
   dependencies:
     string-width "^1.0.2 || 2"
-
-wobble@^1.5.0:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/wobble/-/wobble-1.5.1.tgz#2f2d50b6a54597eef765a688a9b9c56c87ecd606"
-  integrity sha512-vQD1uu0yXhZWfQJKVf2UVNb3AVnD0qXAbcIqG6Aw02ABLVm77xz6KcLuduWSwOiOMNh8TjZqouZsHTJWTdLwVQ==
 
 word-wrap@~1.2.3:
   version "1.2.3"

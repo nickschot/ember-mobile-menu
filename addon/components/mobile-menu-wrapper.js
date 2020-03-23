@@ -9,7 +9,7 @@ import normalizeCoordinates from '../utils/normalize-coordinates';
 
 import { assert } from '@ember/debug';
 import { restartableTask } from 'ember-concurrency-decorators';
-import Tween from 'ember-mobile-core/tween';
+import Tween from '../tween';
 
 /**
  * Wrapper component for menu's. Provides pan recognition and management.
