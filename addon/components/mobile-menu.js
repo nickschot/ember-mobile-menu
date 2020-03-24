@@ -149,8 +149,6 @@ export default class MobileMenu extends Component {
 
     assert('register function argument not passed. You should not be using <MobileMenu/> directly.', typeof this.args.register === 'function');
     assert('unregister function argument not passed. You should not be using <MobileMenu/> directly.', typeof this.args.unregister === 'function');
-
-    this.args.register(this);
   }
 
   willDestroy() {

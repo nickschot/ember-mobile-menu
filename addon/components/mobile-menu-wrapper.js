@@ -3,6 +3,7 @@ import { tracked } from '@glimmer/tracking';
 
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { TrackedSet } from 'tracked-maps-and-sets';
 
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
 import normalizeCoordinates from '../utils/normalize-coordinates';
@@ -37,7 +38,7 @@ export default class MobileMenuWrapper extends Component {
    */
   @tracked boundingClientRect = null;
 
-  @tracked children = [];
+  @tracked children = new TrackedSet();
   @tracked position = 0;
   @tracked dragging = false;
   fromPosition = 0;
@@ -126,26 +127,26 @@ export default class MobileMenuWrapper extends Component {
 
   @action
   registerChild(component) {
-    assert('component was already registered as a child', !this.children.includes(component));
+    assert('component was already registered as a child', !this.children.has(component));
 
-    this.children.push(component);
+    this.children.add(component);
   }
 
   @action
   unregisterChild(component) {
-    this.children.unshift(component);
+    this.children.delete(component);
   }
 
   get childMenus() {
-    return this.children.filter((view) => view instanceof MobileMenu);
+    return [...this.children].filter((view) => view instanceof MobileMenu);
   }
 
   get leftMenu() {
-    return this.children.find(menu => menu.isLeft);
+    return this.childMenus.find(menu => menu.isLeft);
   }
 
   get rightMenu() {
-    return this.children.find(menu => menu.isRight);
+    return this.childMenus.find(menu => menu.isRight);
   }
 
   @action
