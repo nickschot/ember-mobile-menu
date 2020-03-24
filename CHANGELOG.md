@@ -1,4 +1,16 @@
 
+## v2.0.0-beta.2 (2020-03-24)
+
+#### :boom: Breaking Change
+* [#57](https://github.com/nickschot/ember-mobile-menu/pull/57) link body scroll behaviour to menu settings & enable preventScroll by default ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#56](https://github.com/nickschot/ember-mobile-menu/pull/56) fix childmenus tracking & registration ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v2.0.0-beta.1 (2020-03-23)
 
 #### :boom: Breaking Change
