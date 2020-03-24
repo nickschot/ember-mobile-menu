@@ -1,7 +1,7 @@
 @import "ember-mobile-menu/variables";
 
 // global ------------------------------------------------------------------- //
-body.mobile-menu--open {
+body.mobile-menu--prevent-scroll {
   overflow: hidden;
 }
 

@@ -5,13 +5,6 @@
   {{did-update this.close this.type}}
   ...attributes
 >
-  {{!-- TODO: allow scroll in desktop mode --}}
-  {{#unless this.embed}}
-    {{#if this.isOpen}}
-      {{set-body-class "mobile-menu--open"}}
-    {{/if}}
-  {{/unless}}
-
   {{#if this.maskEnabled}}
     <MobileMenu::Mask
       @isOpen={{this.isOpen}}

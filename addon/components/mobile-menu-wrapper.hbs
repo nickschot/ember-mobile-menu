@@ -1,3 +1,7 @@
+{{#if this.preventBodyScroll}}
+  {{set-body-class "mobile-menu--prevent-scroll"}}
+{{/if}}
+
 <div
   class="mobile-menu-wrapper {{if this.embed 'mobile-menu-wrapper--embedded'}}"
   {{did-insert this.updateBoundingClientRect}}

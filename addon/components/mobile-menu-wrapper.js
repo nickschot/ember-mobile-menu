@@ -79,7 +79,7 @@ export default class MobileMenuWrapper extends Component {
    * @default false
    */
   get preventScroll() {
-    return this.args.preventScroll ?? false;
+    return this.args.preventScroll ?? true;
   }
 
   /**
@@ -147,6 +147,10 @@ export default class MobileMenuWrapper extends Component {
 
   get rightMenu() {
     return this.childMenus.find(menu => menu.isRight);
+  }
+
+  get preventBodyScroll() {
+    return this.preventScroll && !this.embed && this.activeMenu?.isOpen && this.activeMenu?.maskEnabled;
   }
 
   @action
