@@ -1,6 +1,7 @@
 <div
   class={{this.classNames}}
   style={{this.style}}
+  {{did-insert (fn @register this)}}
   {{did-update this.close this.type}}
   ...attributes
 >
