@@ -14,7 +14,7 @@ module.exports = {
 
       // Don't include the precompiled css file if the user uses a supported CSS preprocessor
       if (!hasSass) {
-        app.import('vendor/ember-model-select.css');
+        app.import('vendor/ember-mobile-menu.css');
       }
     }
   }
