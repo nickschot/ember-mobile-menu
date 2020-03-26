@@ -11,4 +11,11 @@
   ...attributes
 >
   {{yield}}
+
+  {{#if this.mask}}
+    <MobileMenu::Mask
+      @isOpen={{@isOpen}}
+      @onClick={{@onClose}}
+    />
+  {{/if}}
 </div>

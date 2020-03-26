@@ -34,12 +34,16 @@
         shadowEnabled=this.contentShadowEnabled
         position=this.position
         mode=this.mode
+        isOpen=this.isOpen
+        maskEnabled=this.activeMenu.maskEnabled
 
         onPanStart=this.didPanStart
         onPan=this.didPan
         onPanEnd=this.didPanEnd
         capture=this.capture
         preventScroll=this.preventScroll
+
+        onClose=this.close
       )
       actions=(hash
         toggle=this.toggle
