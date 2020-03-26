@@ -226,4 +226,11 @@ export default class MobileMenu extends Component {
   close(){
     this.onClose(this);
   }
+
+  @action
+  closeFromLinkTo() {
+    if (!['squeeze', 'squeeze-reveal'].includes(this.mode)) {
+      this.close();
+    }
+  }
 }
