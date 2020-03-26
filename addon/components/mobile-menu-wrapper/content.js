@@ -34,4 +34,8 @@ export default class ContentComponent extends Component {
 
     return htmlSafe(styles);
   }
+
+  get mask() {
+    return ['reveal', 'ios', 'push'].includes(this.mode);
+  }
 }

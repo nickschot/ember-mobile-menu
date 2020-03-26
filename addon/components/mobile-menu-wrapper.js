@@ -103,7 +103,7 @@ export default class MobileMenuWrapper extends Component {
    * @default null
    * @private
    */
-  get activeMenu () {
+  get activeMenu() {
     if (this.leftMenu && this.position > 0) {
       return this.leftMenu;
     } else if(this.rightMenu && this.position < 0) {
@@ -111,6 +111,10 @@ export default class MobileMenuWrapper extends Component {
     } else {
       return null;
     }
+  }
+
+  get isOpen() {
+    return !!this.activeMenu?.isOpen;
   }
 
   get mode() {
@@ -150,7 +154,7 @@ export default class MobileMenuWrapper extends Component {
   }
 
   get preventBodyScroll() {
-    return this.preventScroll && !this.embed && this.activeMenu?.isOpen && this.activeMenu?.maskEnabled;
+    return this.preventScroll && !this.embed && this.isOpen && this.activeMenu?.maskEnabled;
   }
 
   @action
@@ -236,7 +240,7 @@ export default class MobileMenuWrapper extends Component {
       return;
     }
 
-    const fromOpen = !!this.activeMenu?.isOpen;
+    const fromOpen = this.isOpen;
     const pan = normalizeCoordinates(e, this.boundingClientRect);
 
     if (
