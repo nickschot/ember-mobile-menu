@@ -1,5 +1,7 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/string';
+import { action } from '@ember/object';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 /**
  * The tray that resides within the menu. Menu content is placed in here.
@@ -73,5 +75,16 @@ export default class TrayComponent extends Component {
     }
 
     return htmlSafe(style);
+  }
+
+  @action
+  toggleBodyScroll(target, [isOpen]) {
+    if (this.args.preventScroll && !['squeeze', 'squeeze-reveal'].includes(this.args.mode)) {
+      if (isOpen) {
+        disableBodyScroll(target);
+      } else {
+        enableBodyScroll(target);
+      }
+    }
   }
 }
