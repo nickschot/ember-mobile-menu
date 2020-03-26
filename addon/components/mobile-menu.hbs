@@ -35,7 +35,7 @@
   >
     {{yield
       (hash
-        LinkTo=(component "mobile-menu/link-to" onClick=this.close)
+        LinkTo=(component "mobile-menu/link-to" onClick=this.closeFromLinkTo)
         actions=(hash
           close=this.close
         )
