@@ -28,6 +28,7 @@ const isIOSDevice = typeof window !== 'undefined'
  * @yield {Content component} wrapper.Content
  * @yield {MobileMenuToggle component} wrapper.Toggle
  * @yield {Hash} wrapper.actions
+ * @yield {number} position Current position of the active menu in px.
  * @yield {number} relativePosition Current position of the active menu between 0 and 1.
  * @yield {Action} wrapper.actions.toggle
  * @yield {Action} wrapper.actions.close
