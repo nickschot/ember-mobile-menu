@@ -5270,7 +5270,7 @@ ember-assign-polyfill@^2.5.0, ember-assign-polyfill@^2.6.0:
     ember-cli-babel "^6.16.0"
     ember-cli-version-checker "^2.0.0"
 
-ember-auto-import@^1.2.15, ember-auto-import@^1.5.3:
+ember-auto-import@^1.5.3:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-1.5.3.tgz#b32936f874d1ed7057ad2ed3f6116357820be44b"
   integrity sha512-7JfdunM1BmLy/lyUXu7uEoi0Gi4+dxkGM23FgIEyW5g7z4MidhP53Fc61t49oPSnq7+J4lLpbH1f6C+mDMgb4A==
@@ -6414,15 +6414,6 @@ ember-try@^1.4.0:
     rimraf "^2.6.3"
     rsvp "^4.7.0"
     walk-sync "^1.1.3"
-
-ember-useragent@^0.9.0:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/ember-useragent/-/ember-useragent-0.9.1.tgz#3a3b63bd5862d26f4fdc5607423c965cf22a4874"
-  integrity sha512-zI2QXex9hnzBik6axvJXouJBvOos3bXa6rkd6Az5U56u+8b0N0bKJRXDdOLHke/FOe790FbBiBiR6LGa236A+w==
-  dependencies:
-    ember-auto-import "^1.2.15"
-    ember-cli-babel "^7.1.2"
-    ua-parser-js "^0.7.18"
 
 ember-wormhole@^0.5.5:
   version "0.5.5"
@@ -12584,11 +12575,6 @@ typescript-memoize@^1.0.0-alpha.3:
   integrity sha1-aZpUFfiGaUqNbi5UUbwoo5prwvk=
   dependencies:
     core-js "2.4.1"
-
-ua-parser-js@^0.7.18:
-  version "0.7.21"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
-  integrity sha512-+O8/qh/Qj8CgC6eYBVBykMrNtp5Gebn4dlGD/kKXVkJNDwyrAwSIqwz8CDf+tsAIWVycKcku6gIXJ0qwx/ZXaQ==
 
 uc.micro@^1.0.0, uc.micro@^1.0.1, uc.micro@^1.0.5:
   version "1.0.6"
