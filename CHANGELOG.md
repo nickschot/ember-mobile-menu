@@ -1,4 +1,17 @@
 
+## v2.0.0-beta.4 (2020-03-29)
+
+#### :rocket: Enhancement
+* [#68](https://github.com/nickschot/ember-mobile-menu/pull/68) yield absolute position of active menu from MobileMenuWrapper component ([@nickschot](https://github.com/nickschot))
+* [#67](https://github.com/nickschot/ember-mobile-menu/pull/67) yield relative position of active menu from MobileMenuWrapper component ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#66](https://github.com/nickschot/ember-mobile-menu/pull/66) remove reliance on ember-useragent for detecting iOS ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v2.0.0-beta.3 (2020-03-27)
 
 #### :rocket: Enhancement
