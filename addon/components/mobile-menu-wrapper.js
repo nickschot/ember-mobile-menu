@@ -28,6 +28,7 @@ const isIOSDevice = typeof window !== 'undefined'
  * @yield {Content component} wrapper.Content
  * @yield {MobileMenuToggle component} wrapper.Toggle
  * @yield {Hash} wrapper.actions
+ * @yield {number} relativePosition Current position of the active menu between 0 and 1.
  * @yield {Action} wrapper.actions.toggle
  * @yield {Action} wrapper.actions.close
  * @public
@@ -160,6 +161,10 @@ export default class MobileMenuWrapper extends Component {
 
   get preventBodyScroll() {
     return this.preventScroll && !this.embed && this.isOpen && this.activeMenu?.maskEnabled;
+  }
+
+  get relativePosition() {
+    return this.activeMenu ? Math.abs(this.position) / this.activeMenu._width : 0;
   }
 
   @action
