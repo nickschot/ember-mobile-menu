@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
 import { TrackedSet } from 'tracked-maps-and-sets';
 
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
@@ -11,6 +10,14 @@ import normalizeCoordinates from '../utils/normalize-coordinates';
 import { assert } from '@ember/debug';
 import { restartableTask } from 'ember-concurrency-decorators';
 import Tween from '../tween';
+
+const isIOSDevice = typeof window !== 'undefined'
+  && window.navigator?.platform
+  && (
+    /iP(ad|hone|od)/.test(window.navigator.platform)
+    || window.navigator.platform === 'MacIntel'
+    && window.navigator.maxTouchPoints > 1
+  );
 
 /**
  * Wrapper component for menu's. Provides pan recognition and management.
@@ -26,8 +33,6 @@ import Tween from '../tween';
  * @public
  */
 export default class MobileMenuWrapper extends Component {
-  @service userAgent;
-
   /**
    * Current BoundingClientRect of the mobile menu wrapper root element
    *
@@ -355,7 +360,7 @@ export default class MobileMenuWrapper extends Component {
    * @private
    */
   get _isIOSbrowser(){
-    return this.userAgent.os.isIOS && !window.navigator.standalone;
+    return isIOSDevice && !window.navigator.standalone;
   }
 
   get _windowWidth() {
