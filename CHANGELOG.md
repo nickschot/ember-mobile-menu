@@ -1,4 +1,20 @@
 
+## v2.0.0-beta.3 (2020-03-27)
+
+#### :rocket: Enhancement
+* [#64](https://github.com/nickschot/ember-mobile-menu/pull/64) more rigorously prevent body scroll when non-squeeze menus are open ([@nickschot](https://github.com/nickschot))
+* [#61](https://github.com/nickschot/ember-mobile-menu/pull/61) add invisible content mask for reveal/ios/push menus ([@nickschot](https://github.com/nickschot))
+
+#### :bug: Bug Fix
+* [#62](https://github.com/nickschot/ember-mobile-menu/pull/62) don't close menu when clicking on a link in one of the squeeze modes ([@nickschot](https://github.com/nickschot))
+* [#58](https://github.com/nickschot/ember-mobile-menu/pull/58) add missing ember-concurrency dependency ([@nickschot](https://github.com/nickschot))
+* [#59](https://github.com/nickschot/ember-mobile-menu/pull/59) fix css not included in host app if ember-cli-sass isn't used ([@nickschot](https://github.com/nickschot))
+* [#60](https://github.com/nickschot/ember-mobile-menu/pull/60) fix minor css issues ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v2.0.0-beta.2 (2020-03-24)
 
 #### :boom: Breaking Change
