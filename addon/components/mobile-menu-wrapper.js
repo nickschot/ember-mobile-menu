@@ -9,7 +9,7 @@ import normalizeCoordinates from '../utils/normalize-coordinates';
 
 import { assert } from '@ember/debug';
 import { task } from 'ember-concurrency';
-import Tween from '../tween';
+import Spring from '../spring';
 
 const isIOSDevice = typeof window !== 'undefined'
   && window.navigator?.platform
@@ -181,9 +181,7 @@ export default class MobileMenuWrapper extends Component {
     }
 
     if(targetMenu){
-      if(this.activeMenu){
-        this._close.perform();
-      }
+      this.close();
 
       if(this.activeMenu !== targetMenu){
         this._open.perform(targetMenu);
@@ -193,7 +191,9 @@ export default class MobileMenuWrapper extends Component {
 
   @action
   close(){
-    this._close.perform();
+    if (this.activeMenu) {
+      this._close.perform(this.activeMenu);
+    }
   }
 
   @action
@@ -311,9 +311,9 @@ export default class MobileMenuWrapper extends Component {
         // the pan action is over, cleanup and set the correct final menu position
         if (!this.fromOpen) {
           if (vx > this.triggerVelocity || dx > width / 2) {
-            this._open.perform(menu);
+            this._open.perform(menu, velocityX);
           } else {
-            this._close.perform(menu);
+            this._close.perform(menu, velocityX);
           }
         } else {
           if (
@@ -321,31 +321,42 @@ export default class MobileMenuWrapper extends Component {
               ? vx > this.triggerVelocity && dx > 0 || dx > width / 2
               : vx > this.triggerVelocity || dx > width / 2
           ) {
-            this._close.perform(menu);
+            this._close.perform(menu, velocityX);
           } else {
-            this._open.perform(menu);
+            this._open.perform(menu, velocityX);
           }
         }
       }
     }
   }
 
-  @(task(function*(menu){
-    const startPos = this.position;
-    const diff = (menu.isLeft ? 1 : -1) * menu._width - startPos;
+  @(task(function*(menu, currentVelocity = 0){
+    const spring = new Spring(s => this.position = s.currentValue, {
+      stiffness: 250,
+      overshootClamping: true,
 
-    const anim = new Tween((progress) => {
-      this.position = startPos + diff * progress
-    }, { duration: 300});
-    yield anim.start();
+      fromValue: this.position,
+      toValue: (menu.isLeft ? 1 : -1) * menu._width,
+
+      initialVelocity: currentVelocity
+    });
+
+    yield spring.start();
   }).restartable().withTestWaiter())
   _open;
 
-  @(task(function*(){
-    const anim = new Tween((progress) => {
-      this.position = this.position * (1 - progress);
-    }, { duration: 300});
-    yield anim.start();
+  @(task(function*(menu, currentVelocity = 0){
+    const spring = new Spring(s => this.position = s.currentValue, {
+      stiffness: 250,
+      overshootClamping: true,
+
+      fromValue: this.position,
+      toValue: 0,
+
+      initialVelocity: currentVelocity
+    });
+
+    yield spring.start();
   }).restartable().withTestWaiter())
   _close;
 

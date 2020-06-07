@@ -43,7 +43,8 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-on-resize-modifier": "^0.2.1",
     "ember-set-body-class": "^0.4.0",
-    "tracked-maps-and-sets": "^2.0.0"
+    "tracked-maps-and-sets": "^2.0.0",
+    "wobble": "^1.5.1"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.3.0",

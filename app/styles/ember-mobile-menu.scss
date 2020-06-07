@@ -93,6 +93,8 @@ body.mobile-menu--prevent-scroll {
 
     will-change: opacity;
     visibility: hidden;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   // mode specific modifications ------------------------------------------- //
