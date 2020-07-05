@@ -8,7 +8,7 @@ import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
 import normalizeCoordinates from '../utils/normalize-coordinates';
 
 import { assert } from '@ember/debug';
-import { restartableTask } from 'ember-concurrency-decorators';
+import { task } from 'ember-concurrency';
 import Tween from '../tween';
 
 const isIOSDevice = typeof window !== 'undefined'
@@ -330,10 +330,7 @@ export default class MobileMenuWrapper extends Component {
     }
   }
 
-  @restartableTask({
-    withTestWaiter: true
-  })
-  *_open(menu){
+  @(task(function*(menu){
     const startPos = this.position;
     const diff = (menu.isLeft ? 1 : -1) * menu._width - startPos;
 
@@ -341,21 +338,25 @@ export default class MobileMenuWrapper extends Component {
       this.position = startPos + diff * progress
     }, { duration: 300});
     yield anim.start();
-  }
+  }).restartable().withTestWaiter())
+  _open;
 
-  @restartableTask({
-    withTestWaiter: true
-  })
-  *_close(){
+  @(task(function*(){
     const anim = new Tween((progress) => {
       this.position = this.position * (1 - progress);
     }, { duration: 300});
     yield anim.start();
+  }).restartable().withTestWaiter())
+  _close;
+
+  @action
+  onInsert(element) {
+    this.boundingClientRect = element.getBoundingClientRect();
   }
 
   @action
-  updateBoundingClientRect(element) {
-    this.boundingClientRect = element.getBoundingClientRect();
+  onResize({ target }) {
+    this.boundingClientRect = target.getBoundingClientRect();
   }
 
   /**

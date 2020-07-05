@@ -4,8 +4,8 @@
 
 <div
   class="mobile-menu-wrapper {{if this.embed 'mobile-menu-wrapper--embedded'}}"
-  {{did-insert this.updateBoundingClientRect}}
-  {{did-resize this.updateBoundingClientRect}}
+  {{did-insert this.onInsert}}
+  {{on-resize this.onResize}}
   ...attributes
 >
   {{yield
