@@ -51,6 +51,7 @@ export default class MobileMenuWrapper extends Component {
   fromPosition = 0;
   fromOpen = false;
   defaultMenuDx = 0;
+  preservedVelocity = 0;
 
   /**
    * Horizontal width of the detection zone in pixels. Set to -1 to use full width.
@@ -182,17 +183,9 @@ export default class MobileMenuWrapper extends Component {
 
     if(targetMenu){
       this.close();
-
       if(this.activeMenu !== targetMenu){
-        this._open.perform(targetMenu);
+        this.open(targetMenu);
       }
-    }
-  }
-
-  @action
-  close(){
-    if (this.activeMenu) {
-      this._close.perform(this.activeMenu);
     }
   }
 
@@ -207,9 +200,9 @@ export default class MobileMenuWrapper extends Component {
       }
     } = pan;
 
+    let distance = distanceX + this.fromPosition;
     if (this.dragging && this.fromOpen) {
       const menu = this.fromMenu;
-      let distance = distanceX + this.fromPosition;
 
       // default menu dx correction
       if (this.mode === 'default') {
@@ -235,9 +228,8 @@ export default class MobileMenuWrapper extends Component {
       } else {
         this.position = Math.max(Math.min(distance, 0), -1 * menu._width);
       }
-    } else if (this.dragging && (this.leftMenu && distanceX > 0 || this.rightMenu && distanceX < 0)) {
-      const menu = distanceX > 0 ? this.leftMenu : this.rightMenu;
-      const distance = distanceX + this.fromPosition;
+    } else if (this.dragging && (this.leftMenu && distance > 0 || this.rightMenu && distance < 0)) {
+      const menu = distance > 0 ? this.leftMenu : this.rightMenu;
       this.position = Math.min(Math.max(Math.abs(distance), 0), menu._width) * (distance > 0 ? 1 : -1);
     } else if (this.position !== 0) {
       this.position = 0;
@@ -246,6 +238,11 @@ export default class MobileMenuWrapper extends Component {
 
   @action
   didPanStart(e) {
+    if (this.finishTransitionTask.isRunning) {
+      this.finishTransitionTask.cancelAll();
+      this.preservedVelocity = 0;
+    }
+
     // don't conflict with iOS browser's drag to go back/forward functionality
     if (this._isIOSbrowser && (e.initial.x < 15 || e.initial.x > this._windowWidth - 15)) {
       return;
@@ -311,9 +308,9 @@ export default class MobileMenuWrapper extends Component {
         // the pan action is over, cleanup and set the correct final menu position
         if (!this.fromOpen) {
           if (vx > this.triggerVelocity || dx > width / 2) {
-            this._open.perform(menu, velocityX);
+            this.open(menu, velocityX);
           } else {
-            this._close.perform(menu, velocityX);
+            this.close(menu, velocityX);
           }
         } else {
           if (
@@ -321,44 +318,52 @@ export default class MobileMenuWrapper extends Component {
               ? vx > this.triggerVelocity && dx > 0 || dx > width / 2
               : vx > this.triggerVelocity || dx > width / 2
           ) {
-            this._close.perform(menu, velocityX);
+            this.close(menu, velocityX);
           } else {
-            this._open.perform(menu, velocityX);
+            this.open(menu, velocityX);
           }
         }
       }
     }
   }
 
-  @(task(function*(menu, currentVelocity = 0){
-    const spring = new Spring(s => this.position = s.currentValue, {
-      stiffness: 250,
-      overshootClamping: true,
+  @(task(function*(menu, targetPosition = 'open', currentVelocity = 0){
+    const fromValue = this.position;
+    const toValue = targetPosition === 'close' ? 0 : (menu.isLeft ? 1 : -1) * menu._width;
 
-      fromValue: this.position,
-      toValue: (menu.isLeft ? 1 : -1) * menu._width,
+    if (fromValue !== toValue) {
+      const spring = new Spring(s => this.position = s.currentValue, {
+        stiffness: 1000,
+        mass: 1,
+        damping: 100,
+        overshootClamping: true,
 
-      initialVelocity: currentVelocity
-    });
+        fromValue,
+        toValue,
+        initialVelocity: this.preservedVelocity || currentVelocity
+      });
 
-    yield spring.start();
+      try {
+        yield spring.start();
+      } finally {
+        spring.stop();
+        this.preservedVelocity = spring.currentVelocity;
+      }
+    } else {
+      this.preservedVelocity = 0;
+    }
   }).restartable().withTestWaiter())
-  _open;
+  finishTransitionTask;
 
-  @(task(function*(menu, currentVelocity = 0){
-    const spring = new Spring(s => this.position = s.currentValue, {
-      stiffness: 250,
-      overshootClamping: true,
+  @action
+  open(menu = this.activeMenu, currentVelocity) {
+    this.finishTransitionTask.perform(menu, 'open', currentVelocity);
+  }
 
-      fromValue: this.position,
-      toValue: 0,
-
-      initialVelocity: currentVelocity
-    });
-
-    yield spring.start();
-  }).restartable().withTestWaiter())
-  _close;
+  @action
+  close(menu = this.activeMenu, currentVelocity) {
+    this.finishTransitionTask.perform(menu, 'close', currentVelocity);
+  }
 
   @action
   onInsert(element) {

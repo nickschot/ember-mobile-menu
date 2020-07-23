@@ -15,18 +15,26 @@ export default class Spring {
    * @param {object} options See: https://github.com/skevy/wobble#api
    */
   constructor(callback = () => {}, options = {}){
+    const {
+      onStop = () => {},
+      ..._options
+    } = options;
+
     const config = {
       stiffness: 100,
       damping: 10,
       mass: 1,
       restVelocityThreshold: 0.01,
       restDisplacementThreshold: 0.01,
-      ...options
+      ..._options
     };
 
     this.spring = new Wobble(config);
     this.spring.onUpdate(callback);
-    this.spring.onStop(() => this.stop());
+    this.spring.onStop(() => {
+      this.promise.resolve();
+      onStop();
+    });
   }
 
   start() {
@@ -47,6 +55,10 @@ export default class Spring {
   }
 
   stop() {
-    this.promise.resolve();
+    this.spring.stop();
+  }
+
+  get currentVelocity() {
+    return this.spring.currentVelocity;
   }
 }
