@@ -11,10 +11,14 @@ body.mobile-menu--prevent-scroll {
 }
 
 // pan recognizer ----------------------------------------------------------- //
-//TODO: this causes glitches when a disappearing bar is present in the browser itself
 .mobile-menu-wrapper {
-  min-height: $mobile-menu-wrapper-min-height;
   min-width: 100vw;
+  min-height: $mobile-menu-wrapper-min-height;
+  /* Avoid Chrome to see Safari hack */
+  @supports (-webkit-touch-callout: none) {
+    /* The hack for Safari */
+    min-height: -webkit-fill-available;
+  }
 
   &--embedded {
     position: relative;
@@ -50,13 +54,17 @@ body.mobile-menu--prevent-scroll {
   position: fixed;
   top: 0;
   width: 0;
-  height: 0;
 
   .mobile-menu__tray {
     position: absolute;
     top: 0;
 
     height: $mobile-menu-height;
+    /* Avoid Chrome to see Safari hack */
+    @supports (-webkit-touch-callout: none) {
+      /* The hack for Safari */
+      height: -webkit-fill-available;
+    }
 
     overflow-y: auto;
     touch-action: pan-y;
@@ -85,6 +93,11 @@ body.mobile-menu--prevent-scroll {
 
     width: 100vw;
     height: 100vh;
+    /* Avoid Chrome to see Safari hack */
+    @supports (-webkit-touch-callout: none) {
+      /* The hack for Safari */
+      height: -webkit-fill-available;
+    }
 
     background: rgba(0,0,0,0.3);
     opacity: 0;
