@@ -78,12 +78,12 @@ export default class TrayComponent extends Component {
   }
 
   @action
-  toggleBodyScroll(target, [isOpen]) {
+  toggleBodyScroll(target, [isClosed]) {
     if (this.args.preventScroll && !['squeeze', 'squeeze-reveal'].includes(this.args.mode)) {
-      if (isOpen) {
-        disableBodyScroll(target);
-      } else {
+      if (isClosed) {
         enableBodyScroll(target);
+      } else {
+        disableBodyScroll(target);
       }
     }
   }
