@@ -7,6 +7,7 @@ import { TrackedSet } from 'tracked-maps-and-sets';
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
 import normalizeCoordinates from '../utils/normalize-coordinates';
 
+import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
 import { task } from 'ember-concurrency';
 import Spring from '../spring';
@@ -35,6 +36,11 @@ const isIOSDevice = typeof window !== 'undefined'
  * @public
  */
 export default class MobileMenuWrapper extends Component {
+  fastboot = getOwner(this).lookup('service:fastboot');
+  get isFastBoot() {
+    return !!this.fastboot?.isFastBoot;
+  }
+
   /**
    * Current BoundingClientRect of the mobile menu wrapper root element
    *
@@ -52,6 +58,7 @@ export default class MobileMenuWrapper extends Component {
   fromOpen = false;
   defaultMenuDx = 0;
   preservedVelocity = 0;
+  _activeMenu = null; // used only in case a menu is set to open in a fastboot environment
 
   /**
    * Horizontal width of the detection zone in pixels. Set to -1 to use full width.
@@ -112,6 +119,10 @@ export default class MobileMenuWrapper extends Component {
    * @private
    */
   get activeMenu() {
+    if (this.isFastBoot && !this.children.length && this._activeMenu) {
+      return this._activeMenu;
+    }
+
     if (this.leftMenu && this.position > 0) {
       return this.leftMenu;
     } else if(this.rightMenu && this.position < 0) {
@@ -327,11 +338,11 @@ export default class MobileMenuWrapper extends Component {
     }
   }
 
-  @(task(function*(menu, targetPosition = 'open', currentVelocity = 0){
+  @(task(function*(menu, targetPosition = 'open', currentVelocity = 0, animate = true){
     const fromValue = this.position;
     const toValue = targetPosition === 'close' ? 0 : (menu.isLeft ? 1 : -1) * menu._width;
 
-    if (fromValue !== toValue) {
+    if (fromValue !== toValue && animate) {
       const spring = new Spring(s => this.position = s.currentValue, {
         stiffness: 1000,
         mass: 1,
@@ -350,19 +361,20 @@ export default class MobileMenuWrapper extends Component {
         this.preservedVelocity = spring.currentVelocity;
       }
     } else {
+      this.position = toValue;
       this.preservedVelocity = 0;
     }
   }).restartable().withTestWaiter())
   finishTransitionTask;
 
   @action
-  open(menu = this.activeMenu, currentVelocity) {
-    this.finishTransitionTask.perform(menu, 'open', currentVelocity);
+  open(menu = this.activeMenu, currentVelocity, animate) {
+    this.finishTransitionTask.perform(menu, 'open', currentVelocity, animate);
   }
 
   @action
-  close(menu = this.activeMenu, currentVelocity) {
-    this.finishTransitionTask.perform(menu, 'close', currentVelocity);
+  close(menu = this.activeMenu, currentVelocity, animate) {
+    this.finishTransitionTask.perform(menu, 'close', currentVelocity, animate);
   }
 
   @action

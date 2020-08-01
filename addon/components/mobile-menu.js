@@ -149,11 +149,20 @@ export default class MobileMenu extends Component {
 
     assert('register function argument not passed. You should not be using <MobileMenu/> directly.', typeof this.args.register === 'function');
     assert('unregister function argument not passed. You should not be using <MobileMenu/> directly.', typeof this.args.unregister === 'function');
+
+    if (this.args.parent?.isFastBoot && this.args.isOpen) {
+      this.args.parent._activeMenu = this;
+      this.open(false);
+    }
   }
 
   willDestroy() {
     this.args.unregister(this);
     super.willDestroy(...arguments);
+  }
+
+  get renderMenu() {
+    return this.args.parent?.isFastBoot || this.args.parentBoundingClientRect;
   }
 
   get classNames() {
@@ -203,8 +212,8 @@ export default class MobileMenu extends Component {
    */
   get _width() {
     const width = this.args.parentBoundingClientRect
-      ? this.width / 100 * this.args.parentBoundingClientRect?.width
-      : this.width;
+      ? this.width / 100 * this.args.parentBoundingClientRect.width
+      : this.maxWidth;
 
     return this.maxWidth === -1 ? width : Math.min(width, this.maxWidth);
   }
@@ -218,13 +227,22 @@ export default class MobileMenu extends Component {
   }
 
   @action
-  open(){
-    this.onOpen(this);
+  open(force){
+    this.onOpen(this, 0, force);
   }
 
   @action
-  close(){
-    this.onClose(this);
+  close(force){
+    this.onClose(this, 0, force);
+  }
+
+  @action
+  openOrClose(open, animate = true) {
+    if (open) {
+      this.open(animate);
+    } else {
+      this.close(animate);
+    }
   }
 
   @action
