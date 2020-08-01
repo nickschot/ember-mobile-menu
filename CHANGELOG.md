@@ -1,4 +1,26 @@
 
+## v2.0.0 (2020-08-01)
+
+#### :boom: Breaking Change
+* [#75](https://github.com/nickschot/ember-mobile-menu/pull/75) switch to a ResizeObserver based on-resize modifier ([@nickschot](https://github.com/nickschot))
+
+#### :rocket: Enhancement
+* [#79](https://github.com/nickschot/ember-mobile-menu/pull/79) add isOpen & onToggle arguments to MobileMenu component (w/ Fastboot support) ([@nickschot](https://github.com/nickschot))
+* [#74](https://github.com/nickschot/ember-mobile-menu/pull/74) spring physics implementation to replace basic tween ([@nickschot](https://github.com/nickschot))
+
+#### :bug: Bug Fix
+* [#78](https://github.com/nickschot/ember-mobile-menu/pull/78) don't prevent body scroll when the menu is in embed mode ([@nickschot](https://github.com/nickschot))
+* [#77](https://github.com/nickschot/ember-mobile-menu/pull/77) prevent body scroll as soon as the menu is not closed ([@nickschot](https://github.com/nickschot))
+* [#76](https://github.com/nickschot/ember-mobile-menu/pull/76) fix iOS safari menu overflow when browser chrome is visible ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#80](https://github.com/nickschot/ember-mobile-menu/pull/80) upgrade to ember-cli 3.20 & latest dependencies ([@nickschot](https://github.com/nickschot))
+* [#75](https://github.com/nickschot/ember-mobile-menu/pull/75) switch to a ResizeObserver based on-resize modifier ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v2.0.0-beta.4 (2020-03-29)
 
 #### :rocket: Enhancement
