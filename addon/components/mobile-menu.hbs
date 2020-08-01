@@ -10,7 +10,7 @@
   >
     {{#if this.maskEnabled}}
       <MobileMenu::Mask
-        @isOpen={{this.isOpen}}
+        @isOpen={{this.state.open}}
         @position={{this.relativePosition}}
         @invertOpacity={{this.invertOpacity}}
         @onClick={{@onClose}}
@@ -30,7 +30,7 @@
       @shadowEnabled={{this.shadowEnabled}}
       @mode={{@mode}}
       @embed={{@embed}}
-      @isClosed={{this.isClosed}}
+      @isClosed={{this.state.closed}}
 
       @onPanStart={{@onPanStart}}
       @onPan={{@onPan}}
@@ -42,6 +42,7 @@
         (hash
           LinkTo=(component "mobile-menu/link-to" onClick=this.closeFromLinkTo)
           actions=(hash
+            open=this.open
             close=this.close
           )
         )

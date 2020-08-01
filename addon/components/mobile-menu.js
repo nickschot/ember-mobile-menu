@@ -2,11 +2,60 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/string';
+import { use, resource } from 'ember-usable';
+import { next } from '@ember/runloop';
 
 import defineModifier from 'ember-concurrency-test-waiter/define-modifier';
 defineModifier();
 
 const _fn = function(){};
+const stateResource = resource(class {
+  open = false;
+  closed = true;
+  dragging = false;
+  transitioning = false;
+
+  get state() {
+    return {
+      open: this.open,
+      closed: this.closed,
+      dragging: this.dragging,
+      transitioning: this.transitioning
+    }
+  }
+
+  setup(position, isDragging, width, onToggle) {
+    this.setState(position, isDragging, width, onToggle);
+  }
+
+  update(position, isDragging, width, onToggle) {
+    this.setState(position, isDragging, width, onToggle);
+  }
+
+  teardown() {}
+
+  setState(position, isDragging, width, onToggle) {
+    this.dragging = position !== 0 && isDragging;
+    let open = !this.dragging && Math.abs(position) === width;
+    let closed = !this.dragging && position === 0;
+    this.maybeToggle(open, closed, onToggle);
+    this.transitioning = !this.dragging && !this.open && !this.closed;
+  }
+
+  maybeToggle(open, closed, onToggle) {
+    if (this.open !== open) {
+      this.open = open;
+      if (open) {
+        next(() => onToggle(true));
+      }
+    } else if(this.closed !== closed) {
+      this.closed = closed;
+      if(closed) {
+        next(() => onToggle(false));
+      }
+    }
+  }
+});
 
 /**
  * Menu component
@@ -15,6 +64,8 @@ const _fn = function(){};
  * @public
  */
 export default class MobileMenu extends Component {
+  @use state = stateResource(this.position, this.args.isDragging, this._width, this.onToggle);
+
   /**
    * The type of menu. Currently 'left' and 'right' are supported.
    *
@@ -93,6 +144,22 @@ export default class MobileMenu extends Component {
   }
 
   /**
+   * @argument isOpen
+   * @type boolean
+   * @default false
+   */
+
+  /**
+   * Hook which is called after the transition with the new menu isOpen state.
+   *
+   * @argument onToggle
+   * @type Function
+   */
+  get onToggle() {
+    return this.args.onToggle ?? _fn;
+  }
+
+  /**
    * @argument embed
    * @type boolean
    * @default false
@@ -140,9 +207,6 @@ export default class MobileMenu extends Component {
    * @type boolean
    * @protected
    */
-  get isDragging() {
-    return this.args.isDragging && this.position !== 0;
-  }
 
   constructor() {
     super(...arguments);
@@ -169,9 +233,9 @@ export default class MobileMenu extends Component {
     let classes = `mobile-menu mobile-menu--${this.mode}`;
     if (this.isLeft) classes += ' mobile-menu--left';
     if (this.isRight) classes += ' mobile-menu--right';
-    if (this.isDragging) classes += ' mobile-menu--dragging';
-    if (this.isOpen) classes += ' mobile-menu--open';
-    if (this.isTransitioning) classes += ' mobile-menu--transitioning';
+    if (this.state.dragging) classes += ' mobile-menu--dragging';
+    if (this.state.open) classes += ' mobile-menu--open';
+    if (this.state.transitioning) classes += ' mobile-menu--transitioning';
     return classes;
   }
 
@@ -185,18 +249,6 @@ export default class MobileMenu extends Component {
 
   get relativePosition() {
     return Math.abs(this.position) / this._width;
-  }
-
-  get isClosed() {
-    return !this.isDragging && this.position === 0;
-  }
-
-  get isOpen() {
-    return !this.isDragging && Math.abs(this.position) === this._width;
-  }
-
-  get isTransitioning() {
-    return !this.isDragging && !this.isOpen && !this.isClosed;
   }
 
   get invertOpacity() {
@@ -220,7 +272,7 @@ export default class MobileMenu extends Component {
 
   get style() {
     let styles = '';
-    if (!this.maskEnabled && this.isOpen) {
+    if (!this.maskEnabled && this.state.open) {
       styles = `width: ${this._width}px;`;
     }
     return htmlSafe(styles);

@@ -133,7 +133,7 @@ export default class MobileMenuWrapper extends Component {
   }
 
   get isOpen() {
-    return !!this.activeMenu?.isOpen;
+    return !!this.activeMenu?.state.open;
   }
 
   get mode() {
