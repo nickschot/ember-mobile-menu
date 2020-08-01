@@ -43,6 +43,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-on-resize-modifier": "^0.2.1",
     "ember-set-body-class": "^0.4.0",
+    "ember-usable": "https://github.com/pzuraq/ember-usable#0d03a50",
     "tracked-maps-and-sets": "^2.0.0",
     "wobble": "^1.5.1"
   },

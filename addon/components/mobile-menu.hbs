@@ -1,47 +1,52 @@
-<div
-  class={{this.classNames}}
-  style={{this.style}}
-  {{did-insert (fn @register this)}}
-  {{did-update this.close this.type}}
-  ...attributes
->
-  {{#if this.maskEnabled}}
-    <MobileMenu::Mask
-      @isOpen={{this.isOpen}}
-      @position={{this.relativePosition}}
-      @invertOpacity={{this.invertOpacity}}
-      @onClick={{@onClose}}
+{{#if this.renderMenu}}
+  <div
+    class={{this.classNames}}
+    style={{this.style}}
+    {{did-insert (fn @register this)}}
+    {{did-insert (fn this.openOrClose @isOpen false)}}
+    {{did-update (fn this.openOrClose @isOpen) @isOpen}}
+    {{did-update this.close this.type}}
+    ...attributes
+  >
+    {{#if this.maskEnabled}}
+      <MobileMenu::Mask
+        @isOpen={{this.state.open}}
+        @position={{this.relativePosition}}
+        @invertOpacity={{this.invertOpacity}}
+        @onClick={{@onClose}}
+
+        @onPanStart={{@onPanStart}}
+        @onPan={{@onPan}}
+        @onPanEnd={{@onPanEnd}}
+        @capture={{@capture}}
+        @preventScroll={{@preventScroll}}
+      />
+    {{/if}}
+
+    <MobileMenu::Tray
+      @width={{this._width}}
+      @isLeft={{this.isLeft}}
+      @position={{this.position}}
+      @shadowEnabled={{this.shadowEnabled}}
+      @mode={{@mode}}
+      @embed={{@embed}}
+      @isClosed={{this.state.closed}}
 
       @onPanStart={{@onPanStart}}
       @onPan={{@onPan}}
       @onPanEnd={{@onPanEnd}}
       @capture={{@capture}}
       @preventScroll={{@preventScroll}}
-    />
-  {{/if}}
-
-  <MobileMenu::Tray
-    @width={{this._width}}
-    @isLeft={{this.isLeft}}
-    @position={{this.position}}
-    @shadowEnabled={{this.shadowEnabled}}
-    @mode={{@mode}}
-    @embed={{@embed}}
-    @isClosed={{this.isClosed}}
-
-    @onPanStart={{@onPanStart}}
-    @onPan={{@onPan}}
-    @onPanEnd={{@onPanEnd}}
-    @capture={{@capture}}
-    @preventScroll={{@preventScroll}}
-  >
-    {{yield
-      (hash
-        LinkTo=(component "mobile-menu/link-to" onClick=this.closeFromLinkTo)
-        actions=(hash
-          close=this.close
+    >
+      {{yield
+        (hash
+          LinkTo=(component "mobile-menu/link-to" onClick=this.closeFromLinkTo)
+          actions=(hash
+            open=this.open
+            close=this.close
+          )
         )
-      )
-    }}
-  </MobileMenu::Tray>
-</div>
+      }}
+    </MobileMenu::Tray>
+  </div>
+{{/if}}

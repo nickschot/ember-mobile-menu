@@ -413,4 +413,35 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
       width: `100px`
     });
   });
+
+  test('it opens/closes the menu according to the @isOpen argument and calls the accompanying @onToggle hook', async function(assert){
+    assert.expect(6);
+
+    this.set('isOpen', true);
+    this.set('onToggle', (isOpen) => {
+      assert.equal(this.isOpen, isOpen);
+    })
+
+    await render(hbs`
+      <MobileMenuWrapper as |mmw|>
+        <mmw.MobileMenu @isOpen={{this.isOpen}} @onToggle={{this.onToggle}} as |mm|>
+          <mm.LinkTo @route="index">Home</mm.LinkTo>
+        </mmw.MobileMenu>
+
+        <mmw.Content>
+          <mmw.Toggle>Menu</mmw.Toggle>
+        </mmw.Content>
+      </MobileMenuWrapper>
+    `);
+
+    assert.dom('.mobile-menu--open').exists();
+
+    this.set('isOpen', false);
+    await settled();
+    assert.dom('.mobile-menu--open').doesNotExist();
+
+    this.set('isOpen', true);
+    await settled();
+    assert.dom('.mobile-menu--open').exists();
+  });
 });
