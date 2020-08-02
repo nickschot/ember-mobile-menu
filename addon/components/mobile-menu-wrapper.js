@@ -136,6 +136,10 @@ export default class MobileMenuWrapper extends Component {
     return !!this.activeMenu?.state.open;
   }
 
+  get isNotClosed() {
+    return this.activeMenu && !this.activeMenu.state.closed;
+  }
+
   get mode() {
     return this.activeMenu?.mode;
   }
@@ -173,7 +177,7 @@ export default class MobileMenuWrapper extends Component {
   }
 
   get preventBodyScroll() {
-    return this.preventScroll && !this.embed && this.isOpen && this.activeMenu?.maskEnabled;
+    return this.preventScroll && !this.embed && this.isNotClosed && this.activeMenu?.maskEnabled;
   }
 
   get relativePosition() {
