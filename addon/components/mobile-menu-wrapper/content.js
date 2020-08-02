@@ -36,6 +36,6 @@ export default class ContentComponent extends Component {
   }
 
   get mask() {
-    return ['reveal', 'ios', 'push'].includes(this.mode);
+    return ['reveal', 'ios'].includes(this.mode);
   }
 }
