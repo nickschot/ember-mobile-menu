@@ -1,4 +1,17 @@
 
+## v2.0.1 (2020-08-02)
+
+#### :bug: Bug Fix
+* [#83](https://github.com/nickschot/ember-mobile-menu/pull/83) hide secondary mask for push style menus ([@nickschot](https://github.com/nickschot))
+* [#82](https://github.com/nickschot/ember-mobile-menu/pull/82) hide MobileMenuWrapper overflow & add prevent scroll class as soon as the menu is not closed ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#81](https://github.com/nickschot/ember-mobile-menu/pull/81) tweak spring to iOS configuration ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v2.0.0 (2020-08-01)
 
 #### :boom: Breaking Change
@@ -15,7 +28,6 @@
 
 #### :house: Internal
 * [#80](https://github.com/nickschot/ember-mobile-menu/pull/80) upgrade to ember-cli 3.20 & latest dependencies ([@nickschot](https://github.com/nickschot))
-* [#75](https://github.com/nickschot/ember-mobile-menu/pull/75) switch to a ResizeObserver based on-resize modifier ([@nickschot](https://github.com/nickschot))
 
 #### Committers: 1
 - Nick Schot ([@nickschot](https://github.com/nickschot))
