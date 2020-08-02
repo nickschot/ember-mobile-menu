@@ -345,8 +345,8 @@ export default class MobileMenuWrapper extends Component {
     if (fromValue !== toValue && animate) {
       const spring = new Spring(s => this.position = s.currentValue, {
         stiffness: 1000,
-        mass: 1,
-        damping: 100,
+        mass: 3,
+        damping: 500,
         overshootClamping: true,
 
         fromValue,
