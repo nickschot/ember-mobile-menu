@@ -12,6 +12,7 @@ body.mobile-menu--prevent-scroll {
 
 // pan recognizer ----------------------------------------------------------- //
 .mobile-menu-wrapper {
+  overflow: hidden;
   min-width: 100vw;
   min-height: $mobile-menu-wrapper-min-height;
   /* Avoid Chrome to see Safari hack */
