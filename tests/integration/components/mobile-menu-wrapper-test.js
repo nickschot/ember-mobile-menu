@@ -53,7 +53,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
   });
 
   test('it opens the menu when the toggle is clicked', async function(assert){
-    assert.expect(5);
+    assert.expect(8);
 
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
@@ -68,15 +68,18 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     `);
 
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
+    assert.dom('.mobile-menu').hasAttribute('aria-hidden', "true");
     click('.mobile-menu__toggle');
 
     await waitFor('.mobile-menu--transitioning');
     assert.dom('.mobile-menu').hasClass('mobile-menu--transitioning');
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
+    assert.dom('.mobile-menu').doesNotHaveAttribute('aria-hidden');
 
     await settled();
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--transitioning');
     assert.dom('.mobile-menu').hasClass('mobile-menu--open');
+    assert.dom('.mobile-menu').doesNotHaveAttribute('aria-hidden');
   });
 
   test('it toggles the right menu when it is the only one', async function(assert){
@@ -384,7 +387,7 @@ module('Integration | Component | mobile-menu-wrapper', function(hooks) {
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
   });
 
-  test('it renders the menu width the correct width/maxWidth', async function(assert){
+  test('it renders the menu with the correct width/maxWidth', async function(assert){
     assert.expect(2);
 
     this.set('maxWidth', -1);

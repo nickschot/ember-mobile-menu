@@ -6,6 +6,7 @@
     {{did-insert (fn this.openOrClose @isOpen false)}}
     {{did-update (fn this.openOrClose @isOpen) @isOpen}}
     {{did-update this.close this.type}}
+    aria-hidden={{if this.state.closed "true"}}
     ...attributes
   >
     {{#if this.maskEnabled}}
