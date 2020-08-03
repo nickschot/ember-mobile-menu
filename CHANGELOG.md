@@ -1,4 +1,14 @@
 
+## v2.0.2 (2020-08-03)
+
+#### :bug: Bug Fix
+* [#86](https://github.com/nickschot/ember-mobile-menu/pull/86) set aria-hidden="true" on closed MobileMenus ([@nickschot](https://github.com/nickschot))
+* [#85](https://github.com/nickschot/ember-mobile-menu/pull/85) make squeeze(-reveal) menus listen to the preventScroll argument ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v2.0.1 (2020-08-02)
 
 #### :bug: Bug Fix
