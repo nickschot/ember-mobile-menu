@@ -1,4 +1,13 @@
 
+## v2.0.3 (2020-08-04)
+
+#### :bug: Bug Fix
+* [#89](https://github.com/nickschot/ember-mobile-menu/pull/89) don't require @glimmer/{component,tracking} 1.0.1+ ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v2.0.2 (2020-08-03)
 
 #### :bug: Bug Fix
