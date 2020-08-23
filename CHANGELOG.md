@@ -1,4 +1,9 @@
 
+## v2.0.4 (2020-08-23)
+
+#### :bug: Bug Fix
+* [#92](https://github.com/nickschot/ember-mobile-menu/pull/92) fix horizontal scrollbar appearing in certain situations ([@nickschot](https://github.com/nickschot))
+
 ## v2.0.3 (2020-08-04)
 
 #### :bug: Bug Fix
