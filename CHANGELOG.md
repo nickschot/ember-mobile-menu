@@ -1,8 +1,27 @@
 
+## v2.0.5 (2020-08-26)
+
+#### :bug: Bug Fix
+* [#91](https://github.com/nickschot/ember-mobile-menu/pull/91) fix build issue by upgrading to ember-modifier 2.1.0 ([@nickschot](https://github.com/nickschot))
+
+#### :memo: Documentation
+* [#93](https://github.com/nickschot/ember-mobile-menu/pull/93) upgrade ember-cli-addon-docs to 0.9.0 ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v2.0.4 (2020-08-23)
 
 #### :bug: Bug Fix
 * [#92](https://github.com/nickschot/ember-mobile-menu/pull/92) fix horizontal scrollbar appearing in certain situations ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#90](https://github.com/nickschot/ember-mobile-menu/pull/90) upgrade to ember-gesture-modifiers 0.2.0 ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 
 ## v2.0.3 (2020-08-04)
 
