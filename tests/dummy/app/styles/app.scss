@@ -1,6 +1,11 @@
 @import "ember-mobile-menu";
 @import "ember-mobile-menu/themes/android";
 
+body > .ember-view {
+  // this margin was set beacuse ember-cli-addon-docs expects there to be an application-wrapper
+  margin-top: unset;
+}
+
 .demo-height {
   height: 500px;
 
