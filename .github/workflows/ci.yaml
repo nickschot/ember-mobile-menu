@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [$default-branch]
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ci-modules-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install --frozen-lockfile --non-interactive
+      - run: yarn lint
+      - run: yarn test:ember
+
+  ember_floating_dependencies:
+    runs-on: ubuntu-latest
+    needs: [tests]
+    strategy:
+      matrix:
+        node-version: [10.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ci-modules-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install --no-lockfile --non-interactive
+      - run: yarn test:ember
+
+  ember_try:
+    runs-on: ubuntu-latest
+    needs: [ tests ]
+    strategy:
+      matrix:
+        node-version: [10.x]
+        ember-try: [ember-3.13, ember-lts-3.16, ember-release, ember-beta, ember-canary, ember-default-with-jquery, ember-classic]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ci-modules-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: test
+        run: node_modules/.bin/ember try:one ${{ matrix.ember-try }}
