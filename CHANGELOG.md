@@ -1,4 +1,25 @@
 
+## v2.1.0 (2020-12-03)
+
+#### :rocket: Enhancement
+* [#102](https://github.com/nickschot/ember-mobile-menu/pull/102) upgrade to ember-cli 3.22 & update dependencies ([@nickschot](https://github.com/nickschot))
+
+#### :bug: Bug Fix
+* [#105](https://github.com/nickschot/ember-mobile-menu/pull/105) properly cleanup body-scroll-lock when the tray component is destroyed ([@nickschot](https://github.com/nickschot))
+* [#100](https://github.com/nickschot/ember-mobile-menu/pull/100) remove old service re-export (fixes embroider build) ([@johanrd](https://github.com/johanrd))
+* [#98](https://github.com/nickschot/ember-mobile-menu/pull/98) fix ember-usable package.json ref (for yarn 2) ([@bartocc](https://github.com/bartocc))
+
+#### :house: Internal
+* [#107](https://github.com/nickschot/ember-mobile-menu/pull/107) add ember-data dev dependency ([@nickschot](https://github.com/nickschot))
+* [#106](https://github.com/nickschot/ember-mobile-menu/pull/106) Github CI: allow canary tests to fail, remove job dependencies ([@nickschot](https://github.com/nickschot))
+* [#104](https://github.com/nickschot/ember-mobile-menu/pull/104) switch to github CI ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 3
+- Julien Palmas ([@bartocc](https://github.com/bartocc))
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+- [@johanrd](https://github.com/johanrd)
+
+
 ## v2.0.5 (2020-08-26)
 
 #### :bug: Bug Fix
