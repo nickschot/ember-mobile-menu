@@ -9,6 +9,7 @@
     preventScroll=@preventScroll
   }}
   {{did-update this.toggleBodyScroll @isClosed}}
+  {{will-destroy this.toggleBodyScroll true}}
   ...attributes
 >
   {{yield}}
