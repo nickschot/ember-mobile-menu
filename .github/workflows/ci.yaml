@@ -26,7 +26,6 @@ jobs:
 
   ember_floating_dependencies:
     runs-on: ubuntu-latest
-    needs: [tests]
     strategy:
       matrix:
         node-version: [10.x]
@@ -44,11 +43,13 @@ jobs:
 
   ember_try:
     runs-on: ubuntu-latest
-    needs: [ tests ]
     strategy:
       matrix:
         node-version: [10.x]
         ember-try: [ember-3.13, ember-lts-3.16, ember-release, ember-beta, ember-canary, ember-default-with-jquery, ember-classic]
+        include:
+          - ember-try: ember-canary
+            continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -61,3 +62,4 @@ jobs:
       - run: yarn install --frozen-lockfile --non-interactive
       - name: test
         run: node_modules/.bin/ember try:one ${{ matrix.ember-try }}
+        continue-on-error: ${{ matrix['continue-on-error'] == true }}
