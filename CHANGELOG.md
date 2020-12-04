@@ -1,4 +1,13 @@
 
+## v2.1.1 (2020-12-04)
+
+#### :memo: Documentation
+* [#108](https://github.com/nickschot/ember-mobile-menu/pull/108) manually add application wrapper to dummy app as addon docs styles expect it ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v2.1.0 (2020-12-03)
 
 #### :rocket: Enhancement
