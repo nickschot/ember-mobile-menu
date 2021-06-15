@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-classic-classes, ember/no-component-lifecycle-hooks */
 import LinkComponent from '@ember/routing/link-component';
 
 /**
