@@ -20,9 +20,9 @@ export default LinkComponent.extend({
    * @type function
    * @default function(){}
    */
-  onClick(){},
+  onClick() {},
 
-  click(){
+  click() {
     this.onClick();
-  }
+  },
 });

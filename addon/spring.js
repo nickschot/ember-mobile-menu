@@ -14,11 +14,8 @@ export default class Spring {
    * @param {function} callback Called whenever the spring updates
    * @param {object} options See: https://github.com/skevy/wobble#api
    */
-  constructor(callback = () => {}, options = {}){
-    const {
-      onStop = () => {},
-      ..._options
-    } = options;
+  constructor(callback = () => {}, options = {}) {
+    const { onStop = () => {}, ..._options } = options;
 
     const config = {
       stiffness: 100,
@@ -26,7 +23,7 @@ export default class Spring {
       mass: 1,
       restVelocityThreshold: 0.01,
       restDisplacementThreshold: 0.01,
-      ..._options
+      ..._options,
     };
 
     this.spring = new Wobble(config);
@@ -46,7 +43,7 @@ export default class Spring {
       const { fromValue, toValue, initialVelocity } = this.spring._config;
 
       // This is the same check as is done in wobble itself. It's needed to ensure our promise always resolves.
-      if(fromValue !== toValue || initialVelocity !== 0){
+      if (fromValue !== toValue || initialVelocity !== 0) {
         this.spring.start();
       } else {
         this.promise.resolve();

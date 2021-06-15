@@ -31,5 +31,5 @@ module.exports = {
         this.ui.writeLine(`Created ${file}`);
       }
     }
-  }
+  },
 };

@@ -8,54 +8,56 @@ import { next } from '@ember/runloop';
 import defineModifier from 'ember-concurrency-test-waiter/define-modifier';
 defineModifier();
 
-const _fn = function(){};
-const stateResource = resource(class {
-  open = false;
-  closed = true;
-  dragging = false;
-  transitioning = false;
+const _fn = function () {};
+const stateResource = resource(
+  class {
+    open = false;
+    closed = true;
+    dragging = false;
+    transitioning = false;
 
-  get state() {
-    return {
-      open: this.open,
-      closed: this.closed,
-      dragging: this.dragging,
-      transitioning: this.transitioning
+    get state() {
+      return {
+        open: this.open,
+        closed: this.closed,
+        dragging: this.dragging,
+        transitioning: this.transitioning,
+      };
+    }
+
+    setup(position, isDragging, width, onToggle) {
+      this.setState(position, isDragging, width, onToggle);
+    }
+
+    update(position, isDragging, width, onToggle) {
+      this.setState(position, isDragging, width, onToggle);
+    }
+
+    teardown() {}
+
+    setState(position, isDragging, width, onToggle) {
+      this.dragging = position !== 0 && isDragging;
+      let open = !this.dragging && Math.abs(position) === width;
+      let closed = !this.dragging && position === 0;
+      this.maybeToggle(open, closed, onToggle);
+      this.transitioning = !this.dragging && !this.open && !this.closed;
+    }
+
+    maybeToggle(open, closed, onToggle) {
+      if (this.open !== open) {
+        this.open = open;
+        if (open) {
+          next(() => onToggle(true));
+        }
+      } else if (this.closed !== closed) {
+        this.closed = closed;
+        if (closed) {
+          next(() => onToggle(false));
+        }
+      }
     }
   }
-
-  setup(position, isDragging, width, onToggle) {
-    this.setState(position, isDragging, width, onToggle);
-  }
-
-  update(position, isDragging, width, onToggle) {
-    this.setState(position, isDragging, width, onToggle);
-  }
-
-  teardown() {}
-
-  setState(position, isDragging, width, onToggle) {
-    this.dragging = position !== 0 && isDragging;
-    let open = !this.dragging && Math.abs(position) === width;
-    let closed = !this.dragging && position === 0;
-    this.maybeToggle(open, closed, onToggle);
-    this.transitioning = !this.dragging && !this.open && !this.closed;
-  }
-
-  maybeToggle(open, closed, onToggle) {
-    if (this.open !== open) {
-      this.open = open;
-      if (open) {
-        next(() => onToggle(true));
-      }
-    } else if(this.closed !== closed) {
-      this.closed = closed;
-      if(closed) {
-        next(() => onToggle(false));
-      }
-    }
-  }
-});
+);
 
 /**
  * Menu component
@@ -64,7 +66,12 @@ const stateResource = resource(class {
  * @public
  */
 export default class MobileMenu extends Component {
-  @use state = stateResource(this.position, this.args.isDragging, this._width, this.onToggle);
+  @use state = stateResource(
+    this.position,
+    this.args.isDragging,
+    this._width,
+    this.onToggle
+  );
 
   /**
    * The type of menu. Currently 'left' and 'right' are supported.
@@ -197,7 +204,8 @@ export default class MobileMenu extends Component {
    * @protected
    */
   get position() {
-    return (this.isLeft && this.args.position > 0 || this.isRight && this.args.position < 0)
+    return (this.isLeft && this.args.position > 0) ||
+      (this.isRight && this.args.position < 0)
       ? this.args.position
       : 0;
   }
@@ -211,8 +219,14 @@ export default class MobileMenu extends Component {
   constructor() {
     super(...arguments);
 
-    assert('register function argument not passed. You should not be using <MobileMenu/> directly.', typeof this.args.register === 'function');
-    assert('unregister function argument not passed. You should not be using <MobileMenu/> directly.', typeof this.args.unregister === 'function');
+    assert(
+      'register function argument not passed. You should not be using <MobileMenu/> directly.',
+      typeof this.args.register === 'function'
+    );
+    assert(
+      'unregister function argument not passed. You should not be using <MobileMenu/> directly.',
+      typeof this.args.unregister === 'function'
+    );
 
     if (this.args.parent?.isFastBoot && this.args.isOpen) {
       this.args.parent._activeMenu = this;
@@ -264,7 +278,7 @@ export default class MobileMenu extends Component {
    */
   get _width() {
     const width = this.args.parentBoundingClientRect
-      ? this.width / 100 * this.args.parentBoundingClientRect.width
+      ? (this.width / 100) * this.args.parentBoundingClientRect.width
       : this.maxWidth;
 
     return this.maxWidth === -1 ? width : Math.min(width, this.maxWidth);
@@ -279,12 +293,12 @@ export default class MobileMenu extends Component {
   }
 
   @action
-  open(force){
+  open(force) {
     this.onOpen(this, 0, force);
   }
 
   @action
-  close(force){
+  close(force) {
     this.onClose(this, 0, force);
   }
 

@@ -4,10 +4,10 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | mobile-menu/link-to', function(hooks) {
+module('Integration | Component | mobile-menu/link-to', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     assert.expect(1);
 
     // Template block usage:
@@ -20,7 +20,7 @@ module('Integration | Component | mobile-menu/link-to', function(hooks) {
     assert.equal(this.element.textContent.trim(), 'My Link');
   });
 
-  test('it fires the onClick hook when clicked', async function(assert){
+  test('it fires the onClick hook when clicked', async function (assert) {
     assert.expect(1);
 
     this.owner.register('service:router', this.spy());

@@ -12,13 +12,12 @@ import { assert } from '@ember/debug';
 import { task } from 'ember-concurrency';
 import Spring from '../spring';
 
-const isIOSDevice = typeof window !== 'undefined'
-  && window.navigator?.platform
-  && (
-    /iP(ad|hone|od)/.test(window.navigator.platform)
-    || window.navigator.platform === 'MacIntel'
-    && window.navigator.maxTouchPoints > 1
-  );
+const isIOSDevice =
+  typeof window !== 'undefined' &&
+  window.navigator?.platform &&
+  (/iP(ad|hone|od)/.test(window.navigator.platform) ||
+    (window.navigator.platform === 'MacIntel' &&
+      window.navigator.maxTouchPoints > 1));
 
 /**
  * Wrapper component for menu's. Provides pan recognition and management.
@@ -125,7 +124,7 @@ export default class MobileMenuWrapper extends Component {
 
     if (this.leftMenu && this.position > 0) {
       return this.leftMenu;
-    } else if(this.rightMenu && this.position < 0) {
+    } else if (this.rightMenu && this.position < 0) {
       return this.rightMenu;
     } else {
       return null;
@@ -145,7 +144,10 @@ export default class MobileMenuWrapper extends Component {
   }
 
   get contentShadowEnabled() {
-    return this.activeMenu?.shadowEnabled && ['reveal', 'ios', 'squeeze-reveal'].includes(this.mode);
+    return (
+      this.activeMenu?.shadowEnabled &&
+      ['reveal', 'ios', 'squeeze-reveal'].includes(this.mode)
+    );
   }
 
   get requiresUpdatedPosition() {
@@ -154,7 +156,10 @@ export default class MobileMenuWrapper extends Component {
 
   @action
   registerChild(component) {
-    assert('component was already registered as a child', !this.children.has(component));
+    assert(
+      'component was already registered as a child',
+      !this.children.has(component)
+    );
 
     this.children.add(component);
   }
@@ -169,23 +174,30 @@ export default class MobileMenuWrapper extends Component {
   }
 
   get leftMenu() {
-    return this.childMenus.find(menu => menu.isLeft);
+    return this.childMenus.find((menu) => menu.isLeft);
   }
 
   get rightMenu() {
-    return this.childMenus.find(menu => menu.isRight);
+    return this.childMenus.find((menu) => menu.isRight);
   }
 
   get preventBodyScroll() {
-    return this.preventScroll && !this.embed && this.isNotClosed && this.activeMenu?.maskEnabled;
+    return (
+      this.preventScroll &&
+      !this.embed &&
+      this.isNotClosed &&
+      this.activeMenu?.maskEnabled
+    );
   }
 
   get relativePosition() {
-    return this.activeMenu ? Math.abs(this.position) / this.activeMenu._width : 0;
+    return this.activeMenu
+      ? Math.abs(this.position) / this.activeMenu._width
+      : 0;
   }
 
   @action
-  toggle(target){
+  toggle(target) {
     let targetMenu = this.leftMenu;
 
     if (target === 'right') {
@@ -196,9 +208,9 @@ export default class MobileMenuWrapper extends Component {
       targetMenu = this.rightMenu;
     }
 
-    if(targetMenu){
+    if (targetMenu) {
       this.close();
-      if(this.activeMenu !== targetMenu){
+      if (this.activeMenu !== targetMenu) {
         this.open(targetMenu);
       }
     }
@@ -207,12 +219,8 @@ export default class MobileMenuWrapper extends Component {
   @action
   updatePosition(pan) {
     const {
-      initial: {
-        x: initialX
-      },
-      current: {
-        distanceX
-      }
+      initial: { x: initialX },
+      current: { distanceX },
     } = pan;
 
     let distance = distanceX + this.fromPosition;
@@ -226,9 +234,16 @@ export default class MobileMenuWrapper extends Component {
           if (initialX + distanceX > menu._width) {
             return;
           }
-        } else if(menu.isRight && initialX < this.boundingClientRect.width - menu._width) {
-          this.defaultMenuDx = initialX - (this.boundingClientRect.width - menu._width);
-          if (initialX + distanceX < this.boundingClientRect.width - menu._width) {
+        } else if (
+          menu.isRight &&
+          initialX < this.boundingClientRect.width - menu._width
+        ) {
+          this.defaultMenuDx =
+            initialX - (this.boundingClientRect.width - menu._width);
+          if (
+            initialX + distanceX <
+            this.boundingClientRect.width - menu._width
+          ) {
             return;
           }
         } else {
@@ -243,9 +258,14 @@ export default class MobileMenuWrapper extends Component {
       } else {
         this.position = Math.max(Math.min(distance, 0), -1 * menu._width);
       }
-    } else if (this.dragging && (this.leftMenu && distance > 0 || this.rightMenu && distance < 0)) {
+    } else if (
+      this.dragging &&
+      ((this.leftMenu && distance > 0) || (this.rightMenu && distance < 0))
+    ) {
       const menu = distance > 0 ? this.leftMenu : this.rightMenu;
-      this.position = Math.min(Math.max(Math.abs(distance), 0), menu._width) * (distance > 0 ? 1 : -1);
+      this.position =
+        Math.min(Math.max(Math.abs(distance), 0), menu._width) *
+        (distance > 0 ? 1 : -1);
     } else if (this.position !== 0) {
       this.position = 0;
     }
@@ -259,7 +279,10 @@ export default class MobileMenuWrapper extends Component {
     }
 
     // don't conflict with iOS browser's drag to go back/forward functionality
-    if (this._isIOSbrowser && (e.initial.x < 15 || e.initial.x > this._windowWidth - 15)) {
+    if (
+      this._isIOSbrowser &&
+      (e.initial.x < 15 || e.initial.x > this._windowWidth - 15)
+    ) {
       return;
     }
 
@@ -267,12 +290,12 @@ export default class MobileMenuWrapper extends Component {
     const pan = normalizeCoordinates(e, this.boundingClientRect);
 
     if (
-      fromOpen
-      || this.openDetectionWidth < 0
-      || (
-        (this.leftMenu && pan.initial.x <= this.openDetectionWidth)
-        || (this.rightMenu && pan.initial.x >= this.boundingClientRect.width - this.openDetectionWidth)
-      )
+      fromOpen ||
+      this.openDetectionWidth < 0 ||
+      (this.leftMenu && pan.initial.x <= this.openDetectionWidth) ||
+      (this.rightMenu &&
+        pan.initial.x >=
+          this.boundingClientRect.width - this.openDetectionWidth)
     ) {
       this.fromOpen = fromOpen;
       this.fromMenu = this.activeMenu;
@@ -298,16 +321,14 @@ export default class MobileMenuWrapper extends Component {
 
       if (menu) {
         const {
-          current: {
-            distanceX,
-            velocityX
-          }
+          current: { distanceX, velocityX },
         } = pan;
 
         const isLeft = menu.isLeft;
         const width = menu._width;
 
-        const condition = isLeft && !this.fromOpen || this.fromOpen && !isLeft;
+        const condition =
+          (isLeft && !this.fromOpen) || (this.fromOpen && !isLeft);
         const vx = condition ? velocityX : -velocityX;
         let dx = condition ? distanceX : -distanceX;
 
@@ -330,7 +351,7 @@ export default class MobileMenuWrapper extends Component {
         } else {
           if (
             this.mode === 'default'
-              ? vx > this.triggerVelocity && dx > 0 || dx > width / 2
+              ? (vx > this.triggerVelocity && dx > 0) || dx > width / 2
               : vx > this.triggerVelocity || dx > width / 2
           ) {
             this.close(menu, velocityX);
@@ -342,12 +363,18 @@ export default class MobileMenuWrapper extends Component {
     }
   }
 
-  @(task(function*(menu, targetPosition = 'open', currentVelocity = 0, animate = true){
+  @(task(function* (
+    menu,
+    targetPosition = 'open',
+    currentVelocity = 0,
+    animate = true
+  ) {
     const fromValue = this.position;
-    const toValue = targetPosition === 'close' ? 0 : (menu.isLeft ? 1 : -1) * menu._width;
+    const toValue =
+      targetPosition === 'close' ? 0 : (menu.isLeft ? 1 : -1) * menu._width;
 
     if (fromValue !== toValue && animate) {
-      const spring = new Spring(s => this.position = s.currentValue, {
+      const spring = new Spring((s) => (this.position = s.currentValue), {
         stiffness: 1000,
         mass: 3,
         damping: 500,
@@ -355,7 +382,7 @@ export default class MobileMenuWrapper extends Component {
 
         fromValue,
         toValue,
-        initialVelocity: this.preservedVelocity || currentVelocity
+        initialVelocity: this.preservedVelocity || currentVelocity,
       });
 
       try {
@@ -368,7 +395,9 @@ export default class MobileMenuWrapper extends Component {
       this.position = toValue;
       this.preservedVelocity = 0;
     }
-  }).restartable().withTestWaiter())
+  })
+    .restartable()
+    .withTestWaiter())
   finishTransitionTask;
 
   @action
@@ -398,7 +427,7 @@ export default class MobileMenuWrapper extends Component {
    * @return {Boolean} Returns true when the user is using iOS and is inside a browser
    * @private
    */
-  get _isIOSbrowser(){
+  get _isIOSbrowser() {
     return isIOSDevice && !window.navigator.standalone;
   }
 

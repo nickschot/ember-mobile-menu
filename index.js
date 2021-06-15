@@ -17,5 +17,5 @@ module.exports = {
         app.import('vendor/ember-mobile-menu.css');
       }
     }
-  }
+  },
 };

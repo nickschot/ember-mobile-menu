@@ -3,10 +3,10 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | mobile-menu/tray', function(hooks) {
+module('Integration | Component | mobile-menu/tray', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     await render(hbs`<MobileMenu::Tray/>`);
 
     assert.equal(this.element.textContent.trim(), '');
@@ -21,11 +21,13 @@ module('Integration | Component | mobile-menu/tray', function(hooks) {
     assert.equal(this.element.textContent.trim(), 'template block text');
   });
 
-  test('it cleans up body-scroll-lock after undrendering', async function(assert) {
+  test('it cleans up body-scroll-lock after undrendering', async function (assert) {
     this.set('showMenu', true);
     this.set('isClosed', true);
 
-    await render(hbs`{{#if this.showMenu}}<MobileMenu::Tray @preventScroll={{true}} @embed={{false}} @isClosed={{this.isClosed}}/>{{/if}}`);
+    await render(
+      hbs`{{#if this.showMenu}}<MobileMenu::Tray @preventScroll={{true}} @embed={{false}} @isClosed={{this.isClosed}}/>{{/if}}`
+    );
     assert.equal(document.body.style.overflow, '');
 
     this.set('isClosed', false);
