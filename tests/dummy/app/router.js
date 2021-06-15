@@ -6,12 +6,12 @@ export default class Router extends AddonDocsRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function() {
-  docsRoute(this, function() {
+Router.map(function () {
+  docsRoute(this, function () {
     this.route('usage');
     this.route('quickstart');
 
-    this.route('components', function(){
+    this.route('components', function () {
       this.route('menu-wrapper');
       this.route('menu');
     });

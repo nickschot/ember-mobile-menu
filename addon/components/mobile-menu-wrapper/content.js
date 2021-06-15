@@ -3,11 +3,11 @@ import { htmlSafe } from '@ember/string';
 
 const MODES = new Map([
   ['default', () => ''],
-  ['push',    (p) => `transform: translateX(${p}px);`],
-  ['reveal',  (p) => `transform: translateX(${p}px);`],
-  ['ios',     (p) => `transform: translateX(${p}px);`],
+  ['push', (p) => `transform: translateX(${p}px);`],
+  ['reveal', (p) => `transform: translateX(${p}px);`],
+  ['ios', (p) => `transform: translateX(${p}px);`],
   ['squeeze', (p, side) => `margin-${side}: ${Math.abs(p)}px;`],
-  ['squeeze-reveal', (p, side) => `margin-${side}: ${Math.abs(p)}px;`]
+  ['squeeze-reveal', (p, side) => `margin-${side}: ${Math.abs(p)}px;`],
 ]);
 
 /**

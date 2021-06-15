@@ -61,20 +61,23 @@ export default class MaskComponent extends Component {
    * @default function(){}
    * @protected
    */
-  get onClick(){
+  get onClick() {
     return this.args.onClick ?? _fn;
   }
 
   get style() {
     let style = '';
 
-    style += !this.isOpen && this.position === 0
-      ? 'visibility: hidden;'
-      : 'visibility: visible;';
+    style +=
+      !this.isOpen && this.position === 0
+        ? 'visibility: hidden;'
+        : 'visibility: visible;';
 
-    let opacity = this.position > this.maskOpacityOffset
-      ? (this.position - this.maskOpacityOffset) / (1 - this.maskOpacityOffset)
-      : 0;
+    let opacity =
+      this.position > this.maskOpacityOffset
+        ? (this.position - this.maskOpacityOffset) /
+          (1 - this.maskOpacityOffset)
+        : 0;
 
     if (this.args.invertOpacity) {
       opacity = 1 - opacity;

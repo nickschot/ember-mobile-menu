@@ -13,12 +13,12 @@ export default function normalizeCoordinates(e, bcr) {
     initial: {
       ...e.initial,
       x: e.initial.x - bcr.x,
-      y: e.initial.x - bcr.x
+      y: e.initial.x - bcr.x,
     },
     current: {
       ...e.current,
       x: e.current.x - bcr.x,
-      y: e.current.x - bcr.x
-    }
+      y: e.current.x - bcr.x,
+    },
   };
 }

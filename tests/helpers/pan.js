@@ -5,7 +5,7 @@ import { timeout } from 'ember-concurrency';
 let panPoint;
 
 function nextTickPromise() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(resolve);
   });
 }
@@ -26,7 +26,7 @@ function getElement(target) {
   }
 }
 
-function sendEvent(element, type, x, y){
+function sendEvent(element, type, x, y) {
   if (!panPoint) {
     const elem = document.createElement('div');
     elem.id = 'pan-point';
@@ -41,8 +41,8 @@ function sendEvent(element, type, x, y){
     height: 20px;
     border-radius: 10px;
     position: fixed;
-    top: ${y-15}px;
-    left: ${x-15}px;
+    top: ${y - 15}px;
+    left: ${x - 15}px;
     z-index:9999;
   `;
 
@@ -51,13 +51,8 @@ function sendEvent(element, type, x, y){
 }
 
 // currently only horizontal
-async function _pan(element, options = {}){
-  const {
-    top,
-    left,
-    width,
-    height
-  } = element.getBoundingClientRect();
+async function _pan(element, options = {}) {
+  const { top, left, width, height } = element.getBoundingClientRect();
 
   const right = left + width;
   const isLeft = options.direction === 'left';
@@ -66,19 +61,19 @@ async function _pan(element, options = {}){
     startX = isLeft ? right - 1 : left + 1,
     endX = isLeft ? left + 1 : right - 1,
     duration = 300,
-    resolution = 17 // ms per step
+    resolution = 17, // ms per step
   } = options;
 
   const steps = Math.ceil(duration / resolution);
-  const middleY = top + height/2;
+  const middleY = top + height / 2;
 
   sendEvent(element, 'touchstart', startX, middleY);
-  for(let i = 1; i < steps; i++){
+  for (let i = 1; i < steps; i++) {
     await timeout(resolution);
     const x = isLeft
-      ? startX - (startX - endX)/steps*i
-      : startX + (endX - startX)/steps*i;
-    sendEvent(element, 'touchmove',  x, middleY);
+      ? startX - ((startX - endX) / steps) * i
+      : startX + ((endX - startX) / steps) * i;
+    sendEvent(element, 'touchmove', x, middleY);
   }
   sendEvent(element, 'touchend', endX, middleY);
 
