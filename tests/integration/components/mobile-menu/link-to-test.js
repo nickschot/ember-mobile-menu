@@ -3,6 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import sinon from 'sinon';
+import Service from '@ember/service';
 
 module('Integration | Component | mobile-menu/link-to', function (hooks) {
   setupRenderingTest(hooks);
@@ -23,7 +24,7 @@ module('Integration | Component | mobile-menu/link-to', function (hooks) {
   test('it fires the onClick hook when clicked', async function (assert) {
     assert.expect(1);
 
-    this.owner.register('service:router', sinon.spy());
+    this.owner.register('service:router', class Router extends Service {});
 
     this.handleClick = sinon.spy();
 
