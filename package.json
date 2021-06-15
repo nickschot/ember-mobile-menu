@@ -42,7 +42,7 @@
     "ember-auto-import": "^1.11.2",
     "ember-cli-babel": "^7.26.3",
     "ember-cli-htmlbars": "^5.7.1",
-    "ember-concurrency": "^1.1.6",
+    "ember-concurrency": "^2.1.0",
     "ember-concurrency-test-waiter": "^0.4.0",
     "ember-gesture-modifiers": "^0.2.0",
     "ember-maybe-import-regenerator": "^0.1.6",
