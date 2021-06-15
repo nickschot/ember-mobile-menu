@@ -5,9 +5,6 @@ import { htmlSafe } from '@ember/string';
 import { use, resource } from 'ember-usable';
 import { next } from '@ember/runloop';
 
-import defineModifier from 'ember-concurrency-test-waiter/define-modifier';
-defineModifier();
-
 const _fn = function () {};
 const stateResource = resource(
   class {

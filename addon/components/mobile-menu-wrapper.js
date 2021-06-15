@@ -9,6 +9,7 @@ import normalizeCoordinates from '../utils/normalize-coordinates';
 
 import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
+import { waitFor } from '@ember/test-waiters';
 import { task } from 'ember-concurrency';
 import Spring from '../spring';
 
@@ -363,7 +364,9 @@ export default class MobileMenuWrapper extends Component {
     }
   }
 
-  @(task(function* (
+  @task({ restartable: true })
+  @waitFor
+  *finishTransitionTask(
     menu,
     targetPosition = 'open',
     currentVelocity = 0,
@@ -395,10 +398,7 @@ export default class MobileMenuWrapper extends Component {
       this.position = toValue;
       this.preservedVelocity = 0;
     }
-  })
-    .restartable()
-    .withTestWaiter())
-  finishTransitionTask;
+  }
 
   @action
   open(menu = this.activeMenu, currentVelocity, animate) {
