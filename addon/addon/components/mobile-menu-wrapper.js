@@ -300,6 +300,10 @@ export default class MobileMenuWrapper extends Component {
         pan.initial.x >=
           this.boundingClientRect.width - this.openDetectionWidth)
     ) {
+      if (this.preventScroll && e.originalEvent.cancelable) {
+        e.originalEvent.preventDefault();
+      }
+
       this.fromOpen = fromOpen;
       this.fromMenu = this.activeMenu;
       this.fromPosition = this.position;
@@ -311,6 +315,10 @@ export default class MobileMenuWrapper extends Component {
   @action
   didPan(e) {
     if (this.dragging) {
+      if (this.preventScroll && e.originalEvent.cancelable) {
+        e.originalEvent.preventDefault();
+      }
+
       this.updatePosition(normalizeCoordinates(e, this.boundingClientRect));
     }
   }
@@ -318,6 +326,10 @@ export default class MobileMenuWrapper extends Component {
   @action
   didPanEnd(e) {
     if (this.dragging) {
+      if (this.preventScroll && e.originalEvent.cancelable) {
+        e.originalEvent.preventDefault();
+      }
+
       this.dragging = false;
       const pan = normalizeCoordinates(e, this.boundingClientRect);
       const menu = this.activeMenu;
