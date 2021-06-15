@@ -1,8 +1,8 @@
-import { module } from 'qunit';
-import test from 'ember-sinon-qunit/test-support/test';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import sinon from 'sinon';
 
 module('Integration | Component | mobile-menu-toggle', function (hooks) {
   setupRenderingTest(hooks);
@@ -28,7 +28,7 @@ module('Integration | Component | mobile-menu-toggle', function (hooks) {
   test('it fires the `onClick` hook with no argument when clicked', async function (assert) {
     assert.expect(2);
 
-    this.handleClick = this.spy();
+    this.handleClick = sinon.spy();
 
     await render(hbs`<MobileMenuToggle @onClick={{this.handleClick}}/>`);
     await click('.mobile-menu__toggle');
@@ -40,7 +40,7 @@ module('Integration | Component | mobile-menu-toggle', function (hooks) {
   test('it fires the `onClick` hook with the passed target when clicked', async function (assert) {
     assert.expect(2);
 
-    this.handleClick = this.spy();
+    this.handleClick = sinon.spy();
 
     await render(
       hbs`<MobileMenuToggle @target="right" @onClick={{this.handleClick}}/>`

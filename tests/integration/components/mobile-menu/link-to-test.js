@@ -1,8 +1,8 @@
-import { module } from 'qunit';
-import test from 'ember-sinon-qunit/test-support/test';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import sinon from 'sinon';
 
 module('Integration | Component | mobile-menu/link-to', function (hooks) {
   setupRenderingTest(hooks);
@@ -23,9 +23,9 @@ module('Integration | Component | mobile-menu/link-to', function (hooks) {
   test('it fires the onClick hook when clicked', async function (assert) {
     assert.expect(1);
 
-    this.owner.register('service:router', this.spy());
+    this.owner.register('service:router', sinon.spy());
 
-    this.handleClick = this.spy();
+    this.handleClick = sinon.spy();
 
     await render(hbs`{{mobile-menu/link-to "index" onClick=this.handleClick}}`);
     await click('a');

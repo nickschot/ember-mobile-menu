@@ -1,8 +1,8 @@
-import { module } from 'qunit';
-import test from 'ember-sinon-qunit/test-support/test';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import sinon from 'sinon';
 
 module('Integration | Component | mobile-menu/mask', function (hooks) {
   setupRenderingTest(hooks);
@@ -18,7 +18,7 @@ module('Integration | Component | mobile-menu/mask', function (hooks) {
   test('it triggers the onClick hook when clicked', async function (assert) {
     assert.expect(1);
 
-    this.handleClick = this.spy();
+    this.handleClick = sinon.spy();
 
     // Template block usage:
     await render(hbs`
