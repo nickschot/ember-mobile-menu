@@ -96,7 +96,7 @@
     "sass": "1.35.1"
   },
   "engines": {
-    "node": "10.* || >= 12"
+    "node": ">= 12"
   },
   "ember": {
     "edition": "octane"
