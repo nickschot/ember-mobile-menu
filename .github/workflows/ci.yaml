@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [12.x]
         ember-try: [ember-3.13, ember-lts-3.16, ember-release, ember-beta, ember-canary, ember-default-with-jquery, ember-classic, embroider-safe, embroider-optimized]
         include:
           - ember-try: ember-canary

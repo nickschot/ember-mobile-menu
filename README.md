@@ -11,7 +11,7 @@ Requirements
 ------------------------------------------------------------------------------
 * Ember.js v3.13 or above
 * Ember CLI v3.12 or above
-* Node.js v10 or above
+* Node.js v12 or above
 * ember-concurrency v2.x
 
 **NOTE:** This addon utilizes ResizeObservers. If you require support for older browser you can install a ResizeObserver polyfill like [ember-resize-observer-polyfill](https://github.com/PrecisionNutrition/ember-resize-observer-polyfill).
