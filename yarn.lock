@@ -6232,10 +6232,10 @@ ember-fetch@^8.0.2:
     node-fetch "^2.6.1"
     whatwg-fetch "^3.6.2"
 
-ember-gesture-modifiers@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ember-gesture-modifiers/-/ember-gesture-modifiers-0.2.0.tgz#81ad846a1dba870c60b831a0ab6c6ac5913bbd5c"
-  integrity sha512-8K54Xs4Mpege//0zXS2NDiAvtdXPFZVibFyUdgzQYZ/3ELDur5Sf93TFVd3pYHUcU2iYTFzmMK/xkQb4ZMU/QA==
+ember-gesture-modifiers@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-gesture-modifiers/-/ember-gesture-modifiers-1.0.0.tgz#6ddee2a301bcbe8fe01ab190284ab3cdf5bf9aeb"
+  integrity sha512-gl+nWIVlwiOebm8tplPa//wM43i+GfSP/+Q4E+aop3S2ccI1z4dt+MD9EpEC1GKtpIi8BFdhFPQN10aiGJOX0g==
   dependencies:
     ember-cli-babel "^7.21.0"
     ember-cli-htmlbars "^5.2.0"
