@@ -78,7 +78,7 @@
     "ember-resize-observer-polyfill": "0.0.1",
     "ember-resolver": "8.0.2",
     "ember-sinon": "5.0.0",
-    "ember-sinon-qunit": "5.0.0",
+    "ember-sinon-qunit": "6.0.0",
     "ember-source": "3.26.1",
     "ember-source-channel-url": "3.0.0",
     "ember-template-lint": "3.4.2",
