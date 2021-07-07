@@ -290,13 +290,13 @@ export default class MobileMenu extends Component {
   }
 
   @action
-  open(force) {
-    this.onOpen(this, 0, force);
+  open(animate) {
+    this.onOpen(this, 0, animate);
   }
 
   @action
-  close(force) {
-    this.onClose(this, 0, force);
+  close(animate) {
+    this.onClose(this, 0, animate);
   }
 
   @action
