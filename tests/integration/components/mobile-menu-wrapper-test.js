@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, waitFor, settled } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import pan from '../../helpers/pan';
+import { pan } from 'ember-gesture-modifiers/test-support';
 
 module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   setupRenderingTest(hooks);
@@ -303,7 +303,10 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     assert.dom('.mobile-menu').hasClass('mobile-menu--left');
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
 
-    await pan('.mobile-menu-wrapper__content', 'right');
+    await pan(
+      '.mobile-menu-wrapper--embedded .mobile-menu-wrapper__content',
+      'right'
+    );
     await settled();
 
     assert.dom('.mobile-menu').hasClass('mobile-menu--left');
