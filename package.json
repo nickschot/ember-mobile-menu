@@ -107,5 +107,8 @@
   "homepage": "https://nickschot.github.io/ember-mobile-menu",
   "resolutions": {
     "nwsapi": "^2.1.0"
+  },
+  "volta": {
+    "node": "16.4.2"
   }
 }
