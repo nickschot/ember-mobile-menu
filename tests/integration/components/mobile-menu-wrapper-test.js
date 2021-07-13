@@ -346,7 +346,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     assert.dom('.mobile-menu').hasClass('mobile-menu--open');
   });
 
-  test('it closes the menu when dragged from outside the menu', async function (assert) {
+  test('it closes the embedded menu when dragged from outside the menu', async function (assert) {
     assert.expect(2);
 
     await render(hbs`
@@ -369,7 +369,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     assert.dom('.mobile-menu').doesNotHaveClass('mobile-menu--open');
   });
 
-  test('it closes the menu when dragged on the menu itself', async function (assert) {
+  test('it closes the embedded menu when dragged on the menu itself', async function (assert) {
     assert.expect(2);
 
     await render(hbs`
