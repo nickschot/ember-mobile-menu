@@ -2,59 +2,57 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/string';
-import { use, resource } from 'ember-usable';
+import { use, Resource } from 'ember-could-get-used-to-this';
 import { next } from '@ember/runloop';
 
 const _fn = function () {};
-const stateResource = resource(
-  class {
-    open = false;
-    closed = true;
-    dragging = false;
-    transitioning = false;
+class StateResource extends Resource {
+  open = false;
+  closed = true;
+  dragging = false;
+  transitioning = false;
 
-    get state() {
-      return {
-        open: this.open,
-        closed: this.closed,
-        dragging: this.dragging,
-        transitioning: this.transitioning,
-      };
-    }
+  get value() {
+    return {
+      open: this.open,
+      closed: this.closed,
+      dragging: this.dragging,
+      transitioning: this.transitioning,
+    };
+  }
 
-    setup(position, isDragging, width, onToggle) {
-      this.setState(position, isDragging, width, onToggle);
-    }
+  setup() {
+    this.setState(...this.args.positional);
+  }
 
-    update(position, isDragging, width, onToggle) {
-      this.setState(position, isDragging, width, onToggle);
-    }
+  update() {
+    this.setState(...this.args.positional);
+  }
 
-    teardown() {}
+  teardown() {}
 
-    setState(position, isDragging, width, onToggle) {
-      this.dragging = position !== 0 && isDragging;
-      let open = !this.dragging && Math.abs(position) === width;
-      let closed = !this.dragging && position === 0;
-      this.maybeToggle(open, closed, onToggle);
-      this.transitioning = !this.dragging && !this.open && !this.closed;
-    }
+  setState(position, isDragging, width, onToggle) {
+    this.dragging = position !== 0 && isDragging;
+    let open = !this.dragging && Math.abs(position) === width;
+    let closed = !this.dragging && position === 0;
+    this.maybeToggle(open, closed, onToggle);
+    this.transitioning = !this.dragging && !this.open && !this.closed;
+  }
 
-    maybeToggle(open, closed, onToggle) {
-      if (this.open !== open) {
-        this.open = open;
-        if (open) {
-          next(() => onToggle(true));
-        }
-      } else if (this.closed !== closed) {
-        this.closed = closed;
-        if (closed) {
-          next(() => onToggle(false));
-        }
+  maybeToggle(open, closed, onToggle) {
+    if (this.open !== open) {
+      this.open = open;
+      if (open) {
+        next(() => onToggle(true));
+      }
+    } else if (this.closed !== closed) {
+      this.closed = closed;
+      if (closed) {
+        next(() => onToggle(false));
       }
     }
   }
-);
+}
 
 /**
  * Menu component
@@ -63,12 +61,12 @@ const stateResource = resource(
  * @public
  */
 export default class MobileMenu extends Component {
-  @use state = stateResource(
+  @use state = new StateResource(() => [
     this.position,
     this.args.isDragging,
     this._width,
-    this.onToggle
-  );
+    this.onToggle,
+  ]);
 
   /**
    * The type of menu. Currently 'left' and 'right' are supported.
