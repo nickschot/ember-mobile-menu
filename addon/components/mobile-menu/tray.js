@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { getOwner } from '@ember/application';
 import { htmlSafe } from '@ember/string';
 import { action } from '@ember/object';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
@@ -13,6 +14,11 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
  * @hide
  */
 export default class TrayComponent extends Component {
+  fastboot = getOwner(this).lookup('service:fastboot');
+  get isFastBoot() {
+    return !!this.fastboot?.isFastBoot;
+  }
+
   /**
    * Width of the menu in px.
    *
@@ -83,7 +89,7 @@ export default class TrayComponent extends Component {
 
   @action
   toggleBodyScroll(target, [isClosed]) {
-    if (this.args.preventScroll && !this.args.embed) {
+    if (this.args.preventScroll && !this.args.embed && !this.isFastBoot) {
       if (isClosed) {
         enableBodyScroll(target);
       } else {
