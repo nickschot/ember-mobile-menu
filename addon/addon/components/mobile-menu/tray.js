@@ -1,7 +1,9 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { action } from '@ember/object';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { waitFor } from '@ember/test-waiters';
+import { task, didCancel } from 'ember-concurrency';
+import { getOwner } from '@ember/application';
 
 /**
  * The tray that resides within the menu. Menu content is placed in here.
@@ -13,6 +15,13 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
  * @hide
  */
 export default class TrayComponent extends Component {
+  get fastboot() {
+    return getOwner(this).lookup('service:fastboot');
+  }
+  get isFastBoot() {
+    return !!this.fastboot?.isFastBoot;
+  }
+
   /**
    * Width of the menu in px.
    *
@@ -81,14 +90,29 @@ export default class TrayComponent extends Component {
     return htmlSafe(style);
   }
 
-  @action
-  toggleBodyScroll(target, [isClosed]) {
-    if (this.args.preventScroll && !this.args.embed) {
-      if (isClosed) {
-        enableBodyScroll(target);
-      } else {
-        disableBodyScroll(target);
+  @task({ enqueue: true })
+  @waitFor
+  *toggleBodyScrollTask(target, [isClosed]) {
+    if (!this.isFastBoot) {
+      let { enableBodyScroll, disableBodyScroll } = yield import(
+        'body-scroll-lock'
+      );
+      if (this.args.preventScroll && !this.args.embed) {
+        if (isClosed) {
+          enableBodyScroll(target);
+        } else {
+          disableBodyScroll(target);
+        }
       }
     }
+  }
+
+  @action
+  async toggleBodyScroll(target, [isClosed]) {
+    this.toggleBodyScrollTask.perform(target, [isClosed]).catch((e) => {
+      if (!didCancel(e)) {
+        throw e;
+      }
+    });
   }
 }

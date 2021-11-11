@@ -3,6 +3,12 @@
 module.exports = {
   name: require('./package').name,
 
+  options: {
+    babel: {
+      plugins: [require.resolve('ember-auto-import/babel-plugin')],
+    },
+  },
+
   included() {
     let app = this._findHost();
     if (!app.__emberMobileMenuIncludedInvoked) {
