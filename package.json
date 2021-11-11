@@ -45,7 +45,7 @@
     "ember-concurrency": "^2.1.0",
     "ember-could-get-used-to-this": "^1.0.0",
     "ember-gesture-modifiers": "^1.1.1",
-    "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-maybe-import-regenerator": "^1.0.0",
     "ember-on-resize-modifier": "^0.3.0",
     "ember-set-body-class": "^1.0.1",
     "tracked-maps-and-sets": "^2.0.0",
