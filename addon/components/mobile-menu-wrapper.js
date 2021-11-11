@@ -36,7 +36,9 @@ const isIOSDevice =
  * @public
  */
 export default class MobileMenuWrapper extends Component {
-  fastboot = getOwner(this).lookup('service:fastboot');
+  get fastboot() {
+    return getOwner(this).lookup('service:fastboot');
+  }
   get isFastBoot() {
     return !!this.fastboot?.isFastBoot;
   }
