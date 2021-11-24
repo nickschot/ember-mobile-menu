@@ -1,5 +1,5 @@
 /* eslint-disable ember/no-classic-classes, ember/no-component-lifecycle-hooks */
-import LinkComponent from '@ember/routing/link-component';
+import { LinkComponent } from '@ember/legacy-built-in-components';
 
 /**
  * An extended LinkTo component which provides an onClick hook.
