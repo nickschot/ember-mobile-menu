@@ -95,7 +95,7 @@
     "qunit": "2.16.0",
     "qunit-dom": "1.6.0",
     "sass": "1.35.2",
-    "webpack": "5.45.1"
+    "webpack": "5.64.3"
   },
   "engines": {
     "node": ">= 12"
