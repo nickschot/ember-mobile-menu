@@ -49,7 +49,7 @@
     "ember-maybe-import-regenerator": "^1.0.0",
     "ember-on-resize-modifier": "^0.4.0",
     "ember-set-body-class": "^1.0.1",
-    "tracked-maps-and-sets": "^2.0.0",
+    "tracked-maps-and-sets": "^3.0.0",
     "wobble": "^1.5.1"
   },
   "devDependencies": {
