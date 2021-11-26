@@ -7,20 +7,21 @@ module('Integration | Component | mobile-menu', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.before(function () {
+    this.emptyObject = {};
     this.register = () => {};
     this.unregister = () => {};
   });
 
   test('it renders', async function (assert) {
     await render(
-      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{hash}}/>`
+      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`
     );
 
     assert.strictEqual(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      <MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{hash}}>
+      <MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}>
         template block text
       </MobileMenu>
     `);
@@ -32,7 +33,7 @@ module('Integration | Component | mobile-menu', function (hooks) {
     assert.expect(1);
 
     await render(
-      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{hash}}/>`
+      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`
     );
     assert.dom('.mobile-menu').hasClass('mobile-menu--left');
   });
@@ -41,7 +42,7 @@ module('Integration | Component | mobile-menu', function (hooks) {
     assert.expect(1);
 
     await render(
-      hbs`<MobileMenu @type="right" @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{hash}}/>`
+      hbs`<MobileMenu @type="right" @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`
     );
     assert.dom('.mobile-menu').hasClass('mobile-menu--right');
   });
@@ -50,7 +51,7 @@ module('Integration | Component | mobile-menu', function (hooks) {
     assert.expect(1);
 
     await render(
-      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{hash}}/>`
+      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`
     );
     assert.dom('.mobile-menu__mask').exists({ count: 1 });
   });
