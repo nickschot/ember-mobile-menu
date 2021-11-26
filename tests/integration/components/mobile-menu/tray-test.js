@@ -9,7 +9,7 @@ module('Integration | Component | mobile-menu/tray', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<MobileMenu::Tray/>`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.strictEqual(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
@@ -18,7 +18,7 @@ module('Integration | Component | mobile-menu/tray', function (hooks) {
       </MobileMenu::Tray>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.strictEqual(this.element.textContent.trim(), 'template block text');
   });
 
   test('it cleans up body-scroll-lock after undrendering', async function (assert) {
@@ -28,18 +28,18 @@ module('Integration | Component | mobile-menu/tray', function (hooks) {
     await render(
       hbs`{{#if this.showMenu}}<MobileMenu::Tray @preventScroll={{true}} @embed={{false}} @isClosed={{this.isClosed}}/>{{/if}}`
     );
-    assert.equal(document.body.style.overflow, '');
+    assert.strictEqual(document.body.style.overflow, '');
 
     this.set('isClosed', false);
-    assert.equal(document.body.style.overflow, 'hidden');
+    assert.strictEqual(document.body.style.overflow, 'hidden');
 
     this.set('isClosed', true);
-    assert.equal(document.body.style.overflow, '');
+    assert.strictEqual(document.body.style.overflow, '');
 
     this.set('isClosed', false);
-    assert.equal(document.body.style.overflow, 'hidden');
+    assert.strictEqual(document.body.style.overflow, 'hidden');
 
     this.set('showMenu', false);
-    assert.equal(document.body.style.overflow, '');
+    assert.strictEqual(document.body.style.overflow, '');
   });
 });

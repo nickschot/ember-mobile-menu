@@ -18,7 +18,7 @@ module('Integration | Component | mobile-menu/link-to', function (hooks) {
       </MobileMenu::LinkTo>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'My Link');
+    assert.strictEqual(this.element.textContent.trim(), 'My Link');
   });
 
   test('it fires the onClick hook when clicked', async function (assert) {

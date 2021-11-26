@@ -16,7 +16,7 @@ module('Integration | Component | mobile-menu', function (hooks) {
       hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{hash}}/>`
     );
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.strictEqual(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
@@ -25,7 +25,7 @@ module('Integration | Component | mobile-menu', function (hooks) {
       </MobileMenu>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.strictEqual(this.element.textContent.trim(), 'template block text');
   });
 
   test('it is a left menu by default', async function (assert) {
