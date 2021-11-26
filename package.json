@@ -42,7 +42,7 @@
     "body-scroll-lock": "^3.0.1",
     "ember-auto-import": "^2.0.0",
     "ember-cli-babel": "^7.26.6",
-    "ember-cli-htmlbars": "^5.7.1",
+    "ember-cli-htmlbars": "^6.0.0",
     "ember-concurrency": "^2.1.0",
     "ember-could-get-used-to-this": "^1.0.0",
     "ember-gesture-modifiers": "^2.0.0",
