@@ -12,7 +12,7 @@ module('Integration | Component | mobile-menu/mask', function (hooks) {
 
     await render(hbs`<MobileMenu::Mask/>`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.strictEqual(this.element.textContent.trim(), '');
   });
 
   test('it triggers the onClick hook when clicked', async function (assert) {

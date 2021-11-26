@@ -10,7 +10,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<MobileMenuWrapper/>`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.strictEqual(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
@@ -19,7 +19,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
       </MobileMenuWrapper>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.strictEqual(this.element.textContent.trim(), 'template block text');
   });
 
   test('it renders a "left" menu by default', async function (assert) {
@@ -429,7 +429,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
 
     this.set('isOpen', true);
     this.set('onToggle', (isOpen) => {
-      assert.equal(this.isOpen, isOpen);
+      assert.strictEqual(this.isOpen, isOpen);
     });
 
     await render(hbs`
