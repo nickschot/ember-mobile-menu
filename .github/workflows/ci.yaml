@@ -2,64 +2,72 @@ name: CI
 
 on:
   push:
-    branches: [$default-branch]
-  pull_request:
+    branches:
+      - main
+      - master
+  pull_request: {}
 
 jobs:
-  tests:
+  test:
+    name: "Tests"
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2
-        with:
-          path: '**/node_modules'
-          key: ci-modules-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --frozen-lockfile --non-interactive
-      - run: yarn lint
-      - run: yarn test:ember
 
-  ember_floating_dependencies:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2
-        with:
-          path: '**/node_modules'
-          key: ci-modules-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --no-lockfile --non-interactive
-      - run: yarn test:ember
+          node-version: 12.x
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint
+        run: yarn lint
+      - name: Run Tests
+        run: yarn test:ember
 
-  ember_try:
+  floating:
+    name: "Floating Dependencies"
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-        ember-try: [ember-3.23, ember-lts-3.24, ember-release, ember-beta, ember-canary, ember-default-with-jquery, ember-classic, embroider-safe, embroider-optimized]
-        include:
-          - ember-try: ember-canary
-            continue-on-error: true
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2
+          node-version: 12.x
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn install --no-lockfile
+      - name: Run Tests
+        run: yarn test:ember
+
+  try-scenarios:
+    name: ${{ matrix.try-scenario }}
+    runs-on: ubuntu-latest
+    needs: 'test'
+
+    strategy:
+      fail-fast: false
+      matrix:
+        try-scenario:
+          - ember-3.23
+          - ember-lts-3.24
+          - ember-release
+          - ember-beta
+          - ember-canary
+          - ember-classic
+          - ember-default-with-jquery
+          - embroider-safe
+          - embroider-optimized
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
         with:
-          path: '**/node_modules'
-          key: ci-modules-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --frozen-lockfile --non-interactive
-      - name: test
-        run: node_modules/.bin/ember try:one ${{ matrix.ember-try }}
-        continue-on-error: ${{ matrix['continue-on-error'] == true }}
+          node-version: 12.x
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run Tests
+        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
