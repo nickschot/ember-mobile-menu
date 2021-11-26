@@ -6011,7 +6011,6 @@ ember-cli-babel@^7.0.0, ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cl
 
 ember-cli-clipboard@jkusa/ember-cli-clipboard#e27143fe91c486baa4fe2abf654f73ef594b5216:
   version "0.15.0"
-  uid e27143fe91c486baa4fe2abf654f73ef594b5216
   resolved "https://codeload.github.com/jkusa/ember-cli-clipboard/tar.gz/e27143fe91c486baa4fe2abf654f73ef594b5216"
   dependencies:
     "@ember/render-modifiers" "^1.0.1"
@@ -6609,11 +6608,12 @@ ember-get-config@^0.3.0:
     broccoli-file-creator "^1.1.1"
     ember-cli-babel "^7.0.0"
 
-ember-href-to@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/ember-href-to/-/ember-href-to-4.1.0.tgz#daa8b398bc5a51ba3ba5ff736e099f0a0d010b7b"
-  integrity sha512-h8xSzt9lQAUzk4JvXNnZjRj29hOWKo92VIHzH68io13UurDBaMmJ4WtXa0iy/awlSFs6h8BwpEWQeaCYIZDRuQ==
+ember-href-to@^4.0.0, ember-href-to@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ember-href-to/-/ember-href-to-5.0.0.tgz#e70da7f056f341126481d5c2f4b7c6ddc6ecebed"
+  integrity sha512-IkcgPir4x4x6HvwPqHwIY3DQqreyMtCK/yXacAuQdeYCm/6lNzYMazSBZfkNRRahHXfAiPAXIw1DZK39UlovCw==
   dependencies:
+    "@ember/legacy-built-in-components" "^0.4.0"
     ember-cli-babel "^7.13.2"
 
 ember-inflector@^4.0.1:
@@ -6654,7 +6654,6 @@ ember-maybe-import-regenerator@^1.0.0:
 
 ember-modal-dialog@yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71:
   version "4.0.0-alpha.1"
-  uid "76b74f1c4b791fed5b084836c3b1c8c54836ac71"
   resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/76b74f1c4b791fed5b084836c3b1c8c54836ac71"
   dependencies:
     "@embroider/macros" "^0.43.5"

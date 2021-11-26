@@ -109,7 +109,8 @@
   },
   "homepage": "https://nickschot.github.io/ember-mobile-menu",
   "resolutions": {
-    "nwsapi": "^2.1.0"
+    "nwsapi": "^2.1.0",
+    "ember-href-to": "^5.0.0"
   },
   "volta": {
     "node": "16.13.0"
