@@ -5928,7 +5928,7 @@ ember-cli-addon-docs@4.1.0:
     ember-fetch "^8.1.1"
     ember-get-config "^0.5.0"
     ember-keyboard "^6.0.4"
-    ember-modal-dialog "github:yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71"
+    ember-modal-dialog yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71
     ember-responsive "^4.0.2"
     ember-router-generator "^2.0.0"
     ember-router-scroll "^4.1.2"
@@ -6642,14 +6642,13 @@ ember-inflector@^4.0.1:
   dependencies:
     ember-cli-babel "^7.26.5"
 
-ember-keyboard@^6.0.4:
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-6.0.4.tgz#396e1be4c815b2972e2a6973dcc45acbc6701e4a"
-  integrity sha512-Mkg5TG6KBTtxjOUBdyLADajyj/mJo3ua2mSHw20UtG2MxKxMyO+Bs4tttMlEmmrR3XMrQ9qVBLkq2dIuuQku3w==
+ember-keyboard@^6.0.4, ember-keyboard@^7.0.0-beta.0:
+  version "7.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-7.0.0-beta.0.tgz#b00d40cb4f4af20150a9e05ef8038d2295f0a605"
+  integrity sha512-xHdzk7doUJFHZ3Jf/w5tSj7shc1002c6ZHe9tEKkzjMWTrD48kg0BNf6jwQ9a1yG7hQtvtodRKDw2dTmHVdw/Q==
   dependencies:
     ember-cli-babel "^7.26.6"
     ember-cli-htmlbars "^5.7.1"
-    ember-compatibility-helpers "^1.2.4"
     ember-modifier "^2.1.2 || ^3.0.0"
     ember-modifier-manager-polyfill "^1.2.0"
 
@@ -6673,7 +6672,6 @@ ember-maybe-import-regenerator@^1.0.0:
 
 "ember-modal-dialog@github:yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71":
   version "4.0.0-alpha.1"
-  uid "76b74f1c4b791fed5b084836c3b1c8c54836ac71"
   resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/76b74f1c4b791fed5b084836c3b1c8c54836ac71"
   dependencies:
     "@embroider/macros" "^0.43.5"
