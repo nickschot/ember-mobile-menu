@@ -114,6 +114,6 @@
     "ember-keyboard": "^7.0.0-beta.0"
   },
   "volta": {
-    "node": "16.13.0"
+    "node": "16.13.1"
   }
 }
