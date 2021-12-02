@@ -5891,10 +5891,10 @@ ember-cli-addon-docs-yuidoc@1.0.0:
     lodash "^4.17.20"
     yuidocjs "^0.10.2"
 
-ember-cli-addon-docs@4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-addon-docs/-/ember-cli-addon-docs-4.1.0.tgz#bf012265f2266ef1ae4b26ff95a887288350a041"
-  integrity sha512-o5YAPjtj6IJ0UXXAiDDntHxW5ndufqr9jMz8ccHWyxnY60ciMe0vkFKkOuoO7IW6lBl2WovMU1w8HrOUVr5Gxg==
+ember-cli-addon-docs@4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-addon-docs/-/ember-cli-addon-docs-4.2.1.tgz#503624c4583b37f5ab0616a5ad43f8ddd401607b"
+  integrity sha512-3GCCrzamZTlzZLzqTWIN7HOk2AwbI5OwaUMjNY/qJAWud4QGtHiw9ak8rckcCMaFZVtvXjnUTD1eCBHOh0tIDg==
   dependencies:
     "@csstools/postcss-sass" "^4.0.0"
     "@ember/legacy-built-in-components" "^0.4.0"
@@ -5927,8 +5927,8 @@ ember-cli-addon-docs@4.1.0:
     ember-decorators "^6.1.1"
     ember-fetch "^8.1.1"
     ember-get-config "^0.5.0"
-    ember-keyboard "^6.0.4"
-    ember-modal-dialog yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71
+    ember-keyboard "^7.0.0-beta.0"
+    ember-modal-dialog "github:yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71"
     ember-responsive "^4.0.2"
     ember-router-generator "^2.0.0"
     ember-router-scroll "^4.1.2"
@@ -6642,7 +6642,7 @@ ember-inflector@^4.0.1:
   dependencies:
     ember-cli-babel "^7.26.5"
 
-ember-keyboard@^6.0.4, ember-keyboard@^7.0.0-beta.0:
+ember-keyboard@^7.0.0-beta.0:
   version "7.0.0-beta.0"
   resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-7.0.0-beta.0.tgz#b00d40cb4f4af20150a9e05ef8038d2295f0a605"
   integrity sha512-xHdzk7doUJFHZ3Jf/w5tSj7shc1002c6ZHe9tEKkzjMWTrD48kg0BNf6jwQ9a1yG7hQtvtodRKDw2dTmHVdw/Q==
@@ -6670,7 +6670,7 @@ ember-maybe-import-regenerator@^1.0.0:
     ember-cli-babel "^7.26.6"
     regenerator-runtime "^0.13.2"
 
-ember-modal-dialog@yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71:
+"ember-modal-dialog@github:yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71":
   version "4.0.0-alpha.1"
   uid "76b74f1c4b791fed5b084836c3b1c8c54836ac71"
   resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/76b74f1c4b791fed5b084836c3b1c8c54836ac71"
