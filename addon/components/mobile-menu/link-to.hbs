@@ -1,0 +1,11 @@
+<LinkTo
+  @route={{@route}}
+  @disabled={{@disabled}}
+  @current-when={{@current-when}}
+  @models={{this.models}}
+  @query={{this.query}}
+  {{on "click" this.click}}
+  ...attributes
+>
+  {{yield}}
+</LinkTo>

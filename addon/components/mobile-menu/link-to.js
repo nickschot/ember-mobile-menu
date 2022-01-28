@@ -1,5 +1,5 @@
-/* eslint-disable ember/no-classic-classes, ember/no-component-lifecycle-hooks */
-import { LinkComponent } from '@ember/legacy-built-in-components';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 /**
  * An extended LinkTo component which provides an onClick hook.
@@ -7,23 +7,23 @@ import { LinkComponent } from '@ember/legacy-built-in-components';
  * @class LinkTo
  * @public
  */
-export default LinkComponent.extend({
-  didReceiveAttrs() {
-    this._super(...arguments);
+export default class LinkToComponent extends Component {
+  get models() {
+    if (this.args.models) {
+      return this.args.models;
+    }
+    if (this.args.model) {
+      return [this.args.model];
+    }
+    return [];
+  }
 
-    this.set('current-when', this.qualifiedRouteName);
-  },
+  get query() {
+    return this.args.query || {};
+  }
 
-  /**
-   * Hook called when the link is clicked.
-   *
-   * @argument onClick
-   * @type function
-   * @default function(){}
-   */
-  onClick() {},
-
+  @action
   click() {
-    this.onClick();
-  },
-});
+    this.args?.onClick();
+  }
+}
