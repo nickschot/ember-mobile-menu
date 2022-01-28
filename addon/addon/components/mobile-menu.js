@@ -297,20 +297,12 @@ export default class MobileMenu extends Component {
     this.onClose(this, 0, animate);
   }
 
-  _lastOpenStatus;
-  _lastOpenAnimate;
-
   @action
   openOrClose(open, animate = true) {
-    if (this._lastOpenStatus !== open || this._lastOpenAnimate !== animate) {
-      this._lastOpenStatus = open;
-      this._lastOpenAnimate = animate;
-
-      if (open) {
-        this.open(animate);
-      } else {
-        this.close(animate);
-      }
+    if (open) {
+      this.open(animate);
+    } else {
+      this.close(animate);
     }
   }
 
