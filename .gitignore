@@ -19,11 +19,14 @@
 /npm-debug.log*
 /testem.log
 /yarn-error.log
-/.idea/
 
 # ember-try
 /.node_modules.ember-try/
 /bower.json.ember-try
+/npm-shrinkwrap.json.ember-try
 /package.json.ember-try
+/package-lock.json.ember-try
+/yarn.lock.ember-try
 
+/.idea/
 /vendor/ember-mobile-menu.css
