@@ -7,6 +7,9 @@ on:
       - master
   pull_request: {}
 
+env:
+  PNPM_VERSION: 6.32.0
+
 concurrency:
    group: ci-${{ github.head_ref || github.ref }}
    cancel-in-progress: true
@@ -18,17 +21,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.1
+        with:
+          version: ${{ env.PNPM_VERSION }}
       - name: Install Node
         uses: actions/setup-node@v3
         with:
           node-version: 12.x
-          cache: yarn
+          cache: pnpm
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
       - name: Lint
-        run: yarn lint
+        run: pnpm run lint
       - name: Run Tests
-        run: yarn test:ember
+        run: pnpm run test:ember
 
   floating:
     name: "Floating Dependencies"
@@ -36,14 +42,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.1
+        with:
+          version: ${{ env.PNPM_VERSION }}
       - uses: actions/setup-node@v3
         with:
           node-version: 12.x
-          cache: yarn
+          cache: pnpm
       - name: Install Dependencies
-        run: yarn install --no-lockfile
+        run: pnpm install
       - name: Run Tests
-        run: yarn test:ember
+        run: pnpm run test:ember
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
@@ -64,12 +73,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.1
+        with:
+          version: ${{ env.PNPM_VERSION }}
       - name: Install Node
         uses: actions/setup-node@v3
         with:
           node-version: 12.x
-          cache: yarn
+          cache: pnpm
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
