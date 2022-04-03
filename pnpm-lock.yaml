@@ -103,7 +103,7 @@ importers:
       ember-disable-prototype-extensions: 1.1.3
       ember-export-application-global: 2.0.1
       ember-load-initializers: 2.1.2
-      ember-mobile-menu: 2.1.1
+      ember-mobile-menu: 3.0.0-beta.1
       ember-page-title: 7.0.0
       ember-qunit: 5.1.5
       ember-resize-observer-polyfill: 0.0.1
@@ -195,7 +195,7 @@ importers:
       ember-disable-prototype-extensions: 1.1.3
       ember-export-application-global: 2.0.1
       ember-load-initializers: 2.1.2
-      ember-mobile-menu: 2.1.1
+      ember-mobile-menu: 3.0.0-beta.1
       ember-page-title: 7.0.0
       ember-qunit: 5.1.5
       ember-resolver: 8.0.3
@@ -15438,7 +15438,7 @@ packages:
     resolution: {directory: addon, type: directory}
     id: file:addon
     name: ember-mobile-menu
-    version: 2.1.1
+    version: 3.0.0-beta.1
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       '@ember/legacy-built-in-components': github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea_ember-source@4.3.0
