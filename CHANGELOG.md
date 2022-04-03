@@ -1,4 +1,41 @@
 
+
+## v3.0.0-beta.1 (2022-04-03)
+
+#### :boom: Breaking Change
+* [#234](https://github.com/nickschot/ember-mobile-menu/pull/234) Update dependency ember-gesture-modifiers to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#235](https://github.com/nickschot/ember-mobile-menu/pull/235) Update dependency ember-on-resize-modifier to v1 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#243](https://github.com/nickschot/ember-mobile-menu/pull/243) Drop Ember 3.23 support ([@nickschot](https://github.com/nickschot))
+* [#109](https://github.com/nickschot/ember-mobile-menu/pull/109) replace ember-usable with ember-could-get-used-to-this ([@nickschot](https://github.com/nickschot))
+* [#155](https://github.com/nickschot/ember-mobile-menu/pull/155) drop support for Ember < 3.23 ([@nickschot](https://github.com/nickschot))
+* [#147](https://github.com/nickschot/ember-mobile-menu/pull/147) put splattributes on the Tray instead of the (less useful) wrapper div of the MobileMenu component ([@nickschot](https://github.com/nickschot))
+* [#150](https://github.com/nickschot/ember-mobile-menu/pull/150) upgrade to ember-auto-import v2 ([@nickschot](https://github.com/nickschot))
+* [#103](https://github.com/nickschot/ember-mobile-menu/pull/103) upgrade to ember-gesture-modifiers v1 & PointerEvents ([@nickschot](https://github.com/nickschot))
+* [#136](https://github.com/nickschot/ember-mobile-menu/pull/136) drope node 10 support ([@nickschot](https://github.com/nickschot))
+* [#120](https://github.com/nickschot/ember-mobile-menu/pull/120) drop support for ember-concurrency v1 ([@nickschot](https://github.com/nickschot))
+
+#### :bug: Bug Fix
+* [#200](https://github.com/nickschot/ember-mobile-menu/pull/200) Prevent open/close from being triggered a huge amount of times when unnecessary ([@nickschot](https://github.com/nickschot))
+* [#188](https://github.com/nickschot/ember-mobile-menu/pull/188) fix import path for htmlSafe ([@nickschot](https://github.com/nickschot))
+* [#190](https://github.com/nickschot/ember-mobile-menu/pull/190) fix service injection deprecation ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#259](https://github.com/nickschot/ember-mobile-menu/pull/259) Setup release-it ([@nickschot](https://github.com/nickschot))
+* [#254](https://github.com/nickschot/ember-mobile-menu/pull/254) Re-enable embroider test-support on CI ([@nickschot](https://github.com/nickschot))
+* [#256](https://github.com/nickschot/ember-mobile-menu/pull/256) Convert addon to monorepo ([@nickschot](https://github.com/nickschot))
+* [#255](https://github.com/nickschot/ember-mobile-menu/pull/255) Switch to pnpm ([@nickschot](https://github.com/nickschot))
+* [#242](https://github.com/nickschot/ember-mobile-menu/pull/242) Temporarily disable Embroider tests in CI ([@nickschot](https://github.com/nickschot))
+* [#216](https://github.com/nickschot/ember-mobile-menu/pull/216) add ember-keyboard v7 resolution to fix ember 4+ CI ([@nickschot](https://github.com/nickschot))
+* [#210](https://github.com/nickschot/ember-mobile-menu/pull/210) Fix {{hash}} deprecation in tests ([@nickschot](https://github.com/nickschot))
+* [#208](https://github.com/nickschot/ember-mobile-menu/pull/208) Add ember-href-to resolution ([@nickschot](https://github.com/nickschot))
+* [#209](https://github.com/nickschot/ember-mobile-menu/pull/209) Update github CI to latest ember-cli blueprint ([@nickschot](https://github.com/nickschot))
+* [#189](https://github.com/nickschot/ember-mobile-menu/pull/189) update to addon-docs v4 ([@nickschot](https://github.com/nickschot))
+* [#152](https://github.com/nickschot/ember-mobile-menu/pull/152) upgrade to ember-cli 3.27 blueprint ([@nickschot](https://github.com/nickschot))
+* [#121](https://github.com/nickschot/ember-mobile-menu/pull/121) use ember-concurrency 2 task syntax ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v2.1.1 (2020-12-04)
 
 #### :memo: Documentation
