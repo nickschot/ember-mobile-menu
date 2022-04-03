@@ -1,5 +1,14 @@
 
 
+
+## v3.0.0-beta.2 (2022-04-03)
+
+#### :house: Internal
+* [#261](https://github.com/nickschot/ember-mobile-menu/pull/261) Move npmignore to addon package ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v3.0.0-beta.1 (2022-04-03)
 
 #### :boom: Breaking Change
