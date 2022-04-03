@@ -3,11 +3,7 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
-  let app = new EmberApp(defaults, {
-    'ember-cli-addon-docs': {
-      documentingAddonAt: '../addon',
-    },
-  });
+  let app = new EmberApp(defaults, {});
 
   /*
     This build file specifies the options for the dummy test app of this
