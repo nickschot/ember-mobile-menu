@@ -30,7 +30,7 @@ jobs:
           node-version: 12.x
           cache: pnpm
       - name: Install Dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
       - name: Lint Addon
         run: pnpm run lint
         working-directory: addon
@@ -54,6 +54,9 @@ jobs:
         with:
           node-version: 12.x
           cache: pnpm
+      - name: Remove lock file
+        shell: bash
+        run: rm pnpm-lock.yaml
       - name: Install Dependencies
         run: pnpm install
       - name: Run Tests
@@ -88,7 +91,7 @@ jobs:
           node-version: 12.x
           cache: pnpm
       - name: Install Dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: test-app
