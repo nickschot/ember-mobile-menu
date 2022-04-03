@@ -9,9 +9,9 @@ importers:
 
   .:
     specifiers:
-      release-it: ^14.12.5
-      release-it-lerna-changelog: ^4.0.1
-      release-it-yarn-workspaces: ^2.0.1
+      release-it: 14.14.0
+      release-it-lerna-changelog: 4.0.1
+      release-it-yarn-workspaces: 2.0.1
     devDependencies:
       release-it: 14.14.0
       release-it-lerna-changelog: 4.0.1_release-it@14.14.0
@@ -86,11 +86,11 @@ importers:
       '@glimmer/tracking': 1.1.1
       babel-eslint: 10.1.0
       broccoli-asset-rev: 3.0.0
-      ember-auto-import: ^2.2.4
+      ember-auto-import: 2.4.1
       ember-cli: 4.2.0
       ember-cli-addon-docs: 4.2.2
       ember-cli-addon-docs-yuidoc: 1.0.0
-      ember-cli-babel: ^7.26.11
+      ember-cli-babel: 7.26.11
       ember-cli-dependency-checker: 3.2.0
       ember-cli-deploy: 1.0.2
       ember-cli-deploy-build: 2.0.0
@@ -185,9 +185,9 @@ importers:
       '@glimmer/tracking': 1.1.1
       babel-eslint: 10.1.0
       broccoli-asset-rev: 3.0.0
-      ember-auto-import: ^2.2.4
+      ember-auto-import: 2.4.1
       ember-cli: 4.2.0
-      ember-cli-babel: ^7.26.11
+      ember-cli-babel: 7.26.11
       ember-cli-dependency-checker: 3.2.0
       ember-cli-htmlbars: ember-cli/ember-cli-htmlbars#78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-cli-inject-live-reload: 2.1.0
