@@ -1,6 +1,15 @@
 
 
 
+
+## v3.0.0-beta.3 (2022-04-03)
+
+#### :house: Internal
+* [#238](https://github.com/nickschot/ember-mobile-menu/pull/238) Revert "Prevent open/close from being triggered a huge amount of times when unnecessary" ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v3.0.0-beta.2 (2022-04-03)
 
 #### :house: Internal
