@@ -6584,7 +6584,7 @@ ember-modifier@^2.1.0:
     ember-destroyable-polyfill "^2.0.2"
     ember-modifier-manager-polyfill "^1.2.0"
 
-"ember-modifier@^2.1.2 || ^3.1.0":
+"ember-modifier@^2.1.2 || ^3.1.0", ember-modifier@^3.0.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.2.2.tgz#80f116c92dc7e28c7a725d6060d162110b175335"
   integrity sha512-9xJSzMXL3+9HKlPS8W7k3LLlubRVlS1eGcYjZ/dqZtqNs/tBC2f19z6ReX72bPNM8z+HQbliqSe9FUbqFYZDUA==
@@ -6595,15 +6595,15 @@ ember-modifier@^2.1.0:
     ember-cli-typescript "^5.0.0"
     ember-compatibility-helpers "^1.2.5"
 
-ember-on-resize-modifier@^0.4.0:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/ember-on-resize-modifier/-/ember-on-resize-modifier-0.4.5.tgz#768600fb508d761527dc42a1a527e069fd9490f3"
-  integrity sha512-MQPg68d1ly2F00rOD3wZ+CxDRZwex4ifHWPNH1eCmpFTgK/P1tM8VyQG4ryyy58uDCfZa8x7iU86uJdPeUHI2g==
+ember-on-resize-modifier@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-on-resize-modifier/-/ember-on-resize-modifier-1.0.0.tgz#b4e12dc023b4d608d7b0f4fa0100722fb860cdd4"
+  integrity sha512-awmjTV8xIZ0Qc5X+46iYL4NT3f4NahNq+3XJ3Fn7zo8D4QuMzMOM91HqvtFQBWddD8o0v7qZNzW++HXAYAPXkg==
   dependencies:
     ember-cli-babel "^7.26.6"
     ember-cli-htmlbars "^5.7.1"
-    ember-modifier "^2.1.0"
-    ember-resize-observer-service "^0.4.5"
+    ember-modifier "^3.0.0"
+    ember-resize-observer-service "^1.0.0"
 
 ember-page-title@7.0.0:
   version "7.0.0"
@@ -6637,10 +6637,10 @@ ember-resize-observer-polyfill@0.0.1:
     ember-cli-htmlbars "^4.2.3"
     resize-observer-polyfill "^1.5.1"
 
-ember-resize-observer-service@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/ember-resize-observer-service/-/ember-resize-observer-service-0.4.5.tgz#d76153e807d302dd900f6120b33d1f1949964c94"
-  integrity sha512-eL9X+HKARogmv7hkXhVe+NJ6FTG3p2tylJVFDFCvYq/b6LISGtY8SfJj070x8iIeuzKvxRrT6iPe2fQ59OqoLQ==
+ember-resize-observer-service@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-resize-observer-service/-/ember-resize-observer-service-1.0.0.tgz#6d28e33cf06ddc60e83111069c41796d6739142e"
+  integrity sha512-KmKNerMJUIJgOjr/AOM+fTa3nhbLLrLLTAw2mZuHhRCF1xEivvvF3ivE9Lst2tVgwi4IgI5Q/4t6AMea/dZpAA==
   dependencies:
     ember-cli-babel "^7.26.6"
     ember-cli-htmlbars "^5.7.1"
