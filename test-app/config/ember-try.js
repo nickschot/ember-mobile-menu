@@ -13,6 +13,11 @@ module.exports = async function () {
           devDependencies: {
             'ember-source': '~3.24.3',
           },
+          dependenciesMeta: {
+            'ember-mobile-menu': {
+              injected: true,
+            },
+          },
         },
       },
       {
@@ -20,6 +25,11 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.28.0',
+          },
+          dependenciesMeta: {
+            'ember-mobile-menu': {
+              injected: true,
+            },
           },
         },
       },
@@ -29,6 +39,11 @@ module.exports = async function () {
           devDependencies: {
             'ember-source': await getChannelURL('release'),
           },
+          dependenciesMeta: {
+            'ember-mobile-menu': {
+              injected: true,
+            },
+          },
         },
       },
       {
@@ -37,6 +52,11 @@ module.exports = async function () {
           devDependencies: {
             'ember-source': await getChannelURL('beta'),
           },
+          dependenciesMeta: {
+            'ember-mobile-menu': {
+              injected: true,
+            },
+          },
         },
       },
       {
@@ -44,6 +64,11 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('canary'),
+          },
+          dependenciesMeta: {
+            'ember-mobile-menu': {
+              injected: true,
+            },
           },
         },
       },
@@ -59,6 +84,11 @@ module.exports = async function () {
             'ember-source': '~3.28.0',
             '@ember/jquery': '^1.1.0',
           },
+          dependenciesMeta: {
+            'ember-mobile-menu': {
+              injected: true,
+            },
+          },
         },
       },
       {
@@ -73,6 +103,11 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.28.0',
+          },
+          dependenciesMeta: {
+            'ember-mobile-menu': {
+              injected: true,
+            },
           },
           ember: {
             edition: 'classic',
