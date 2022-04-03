@@ -101,8 +101,6 @@ importers:
       ember-qunit: 5.1.5
       ember-resize-observer-polyfill: 0.0.1
       ember-resolver: 8.0.3
-      ember-sinon: 5.0.0
-      ember-sinon-qunit: 6.0.0
       ember-source: 4.3.0
       ember-source-channel-url: 3.0.0
       ember-template-lint: 4.3.0
@@ -151,8 +149,6 @@ importers:
       ember-qunit: 5.1.5_540658a7c1c2d98916e68a1b3076b6e9
       ember-resize-observer-polyfill: 0.0.1
       ember-resolver: 8.0.3
-      ember-sinon: 5.0.0
-      ember-sinon-qunit: 6.0.0
       ember-source: 4.3.0_webpack@5.71.0
       ember-source-channel-url: 3.0.0
       ember-template-lint: 4.3.0
@@ -189,14 +185,12 @@ importers:
       ember-cli-sass: 10.0.1
       ember-cli-sri: 2.1.1
       ember-cli-terser: 4.0.2
-      ember-data: 4.3.0
       ember-disable-prototype-extensions: 1.1.3
       ember-export-application-global: 2.0.1
       ember-load-initializers: 2.1.2
       ember-mobile-menu: 2.1.1
       ember-page-title: 7.0.0
       ember-qunit: 5.1.5
-      ember-resize-observer-polyfill: 0.0.1
       ember-resolver: 8.0.3
       ember-sinon: 5.0.0
       ember-sinon-qunit: 6.0.0
@@ -234,14 +228,12 @@ importers:
       ember-cli-sass: 10.0.1
       ember-cli-sri: 2.1.1
       ember-cli-terser: 4.0.2
-      ember-data: 4.3.0_webpack@5.71.0
       ember-disable-prototype-extensions: 1.1.3
       ember-export-application-global: 2.0.1
       ember-load-initializers: 2.1.2
       ember-mobile-menu: file:addon_17e593bdfe0915dd19f94b81c7396ca3
       ember-page-title: 7.0.0
       ember-qunit: 5.1.5_540658a7c1c2d98916e68a1b3076b6e9
-      ember-resize-observer-polyfill: 0.0.1
       ember-resolver: 8.0.3
       ember-sinon: 5.0.0
       ember-sinon-qunit: 6.0.0
