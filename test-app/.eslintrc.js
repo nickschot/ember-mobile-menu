@@ -32,7 +32,7 @@ module.exports = {
         './testem.js',
         './blueprints/*/index.js',
         './config/**/*.js',
-        './tests/dummy/config/**/*.js',
+        './tests/test-app/config/**/*.js',
         './compile-css.js',
       ],
       parserOptions: {
