@@ -1,5 +1,8 @@
 lockfileVersion: 5.3
 
+overrides:
+  ember-cli-htmlbars: ember-cli/ember-cli-htmlbars#78a29d83b5d2674a929b0e22224f381a8db4149f
+
 importers:
 
   .:
@@ -15,7 +18,7 @@ importers:
       body-scroll-lock: ^3.0.1
       ember-auto-import: ^2.2.4
       ember-cli-babel: ^7.26.11
-      ember-cli-htmlbars: ^6.0.1
+      ember-cli-htmlbars: ember-cli/ember-cli-htmlbars#78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-concurrency: ^2.1.0
       ember-could-get-used-to-this: ^1.0.0
       ember-gesture-modifiers: ^3.0.0
@@ -41,7 +44,7 @@ importers:
       body-scroll-lock: 3.1.5
       ember-auto-import: 2.4.1
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.0.1
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-concurrency: 2.2.1
       ember-could-get-used-to-this: 1.0.1
       ember-gesture-modifiers: 3.0.0
@@ -80,7 +83,7 @@ importers:
       ember-cli-deploy-build: 2.0.0
       ember-cli-deploy-git: 1.3.4
       ember-cli-deploy-git-ci: 1.0.1
-      ember-cli-htmlbars: ^6.0.1
+      ember-cli-htmlbars: ember-cli/ember-cli-htmlbars#78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-cli-inject-live-reload: 2.1.0
       ember-cli-sass: 10.0.1
       ember-cli-sri: 2.1.1
@@ -130,7 +133,7 @@ importers:
       ember-cli-deploy-build: 2.0.0
       ember-cli-deploy-git: 1.3.4
       ember-cli-deploy-git-ci: 1.0.1
-      ember-cli-htmlbars: 6.0.1
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-cli-inject-live-reload: 2.1.0
       ember-cli-sass: 10.0.1
       ember-cli-sri: 2.1.1
@@ -177,7 +180,7 @@ importers:
       ember-cli: 4.2.0
       ember-cli-babel: ^7.26.11
       ember-cli-dependency-checker: 3.2.0
-      ember-cli-htmlbars: ^6.0.1
+      ember-cli-htmlbars: ember-cli/ember-cli-htmlbars#78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-cli-inject-live-reload: 2.1.0
       ember-cli-sass: 10.0.1
       ember-cli-sri: 2.1.1
@@ -222,7 +225,7 @@ importers:
       ember-cli: 4.2.0
       ember-cli-babel: 7.26.11
       ember-cli-dependency-checker: 3.2.0
-      ember-cli-htmlbars: 6.0.1
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-cli-inject-live-reload: 2.1.0
       ember-cli-sass: 10.0.1
       ember-cli-sri: 2.1.1
@@ -1658,7 +1661,7 @@ packages:
     dependencies:
       '@embroider/macros': 0.47.2
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-cli-typescript: 4.2.1
     transitivePeerDependencies:
       - supports-color
@@ -1721,7 +1724,7 @@ packages:
       broccoli-debug: 0.6.5
       broccoli-funnel: 3.0.8
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-destroyable-polyfill: 2.0.3
     transitivePeerDependencies:
       - '@babel/core'
@@ -3363,10 +3366,6 @@ packages:
       lodash: 4.17.21
     dev: true
 
-  /babel-plugin-htmlbars-inline-precompile/3.2.0:
-    resolution: {integrity: sha512-IUeZmgs9tMUGXYu1vfke5I18yYJFldFGdNFQOWslXTnDWXzpwPih7QFduUqvT+awDpDuNtXpdt5JAf43Q1Hhzg==}
-    engines: {node: 8.* || 10.* || >= 12.*}
-
   /babel-plugin-htmlbars-inline-precompile/5.3.1:
     resolution: {integrity: sha512-QWjjFgSKtSRIcsBhJmEwS2laIdrA6na8HAlc/pEAhjHgQsah/gMiBFRZvbQTy//hWxR4BMwV7/Mya7q5H8uHeA==}
     engines: {node: 10.* || >= 12.*}
@@ -4260,6 +4259,7 @@ packages:
     resolution: {integrity: sha512-V/ozejo+snzNf75i/a6iTmp71k+rlvqjE3+jYfimuMwR1tjNNRdtfno+NGNQB2An9bIAeqZnKhMDurAznHAdtA==}
     dependencies:
       heimdalljs-logger: 0.1.10
+    dev: true
 
   /broccoli-output-wrapper/3.2.5:
     resolution: {integrity: sha512-bQAtwjSrF4Nu0CK0JOy5OZqw9t5U0zzv2555EA/cF8/a8SLDTIetk9UgrtMVw7qKLKdSpOZ2liZNeZZDaKgayw==}
@@ -4361,6 +4361,7 @@ packages:
       quick-temp: 0.1.8
       rimraf: 2.7.1
       symlink-or-copy: 1.3.1
+    dev: true
 
   /broccoli-plugin/4.0.7:
     resolution: {integrity: sha512-a4zUsWtA1uns1K7p9rExYVYG99rdKeGRymW0qOCNkvDPHQxVi3yVyJHhQbM3EZwdt2E0mnhr5e0c/bPpJ7p3Wg==}
@@ -5153,6 +5154,7 @@ packages:
   /common-tags/1.8.2:
     resolution: {integrity: sha512-gk/Z852D2Wtb//0I+kRFNKKE9dIIVirjoqPoA1wJU+XePVXZfGeBpk45+A1rKO4Q43prqWBNY/MiIeRLbPWUaA==}
     engines: {node: '>=4.0.0'}
+    dev: true
 
   /commondir/1.0.1:
     resolution: {integrity: sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=}
@@ -6043,7 +6045,7 @@ packages:
     dependencies:
       broccoli-caching-writer: 3.0.3
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       fs-extra: 9.1.0
       json-api-serializer: 2.6.6
       lodash: 4.17.21
@@ -6078,7 +6080,7 @@ packages:
       ember-cli-autoprefixer: 2.0.0
       ember-cli-babel: 7.26.11
       ember-cli-clipboard: 0.16.0_ember-source@4.3.0
-      ember-cli-htmlbars: 6.0.1
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-cli-postcss: 7.2.0
       ember-cli-string-helpers: 6.1.0
       ember-cli-string-utils: 1.1.0
@@ -6141,7 +6143,7 @@ packages:
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       broccoli-autoprefixer: 9.0.0
-      ember-cli-htmlbars: 5.7.2
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6216,7 +6218,7 @@ packages:
       clipboard: 2.0.10
       ember-auto-import: 1.12.1
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
     transitivePeerDependencies:
       - '@babel/core'
       - ember-source
@@ -6297,80 +6299,6 @@ packages:
 
   /ember-cli-get-component-path-option/1.0.0:
     resolution: {integrity: sha1-DXtZVVni+QUKvtgE8djv8bCLx3E=}
-
-  /ember-cli-htmlbars/3.1.0:
-    resolution: {integrity: sha512-cgvRJM73IT0aePUG7oQ/afB7vSRBV3N0wu9BrWhHX2zkR7A7cUBI7KC9VPk6tbctCXoM7BRGsCC4aIjF7yrfXA==}
-    engines: {node: 6.* || 8.* || >= 10.*}
-    dependencies:
-      broccoli-persistent-filter: 2.3.1
-      hash-for-dep: 1.5.1
-      json-stable-stringify: 1.0.1
-      strip-bom: 3.0.0
-    dev: true
-
-  /ember-cli-htmlbars/4.5.0:
-    resolution: {integrity: sha512-bYJpK1pqFu9AadDAGTw05g2LMNzY8xTCIqQm7dMJmKEoUpLRFbPf4SfHXrktzDh7Q5iggl6Skzf1M0bPlIxARw==}
-    engines: {node: 8.* || 10.* || >= 12.*}
-    dependencies:
-      '@ember/edition-utils': 1.2.0
-      babel-plugin-htmlbars-inline-precompile: 3.2.0
-      broccoli-debug: 0.6.5
-      broccoli-persistent-filter: 2.3.1
-      broccoli-plugin: 3.1.0
-      common-tags: 1.8.2
-      ember-cli-babel-plugin-helpers: 1.1.1
-      fs-tree-diff: 2.0.1
-      hash-for-dep: 1.5.1
-      heimdalljs-logger: 0.1.10
-      json-stable-stringify: 1.0.1
-      semver: 6.3.0
-      strip-bom: 4.0.0
-      walk-sync: 2.2.0
-
-  /ember-cli-htmlbars/5.7.2:
-    resolution: {integrity: sha512-Uj6R+3TtBV5RZoJY14oZn/sNPnc+UgmC8nb5rI4P3fR/gYoyTFIZSXiIM7zl++IpMoIrocxOrgt+mhonKphgGg==}
-    engines: {node: 10.* || >= 12.*}
-    dependencies:
-      '@ember/edition-utils': 1.2.0
-      babel-plugin-htmlbars-inline-precompile: 5.3.1
-      broccoli-debug: 0.6.5
-      broccoli-persistent-filter: 3.1.2
-      broccoli-plugin: 4.0.7
-      common-tags: 1.8.2
-      ember-cli-babel-plugin-helpers: 1.1.1
-      ember-cli-version-checker: 5.1.2
-      fs-tree-diff: 2.0.1
-      hash-for-dep: 1.5.1
-      heimdalljs-logger: 0.1.10
-      json-stable-stringify: 1.0.1
-      semver: 7.3.5
-      silent-error: 1.1.1
-      strip-bom: 4.0.0
-      walk-sync: 2.2.0
-    transitivePeerDependencies:
-      - supports-color
-
-  /ember-cli-htmlbars/6.0.1:
-    resolution: {integrity: sha512-IDsl9uty+MXtMfp/BUTEc/Q36EmlHYj8ZdPekcoRa8hmdsigHnK4iokfaB7dJFktlf6luruei+imv7JrJrBQPQ==}
-    engines: {node: 12.* || 14.* || >= 16}
-    dependencies:
-      '@ember/edition-utils': 1.2.0
-      babel-plugin-ember-template-compilation: 1.0.1
-      babel-plugin-htmlbars-inline-precompile: 5.3.1
-      broccoli-debug: 0.6.5
-      broccoli-persistent-filter: 3.1.2
-      broccoli-plugin: 4.0.7
-      ember-cli-version-checker: 5.1.2
-      fs-tree-diff: 2.0.1
-      hash-for-dep: 1.5.1
-      heimdalljs-logger: 0.1.10
-      json-stable-stringify: 1.0.1
-      semver: 7.3.5
-      silent-error: 1.1.1
-      strip-bom: 4.0.0
-      walk-sync: 2.2.0
-    transitivePeerDependencies:
-      - supports-color
 
   /ember-cli-inject-live-reload/2.1.0:
     resolution: {integrity: sha512-YV5wYRD5PJHmxaxaJt18u6LE6Y+wo455BnmcpN+hGNlChy2piM9/GMvYgTAz/8Vin8RJ5KekqP/w/NEaRndc/A==}
@@ -6690,7 +6618,7 @@ packages:
       broccoli-merge-trees: 1.2.4
       broccoli-plugin: 1.3.1
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 3.1.0
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       es6-promise: 1.0.0
       glob: 7.2.0
     transitivePeerDependencies:
@@ -6727,7 +6655,7 @@ packages:
     dependencies:
       '@glimmer/tracking': 1.1.1
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-compatibility-helpers: 1.2.6
       ember-destroyable-polyfill: 2.0.3
     transitivePeerDependencies:
@@ -6739,7 +6667,7 @@ packages:
     engines: {node: 8.* || >= 10.*}
     dependencies:
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 4.5.0
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
     transitivePeerDependencies:
       - supports-color
 
@@ -6828,7 +6756,7 @@ packages:
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.0.1
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-modifier: 3.2.2
     transitivePeerDependencies:
       - '@babel/core'
@@ -6858,7 +6786,7 @@ packages:
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.0.1
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-modifier: 3.2.2
       ember-modifier-manager-polyfill: 1.2.0
     transitivePeerDependencies:
@@ -6906,7 +6834,7 @@ packages:
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-modifier: 3.2.2
       ember-resize-observer-service: 1.0.0
     transitivePeerDependencies:
@@ -6952,7 +6880,7 @@ packages:
     dependencies:
       ember-auto-import: 1.12.1
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 4.5.0
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       resize-observer-polyfill: 1.5.1
     transitivePeerDependencies:
       - supports-color
@@ -6965,7 +6893,7 @@ packages:
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
     transitivePeerDependencies:
       - supports-color
 
@@ -7119,7 +7047,7 @@ packages:
       cheerio: 0.22.0
       console-ui: 3.1.2
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       json-stable-stringify: 1.0.1
       lodash: 4.17.21
       mkdirp: 0.5.6
@@ -7186,7 +7114,7 @@ packages:
     engines: {node: 12.* || >= 14}
     dependencies:
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
     transitivePeerDependencies:
       - supports-color
 
@@ -7236,7 +7164,7 @@ packages:
     engines: {node: 10.* || >= 12}
     dependencies:
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -14028,7 +13956,7 @@ packages:
       body-scroll-lock: 3.1.5
       ember-auto-import: 2.4.1_webpack@5.71.0
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.0.1
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-concurrency: 2.2.1
       ember-could-get-used-to-this: 1.0.1
       ember-gesture-modifiers: 3.0.0
@@ -14043,6 +13971,30 @@ packages:
       - webpack
     dev: true
 
+  github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f:
+    resolution: {tarball: https://codeload.github.com/ember-cli/ember-cli-htmlbars/tar.gz/78a29d83b5d2674a929b0e22224f381a8db4149f}
+    name: ember-cli-htmlbars
+    version: 6.0.1
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      '@ember/edition-utils': 1.2.0
+      babel-plugin-ember-template-compilation: 1.0.1
+      babel-plugin-htmlbars-inline-precompile: 5.3.1
+      broccoli-debug: 0.6.5
+      broccoli-persistent-filter: 3.1.2
+      broccoli-plugin: 4.0.7
+      ember-cli-version-checker: 5.1.2
+      fs-tree-diff: 2.0.1
+      hash-for-dep: 1.5.1
+      heimdalljs-logger: 0.1.10
+      json-stable-stringify: 1.0.1
+      semver: 7.3.5
+      silent-error: 1.1.1
+      strip-bom: 4.0.0
+      walk-sync: 2.2.0
+    transitivePeerDependencies:
+      - supports-color
+
   github.com/yapplabs/ember-modal-dialog/31ffee4c657ebe96b1f80adbc39c0339b52236e2_ember-source@4.3.0:
     resolution: {tarball: https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/31ffee4c657ebe96b1f80adbc39c0339b52236e2}
     id: github.com/yapplabs/ember-modal-dialog/31ffee4c657ebe96b1f80adbc39c0339b52236e2
@@ -14053,7 +14005,7 @@ packages:
       '@embroider/macros': 0.49.0
       '@embroider/util': 0.49.0_ember-source@4.3.0
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.0.1
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-cli-version-checker: 2.2.0
       ember-decorators: 6.1.1
       ember-wormhole: 0.6.0

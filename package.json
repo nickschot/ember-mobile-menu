@@ -8,6 +8,11 @@
   "scripts": {
     "changelog": "npx lerna-changelog --from=v0.1.0-alpha.5 > CHANGELOG.md"
   },
+  "pnpm": {
+    "overrides": {
+      "ember-cli-htmlbars": "ember-cli/ember-cli-htmlbars#78a29d83b5d2674a929b0e22224f381a8db4149f"
+    }
+  },
   "volta": {
     "node": "16.14.2"
   }
