@@ -11,7 +11,6 @@
   "pnpm": {
     "overrides": {
       "@babel/parser": "7.17.3",
-      "@embroider/macros": "^1.5.0",
       "ember-cli-htmlbars": "ember-cli/ember-cli-htmlbars#78a29d83b5d2674a929b0e22224f381a8db4149f"
     }
   },

@@ -2,7 +2,6 @@ lockfileVersion: 5.3
 
 overrides:
   '@babel/parser': 7.17.3
-  '@embroider/macros': ^1.5.0
   ember-cli-htmlbars: ember-cli/ember-cli-htmlbars#78a29d83b5d2674a929b0e22224f381a8db4149f
 
 importers:
@@ -12,7 +11,7 @@ importers:
 
   addon:
     specifiers:
-      '@ember/legacy-built-in-components': ^0.4.0
+      '@ember/legacy-built-in-components': emberjs/ember-legacy-built-in-components#b8c10aae4e63b949d518ec1b0712f3012adda2ea
       '@ember/render-modifiers': ^2.0.0
       '@glimmer/component': ^1.0.4
       '@glimmer/tracking': ^1.0.4
@@ -40,7 +39,7 @@ importers:
       tracked-maps-and-sets: ^3.0.0
       wobble: ^1.5.1
     dependencies:
-      '@ember/legacy-built-in-components': 0.4.0
+      '@ember/legacy-built-in-components': github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea_ember-source@3.24.6
       '@ember/render-modifiers': 2.0.4_ember-source@3.24.6
       '@glimmer/component': 1.1.1
       '@glimmer/tracking': 1.1.1
@@ -1672,12 +1671,13 @@ packages:
     resolution: {integrity: sha512-nm0tTe9d7aYpPa8sk85M4AZ3iDfuVQ4/7M4D4IdI7frkAOGpy6gAKS9nR/UR8mJDW06CLz9NYEKWIlLopEu/Og==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
-      '@embroider/macros': 1.5.0
+      '@embroider/macros': 0.47.2
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
       ember-cli-typescript: 4.2.1
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /@ember/optional-features/2.0.0:
     resolution: {integrity: sha512-4gkvuGRYfpAh1nwAz306cmMeC1mG7wxZnbsBZ09mMaMX/W7IyKOKc/38JwrDPUFUalmNEM7q7JEPcmew2M3Dog==}
@@ -1757,6 +1757,36 @@ packages:
       - supports-color
     dev: true
 
+  /@embroider/macros/0.47.2:
+    resolution: {integrity: sha512-ViNWluJCeM5OPlM3rs8kdOz3RV5rpfXX5D2rDnc/q86xRS0xf4NFEjYRV7W6fBcD0b3v5jSHDTwrjq9Kee4rHg==}
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      '@embroider/shared-internals': 0.47.2
+      assert-never: 1.2.1
+      ember-cli-babel: 7.26.11
+      find-up: 5.0.0
+      lodash: 4.17.21
+      resolve: 1.22.0
+      semver: 7.3.5
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@embroider/macros/0.49.0:
+    resolution: {integrity: sha512-4VsvlE0h8l1LPI6V2VufQimf7LGkSXd9AJLsrGs4/W8SqqdJHv4oY2DGzX1c0Te4VcD61lIzCkeOkzN2PMV3WQ==}
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      '@embroider/shared-internals': 0.49.0
+      assert-never: 1.2.1
+      ember-cli-babel: 7.26.11
+      find-up: 5.0.0
+      lodash: 4.17.21
+      resolve: 1.22.0
+      semver: 7.3.5
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@embroider/macros/1.5.0:
     resolution: {integrity: sha512-QqNsWmIJ8LvwWg+YAfB+nfcRZ49hAJNTJAKt2IDpgZDKa/FYj/Mp75UWfJ1BJvB3KUq50OQCOv4TZ3ZcU9h/TQ==}
     engines: {node: 12.* || 14.* || >= 16}
@@ -1771,6 +1801,32 @@ packages:
       semver: 7.3.5
     transitivePeerDependencies:
       - supports-color
+
+  /@embroider/shared-internals/0.47.2:
+    resolution: {integrity: sha512-SxdZYjAE0fiM5zGDz+12euWIsQZ1tsfR1k+NKmiWMyLhA5T3pNgbR2/Djvx/cVIxOtEavGGSllYbzRKBtV4xMg==}
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      babel-import-util: 0.2.0
+      ember-rfc176-data: 0.3.17
+      fs-extra: 9.1.0
+      lodash: 4.17.21
+      resolve-package-path: 4.0.3
+      semver: 7.3.5
+      typescript-memoize: 1.1.0
+    dev: true
+
+  /@embroider/shared-internals/0.49.0:
+    resolution: {integrity: sha512-uCDB2rw45xinctS5JOTsl7DF6yxlMc3RlZF/jkNeiGUrphCr0T1CMnUSnQvDAWkdMjvTuOEIWFb/e56h2NBWvw==}
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      babel-import-util: 1.1.0
+      ember-rfc176-data: 0.3.17
+      fs-extra: 9.1.0
+      lodash: 4.17.21
+      resolve-package-path: 4.0.3
+      semver: 7.3.5
+      typescript-memoize: 1.1.0
+    dev: true
 
   /@embroider/shared-internals/1.5.0:
     resolution: {integrity: sha512-kdR7Fh2YdzsNofJO+DJxLfrlMbW4/NNf78aMXgE21z/tg9GO5W2mKlI1DzsO2JlO5yfZdiYfqb9C9vSLJEx14A==}
@@ -1798,7 +1854,7 @@ packages:
     peerDependencies:
       ember-source: '*'
     dependencies:
-      '@embroider/macros': 1.5.0
+      '@embroider/macros': 0.49.0
       broccoli-funnel: 3.0.8
       ember-cli-babel: 7.26.11
       ember-source: 4.3.0_webpack@5.71.0
@@ -13946,7 +14002,7 @@ packages:
     version: 2.1.1
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
-      '@ember/legacy-built-in-components': 0.4.0
+      '@ember/legacy-built-in-components': github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea_ember-source@4.3.0
       '@ember/render-modifiers': 2.0.4_ember-source@4.3.0
       '@glimmer/component': 1.1.1
       '@glimmer/tracking': 1.1.1
@@ -13992,6 +14048,42 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+  github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea_ember-source@3.24.6:
+    resolution: {tarball: https://codeload.github.com/emberjs/ember-legacy-built-in-components/tar.gz/b8c10aae4e63b949d518ec1b0712f3012adda2ea}
+    id: github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea
+    name: '@ember/legacy-built-in-components'
+    version: 0.4.0
+    engines: {node: 12.* || 14.* || >= 16}
+    peerDependencies:
+      ember-source: '*'
+    dependencies:
+      '@embroider/macros': 1.5.0
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
+      ember-cli-typescript: 4.2.1
+      ember-source: 3.24.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea_ember-source@4.3.0:
+    resolution: {tarball: https://codeload.github.com/emberjs/ember-legacy-built-in-components/tar.gz/b8c10aae4e63b949d518ec1b0712f3012adda2ea}
+    id: github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea
+    name: '@ember/legacy-built-in-components'
+    version: 0.4.0
+    engines: {node: 12.* || 14.* || >= 16}
+    peerDependencies:
+      ember-source: '*'
+    dependencies:
+      '@embroider/macros': 1.5.0
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
+      ember-cli-typescript: 4.2.1
+      ember-source: 4.3.0_webpack@5.71.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   github.com/yapplabs/ember-modal-dialog/31ffee4c657ebe96b1f80adbc39c0339b52236e2_ember-source@4.3.0:
     resolution: {tarball: https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/31ffee4c657ebe96b1f80adbc39c0339b52236e2}
     id: github.com/yapplabs/ember-modal-dialog/31ffee4c657ebe96b1f80adbc39c0339b52236e2
@@ -13999,7 +14091,7 @@ packages:
     version: 4.0.0-alpha.1
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
-      '@embroider/macros': 1.5.0
+      '@embroider/macros': 0.49.0
       '@embroider/util': 0.49.0_ember-source@4.3.0
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
