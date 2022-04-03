@@ -1,12 +1,25 @@
 {
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickschot/ember-mobile-menu"
+  },
   "workspaces": [
     "addon",
     "docs",
     "test-app"
   ],
   "scripts": {
-    "changelog": "npx lerna-changelog --from=v0.1.0-alpha.5 > CHANGELOG.md"
+    "changelog": "npx lerna-changelog --from=v0.1.0-alpha.5 > CHANGELOG.md",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "release-it": "^14.12.5",
+    "release-it-lerna-changelog": "^4.0.1",
+    "release-it-yarn-workspaces": "^2.0.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "pnpm": {
     "overrides": {
@@ -19,6 +32,37 @@
         "@babel/core"
       ]
     }
+  },
+  "release-it": {
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": false
+      },
+      "release-it-yarn-workspaces": {
+        "workspaces": [
+          "addon"
+        ],
+        "additionalManifests": {
+          "dependencyUpdates": [
+            "docs/package.json",
+            "test-app/package.json"
+          ],
+          "versionUpdates": [
+            "docs/package.json",
+            "test-app/package.json"
+          ]
+        }
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    },
+    "npm": false
   },
   "volta": {
     "node": "16.14.2"
