@@ -1,7 +1,8 @@
 {
-  "name": "docs",
+  "name": "ember-mobile-menu-docs",
   "version": "2.1.1",
-  "description": "A draggable sidebar menu for Ember.",
+  "private": true,
+  "description": "Docs app for ember-mobile-menu.",
   "keywords": [],
   "repository": {
     "type": "git",
@@ -84,11 +85,6 @@
     "edition": "octane"
   },
   "homepage": "https://nickschot.github.io/ember-mobile-menu",
-  "resolutions": {
-    "nwsapi": "^2.1.0",
-    "ember-href-to": "^5.0.0",
-    "ember-keyboard": "^8.0.0"
-  },
   "volta": {
     "extends": "../package.json"
   }

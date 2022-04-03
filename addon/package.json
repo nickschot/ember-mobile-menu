@@ -66,11 +66,6 @@
   },
   "ember-addon": {},
   "homepage": "https://nickschot.github.io/ember-mobile-menu",
-  "resolutions": {
-    "nwsapi": "^2.1.0",
-    "ember-href-to": "^5.0.0",
-    "ember-keyboard": "^8.0.0"
-  },
   "volta": {
     "extends": "../package.json"
   }

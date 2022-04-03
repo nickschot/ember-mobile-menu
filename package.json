@@ -5,6 +5,9 @@
     "docs",
     "test-app"
   ],
+  "scripts": {
+    "changelog": "npx lerna-changelog --from=v0.1.0-alpha.5 > CHANGELOG.md"
+  },
   "volta": {
     "node": "16.14.2"
   }
