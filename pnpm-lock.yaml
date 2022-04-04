@@ -2,7 +2,6 @@ lockfileVersion: 5.3
 
 overrides:
   '@babel/parser': 7.17.3
-  '@ember/legacy-built-in-components': emberjs/ember-legacy-built-in-components#b8c10aae4e63b949d518ec1b0712f3012adda2ea
   ember-cli-htmlbars: ember-cli/ember-cli-htmlbars#78a29d83b5d2674a929b0e22224f381a8db4149f
 
 importers:
@@ -19,7 +18,7 @@ importers:
 
   addon:
     specifiers:
-      '@ember/legacy-built-in-components': emberjs/ember-legacy-built-in-components#b8c10aae4e63b949d518ec1b0712f3012adda2ea
+      '@ember/legacy-built-in-components': ^0.4.1
       '@ember/render-modifiers': ^2.0.0
       '@ember/test-waiters': ^3.0.0
       '@glimmer/component': ^1.0.4
@@ -48,7 +47,7 @@ importers:
       webpack: 5.71.0
       wobble: ^1.5.1
     dependencies:
-      '@ember/legacy-built-in-components': github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea
+      '@ember/legacy-built-in-components': 0.4.1
       '@ember/render-modifiers': 2.0.4
       '@ember/test-waiters': 3.0.1
       '@glimmer/component': 1.1.1
@@ -1899,6 +1898,35 @@ packages:
 
   /@ember/edition-utils/1.2.0:
     resolution: {integrity: sha512-VmVq/8saCaPdesQmftPqbFtxJWrzxNGSQ+e8x8LLe3Hjm36pJ04Q8LeORGZkAeOhldoUX9seLGmSaHeXkIqoog==}
+
+  /@ember/legacy-built-in-components/0.4.1:
+    resolution: {integrity: sha512-tLxiU1YR+A+002rkGfwyB4FK8bO5qqU/3c7cZ1z2j3XG+1T28Yg2iZuMxPwFJ0LsE//mhRFkWlGzO3tJUtMHbA==}
+    engines: {node: 12.* || 14.* || >= 16}
+    peerDependencies:
+      ember-source: '*'
+    dependencies:
+      '@embroider/macros': 1.5.0
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
+      ember-cli-typescript: 4.2.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@ember/legacy-built-in-components/0.4.1_ember-source@4.3.0:
+    resolution: {integrity: sha512-tLxiU1YR+A+002rkGfwyB4FK8bO5qqU/3c7cZ1z2j3XG+1T28Yg2iZuMxPwFJ0LsE//mhRFkWlGzO3tJUtMHbA==}
+    engines: {node: 12.* || 14.* || >= 16}
+    peerDependencies:
+      ember-source: '*'
+    dependencies:
+      '@embroider/macros': 1.5.0
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
+      ember-cli-typescript: 4.2.1
+      ember-source: 4.3.0_webpack@5.71.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@ember/optional-features/2.0.0:
     resolution: {integrity: sha512-4gkvuGRYfpAh1nwAz306cmMeC1mG7wxZnbsBZ09mMaMX/W7IyKOKc/38JwrDPUFUalmNEM7q7JEPcmew2M3Dog==}
@@ -15455,7 +15483,7 @@ packages:
     version: 3.0.0-beta.3
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
-      '@ember/legacy-built-in-components': github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea_ember-source@4.3.0
+      '@ember/legacy-built-in-components': 0.4.1_ember-source@4.3.0
       '@ember/render-modifiers': 2.0.4_ember-source@4.3.0
       '@ember/test-waiters': 3.0.1
       '@glimmer/component': 1.1.1
@@ -15502,24 +15530,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea:
-    resolution: {tarball: https://codeload.github.com/emberjs/ember-legacy-built-in-components/tar.gz/b8c10aae4e63b949d518ec1b0712f3012adda2ea}
-    name: '@ember/legacy-built-in-components'
-    version: 0.4.0
-    engines: {node: 12.* || 14.* || >= 16}
-    peerDependencies:
-      ember-source: '*'
-    dependencies:
-      '@embroider/macros': 1.5.0
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: github.com/ember-cli/ember-cli-htmlbars/78a29d83b5d2674a929b0e22224f381a8db4149f
-      ember-cli-typescript: 4.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea_ember-source@4.3.0:
-    resolution: {tarball: https://codeload.github.com/emberjs/ember-legacy-built-in-components/tar.gz/b8c10aae4e63b949d518ec1b0712f3012adda2ea}
+    resolution: {registry: https://registry.npmjs.org/, tarball: https://codeload.github.com/emberjs/ember-legacy-built-in-components/tar.gz/b8c10aae4e63b949d518ec1b0712f3012adda2ea}
     id: github.com/emberjs/ember-legacy-built-in-components/b8c10aae4e63b949d518ec1b0712f3012adda2ea
     name: '@ember/legacy-built-in-components'
     version: 0.4.0
