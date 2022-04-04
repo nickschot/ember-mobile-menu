@@ -80,7 +80,7 @@ importers:
   docs:
     specifiers:
       '@ember/optional-features': 2.0.0
-      '@ember/test-helpers': 2.6.0
+      '@ember/test-helpers': 2.6.2
       '@glimmer/component': 1.1.1
       '@glimmer/tracking': 1.1.1
       babel-eslint: 10.1.0
@@ -128,7 +128,7 @@ importers:
       webpack: 5.71.0
     devDependencies:
       '@ember/optional-features': 2.0.0
-      '@ember/test-helpers': 2.6.0
+      '@ember/test-helpers': 2.6.2
       '@glimmer/component': 1.1.1
       '@glimmer/tracking': 1.1.1
       babel-eslint: 10.1.0_eslint@7.32.0
@@ -154,7 +154,7 @@ importers:
       ember-load-initializers: 2.1.2
       ember-mobile-menu: link:../addon
       ember-page-title: 7.0.0
-      ember-qunit: 5.1.5_540658a7c1c2d98916e68a1b3076b6e9
+      ember-qunit: 5.1.5_63214648d13cc2eae163d88b3aa8cce3
       ember-resize-observer-polyfill: 0.0.1
       ember-resolver: 8.0.3
       ember-source: 4.3.0_webpack@5.71.0
@@ -178,7 +178,7 @@ importers:
   test-app:
     specifiers:
       '@ember/optional-features': 2.0.0
-      '@ember/test-helpers': 2.6.0
+      '@ember/test-helpers': 2.6.2
       '@embroider/test-setup': 1.5.0
       '@glimmer/component': 1.1.1
       '@glimmer/tracking': 1.1.1
@@ -221,7 +221,7 @@ importers:
       webpack: 5.71.0
     devDependencies:
       '@ember/optional-features': 2.0.0
-      '@ember/test-helpers': 2.6.0
+      '@ember/test-helpers': 2.6.2
       '@embroider/test-setup': 1.5.0
       '@glimmer/component': 1.1.1
       '@glimmer/tracking': 1.1.1
@@ -241,7 +241,7 @@ importers:
       ember-load-initializers: 2.1.2
       ember-mobile-menu: file:addon_17e593bdfe0915dd19f94b81c7396ca3
       ember-page-title: 7.0.0
-      ember-qunit: 5.1.5_540658a7c1c2d98916e68a1b3076b6e9
+      ember-qunit: 5.1.5_63214648d13cc2eae163d88b3aa8cce3
       ember-resolver: 8.0.3
       ember-sinon: 5.0.0
       ember-sinon-qunit: 6.0.0
@@ -1978,8 +1978,8 @@ packages:
       - supports-color
     dev: true
 
-  /@ember/test-helpers/2.6.0:
-    resolution: {integrity: sha512-N5sr3layWk60wB3maCy+/5hFHQRcTh8aqxcZTSs3Od9QkuHdWBtRgMGLP/35mXpJlgWuu3xqLpt6u3dGHc8gCg==}
+  /@ember/test-helpers/2.6.2:
+    resolution: {integrity: sha512-Kp1C/PHcMJUAkLkvBQzCKmIgdS/Gm9yCeUkt1q+I7bFC1KHX2bhhKmd6Dxnwe2g6e4sU8RJbOCrJxqnEAH1vgg==}
     engines: {node: 10.* || 12.* || 14.* || 15.* || >= 16.*}
     dependencies:
       '@ember/test-waiters': 3.0.1
@@ -7413,14 +7413,14 @@ packages:
       - supports-color
     dev: true
 
-  /ember-qunit/5.1.5_540658a7c1c2d98916e68a1b3076b6e9:
+  /ember-qunit/5.1.5_63214648d13cc2eae163d88b3aa8cce3:
     resolution: {integrity: sha512-2cFA4oMygh43RtVcMaBrr086Tpdhgbn3fVZ2awLkzF/rnSN0D0PSRpd7hAD7OdBPerC/ZYRwzVyGXLoW/Zes4A==}
     engines: {node: 10.* || 12.* || >= 14.*}
     peerDependencies:
       '@ember/test-helpers': ^2.4.0
       qunit: ^2.13.0
     dependencies:
-      '@ember/test-helpers': 2.6.0
+      '@ember/test-helpers': 2.6.2
       broccoli-funnel: 3.0.8
       broccoli-merge-trees: 3.0.2
       common-tags: 1.8.2
