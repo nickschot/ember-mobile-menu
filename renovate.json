@@ -1,21 +1,22 @@
 {
   "extends": [
     "config:js-lib",
-    ":automergePatch",
     ":automergeLinters",
     ":automergeTesters",
     ":dependencyDashboard",
     ":maintainLockFilesWeekly",
-    ":semanticCommitsDisabled"
+    ":semanticCommitsDisabled",
+    "github>Turbo87/renovate-config:automergeCaretConstraint"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^.github/workflows/[^\\.]+\\.ya?ml$"],
+      "matchStrings": ["PNPM_VERSION:\\s*(?<currentValue>.*?)\n"],
+      "depNameTemplate": "pnpm",
+      "datasourceTemplate": "npm"
+    }
   ],
   "packageRules": [
-    {
-      "matchCurrentVersion": ">= 1.0.0",
-      "updateTypes": [
-        "minor"
-      ],
-      "automerge": true
-    },
     {
       "packageNames": [
         "ember-cli",
