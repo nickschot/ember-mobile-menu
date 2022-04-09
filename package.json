@@ -14,7 +14,7 @@
     "release": "release-it"
   },
   "devDependencies": {
-    "release-it": "14.14.0",
+    "release-it": "14.14.1",
     "release-it-lerna-changelog": "4.0.1",
     "release-it-yarn-workspaces": "2.0.1"
   },
