@@ -33,7 +33,7 @@ importers:
       ember-gesture-modifiers: ^3.0.0
       ember-on-resize-modifier: ^1.0.0
       ember-set-body-class: ^1.0.1
-      ember-template-lint: 4.7.0
+      ember-template-lint: 4.8.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
       eslint-plugin-ember: 10.6.1
@@ -65,7 +65,7 @@ importers:
       wobble: 1.5.1
     devDependencies:
       babel-eslint: 10.1.0_eslint@7.32.0
-      ember-template-lint: 4.7.0
+      ember-template-lint: 4.8.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
       eslint-plugin-ember: 10.6.1_eslint@7.32.0
@@ -111,7 +111,7 @@ importers:
       ember-resolver: 8.0.3
       ember-source: 4.4.0
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.7.0
+      ember-template-lint: 4.8.0
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
@@ -159,7 +159,7 @@ importers:
       ember-resolver: 8.0.3
       ember-source: 4.4.0_webpack@5.72.1
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.7.0
+      ember-template-lint: 4.8.0
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
@@ -204,7 +204,7 @@ importers:
       ember-sinon-qunit: 6.0.0
       ember-source: 4.4.0
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.7.0
+      ember-template-lint: 4.8.0
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
@@ -247,7 +247,7 @@ importers:
       ember-sinon-qunit: 6.0.0
       ember-source: 4.4.0_webpack@5.72.1
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.7.0
+      ember-template-lint: 4.8.0
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
@@ -2269,8 +2269,8 @@ packages:
       '@jridgewell/resolve-uri': 3.0.5
       '@jridgewell/sourcemap-codec': 1.4.11
 
-  /@lint-todo/utils/13.0.2:
-    resolution: {integrity: sha512-tLZfEjU5i7KThQbWZ4u5dLUJx9+euGnytz402uAH4VRa0jMxyc2HNXw+h6qPdKxM/wGAvwEQGn7l1j2kyLI7rQ==}
+  /@lint-todo/utils/13.0.3:
+    resolution: {integrity: sha512-7Grdii4L/ae8FiykBcsEfum3m9yxVKPNQXpqJDPhWMHsReEunaQDkx/WLsjiNBctRb+roNHZQuXQYlJwoTlqOw==}
     engines: {node: 12.* || >= 14}
     dependencies:
       '@types/eslint': 7.29.0
@@ -8007,12 +8007,12 @@ packages:
       - supports-color
     dev: true
 
-  /ember-template-lint/4.7.0:
-    resolution: {integrity: sha512-EteQ+kmAfAPt0f1fUXs4GRiOpc0vh7L9WrRd8buLA386YCGUcl3Q3Isi9zdGQC64x24sBZvkeI3lJBgdrcoYgw==}
+  /ember-template-lint/4.8.0:
+    resolution: {integrity: sha512-cn28J9bFd1qXuF23Sb7ydyFto1N+n6XjS/TfcrxKJ4eK5Wew0Ix4RDAdHy/Gc29zD2K0sAuwCwMAIokwCLI9Kg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     hasBin: true
     dependencies:
-      '@lint-todo/utils': 13.0.2
+      '@lint-todo/utils': 13.0.3
       aria-query: 5.0.0
       chalk: 4.1.2
       ci-info: 3.3.0
