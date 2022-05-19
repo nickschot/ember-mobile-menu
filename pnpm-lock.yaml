@@ -33,7 +33,7 @@ importers:
       ember-gesture-modifiers: ^3.0.0
       ember-on-resize-modifier: ^1.0.0
       ember-set-body-class: ^1.0.1
-      ember-template-lint: 4.8.0
+      ember-template-lint: 4.9.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
       eslint-plugin-ember: 10.6.1
@@ -65,7 +65,7 @@ importers:
       wobble: 1.5.1
     devDependencies:
       babel-eslint: 10.1.0_eslint@7.32.0
-      ember-template-lint: 4.8.0
+      ember-template-lint: 4.9.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
       eslint-plugin-ember: 10.6.1_eslint@7.32.0
@@ -111,7 +111,7 @@ importers:
       ember-resolver: 8.0.3
       ember-source: 4.4.0
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.8.0
+      ember-template-lint: 4.9.0
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
@@ -159,7 +159,7 @@ importers:
       ember-resolver: 8.0.3
       ember-source: 4.4.0_webpack@5.72.1
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.8.0
+      ember-template-lint: 4.9.0
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
@@ -204,7 +204,7 @@ importers:
       ember-sinon-qunit: 6.0.0
       ember-source: 4.4.0
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.8.0
+      ember-template-lint: 4.9.0
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
@@ -247,7 +247,7 @@ importers:
       ember-sinon-qunit: 6.0.0
       ember-source: 4.4.0_webpack@5.72.1
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.8.0
+      ember-template-lint: 4.9.0
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
@@ -2158,7 +2158,7 @@ packages:
     resolution: {integrity: sha1-poeMB6E6LCx2/N5ZilyXY3v8QoA=}
 
   /@glimmer/env/0.1.7:
-    resolution: {integrity: sha1-/S0rVakCnGs3psk16MiHGucN+gc=}
+    resolution: {integrity: sha512-JKF/a9I9jw6fGoz8kA7LEQslrwJ5jms5CXhu/aqkBWk+PmZ6pTl8mlb/eJ/5ujBGTiQzBhy5AIWF712iA+4/mw==}
 
   /@glimmer/global-context/0.83.1:
     resolution: {integrity: sha512-OwlgqpbOJU73EjZOZdftab0fKbtdJ4x/QQeJseL9cvaAUiK3+w52M5ONFxD1T/yPBp2Mf7NCYqA/uL8tRbzY2A==}
@@ -3562,7 +3562,7 @@ packages:
     dev: true
 
   /aws-sign2/0.5.0:
-    resolution: {integrity: sha1-xXED96F/wDfwLXwuZLYC6iI/fWM=}
+    resolution: {integrity: sha512-oqUX0DM5j7aPWPCnpWebiyNIj2wiNI87ZxnOMoGv0aE4TGlBy2N+5iWc6dQ/NOKZaBD2W6PVz8jtOGkWzSC5EA==}
     requiresBuild: true
     dev: true
     optional: true
@@ -4802,7 +4802,7 @@ packages:
     dev: true
 
   /broccoli-kitchen-sink-helpers/0.3.1:
-    resolution: {integrity: sha1-d8fBgZS5ZkFj7E/O4nk0RJJuDAY=}
+    resolution: {integrity: sha512-gqYnKSJxBSjj/uJqeuRAzYVbmjWhG0mOZ8jrp6+fnUIOgLN6MvI7XxBECDHkYMIFPJ8Smf4xaI066Q2FqQDnXg==}
     dependencies:
       glob: 5.0.15
       mkdirp: 0.5.6
@@ -8007,8 +8007,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-template-lint/4.8.0:
-    resolution: {integrity: sha512-cn28J9bFd1qXuF23Sb7ydyFto1N+n6XjS/TfcrxKJ4eK5Wew0Ix4RDAdHy/Gc29zD2K0sAuwCwMAIokwCLI9Kg==}
+  /ember-template-lint/4.9.0:
+    resolution: {integrity: sha512-corIvZ0DxcO6VUiBScePSrXCNT/aP1l3U4/6pL9+34iGMVVpkOKdkAr8ENJ0YTF3LszK8LfKNRMXM5IK1OaKWg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -8027,7 +8027,7 @@ packages:
       micromatch: 4.0.5
       resolve: 1.22.0
       v8-compile-cache: 2.3.0
-      yargs: 17.4.1
+      yargs: 17.5.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -16135,6 +16135,19 @@ packages:
 
   /yargs/17.4.1:
     resolution: {integrity: sha512-WSZD9jgobAg3ZKuCQZSa3g9QOJeCCqLoLAykiWgmXnDo9EPnn4RPf5qVTtzgOx66o6/oqhcA5tHtJXpG8pMt3g==}
+    engines: {node: '>=12'}
+    dependencies:
+      cliui: 7.0.4
+      escalade: 3.1.1
+      get-caller-file: 2.0.5
+      require-directory: 2.1.1
+      string-width: 4.2.3
+      y18n: 5.0.8
+      yargs-parser: 21.0.1
+    dev: true
+
+  /yargs/17.5.1:
+    resolution: {integrity: sha512-t6YAJcxDkNX7NFYiVtKvWUz8l+PaKTLiL63mJYWR2GnHq2gjEWISzsLp9wg3aY36dY1j+gfIEL3pIF+XlJJfbA==}
     engines: {node: '>=12'}
     dependencies:
       cliui: 7.0.4
