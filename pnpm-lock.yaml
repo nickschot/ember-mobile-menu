@@ -12263,7 +12263,7 @@ packages:
     dev: true
 
   /oauth-sign/0.3.0:
-    resolution: {integrity: sha1-y1QPk7srIqfVlBaRoojWDo6pOG4=}
+    resolution: {integrity: sha512-Tr31Sh5FnK9YKm7xTUPyDMsNOvMqkVDND0zvK/Wgj7/H9q8mpye0qG2nVzrnsvLhcsX5DtqXD0la0ks6rkPCGQ==}
     requiresBuild: true
     dev: true
     optional: true
