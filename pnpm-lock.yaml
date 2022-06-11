@@ -39,7 +39,7 @@ importers:
       eslint-plugin-ember: 10.6.1
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.0.0
-      eslint-plugin-qunit: 7.2.0
+      eslint-plugin-qunit: 7.3.0
       npm-run-all: 4.1.5
       prettier: 2.6.2
       sass: 1.52.3
@@ -71,7 +71,7 @@ importers:
       eslint-plugin-ember: 10.6.1_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
       eslint-plugin-prettier: 4.0.0_2544802fe0b6e1e28814bd742f96f471
-      eslint-plugin-qunit: 7.2.0_eslint@7.32.0
+      eslint-plugin-qunit: 7.3.0_eslint@7.32.0
       npm-run-all: 4.1.5
       prettier: 2.6.2
       sass: 1.52.3
@@ -118,7 +118,7 @@ importers:
       eslint-plugin-ember: 10.6.1
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.0.0
-      eslint-plugin-qunit: 7.2.0
+      eslint-plugin-qunit: 7.3.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.6.2
@@ -166,7 +166,7 @@ importers:
       eslint-plugin-ember: 10.6.1_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
       eslint-plugin-prettier: 4.0.0_2544802fe0b6e1e28814bd742f96f471
-      eslint-plugin-qunit: 7.2.0_eslint@7.32.0
+      eslint-plugin-qunit: 7.3.0_eslint@7.32.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.6.2
@@ -211,7 +211,7 @@ importers:
       eslint-plugin-ember: 10.6.1
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.0.0
-      eslint-plugin-qunit: 7.2.0
+      eslint-plugin-qunit: 7.3.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.6.2
@@ -254,7 +254,7 @@ importers:
       eslint-plugin-ember: 10.6.1_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
       eslint-plugin-prettier: 4.0.0_2544802fe0b6e1e28814bd742f96f471
-      eslint-plugin-qunit: 7.2.0_eslint@7.32.0
+      eslint-plugin-qunit: 7.3.0_eslint@7.32.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.6.2
@@ -8456,8 +8456,8 @@ packages:
       prettier-linter-helpers: 1.0.0
     dev: true
 
-  /eslint-plugin-qunit/7.2.0_eslint@7.32.0:
-    resolution: {integrity: sha512-ebT6aOpmMj4vchG0hVw9Ukbutk/lgywrc8gc9w9hH2/4WjKqwMlyM7iVwqB7OAXv6gtQMJZuziT0wNjjymAuWA==}
+  /eslint-plugin-qunit/7.3.0_eslint@7.32.0:
+    resolution: {integrity: sha512-o80qEsBpnh2hGCLKmNVimPSPY6TP2eyM+wQl9vdOKWJKrQXEgNTMX9mf4X4h3GguaBlmSNnLaPVsycKaZEaGZg==}
     engines: {node: 12.x || 14.x || >=16.0.0}
     dependencies:
       eslint-utils: 3.0.0_eslint@7.32.0
@@ -15345,7 +15345,7 @@ packages:
     dev: true
 
   /tunnel-agent/0.4.3:
-    resolution: {integrity: sha1-Y3PbdpCf5XDgjXNYM2Xtgop07us=}
+    resolution: {integrity: sha512-e0IoVDWx8SDHc/hwFTqJDQ7CCDTEeGhmcT9jkWJjoGQSpgBz20nAMr80E3Tpk7PatJ1b37DQDgJR3CNSzcMOZQ==}
     requiresBuild: true
     dev: true
     optional: true
