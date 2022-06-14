@@ -41,7 +41,7 @@ importers:
       eslint-plugin-prettier: 4.0.0
       eslint-plugin-qunit: 7.3.0
       npm-run-all: 4.1.5
-      prettier: 2.6.2
+      prettier: 2.7.0
       sass: 1.52.3
       tracked-maps-and-sets: ^3.0.0
       webpack: 5.73.0
@@ -70,10 +70,10 @@ importers:
       eslint-config-prettier: 8.5.0_eslint@7.32.0
       eslint-plugin-ember: 10.6.1_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
-      eslint-plugin-prettier: 4.0.0_2544802fe0b6e1e28814bd742f96f471
+      eslint-plugin-prettier: 4.0.0_dcc2661190d9c6ac0eaf6c22ee1ff197
       eslint-plugin-qunit: 7.3.0_eslint@7.32.0
       npm-run-all: 4.1.5
-      prettier: 2.6.2
+      prettier: 2.7.0
       sass: 1.52.3
       webpack: 5.73.0
 
@@ -121,7 +121,7 @@ importers:
       eslint-plugin-qunit: 7.3.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
-      prettier: 2.6.2
+      prettier: 2.7.0
       qunit: 2.19.1
       qunit-dom: 2.0.0
       sass: 1.52.3
@@ -165,11 +165,11 @@ importers:
       eslint-config-prettier: 8.5.0_eslint@7.32.0
       eslint-plugin-ember: 10.6.1_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
-      eslint-plugin-prettier: 4.0.0_2544802fe0b6e1e28814bd742f96f471
+      eslint-plugin-prettier: 4.0.0_dcc2661190d9c6ac0eaf6c22ee1ff197
       eslint-plugin-qunit: 7.3.0_eslint@7.32.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
-      prettier: 2.6.2
+      prettier: 2.7.0
       qunit: 2.19.1
       qunit-dom: 2.0.0
       sass: 1.52.3
@@ -214,7 +214,7 @@ importers:
       eslint-plugin-qunit: 7.3.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
-      prettier: 2.6.2
+      prettier: 2.7.0
       qunit: 2.19.1
       qunit-dom: 2.0.0
       sass: 1.52.3
@@ -253,11 +253,11 @@ importers:
       eslint-config-prettier: 8.5.0_eslint@7.32.0
       eslint-plugin-ember: 10.6.1_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
-      eslint-plugin-prettier: 4.0.0_2544802fe0b6e1e28814bd742f96f471
+      eslint-plugin-prettier: 4.0.0_dcc2661190d9c6ac0eaf6c22ee1ff197
       eslint-plugin-qunit: 7.3.0_eslint@7.32.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
-      prettier: 2.6.2
+      prettier: 2.7.0
       qunit: 2.19.1
       qunit-dom: 2.0.0
       sass: 1.52.3
@@ -5364,7 +5364,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1_bluebird@3.7.2
+      promise-inflight: 1.0.1
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -8439,7 +8439,7 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-prettier/4.0.0_2544802fe0b6e1e28814bd742f96f471:
+  /eslint-plugin-prettier/4.0.0_dcc2661190d9c6ac0eaf6c22ee1ff197:
     resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
@@ -8452,7 +8452,7 @@ packages:
     dependencies:
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
-      prettier: 2.6.2
+      prettier: 2.7.0
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -13039,8 +13039,8 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.6.2:
-    resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==}
+  /prettier/2.7.0:
+    resolution: {integrity: sha512-nwoX4GMFgxoPC6diHvSwmK/4yU8FFH3V8XWtLQrbj4IBsK2pkYhG4kf/ljF/haaZ/aii+wNJqISrCDPgxGWDVQ==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
@@ -13094,17 +13094,6 @@ packages:
     peerDependenciesMeta:
       bluebird:
         optional: true
-    dev: true
-
-  /promise-inflight/1.0.1_bluebird@3.7.2:
-    resolution: {integrity: sha1-mEcocL8igTL8vdhoEputEsPAKeM=}
-    peerDependencies:
-      bluebird: '*'
-    peerDependenciesMeta:
-      bluebird:
-        optional: true
-    dependencies:
-      bluebird: 3.7.2
     dev: true
 
   /promise-map-series/0.2.3:
@@ -13672,7 +13661,7 @@ packages:
       '@babel/core': 7.17.9
       '@babel/plugin-syntax-decorators': 7.17.0_@babel+core@7.17.9
       '@babel/plugin-transform-typescript': 7.16.8_@babel+core@7.17.9
-      prettier: 2.6.2
+      prettier: 2.7.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -14738,7 +14727,7 @@ packages:
     dev: true
 
   /strip-bom/3.0.0:
-    resolution: {integrity: sha1-IzTBjpx1n3vdVv3vfprj1YjmjtM=}
+    resolution: {integrity: sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA==}
     engines: {node: '>=4'}
     dev: true
 
