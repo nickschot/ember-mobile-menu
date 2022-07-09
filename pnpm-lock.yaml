@@ -39,7 +39,7 @@ importers:
       eslint-plugin-ember: 10.6.1
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
-      eslint-plugin-qunit: 7.3.0
+      eslint-plugin-qunit: 7.3.1
       npm-run-all: 4.1.5
       prettier: 2.7.1
       sass: 1.53.0
@@ -71,7 +71,7 @@ importers:
       eslint-plugin-ember: 10.6.1_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
       eslint-plugin-prettier: 4.2.1_f9a5537566b3ca3b5b68fc99385c0ca6
-      eslint-plugin-qunit: 7.3.0_eslint@7.32.0
+      eslint-plugin-qunit: 7.3.1_eslint@7.32.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
       sass: 1.53.0
@@ -118,7 +118,7 @@ importers:
       eslint-plugin-ember: 10.6.1
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
-      eslint-plugin-qunit: 7.3.0
+      eslint-plugin-qunit: 7.3.1
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
@@ -166,7 +166,7 @@ importers:
       eslint-plugin-ember: 10.6.1_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
       eslint-plugin-prettier: 4.2.1_f9a5537566b3ca3b5b68fc99385c0ca6
-      eslint-plugin-qunit: 7.3.0_eslint@7.32.0
+      eslint-plugin-qunit: 7.3.1_eslint@7.32.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
@@ -211,7 +211,7 @@ importers:
       eslint-plugin-ember: 10.6.1
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
-      eslint-plugin-qunit: 7.3.0
+      eslint-plugin-qunit: 7.3.1
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
@@ -254,7 +254,7 @@ importers:
       eslint-plugin-ember: 10.6.1_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
       eslint-plugin-prettier: 4.2.1_f9a5537566b3ca3b5b68fc99385c0ca6
-      eslint-plugin-qunit: 7.3.0_eslint@7.32.0
+      eslint-plugin-qunit: 7.3.1_eslint@7.32.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
@@ -8460,8 +8460,8 @@ packages:
       prettier-linter-helpers: 1.0.0
     dev: true
 
-  /eslint-plugin-qunit/7.3.0_eslint@7.32.0:
-    resolution: {integrity: sha512-o80qEsBpnh2hGCLKmNVimPSPY6TP2eyM+wQl9vdOKWJKrQXEgNTMX9mf4X4h3GguaBlmSNnLaPVsycKaZEaGZg==}
+  /eslint-plugin-qunit/7.3.1_eslint@7.32.0:
+    resolution: {integrity: sha512-L1yutkLqCgr70ZmMAbBKPvUOUwhKryZ0RaJKOzw72Bmn8no3JNBL9hhbX2aTvfZqYM/wLXIT0nICZiGrV4xVJw==}
     engines: {node: 12.x || 14.x || >=16.0.0}
     dependencies:
       eslint-utils: 3.0.0_eslint@7.32.0
@@ -10618,7 +10618,7 @@ packages:
     dev: true
 
   /istextorbinary/2.1.0:
-    resolution: {integrity: sha1-2+0qb1G+L3R1to+JRlgRFBt1iHQ=}
+    resolution: {integrity: sha512-kT1g2zxZ5Tdabtpp9VSdOzW9lb6LXImyWbzbQeTxoRtHhurC9Ej9Wckngr2+uepPL09ky/mJHmN9jeJPML5t6A==}
     engines: {node: '>=0.12'}
     dependencies:
       binaryextensions: 2.3.0
@@ -13117,7 +13117,7 @@ packages:
     dev: true
 
   /promise-map-series/0.2.3:
-    resolution: {integrity: sha1-wtN3r8kyU/a9A9u3d1XriKsgqEc=}
+    resolution: {integrity: sha512-wx9Chrutvqu1N/NHzTayZjE1BgIwt6SJykQoCOic4IZ9yUDjKyVYrpLa/4YCNsV61eRENfs29hrEquVuB13Zlw==}
     dependencies:
       rsvp: 3.6.2
 
