@@ -27,7 +27,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: 14.x
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
@@ -52,7 +52,7 @@ jobs:
           version: ${{ env.PNPM_VERSION }}
       - uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: 14.x
           cache: pnpm
       - name: Remove lock file
         shell: bash
@@ -90,7 +90,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: 14.x
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
