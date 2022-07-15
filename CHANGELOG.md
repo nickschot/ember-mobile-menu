@@ -4,6 +4,12 @@
 
 
 
+
+## v3.0.2 (2022-07-15)
+
+#### :house: Internal
+* [#347](https://github.com/nickschot/ember-mobile-menu/pull/347) Update dependency ember-cli-addon-docs to v5 ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v3.0.1 (2022-07-15)
 
 #### :memo: Documentation
