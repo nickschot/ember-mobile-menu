@@ -2,6 +2,20 @@
 
 
 
+
+## v3.0.0 (2022-07-15)
+
+#### :boom: Breaking Change
+* [#356](https://github.com/nickschot/ember-mobile-menu/pull/356) Drop node 12 support ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#361](https://github.com/nickschot/ember-mobile-menu/pull/361) remove ember-cli-htmlbars override now that 6.1.0 has been released ([@nickschot](https://github.com/nickschot))
+* [#358](https://github.com/nickschot/ember-mobile-menu/pull/358) Upgrade to pnpm v7 ([@nickschot](https://github.com/nickschot))
+* [#357](https://github.com/nickschot/ember-mobile-menu/pull/357) declare ember-source peer dependency for addon ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v3.0.0-beta.3 (2022-04-03)
 
 #### :house: Internal
