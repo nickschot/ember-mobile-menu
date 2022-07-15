@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -45,8 +45,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x]
-        ember-try: [ember-3.13, ember-lts-3.16, ember-release, ember-beta, ember-canary, ember-default-with-jquery, ember-classic]
+        node-version: [12.x]
+        ember-try: [ember-3.13, ember-lts-3.16, ember-lts-3.20, ember-lts-3.24, ember-lts-3.28, ember-default-with-jquery, ember-classic]
         include:
           - ember-try: ember-canary
             continue-on-error: true
@@ -62,4 +62,4 @@ jobs:
       - run: yarn install --frozen-lockfile --non-interactive
       - name: test
         run: node_modules/.bin/ember try:one ${{ matrix.ember-try }}
-        continue-on-error: ${{ matrix['continue-on-error'] == true }}
+        continue-on-error: true
