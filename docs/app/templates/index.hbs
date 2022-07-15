@@ -5,7 +5,7 @@
   @byline="A gesture enabled hamburger menu for Ember."
   @class="docs-hero"
 >
-  <DocsDemo @class="mobile-menu-demo" as |demo|>
+  <DocsDemo class="mobile-menu-demo" as |demo|>
     <demo.example @name="landing-demo.hbs" class="example docs-text-left docs-text-black">
       <MobileMenuWrapper @embed={{true}} @openDetectionWidth={{this.openDetectionWidth}} as |mmw|>
         <mmw.MobileMenu @maskEnabled={{this.mask}} @type={{this.type}} @shadowEnabled={{this.shadow}} @mode={{this.mode}} as |mm|>
