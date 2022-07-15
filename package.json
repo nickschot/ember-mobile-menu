@@ -35,7 +35,7 @@
   "release-it": {
     "hooks": {
       "after:bump": "pnpm install",
-      "after:release": "cd docs && pnpm run deploy"
+      "after:release": "cd docs && ember deploy production"
     },
     "plugins": {
       "release-it-lerna-changelog": {
