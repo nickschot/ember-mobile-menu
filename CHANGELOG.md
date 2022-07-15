@@ -3,6 +3,15 @@
 
 
 
+
+## v3.0.1 (2022-07-15)
+
+#### :memo: Documentation
+* [#365](https://github.com/nickschot/ember-mobile-menu/pull/365) Move README, CONTRIBUTING and LICENSE.md to addon folder ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v3.0.0 (2022-07-15)
 
 #### :boom: Breaking Change
