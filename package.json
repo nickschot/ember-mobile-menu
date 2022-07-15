@@ -14,9 +14,9 @@
     "release": "release-it"
   },
   "devDependencies": {
-    "release-it": "14.14.3",
-    "release-it-lerna-changelog": "4.0.1",
-    "release-it-yarn-workspaces": "2.0.1"
+    "release-it": "15.1.1",
+    "release-it-lerna-changelog": "github:bertdeblock/release-it-lerna-changelog#fix-compat-with-release-it-v15",
+    "release-it-yarn-workspaces": "github:refi93/release-it-yarn-workspaces#refi93/esm-support"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -24,7 +24,8 @@
   "pnpm": {
     "overrides": {
       "@babel/parser": "7.17.3",
-      "ember-cli-htmlbars": "ember-cli/ember-cli-htmlbars#78a29d83b5d2674a929b0e22224f381a8db4149f"
+      "ember-cli-htmlbars": "ember-cli/ember-cli-htmlbars#78a29d83b5d2674a929b0e22224f381a8db4149f",
+      "@octokit/rest": "^19.0.0"
     },
     "peerDependencyRules": {
       "ignoreMissing": [
