@@ -64,8 +64,8 @@ The menu can also be used embedded on a page by passing `embed=true` to the `<Mo
 
 If a menu is _not_ embedded, the assumption is made that the `Content` component takes the _full width_ of the viewport.
 
-{{#docs-demo as |demo|}}
-  {{#demo.example name="menu-quickstart.hbs" class="demo-height" }}
+<DocsDemo as |demo|>
+  <demo.example @name="menu-quickstart.hbs" class="demo-height">
     <MobileMenuWrapper @embed={{true}} as |mmw|>
       <mmw.MobileMenu as |mm|>
         <mm.LinkTo @route="index">Home</mm.LinkTo>
@@ -75,7 +75,7 @@ If a menu is _not_ embedded, the assumption is made that the `Content` component
         <mmw.Toggle>Menu</mmw.Toggle>
       </mmw.Content>
     </MobileMenuWrapper>
-  {{/demo.example}}
+  </demo.example>
 
-  {{demo.snippet 'menu-quickstart.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name="menu-quickstart.hbs"/>
+</DocsDemo>
