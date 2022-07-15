@@ -34,11 +34,16 @@
   },
   "release-it": {
     "plugins": {
+      "hooks": {
+        "after:bump": "pnpm install",
+        "after:release": "cd docs && pnpm run deploy"
+      },
       "release-it-lerna-changelog": {
         "infile": "CHANGELOG.md",
         "launchEditor": false
       },
       "release-it-yarn-workspaces": {
+        "publish": true,
         "workspaces": [
           "addon"
         ],
