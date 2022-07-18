@@ -79,7 +79,7 @@ export default class TrayComponent extends Component {
 
   @action
   toggleBodyScroll(target, [isClosed]) {
-    if (this.args.preventScroll && !this.args.embed) {
+    if (this.args.preventScroll && !this.args.embed && typeof FastBoot === 'undefined') {
       if (isClosed) {
         enableBodyScroll(target);
       } else {
