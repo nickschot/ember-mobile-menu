@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 import { use, resource } from 'ember-usable';
 import { next } from '@ember/runloop';
 
