@@ -1,3 +1,23 @@
+## v2.1.2 (2022-07-22)
+
+#### :bug: Bug Fix
+* [#366](https://github.com/nickschot/ember-mobile-menu/pull/366) fix import path for htmlSafe ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#367](https://github.com/nickschot/ember-mobile-menu/pull/367) don't run CI against 4.x+, add all 3.x LTS releases to matrix, use node 12 on CI ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
+## v2.1.1 (2020-12-04)
+
+#### :memo: Documentation
+* [#108](https://github.com/nickschot/ember-mobile-menu/pull/108) manually add application wrapper to dummy app as addon docs styles expect it ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 
 ## v2.1.0 (2020-12-03)
 
