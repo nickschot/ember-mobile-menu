@@ -68,7 +68,7 @@
     "qunit": "2.19.1",
     "qunit-dom": "2.0.0",
     "sass": "1.54.0",
-    "webpack": "5.73.0"
+    "webpack": "5.74.0"
   },
   "dependenciesMeta": {
     "ember-mobile-menu": {
