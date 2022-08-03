@@ -43,7 +43,7 @@ importers:
       eslint-plugin-qunit: 7.3.1
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      sass: 1.54.0
+      sass: 1.54.1
       tracked-maps-and-sets: ^3.0.0
       webpack: 5.74.0
       wobble: ^1.5.1
@@ -76,7 +76,7 @@ importers:
       eslint-plugin-qunit: 7.3.1_eslint@7.32.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      sass: 1.54.0
+      sass: 1.54.1
       webpack: 5.74.0
 
   docs:
@@ -126,7 +126,7 @@ importers:
       prettier: 2.7.1
       qunit: 2.19.1
       qunit-dom: 2.0.0
-      sass: 1.54.0
+      sass: 1.54.1
       webpack: 5.74.0
     devDependencies:
       '@ember/optional-features': 2.0.0
@@ -174,7 +174,7 @@ importers:
       prettier: 2.7.1
       qunit: 2.19.1
       qunit-dom: 2.0.0
-      sass: 1.54.0
+      sass: 1.54.1
       webpack: 5.74.0
 
   test-app:
@@ -219,7 +219,7 @@ importers:
       prettier: 2.7.1
       qunit: 2.19.1
       qunit-dom: 2.0.0
-      sass: 1.54.0
+      sass: 1.54.1
       webpack: 5.74.0
     devDependencies:
       '@ember/optional-features': 2.0.0
@@ -262,7 +262,7 @@ importers:
       prettier: 2.7.1
       qunit: 2.19.1
       qunit-dom: 2.0.0
-      sass: 1.54.0
+      sass: 1.54.1
       webpack: 5.74.0
     dependenciesMeta:
       ember-mobile-menu:
@@ -1725,7 +1725,7 @@ packages:
     dependencies:
       '@csstools/sass-import-resolve': 1.0.0
       postcss: 8.4.14
-      sass: 1.54.0
+      sass: 1.54.1
       source-map: 0.7.4
     dev: true
 
@@ -14521,8 +14521,8 @@ packages:
       walker: 1.0.8
     dev: true
 
-  /sass/1.54.0:
-    resolution: {integrity: sha512-C4zp79GCXZfK0yoHZg+GxF818/aclhp9F48XBu/+bm9vXEVAYov9iU3FBVRMq3Hx3OA4jfKL+p2K9180mEh0xQ==}
+  /sass/1.54.1:
+    resolution: {integrity: sha512-GHJJr31Me32RjjUBagyzx8tzjKBUcDwo5239XANIRBq0adDu5iIG0aFO0i/TBb/4I9oyxkEv44nq/kL1DxdDhA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
