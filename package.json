@@ -14,7 +14,7 @@
     "release": "release-it"
   },
   "devDependencies": {
-    "release-it": "15.2.0",
+    "release-it": "15.3.0",
     "release-it-lerna-changelog": "github:bertdeblock/release-it-lerna-changelog#fix-compat-with-release-it-v15",
     "release-it-yarn-workspaces": "github:refi93/release-it-yarn-workspaces#refi93/esm-support"
   },
