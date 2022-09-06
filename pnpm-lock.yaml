@@ -102,7 +102,7 @@ importers:
       ember-cli-sass: 11.0.1
       ember-cli-sri: 2.1.1
       ember-cli-terser: 4.0.2
-      ember-data: 4.6.1
+      ember-data: 4.7.1
       ember-disable-prototype-extensions: 1.1.3
       ember-export-application-global: 2.0.1
       ember-load-initializers: 2.1.2
@@ -137,7 +137,7 @@ importers:
       broccoli-asset-rev: 3.0.0
       ember-auto-import: 2.4.2_webpack@5.74.0
       ember-cli: 4.6.0
-      ember-cli-addon-docs: 5.0.0_hn6ehekeku3ukume52vzqshhmm
+      ember-cli-addon-docs: 5.0.0_z6u2w5eluztntctbtxaqakjc3u
       ember-cli-addon-docs-yuidoc: 1.0.0
       ember-cli-babel: 7.26.11
       ember-cli-dependency-checker: 3.3.1_ember-cli@4.6.0
@@ -150,7 +150,7 @@ importers:
       ember-cli-sass: 11.0.1
       ember-cli-sri: 2.1.1
       ember-cli-terser: 4.0.2
-      ember-data: 4.6.1_webpack@5.74.0
+      ember-data: 4.7.1_webpack@5.74.0
       ember-disable-prototype-extensions: 1.1.3
       ember-export-application-global: 2.0.1
       ember-load-initializers: 2.1.2
@@ -1738,12 +1738,12 @@ packages:
     engines: {node: '>=4.0.0'}
     dev: true
 
-  /@ember-data/adapter/4.6.1_webpack@5.74.0:
-    resolution: {integrity: sha512-FqTaH49RCw/uNveuyyTwvTUUdrgVNeosvAYEjqmdXTavpJdgqleF12s6yDlf//NVY4KexkiLLAhwal1U0NRx2g==}
+  /@ember-data/adapter/4.7.1_webpack@5.74.0:
+    resolution: {integrity: sha512-cjDA1fvjIgKu2cvZ5OBYf3TcycnkTa4enO0Ap4WhcYOFTCgFW22q+CUFmmABtnBUDQhxAdEpzkft6/6kfSrNgA==}
     engines: {node: ^14.8.0 || 16.* || >= 18.*}
     dependencies:
-      '@ember-data/private-build-infra': 4.6.1
-      '@ember-data/store': 4.6.1_webpack@5.74.0
+      '@ember-data/private-build-infra': 4.7.1
+      '@ember-data/store': 4.7.1_webpack@5.74.0
       '@ember/edition-utils': 1.2.0
       '@ember/string': 3.0.0
       ember-auto-import: 2.4.2_webpack@5.74.0
@@ -1756,8 +1756,8 @@ packages:
       - webpack
     dev: true
 
-  /@ember-data/canary-features/4.6.1:
-    resolution: {integrity: sha512-2X3UlUPGGf8C1oTue4dNNsh7lx1zcpjUxV194AYW9jAPr3KQT//n3VgfCX4Yn8qD5ZI6WR7x8wK1bMtaizkNnA==}
+  /@ember-data/canary-features/4.7.1:
+    resolution: {integrity: sha512-E3ygzLr29fdeH7UdAototOPs5K5ZP1+ZpaQh6YXLSwTWlYFshmMq1XWErg8yYjXiEXsiorxbL4/abM61BPKdGA==}
     engines: {node: ^14.8.0 || 16.* || >= 18.*}
     dependencies:
       ember-cli-babel: 7.26.11
@@ -1766,11 +1766,11 @@ packages:
       - supports-color
     dev: true
 
-  /@ember-data/debug/4.6.1_webpack@5.74.0:
-    resolution: {integrity: sha512-p5Q2bYuwnpZii5HsrQmXkbotkBteJnxb3JSLpVyZCGvxNmQ7GkU/aJO4vVnihplEI9UaBNi/XEwFmFlBUh73Bw==}
+  /@ember-data/debug/4.7.1_webpack@5.74.0:
+    resolution: {integrity: sha512-9/7KYekFF95qHyWeGrKlR9yyiu4JpxrrlT85QpGbDcqzeMV5MzhvsgC1m3bvEOFtocmYbjkFyZHxo12UyLRz9w==}
     engines: {node: ^14.8.0 || 16.* || >= 18.*}
     dependencies:
-      '@ember-data/private-build-infra': 4.6.1
+      '@ember-data/private-build-infra': 4.7.1
       '@ember/edition-utils': 1.2.0
       '@ember/string': 3.0.0
       ember-auto-import: 2.4.2_webpack@5.74.0
@@ -1783,13 +1783,13 @@ packages:
       - webpack
     dev: true
 
-  /@ember-data/model/4.6.1_webpack@5.74.0:
-    resolution: {integrity: sha512-K1XkKiM0IRy1EMBufeMabboj68x9b9EHmbkAesuTiXCdVkES4ZNgaSmba55ZYKC+uenNYRSR++tqDbCWTlp30Q==}
+  /@ember-data/model/4.7.1_webpack@5.74.0:
+    resolution: {integrity: sha512-KfsX2I2Dpjw1KHQXFYvuXxnTrEGOUR4JK6KfCOoVDkPOg2pq0zM1mIG3hvvpEGk+KJ8LvkjL8JigJahhrBk3ng==}
     engines: {node: ^14.8.0 || 16.* || >= 18.*}
     dependencies:
-      '@ember-data/canary-features': 4.6.1
-      '@ember-data/private-build-infra': 4.6.1
-      '@ember-data/store': 4.6.1_webpack@5.74.0
+      '@ember-data/canary-features': 4.7.1
+      '@ember-data/private-build-infra': 4.7.1
+      '@ember-data/store': 4.7.1_webpack@5.74.0
       '@ember/edition-utils': 1.2.0
       '@ember/string': 3.0.0
       '@embroider/macros': 1.8.3
@@ -1807,12 +1807,12 @@ packages:
       - webpack
     dev: true
 
-  /@ember-data/private-build-infra/4.6.1:
-    resolution: {integrity: sha512-bdX5JE98n4aGiNX6L3DvNTVK8Wjw1xZIiFy4vWskZvgdEQxAvCz8HuMtZH9i1611WFrgcjeQIz2oKA5AwwQQPQ==}
+  /@ember-data/private-build-infra/4.7.1:
+    resolution: {integrity: sha512-KollNQo0HP0EZW/7zMzRgSUGFkB7CfmdMhKwaFxhpOFVkLTZcfpH/P5u/m8LQvWThIR/vKNAFYfKMddN+xa6Qw==}
     engines: {node: ^14.8.0 || 16.* || >= 18.*}
     dependencies:
       '@babel/plugin-transform-block-scoping': 7.18.9
-      '@ember-data/canary-features': 4.6.1
+      '@ember-data/canary-features': 4.7.1
       '@ember/edition-utils': 1.2.0
       babel-plugin-debug-macros: 0.3.4
       babel-plugin-filter-imports: 4.0.0
@@ -1841,13 +1841,13 @@ packages:
       - supports-color
     dev: true
 
-  /@ember-data/record-data/4.6.1_webpack@5.74.0:
-    resolution: {integrity: sha512-ALoqfG0Q50Be7Q0LCR2DpB9O6OwKmyafFqKhm6WQl6OMXHdrqilcVO7DoaEpJYyaXwDZDZzwt59Z7F5+Eq1OCg==}
+  /@ember-data/record-data/4.7.1_webpack@5.74.0:
+    resolution: {integrity: sha512-I2G5LrGYWtPKVMI9SOEXD0A0yt54i2GDf2+78JxGVr6gQnikHFMBwCUEQp5iuxbmv+O69OH5OEDXU05utEtbLg==}
     engines: {node: ^14.8.0 || 16.* || >= 18.*}
     dependencies:
-      '@ember-data/canary-features': 4.6.1
-      '@ember-data/private-build-infra': 4.6.1
-      '@ember-data/store': 4.6.1_webpack@5.74.0
+      '@ember-data/canary-features': 4.7.1
+      '@ember-data/private-build-infra': 4.7.1
+      '@ember-data/store': 4.7.1_webpack@5.74.0
       '@ember/edition-utils': 1.2.0
       ember-auto-import: 2.4.2_webpack@5.74.0
       ember-cli-babel: 7.26.11
@@ -1862,12 +1862,12 @@ packages:
   /@ember-data/rfc395-data/0.0.4:
     resolution: {integrity: sha512-tGRdvgC9/QMQSuSuJV45xoyhI0Pzjm7A9o/MVVA3HakXIImJbbzx/k/6dO9CUEQXIyS2y0fW6C1XaYOG7rY0FQ==}
 
-  /@ember-data/serializer/4.6.1_webpack@5.74.0:
-    resolution: {integrity: sha512-jIrPeHa+wUjYqs66oDzWXPhpseMunU5c+6R54hbwyVnTitFRUFKwPqQTwe9vn0U3bm4nDXBOd9H/UuirKperSg==}
+  /@ember-data/serializer/4.7.1_webpack@5.74.0:
+    resolution: {integrity: sha512-ZHJly5u4U/S9e4012JMAFwBr45r4od6Os4LwbWGmdEgaQcYDZeXGYZcvartqvomCfX3E6m9ML8+SdBMr3QPi/w==}
     engines: {node: ^14.8.0 || 16.* || >= 18.*}
     dependencies:
-      '@ember-data/private-build-infra': 4.6.1
-      '@ember-data/store': 4.6.1_webpack@5.74.0
+      '@ember-data/private-build-infra': 4.7.1
+      '@ember-data/store': 4.7.1_webpack@5.74.0
       ember-auto-import: 2.4.2_webpack@5.74.0
       ember-cli-babel: 7.26.11
       ember-cli-test-info: 1.0.0
@@ -1878,12 +1878,12 @@ packages:
       - webpack
     dev: true
 
-  /@ember-data/store/4.6.1_webpack@5.74.0:
-    resolution: {integrity: sha512-vC0qqncsTvlnmcK5Tfe+sZ8VfdWsKRUDaGJvRtZkI5eGdhPs5FWBHJ1+tYRqGbiWj8McPIEUy1m/Tf/9RC22+g==}
+  /@ember-data/store/4.7.1_webpack@5.74.0:
+    resolution: {integrity: sha512-9/XFruWD/oYn4aK3xDFGhsgVVZsWmtOu6EvKyGj6ZPmzhIgjTzXF8sjM4A2v/6iWeL5BEGteOmsyNMygil+eLA==}
     engines: {node: ^14.8.0 || 16.* || >= 18.*}
     dependencies:
-      '@ember-data/canary-features': 4.6.1
-      '@ember-data/private-build-infra': 4.6.1
+      '@ember-data/canary-features': 4.7.1
+      '@ember-data/private-build-infra': 4.7.1
       '@ember/string': 3.0.0
       '@embroider/macros': 1.8.3
       '@glimmer/tracking': 1.1.2
@@ -7155,7 +7155,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-cli-addon-docs/5.0.0_hn6ehekeku3ukume52vzqshhmm:
+  /ember-cli-addon-docs/5.0.0_z6u2w5eluztntctbtxaqakjc3u:
     resolution: {integrity: sha512-aK9Q/9ZrzQrqeev+REB7MOplA8UdF3S9JHa69iXo58Yib/7J19n0OMSpgbPFVlTJWPc7e+ihU8ate7H8MJ+WPw==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
@@ -7190,7 +7190,7 @@ packages:
       ember-code-snippet: 3.0.0
       ember-composable-helpers: 5.0.0
       ember-concurrency: 2.3.4
-      ember-data: 4.6.1_webpack@5.74.0
+      ember-data: 4.7.1_webpack@5.74.0
       ember-fetch: 8.1.2
       ember-keyboard: 8.2.0_@ember+test-helpers@2.8.1
       ember-modal-dialog: 4.0.1_aawwq6rscuzbdmti3zo4zdodcy
@@ -7938,17 +7938,17 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-data/4.6.1_webpack@5.74.0:
-    resolution: {integrity: sha512-PQgV/6Bt+r5TKJz8I1NuVK2jyY8jI1QWQkdQi4oHcWm8iIAvt5KZTqApHO6Crh9tkcSM45mkbDUzrgFBlTUMVA==}
+  /ember-data/4.7.1_webpack@5.74.0:
+    resolution: {integrity: sha512-jRx87fO+hdL1RyARv8Zj8PT4YJWSJq2F2ZNoyKIIBphi13f+RPBl/1FPK4L4rMXbTJFoU231oYoCtMWREiigZw==}
     engines: {node: ^14.8.0 || 16.* || >= 18.*}
     dependencies:
-      '@ember-data/adapter': 4.6.1_webpack@5.74.0
-      '@ember-data/debug': 4.6.1_webpack@5.74.0
-      '@ember-data/model': 4.6.1_webpack@5.74.0
-      '@ember-data/private-build-infra': 4.6.1
-      '@ember-data/record-data': 4.6.1_webpack@5.74.0
-      '@ember-data/serializer': 4.6.1_webpack@5.74.0
-      '@ember-data/store': 4.6.1_webpack@5.74.0
+      '@ember-data/adapter': 4.7.1_webpack@5.74.0
+      '@ember-data/debug': 4.7.1_webpack@5.74.0
+      '@ember-data/model': 4.7.1_webpack@5.74.0
+      '@ember-data/private-build-infra': 4.7.1
+      '@ember-data/record-data': 4.7.1_webpack@5.74.0
+      '@ember-data/serializer': 4.7.1_webpack@5.74.0
+      '@ember-data/store': 4.7.1_webpack@5.74.0
       '@ember/edition-utils': 1.2.0
       '@ember/string': 3.0.0
       '@embroider/macros': 1.8.3
