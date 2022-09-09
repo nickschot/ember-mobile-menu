@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { action } from '@ember/object';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { task } from 'ember-concurrency';
 
 /**
  * The tray that resides within the menu. Menu content is placed in here.
@@ -83,7 +83,19 @@ export default class TrayComponent extends Component {
 
   @action
   toggleBodyScroll(target, [isClosed]) {
-    if (this.args.preventScroll && !this.args.embed) {
+    this.toggleBodyScrollTask.perform(target, isClosed);
+  }
+
+  @task({ enqueue: true })
+  *toggleBodyScrollTask(target, isClosed) {
+    if (
+      this.args.preventScroll &&
+      !this.args.embed &&
+      typeof FastBoot === 'undefined'
+    ) {
+      let { disableBodyScroll, enableBodyScroll } = yield import(
+        'body-scroll-lock'
+      );
       if (isClosed) {
         enableBodyScroll(target);
       } else {
