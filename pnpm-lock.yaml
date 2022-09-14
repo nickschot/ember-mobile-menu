@@ -30,7 +30,7 @@ importers:
       ember-cli-htmlbars: ^6.0.1
       ember-concurrency: ^2.1.0
       ember-could-get-used-to-this: ^1.0.0
-      ember-gesture-modifiers: ^3.0.0
+      ember-gesture-modifiers: ^4.0.0
       ember-on-resize-modifier: ^1.0.0
       ember-set-body-class: ^1.0.1
       ember-source: 4.7.0
@@ -59,7 +59,7 @@ importers:
       ember-cli-htmlbars: 6.1.1
       ember-concurrency: 2.3.7
       ember-could-get-used-to-this: 1.0.1
-      ember-gesture-modifiers: 3.0.0
+      ember-gesture-modifiers: 4.0.1
       ember-on-resize-modifier: 1.1.0
       ember-set-body-class: 1.0.2
       tracked-maps-and-sets: 3.0.2
@@ -8019,9 +8019,9 @@ packages:
       - supports-color
     dev: true
 
-  /ember-gesture-modifiers/3.0.0:
-    resolution: {integrity: sha512-jSL2dFDIcNa4GHpJUS1ud5vzX1SqAVNBnD0CbvqTDJvjDvZ7G6qianaMVnj9SOWQ8nw3EUetxBte1mQLFyn9hQ==}
-    engines: {node: 12.* || 14.* || >= 16}
+  /ember-gesture-modifiers/4.0.1:
+    resolution: {integrity: sha512-ngOEFxD1LqUfrBvlJuwtpJGDpV01/ybNFIVW6aDVSN0UAEefx1gwLISTAXE3qq45jkZgWZRImcyswqxdSh76ww==}
+    engines: {node: 14.* || >= 16}
     dependencies:
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.1.1
@@ -16833,7 +16833,7 @@ packages:
       ember-cli-htmlbars: 6.1.1
       ember-concurrency: 2.3.7
       ember-could-get-used-to-this: 1.0.1
-      ember-gesture-modifiers: 3.0.0
+      ember-gesture-modifiers: 4.0.1
       ember-on-resize-modifier: 1.1.0
       ember-set-body-class: 1.0.2
       ember-source: 4.7.0_webpack@5.74.0
