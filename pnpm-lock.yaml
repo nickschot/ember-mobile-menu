@@ -8,13 +8,13 @@ importers:
 
   .:
     specifiers:
-      release-it: 15.4.3
+      release-it: 15.5.0
       release-it-lerna-changelog: github:bertdeblock/release-it-lerna-changelog#fix-compat-with-release-it-v15
       release-it-yarn-workspaces: github:refi93/release-it-yarn-workspaces#refi93/esm-support
     devDependencies:
-      release-it: 15.4.3
-      release-it-lerna-changelog: github.com/bertdeblock/release-it-lerna-changelog/7fed06b9d4fb376e34bbca6a38adb5e569db7205_release-it@15.4.3
-      release-it-yarn-workspaces: github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f_release-it@15.4.3
+      release-it: 15.5.0
+      release-it-lerna-changelog: github.com/bertdeblock/release-it-lerna-changelog/7fed06b9d4fb376e34bbca6a38adb5e569db7205_release-it@15.5.0
+      release-it-yarn-workspaces: github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f_release-it@15.5.0
 
   addon:
     specifiers:
@@ -14153,8 +14153,8 @@ packages:
     dependencies:
       jsesc: 0.5.0
 
-  /release-it/15.4.3:
-    resolution: {integrity: sha512-+GPciiCLhb9AUNlRNmajHtGAr6ud8uu2qHLRQRPJgqO3KE5RnVXjRgmJPn5MIupaAavrEltklMC4vpnl8pydsA==}
+  /release-it/15.5.0:
+    resolution: {integrity: sha512-/pQo/PwEXAWRBgVGLE+3IQ3hUoeiDZMGAo/Egin1envCyLyjzrU7+0P2w4iZ1Xv5OxhC2AcaPaN5eY1ql47cBA==}
     engines: {node: '>=14.9'}
     hasBin: true
     dependencies:
@@ -16846,7 +16846,7 @@ packages:
       - webpack
     dev: true
 
-  github.com/bertdeblock/release-it-lerna-changelog/7fed06b9d4fb376e34bbca6a38adb5e569db7205_release-it@15.4.3:
+  github.com/bertdeblock/release-it-lerna-changelog/7fed06b9d4fb376e34bbca6a38adb5e569db7205_release-it@15.5.0:
     resolution: {tarball: https://codeload.github.com/bertdeblock/release-it-lerna-changelog/tar.gz/7fed06b9d4fb376e34bbca6a38adb5e569db7205}
     id: github.com/bertdeblock/release-it-lerna-changelog/7fed06b9d4fb376e34bbca6a38adb5e569db7205
     name: release-it-lerna-changelog
@@ -16859,7 +16859,7 @@ packages:
       lerna-changelog: 2.2.0
       lodash.template: 4.5.0
       mdast-util-from-markdown: 1.2.0
-      release-it: 15.4.3
+      release-it: 15.5.0
       tmp: 0.2.1
       validate-peer-dependencies: 2.1.0
       which: 2.0.2
@@ -16868,7 +16868,7 @@ packages:
       - supports-color
     dev: true
 
-  github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f_release-it@15.4.3:
+  github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f_release-it@15.5.0:
     resolution: {tarball: https://codeload.github.com/refi93/release-it-yarn-workspaces/tar.gz/40643bdcd74755d6f99984004e840203f4c5cb7f}
     id: github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f
     name: release-it-yarn-workspaces
@@ -16879,7 +16879,7 @@ packages:
     dependencies:
       detect-indent: 6.1.0
       detect-newline: 3.1.0
-      release-it: 15.4.3
+      release-it: 15.5.0
       semver: 7.3.7
       url-join: 4.0.1
       validate-peer-dependencies: 1.2.0
