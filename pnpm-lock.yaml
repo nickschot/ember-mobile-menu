@@ -88,7 +88,7 @@ importers:
       babel-eslint: 10.1.0
       broccoli-asset-rev: 3.0.0
       ember-auto-import: 2.4.3
-      ember-cli: 4.7.0
+      ember-cli: 4.8.0
       ember-cli-addon-docs: 5.0.0
       ember-cli-addon-docs-yuidoc: 1.0.0
       ember-cli-babel: 7.26.11
@@ -136,11 +136,11 @@ importers:
       babel-eslint: 10.1.0_eslint@7.32.0
       broccoli-asset-rev: 3.0.0
       ember-auto-import: 2.4.3_webpack@5.74.0
-      ember-cli: 4.7.0
+      ember-cli: 4.8.0
       ember-cli-addon-docs: 5.0.0_ocg5fsrm5oh2lynixliix3fgbi
       ember-cli-addon-docs-yuidoc: 1.0.0
       ember-cli-babel: 7.26.11
-      ember-cli-dependency-checker: 3.3.1_ember-cli@4.7.0
+      ember-cli-dependency-checker: 3.3.1_ember-cli@4.8.0
       ember-cli-deploy: 1.0.2
       ember-cli-deploy-build: 2.0.0
       ember-cli-deploy-git: 1.3.4
@@ -187,7 +187,7 @@ importers:
       babel-eslint: 10.1.0
       broccoli-asset-rev: 3.0.0
       ember-auto-import: 2.4.3
-      ember-cli: 4.7.0
+      ember-cli: 4.8.0
       ember-cli-babel: 7.26.11
       ember-cli-dependency-checker: 3.3.1
       ember-cli-htmlbars: 6.1.1
@@ -230,9 +230,9 @@ importers:
       babel-eslint: 10.1.0_eslint@7.32.0
       broccoli-asset-rev: 3.0.0
       ember-auto-import: 2.4.3_webpack@5.74.0
-      ember-cli: 4.7.0
+      ember-cli: 4.8.0
       ember-cli-babel: 7.26.11
-      ember-cli-dependency-checker: 3.3.1_ember-cli@4.7.0
+      ember-cli-dependency-checker: 3.3.1_ember-cli@4.8.0
       ember-cli-htmlbars: 6.1.1
       ember-cli-inject-live-reload: 2.1.0
       ember-cli-sass: 11.0.1
@@ -7310,14 +7310,14 @@ packages:
       - webpack-command
     dev: true
 
-  /ember-cli-dependency-checker/3.3.1_ember-cli@4.7.0:
+  /ember-cli-dependency-checker/3.3.1_ember-cli@4.8.0:
     resolution: {integrity: sha512-Tg6OeijjXNKWkDm6057Tr0N9j9Vlz/ITewXWpn1A/+Wbt3EowBx5ZKfvoupqz05EznKgL1B/ecG0t+JN7Qm6MA==}
     engines: {node: '>= 6'}
     peerDependencies:
       ember-cli: ^3.2.0 || ^4.0.0
     dependencies:
       chalk: 2.4.2
-      ember-cli: 4.7.0
+      ember-cli: 4.8.0
       find-yarn-workspace-root: 1.2.1
       is-git-url: 1.0.0
       resolve: 1.22.1
@@ -7694,8 +7694,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-cli/4.7.0:
-    resolution: {integrity: sha512-OJApGmIFBqzIYLQ6Qmp7BdJZxtNExkp2oUaAoFJhu9Z5VAVnORFiPOR+bQkR50SNVusHTvlR4zC7mMLrNTy+XQ==}
+  /ember-cli/4.8.0:
+    resolution: {integrity: sha512-NiLCOd+/ckgJvH/DzV5aWUPfGHm3LomktonXQVsFkdbfs4YF/+RHBkqwGuEH73RcOLmTRDj6YWVMOTDjWvXT/Q==}
     engines: {node: '>= 14'}
     hasBin: true
     dependencies:
@@ -7759,7 +7759,7 @@ packages:
       is-git-url: 1.0.0
       is-language-code: 3.1.0
       isbinaryfile: 5.0.0
-      js-yaml: 3.14.1
+      js-yaml: 4.1.0
       leek: 0.0.24
       lodash.template: 4.5.0
       markdown-it: 13.0.1
@@ -7787,7 +7787,7 @@ packages:
       tiny-lr: 2.0.0
       tree-sync: 2.1.0
       uuid: 8.3.2
-      walk-sync: 2.2.0
+      walk-sync: 3.0.0
       watch-detector: 1.0.2
       workerpool: 6.2.1
       yam: 1.0.0
@@ -11058,6 +11058,13 @@ packages:
     dependencies:
       argparse: 1.0.10
       esprima: 4.0.1
+    dev: true
+
+  /js-yaml/4.1.0:
+    resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
+    hasBin: true
+    dependencies:
+      argparse: 2.0.1
     dev: true
 
   /jsdom/20.0.1:
