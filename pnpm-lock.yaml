@@ -124,7 +124,7 @@ importers:
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      qunit: 2.19.2
+      qunit: 2.19.3
       qunit-dom: 2.0.0
       sass: 1.55.0
       webpack: 5.74.0
@@ -156,7 +156,7 @@ importers:
       ember-load-initializers: 2.1.2
       ember-mobile-menu: link:../addon
       ember-page-title: 7.0.0
-      ember-qunit: 6.0.0_ftw4mxvf7ajeaaqqi4c4fr6hay
+      ember-qunit: 6.0.0_qlun7vkcguccocg2zpe7gp5kwa
       ember-resize-observer-polyfill: 0.0.1
       ember-resolver: 8.0.3
       ember-source: 4.8.0_gsocywzcpltb62s22lnmo6ims4
@@ -172,7 +172,7 @@ importers:
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      qunit: 2.19.2
+      qunit: 2.19.3
       qunit-dom: 2.0.0
       sass: 1.55.0
       webpack: 5.74.0
@@ -217,7 +217,7 @@ importers:
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      qunit: 2.19.2
+      qunit: 2.19.3
       qunit-dom: 2.0.0
       sass: 1.55.0
       webpack: 5.74.0
@@ -243,7 +243,7 @@ importers:
       ember-load-initializers: 2.1.2
       ember-mobile-menu: file:addon_elklryyhrq7g4qgi5ambqxm6mm
       ember-page-title: 7.0.0
-      ember-qunit: 6.0.0_ftw4mxvf7ajeaaqqi4c4fr6hay
+      ember-qunit: 6.0.0_qlun7vkcguccocg2zpe7gp5kwa
       ember-resolver: 8.0.3
       ember-sinon: 5.0.0
       ember-sinon-qunit: 6.0.0
@@ -260,7 +260,7 @@ importers:
       loader.js: 4.7.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      qunit: 2.19.2
+      qunit: 2.19.3
       qunit-dom: 2.0.0
       sass: 1.55.0
       webpack: 5.74.0
@@ -8114,7 +8114,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-qunit/6.0.0_ftw4mxvf7ajeaaqqi4c4fr6hay:
+  /ember-qunit/6.0.0_qlun7vkcguccocg2zpe7gp5kwa:
     resolution: {integrity: sha512-idNWh9Ap2HN9e3Xozh5Jrciu5tDhn0okM/bgwDjdks3dwuMhEox45iiRTx469FWQ9+ixjZ40AsXsRTDkfCmvmw==}
     engines: {node: 14.* || 16.* || >= 17}
     peerDependencies:
@@ -8128,7 +8128,7 @@ packages:
       ember-auto-import: 2.4.3_webpack@5.74.0
       ember-cli-babel: 7.26.11
       ember-cli-test-loader: 3.0.0
-      qunit: 2.19.2
+      qunit: 2.19.3
       resolve-package-path: 4.0.3
       silent-error: 1.1.1
       validate-peer-dependencies: 2.1.0
@@ -13801,8 +13801,8 @@ packages:
       - supports-color
     dev: true
 
-  /qunit/2.19.2:
-    resolution: {integrity: sha512-D575YwUeTFvYu9OrCitmnZ24QkcuwwLj3vtMRLHGUvme4oVljna4Qttm19BBDC4w/7wAZr2/QvbvWN6I4inJYg==}
+  /qunit/2.19.3:
+    resolution: {integrity: sha512-vEnspSZ37u2oR01OA/IZ1Td5V7BvQYFECdKPv86JaBplDNa5IHg0v7jFSPoP5L5o78Dbi8sl7/ATtpRDAKlSdw==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
