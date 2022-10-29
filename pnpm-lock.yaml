@@ -34,7 +34,7 @@ importers:
       ember-on-resize-modifier: ^1.0.0
       ember-set-body-class: ^1.0.1
       ember-source: 4.8.0
-      ember-template-lint: 4.16.1
+      ember-template-lint: 4.17.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
       eslint-plugin-ember: 11.2.0
@@ -67,7 +67,7 @@ importers:
     devDependencies:
       babel-eslint: 10.1.0_eslint@7.32.0
       ember-source: 4.8.0_gsocywzcpltb62s22lnmo6ims4
-      ember-template-lint: 4.16.1_ember-cli-htmlbars@6.1.1
+      ember-template-lint: 4.17.0_ember-cli-htmlbars@6.1.1
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
       eslint-plugin-ember: 11.2.0_any3h6snb6yif56cdlpkkue5we
@@ -113,7 +113,7 @@ importers:
       ember-resolver: 8.0.3
       ember-source: 4.8.0
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.16.1
+      ember-template-lint: 4.17.0
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
@@ -161,7 +161,7 @@ importers:
       ember-resolver: 8.0.3
       ember-source: 4.8.0_gsocywzcpltb62s22lnmo6ims4
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.16.1_ember-cli-htmlbars@6.1.1
+      ember-template-lint: 4.17.0_ember-cli-htmlbars@6.1.1
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
@@ -206,7 +206,7 @@ importers:
       ember-sinon-qunit: 6.0.0
       ember-source: 4.8.0
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.16.1
+      ember-template-lint: 4.17.0
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
@@ -249,7 +249,7 @@ importers:
       ember-sinon-qunit: 6.0.0
       ember-source: 4.8.0_gsocywzcpltb62s22lnmo6ims4
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.16.1_ember-cli-htmlbars@6.1.1
+      ember-template-lint: 4.17.0_ember-cli-htmlbars@6.1.1
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
@@ -2695,7 +2695,7 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.7
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
 
   /@types/eslint/7.29.0:
     resolution: {integrity: sha512-VNcvioYDH8/FxaeTKkM4/TiTwt6pBV9E3OfGmvaw8tPl0rrHCJ4Ll15HRT+pMiFAf/MLQvAzC+6RzUMEL9Ceng==}
@@ -2707,7 +2707,7 @@ packages:
   /@types/eslint/8.4.7:
     resolution: {integrity: sha512-ehM7cCt2RSFs42mb+lcmhFT9ouIlV92PuaeRGn8N8c98oMjG4Z5pJHA9b1QiCcuqnbPSHcyfiD3mlhqMaHsQIw==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
 
   /@types/estree/0.0.51:
@@ -2715,7 +2715,6 @@ packages:
 
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
-    dev: true
 
   /@types/express-serve-static-core/4.17.31:
     resolution: {integrity: sha512-DxMhY+NAsTwMMFHBTtJFNp5qiHKJ7TeqOo23zVEM9alT1Ml27Q3xcTH0xwxn7Q0BbMcVEJOs/7aQtUWupUQN3Q==}
@@ -8359,8 +8358,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-template-lint/4.16.1_ember-cli-htmlbars@6.1.1:
-    resolution: {integrity: sha512-60bWhXYh0aalnd0ogR0RL5bKsNKvJoS4b5KC6cBUj556UMruNh5YBAi/GcBcc0COxP+tThaGC0g/kIqNL03wIg==}
+  /ember-template-lint/4.17.0_ember-cli-htmlbars@6.1.1:
+    resolution: {integrity: sha512-9Ove2WM6mPF3WRu4+ikLhdTHQAeK031dJp4WlVYzbCl1YFbtoUeKojH+/0U98hJCjiQg/dRb0baSTr+VevEyzw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     hasBin: true
     dependencies:
