@@ -43,7 +43,7 @@ importers:
       eslint-plugin-qunit: 7.3.1
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      sass: 1.55.0
+      sass: 1.56.0
       tracked-maps-and-sets: ^3.0.0
       webpack: 5.74.0
       wobble: ^1.5.1
@@ -76,7 +76,7 @@ importers:
       eslint-plugin-qunit: 7.3.1_eslint@7.32.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      sass: 1.55.0
+      sass: 1.56.0
       webpack: 5.74.0
 
   docs:
@@ -126,7 +126,7 @@ importers:
       prettier: 2.7.1
       qunit: 2.19.3
       qunit-dom: 2.0.0
-      sass: 1.55.0
+      sass: 1.56.0
       webpack: 5.74.0
     devDependencies:
       '@ember/optional-features': 2.0.0
@@ -174,7 +174,7 @@ importers:
       prettier: 2.7.1
       qunit: 2.19.3
       qunit-dom: 2.0.0
-      sass: 1.55.0
+      sass: 1.56.0
       webpack: 5.74.0
 
   test-app:
@@ -219,7 +219,7 @@ importers:
       prettier: 2.7.1
       qunit: 2.19.3
       qunit-dom: 2.0.0
-      sass: 1.55.0
+      sass: 1.56.0
       webpack: 5.74.0
     devDependencies:
       '@ember/optional-features': 2.0.0
@@ -262,7 +262,7 @@ importers:
       prettier: 2.7.1
       qunit: 2.19.3
       qunit-dom: 2.0.0
-      sass: 1.55.0
+      sass: 1.56.0
       webpack: 5.74.0
     dependenciesMeta:
       ember-mobile-menu:
@@ -1727,7 +1727,7 @@ packages:
     dependencies:
       '@csstools/sass-import-resolve': 1.0.0
       postcss: 8.4.18
-      sass: 1.55.0
+      sass: 1.56.0
       source-map: 0.7.4
     dev: true
 
@@ -2321,6 +2321,7 @@ packages:
   /@npmcli/move-file/1.1.2:
     resolution: {integrity: sha512-1SUf/Cg2GzGDyaf15aR9St9TWlb+XvbZXWpDx8YKs7MLzMH/BCeopv+y9vzrzgkfykCGuWOlSu3mZhj2+FQcrg==}
     engines: {node: '>=10'}
+    deprecated: This functionality has been moved to @npmcli/fs
     dependencies:
       mkdirp: 1.0.4
       rimraf: 3.0.2
@@ -14561,8 +14562,8 @@ packages:
       walker: 1.0.8
     dev: true
 
-  /sass/1.55.0:
-    resolution: {integrity: sha512-Pk+PMy7OGLs9WaxZGJMn7S96dvlyVBwwtToX895WmCpAOr5YiJYEUJfiJidMuKb613z2xNWcXCHEuOvjZbqC6A==}
+  /sass/1.56.0:
+    resolution: {integrity: sha512-WFJ9XrpkcnqZcYuLRJh5qiV6ibQOR4AezleeEjTjMsCocYW59dEG19U3fwTTXxzi2Ed3yjPBp727hbbj53pHFw==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
