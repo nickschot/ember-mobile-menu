@@ -34,7 +34,7 @@ importers:
       ember-on-resize-modifier: ^1.0.0
       ember-set-body-class: ^1.0.1
       ember-source: 4.8.2
-      ember-template-lint: 4.18.1
+      ember-template-lint: 4.18.2
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
       eslint-plugin-ember: 11.2.0
@@ -67,7 +67,7 @@ importers:
     devDependencies:
       babel-eslint: 10.1.0_eslint@7.32.0
       ember-source: 4.8.2_klhxxmjkcvtuhwro2kkspsfzna
-      ember-template-lint: 4.18.1_ember-cli-htmlbars@6.1.1
+      ember-template-lint: 4.18.2_ember-cli-htmlbars@6.1.1
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
       eslint-plugin-ember: 11.2.0_any3h6snb6yif56cdlpkkue5we
@@ -113,7 +113,7 @@ importers:
       ember-resolver: 8.0.3
       ember-source: 4.8.2
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.18.1
+      ember-template-lint: 4.18.2
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
@@ -161,7 +161,7 @@ importers:
       ember-resolver: 8.0.3
       ember-source: 4.8.2_klhxxmjkcvtuhwro2kkspsfzna
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.18.1_ember-cli-htmlbars@6.1.1
+      ember-template-lint: 4.18.2_ember-cli-htmlbars@6.1.1
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
@@ -206,7 +206,7 @@ importers:
       ember-sinon-qunit: 6.0.0
       ember-source: 4.8.2
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.18.1
+      ember-template-lint: 4.18.2
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0
@@ -249,7 +249,7 @@ importers:
       ember-sinon-qunit: 6.0.0
       ember-source: 4.8.2_klhxxmjkcvtuhwro2kkspsfzna
       ember-source-channel-url: 3.0.0
-      ember-template-lint: 4.18.1_ember-cli-htmlbars@6.1.1
+      ember-template-lint: 4.18.2_ember-cli-htmlbars@6.1.1
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
@@ -8413,8 +8413,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-template-lint/4.18.1_ember-cli-htmlbars@6.1.1:
-    resolution: {integrity: sha512-YATwZ1zENT5wfW41/W+wz36gJVFlR8FdSXrWhoJbg89r1goTtkLNG7jhU+/jF11sXOcq0KqvK4TOQsfwPDW8Ug==}
+  /ember-template-lint/4.18.2_ember-cli-htmlbars@6.1.1:
+    resolution: {integrity: sha512-yI8kQ8IQ2x5HVq0tQAISXABOHr0Is5sAg6rwceO6M8CYozq7HMxUPEj0VbdcbyIE70SWw/8d24M1rBI4km544Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     hasBin: true
     dependencies:
