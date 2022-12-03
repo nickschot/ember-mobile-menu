@@ -8,7 +8,7 @@ on:
   pull_request: {}
 
 env:
-  PNPM_VERSION: 7.17.1
+  PNPM_VERSION: 7.18.0
 
 concurrency:
    group: ci-${{ github.head_ref || github.ref }}
