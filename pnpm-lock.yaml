@@ -110,7 +110,7 @@ importers:
       ember-page-title: 7.0.0
       ember-qunit: 6.0.0
       ember-resize-observer-polyfill: 0.0.1
-      ember-resolver: 8.0.3
+      ember-resolver: 8.1.0
       ember-source: 4.9.3
       ember-source-channel-url: 3.0.0
       ember-template-lint: 4.18.2
@@ -158,7 +158,7 @@ importers:
       ember-page-title: 7.0.0
       ember-qunit: 6.0.0_kpjf7lqvbhq5wc56pgzqud54da
       ember-resize-observer-polyfill: 0.0.1
-      ember-resolver: 8.0.3
+      ember-resolver: 8.1.0
       ember-source: 4.9.3_klhxxmjkcvtuhwro2kkspsfzna
       ember-source-channel-url: 3.0.0
       ember-template-lint: 4.18.2_ember-cli-htmlbars@6.1.1
@@ -201,7 +201,7 @@ importers:
       ember-mobile-menu: 3.0.3
       ember-page-title: 7.0.0
       ember-qunit: 6.0.0
-      ember-resolver: 8.0.3
+      ember-resolver: 8.1.0
       ember-sinon: 5.0.0
       ember-sinon-qunit: 6.0.0
       ember-source: 4.9.3
@@ -244,7 +244,7 @@ importers:
       ember-mobile-menu: file:addon_vgwapaoh63ejncmd53d5jv2nce
       ember-page-title: 7.0.0
       ember-qunit: 6.0.0_kpjf7lqvbhq5wc56pgzqud54da
-      ember-resolver: 8.0.3
+      ember-resolver: 8.1.0
       ember-sinon: 5.0.0
       ember-sinon-qunit: 6.0.0
       ember-source: 4.9.3_klhxxmjkcvtuhwro2kkspsfzna
@@ -8268,8 +8268,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-resolver/8.0.3:
-    resolution: {integrity: sha512-fA53fxfG821BRqNiB9mQDuzZpzSRcSAYZTYBlRQOHsJwoYdjyE7idz4YcytbSsa409G5J2kP6B+PiKOBh0odlw==}
+  /ember-resolver/8.1.0:
+    resolution: {integrity: sha512-MGD7X2ztZVswGqs1mLgzhZJRhG7XiF6Mg4DgC7xJFWRYQQUHyGJpGdNWY9nXyrYnRIsCrQoL1do41zpxbrB/cg==}
     engines: {node: '>= 10.*'}
     dependencies:
       babel-plugin-debug-macros: 0.3.4
