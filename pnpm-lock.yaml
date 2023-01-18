@@ -203,7 +203,7 @@ importers:
       ember-qunit: 6.0.0
       ember-resolver: 8.1.0
       ember-sinon: 5.0.0
-      ember-sinon-qunit: 6.0.0
+      ember-sinon-qunit: 7.0.0
       ember-source: 4.10.0
       ember-source-channel-url: 3.0.0
       ember-template-lint: 4.18.2
@@ -246,7 +246,7 @@ importers:
       ember-qunit: 6.0.0_xxksirw4yhzqkev2rkehjstyum
       ember-resolver: 8.1.0
       ember-sinon: 5.0.0
-      ember-sinon-qunit: 6.0.0
+      ember-sinon-qunit: 7.0.0_w75awbzarcp3npm6erf2vuhgje
       ember-source: 4.10.0_klhxxmjkcvtuhwro2kkspsfzna
       ember-source-channel-url: 3.0.0
       ember-template-lint: 4.18.2_ember-cli-htmlbars@6.1.1
@@ -2825,7 +2825,7 @@ packages:
   /@types/glob/8.0.0:
     resolution: {integrity: sha512-l6NQsDDyQUVeoTynNpC9uRvCUint/gSUXQA2euwmTuWGvPY5LSDUu6tkCtJB2SvGQlJQzLaKqcGZP4//7EDveA==}
     dependencies:
-      '@types/minimatch': 3.0.5
+      '@types/minimatch': 5.1.2
       '@types/node': 18.11.18
 
   /@types/htmlbars-inline-precompile/3.0.0:
@@ -2866,7 +2866,6 @@ packages:
 
   /@types/minimatch/5.1.2:
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
-    dev: true
 
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
@@ -8340,15 +8339,20 @@ packages:
       - supports-color
     dev: true
 
-  /ember-sinon-qunit/6.0.0:
-    resolution: {integrity: sha512-rV1KsHhALdevlZNYvDGAp/MyECrvqMv01dcaY1D4LDvKAL+9dLjDLKyI3vJDgI5G5o7whiRwDJhcDZvroq1mJg==}
-    engines: {node: '>= 12'}
+  /ember-sinon-qunit/7.0.0_w75awbzarcp3npm6erf2vuhgje:
+    resolution: {integrity: sha512-w4PnPxpp7WzddAswtACUlHdKxQKBvRDC8+Vzw91P3It4QaKthceIsv7QiNQCkC3BqtTrCV8QNsuPik1zOXa+fw==}
+    engines: {node: 14.* || 16.* || >= 18}
+    peerDependencies:
+      ember-source: ^3.28.0 || ^4.0.0
+      sinon: ^15.0.1
     dependencies:
       broccoli-funnel: 3.0.8
+      ember-auto-import: 2.5.0_webpack@5.75.0
       ember-cli-babel: 7.26.11
-      ember-sinon: 5.0.0
+      ember-source: 4.10.0_klhxxmjkcvtuhwro2kkspsfzna
     transitivePeerDependencies:
       - supports-color
+      - webpack
     dev: true
 
   /ember-sinon/5.0.0:
