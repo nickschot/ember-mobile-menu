@@ -37,7 +37,7 @@ importers:
       ember-template-lint: 4.18.2
       eslint: 7.32.0
       eslint-config-prettier: 8.6.0
-      eslint-plugin-ember: 11.4.3
+      eslint-plugin-ember: 11.4.4
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-qunit: 7.3.4
@@ -70,7 +70,7 @@ importers:
       ember-template-lint: 4.18.2_ember-cli-htmlbars@6.2.0
       eslint: 7.32.0
       eslint-config-prettier: 8.6.0_eslint@7.32.0
-      eslint-plugin-ember: 11.4.3_v4gdfs5scyf3oykba2iih5ysoi
+      eslint-plugin-ember: 11.4.4_v4gdfs5scyf3oykba2iih5ysoi
       eslint-plugin-node: 11.1.0_eslint@7.32.0
       eslint-plugin-prettier: 4.2.1_o6s4toj67ba3vratins5wgouge
       eslint-plugin-qunit: 7.3.4_eslint@7.32.0
@@ -117,7 +117,7 @@ importers:
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.6.0
-      eslint-plugin-ember: 11.4.3
+      eslint-plugin-ember: 11.4.4
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-qunit: 7.3.4
@@ -165,7 +165,7 @@ importers:
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.6.0_eslint@7.32.0
-      eslint-plugin-ember: 11.4.3_v4gdfs5scyf3oykba2iih5ysoi
+      eslint-plugin-ember: 11.4.4_v4gdfs5scyf3oykba2iih5ysoi
       eslint-plugin-node: 11.1.0_eslint@7.32.0
       eslint-plugin-prettier: 4.2.1_o6s4toj67ba3vratins5wgouge
       eslint-plugin-qunit: 7.3.4_eslint@7.32.0
@@ -210,7 +210,7 @@ importers:
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.6.0
-      eslint-plugin-ember: 11.4.3
+      eslint-plugin-ember: 11.4.4
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-qunit: 7.3.4
@@ -253,7 +253,7 @@ importers:
       ember-try: 2.0.0
       eslint: 7.32.0
       eslint-config-prettier: 8.6.0_eslint@7.32.0
-      eslint-plugin-ember: 11.4.3_v4gdfs5scyf3oykba2iih5ysoi
+      eslint-plugin-ember: 11.4.4_v4gdfs5scyf3oykba2iih5ysoi
       eslint-plugin-node: 11.1.0_eslint@7.32.0
       eslint-plugin-prettier: 4.2.1_o6s4toj67ba3vratins5wgouge
       eslint-plugin-qunit: 7.3.4_eslint@7.32.0
@@ -8835,8 +8835,8 @@ packages:
       eslint: 7.32.0
     dev: true
 
-  /eslint-plugin-ember/11.4.3_v4gdfs5scyf3oykba2iih5ysoi:
-    resolution: {integrity: sha512-hkHtaDu6KY5IpI+WgS9eGlahezJBxSmXgHZMINSwf4Njh9nJj+nwRxpPNtTNscFmWmud6OGAnKYvQN99L7tzPw==}
+  /eslint-plugin-ember/11.4.4_v4gdfs5scyf3oykba2iih5ysoi:
+    resolution: {integrity: sha512-LhfXdyNQq3wbL0+EIobEpvXrqwId0m1qXT2rRuSzmtwyeUx+RZVVtxV0xwVpTurIjgFnQ+niCF61eZgW30gOgg==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       eslint: '>= 7'
