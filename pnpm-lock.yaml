@@ -181,7 +181,7 @@ importers:
     specifiers:
       '@ember/optional-features': 2.0.0
       '@ember/test-helpers': 2.9.3
-      '@embroider/test-setup': 2.0.2
+      '@embroider/test-setup': 2.1.0
       '@glimmer/component': 1.1.2
       '@glimmer/tracking': 1.1.2
       babel-eslint: 10.1.0
@@ -224,7 +224,7 @@ importers:
     devDependencies:
       '@ember/optional-features': 2.0.0
       '@ember/test-helpers': 2.9.3_ember-source@4.10.0
-      '@embroider/test-setup': 2.0.2
+      '@embroider/test-setup': 2.1.0
       '@glimmer/component': 1.1.2
       '@glimmer/tracking': 1.1.2
       babel-eslint: 10.1.0_eslint@7.32.0
@@ -2113,8 +2113,8 @@ packages:
       semver: 7.3.8
       typescript-memoize: 1.1.1
 
-  /@embroider/test-setup/2.0.2:
-    resolution: {integrity: sha512-0rapCTr7T94TprLW11q60Lddeuom+bkBI35zyCsAp7A7idlTUekH9k7BTx9rbnPFuQJkwILGuZ05t03IAyQ4Ig==}
+  /@embroider/test-setup/2.1.0:
+    resolution: {integrity: sha512-9cSrg5qzaf1mLpEBTMoQsjUhPCcWxJq7aRykLzjtD4YIk7y/IFalEUPS6W87c3jnnzus9hO2hTXV/1BfdYstzQ==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       lodash: 4.17.21
