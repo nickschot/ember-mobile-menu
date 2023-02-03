@@ -29,6 +29,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "7.19.1",
     "@ember/optional-features": "2.0.0",
+    "@ember/string": "3.0.1",
     "@ember/test-helpers": "2.9.3",
     "@embroider/test-setup": "2.1.1",
     "@glimmer/component": "1.1.2",
@@ -68,6 +69,7 @@
     "qunit": "2.19.4",
     "qunit-dom": "2.0.0",
     "sass": "1.58.0",
+    "sinon": "15.0.1",
     "webpack": "5.75.0"
   },
   "dependenciesMeta": {
