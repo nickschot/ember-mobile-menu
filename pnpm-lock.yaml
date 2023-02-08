@@ -42,7 +42,7 @@ importers:
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-qunit: 7.3.4
       npm-run-all: 4.1.5
-      prettier: 2.8.3
+      prettier: 2.8.4
       sass: 1.58.0
       tracked-maps-and-sets: ^3.0.0
       webpack: 5.75.0
@@ -72,10 +72,10 @@ importers:
       eslint-config-prettier: 8.6.0_eslint@8.33.0
       eslint-plugin-ember: 11.4.6_eslint@8.33.0
       eslint-plugin-node: 11.1.0_eslint@8.33.0
-      eslint-plugin-prettier: 4.2.1_jqplj6qf3uqpxpu4gdyhwwasnq
+      eslint-plugin-prettier: 4.2.1_qa2thblfovmfepmgrc7z2owbo4
       eslint-plugin-qunit: 7.3.4_eslint@8.33.0
       npm-run-all: 4.1.5
-      prettier: 2.8.3
+      prettier: 2.8.4
       sass: 1.58.0
       webpack: 5.75.0
 
@@ -124,7 +124,7 @@ importers:
       eslint-plugin-qunit: 7.3.4
       loader.js: 4.7.0
       npm-run-all: 4.1.5
-      prettier: 2.8.3
+      prettier: 2.8.4
       qunit: 2.19.4
       qunit-dom: 2.0.0
       sass: 1.58.0
@@ -169,11 +169,11 @@ importers:
       eslint-config-prettier: 8.6.0_eslint@8.33.0
       eslint-plugin-ember: 11.4.6_eslint@8.33.0
       eslint-plugin-node: 11.1.0_eslint@8.33.0
-      eslint-plugin-prettier: 4.2.1_jqplj6qf3uqpxpu4gdyhwwasnq
+      eslint-plugin-prettier: 4.2.1_qa2thblfovmfepmgrc7z2owbo4
       eslint-plugin-qunit: 7.3.4_eslint@8.33.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
-      prettier: 2.8.3
+      prettier: 2.8.4
       qunit: 2.19.4
       qunit-dom: 2.0.0
       sass: 1.58.0
@@ -219,7 +219,7 @@ importers:
       eslint-plugin-qunit: 7.3.4
       loader.js: 4.7.0
       npm-run-all: 4.1.5
-      prettier: 2.8.3
+      prettier: 2.8.4
       qunit: 2.19.4
       qunit-dom: 2.0.0
       sass: 1.58.0
@@ -260,11 +260,11 @@ importers:
       eslint-config-prettier: 8.6.0_eslint@8.33.0
       eslint-plugin-ember: 11.4.6_eslint@8.33.0
       eslint-plugin-node: 11.1.0_eslint@8.33.0
-      eslint-plugin-prettier: 4.2.1_jqplj6qf3uqpxpu4gdyhwwasnq
+      eslint-plugin-prettier: 4.2.1_qa2thblfovmfepmgrc7z2owbo4
       eslint-plugin-qunit: 7.3.4_eslint@8.33.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
-      prettier: 2.8.3
+      prettier: 2.8.4
       qunit: 2.19.4
       qunit-dom: 2.0.0
       sass: 1.58.0
@@ -8907,7 +8907,7 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_jqplj6qf3uqpxpu4gdyhwwasnq:
+  /eslint-plugin-prettier/4.2.1_qa2thblfovmfepmgrc7z2owbo4:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -8920,7 +8920,7 @@ packages:
     dependencies:
       eslint: 8.33.0
       eslint-config-prettier: 8.6.0_eslint@8.33.0
-      prettier: 2.8.3
+      prettier: 2.8.4
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -13852,8 +13852,8 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.8.3:
-    resolution: {integrity: sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==}
+  /prettier/2.8.4:
+    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
 
@@ -14461,7 +14461,7 @@ packages:
       '@babel/core': 7.20.12
       '@babel/plugin-syntax-decorators': 7.19.0_@babel+core@7.20.12
       '@babel/plugin-transform-typescript': 7.20.13_@babel+core@7.20.12
-      prettier: 2.8.3
+      prettier: 2.8.4
     transitivePeerDependencies:
       - supports-color
 
