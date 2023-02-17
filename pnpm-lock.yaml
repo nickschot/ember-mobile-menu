@@ -43,7 +43,7 @@ importers:
       eslint-plugin-qunit: 7.3.4
       npm-run-all: 4.1.5
       prettier: 2.8.4
-      sass: 1.58.0
+      sass: 1.58.2
       tracked-maps-and-sets: ^3.0.0
       webpack: 5.75.0
       wobble: ^1.5.1
@@ -76,7 +76,7 @@ importers:
       eslint-plugin-qunit: 7.3.4_eslint@8.34.0
       npm-run-all: 4.1.5
       prettier: 2.8.4
-      sass: 1.58.0
+      sass: 1.58.2
       webpack: 5.75.0
 
   docs:
@@ -127,7 +127,7 @@ importers:
       prettier: 2.8.4
       qunit: 2.19.4
       qunit-dom: 2.0.0
-      sass: 1.58.0
+      sass: 1.58.2
       webpack: 5.75.0
     devDependencies:
       '@babel/eslint-parser': 7.19.1_eslint@8.34.0
@@ -176,7 +176,7 @@ importers:
       prettier: 2.8.4
       qunit: 2.19.4
       qunit-dom: 2.0.0
-      sass: 1.58.0
+      sass: 1.58.2
       webpack: 5.75.0
 
   test-app:
@@ -222,7 +222,7 @@ importers:
       prettier: 2.8.4
       qunit: 2.19.4
       qunit-dom: 2.0.0
-      sass: 1.58.0
+      sass: 1.58.2
       sinon: 15.0.1
       webpack: 5.75.0
     devDependencies:
@@ -267,7 +267,7 @@ importers:
       prettier: 2.8.4
       qunit: 2.19.4
       qunit-dom: 2.0.0
-      sass: 1.58.0
+      sass: 1.58.2
       sinon: 15.0.1
       webpack: 5.75.0
     dependenciesMeta:
@@ -1748,7 +1748,7 @@ packages:
     dependencies:
       '@csstools/sass-import-resolve': 1.0.0
       postcss: 8.4.21
-      sass: 1.58.0
+      sass: 1.58.2
       source-map: 0.7.4
     dev: true
 
@@ -14830,8 +14830,8 @@ packages:
       walker: 1.0.8
     dev: true
 
-  /sass/1.58.0:
-    resolution: {integrity: sha512-PiMJcP33DdKtZ/1jSjjqVIKihoDc6yWmYr9K/4r3fVVIEDAluD0q7XZiRKrNJcPK3qkLRF/79DND1H5q1LBjgg==}
+  /sass/1.58.2:
+    resolution: {integrity: sha512-2mbyOWOv/lhEXD6nVrQZQ4KT2DlwcODbTskM42EyqBAFUWOhiiYtAXZqjZz1ygzapYf+N+2GwfIH9M5FM4GUMg==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
