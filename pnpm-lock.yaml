@@ -8,13 +8,13 @@ importers:
 
   .:
     specifiers:
-      release-it: 15.7.0
+      release-it: 15.8.0
       release-it-lerna-changelog: github:bertdeblock/release-it-lerna-changelog#fix-compat-with-release-it-v15
       release-it-yarn-workspaces: github:refi93/release-it-yarn-workspaces#refi93/esm-support
     devDependencies:
-      release-it: 15.7.0
-      release-it-lerna-changelog: github.com/bertdeblock/release-it-lerna-changelog/7fed06b9d4fb376e34bbca6a38adb5e569db7205_release-it@15.7.0
-      release-it-yarn-workspaces: github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f_release-it@15.7.0
+      release-it: 15.8.0
+      release-it-lerna-changelog: github.com/bertdeblock/release-it-lerna-changelog/7fed06b9d4fb376e34bbca6a38adb5e569db7205_release-it@15.8.0
+      release-it-yarn-workspaces: github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f_release-it@15.8.0
 
   addon:
     specifiers:
@@ -10188,8 +10188,8 @@ packages:
     dependencies:
       get-intrinsic: 1.2.0
 
-  /got/12.5.3:
-    resolution: {integrity: sha512-8wKnb9MGU8IPGRIo+/ukTy9XLJBwDiCpIf5TVzQ9Cpol50eMTpBq2GAuDsuDIz7hTYmZgMgC1e9ydr6kSDWs3w==}
+  /got/12.6.0:
+    resolution: {integrity: sha512-WTcaQ963xV97MN3x0/CbAriXFZcXCfgxVp91I+Ze6pawQOa7SgzwSx2zIJJsX+kTajMnVs0xcFD1TxZKFqhdnQ==}
     engines: {node: '>=14.16'}
     dependencies:
       '@sindresorhus/is': 5.3.0
@@ -13386,7 +13386,7 @@ packages:
     resolution: {integrity: sha512-hySwcV8RAWeAfPsXb9/HGSPn8lwDnv6fabH+obUZKX169QknRkRhPxd1yMubpKDskLFATkl3jHpNtVtDPFA0Wg==}
     engines: {node: '>=14.16'}
     dependencies:
-      got: 12.5.3
+      got: 12.6.0
       registry-auth-token: 5.0.2
       registry-url: 6.0.1
       semver: 7.3.8
@@ -14414,8 +14414,8 @@ packages:
     dependencies:
       jsesc: 0.5.0
 
-  /release-it/15.7.0:
-    resolution: {integrity: sha512-/ajllmzQNuxXCrPySwx+MiR/nBHp8H+lTn42QFw9YlFPJQpLFwgMjCOFTB4hhuavi9jMbDpWcTPFy31QJgzNcw==}
+  /release-it/15.8.0:
+    resolution: {integrity: sha512-eJwYY/vXefcnWn7OHlZRcQJYPSJw/fdO+29C/Re5MZE8FZReCHu+EYq3yB0Bm39/3cTVz/5I/2Fk5rtAsVFU1g==}
     engines: {node: '>=14.9'}
     hasBin: true
     dependencies:
@@ -14427,7 +14427,7 @@ packages:
       execa: 7.0.0
       git-url-parse: 13.1.0
       globby: 13.1.3
-      got: 12.5.3
+      got: 12.6.0
       inquirer: 9.1.4
       is-ci: 3.0.1
       lodash: 4.17.21
@@ -17137,7 +17137,7 @@ packages:
       - webpack
     dev: true
 
-  github.com/bertdeblock/release-it-lerna-changelog/7fed06b9d4fb376e34bbca6a38adb5e569db7205_release-it@15.7.0:
+  github.com/bertdeblock/release-it-lerna-changelog/7fed06b9d4fb376e34bbca6a38adb5e569db7205_release-it@15.8.0:
     resolution: {tarball: https://codeload.github.com/bertdeblock/release-it-lerna-changelog/tar.gz/7fed06b9d4fb376e34bbca6a38adb5e569db7205}
     id: github.com/bertdeblock/release-it-lerna-changelog/7fed06b9d4fb376e34bbca6a38adb5e569db7205
     name: release-it-lerna-changelog
@@ -17150,7 +17150,7 @@ packages:
       lerna-changelog: 2.2.0
       lodash.template: 4.5.0
       mdast-util-from-markdown: 1.3.0
-      release-it: 15.7.0
+      release-it: 15.8.0
       tmp: 0.2.1
       validate-peer-dependencies: 2.2.0
       which: 2.0.2
@@ -17159,7 +17159,7 @@ packages:
       - supports-color
     dev: true
 
-  github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f_release-it@15.7.0:
+  github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f_release-it@15.8.0:
     resolution: {tarball: https://codeload.github.com/refi93/release-it-yarn-workspaces/tar.gz/40643bdcd74755d6f99984004e840203f4c5cb7f}
     id: github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f
     name: release-it-yarn-workspaces
@@ -17170,7 +17170,7 @@ packages:
     dependencies:
       detect-indent: 6.1.0
       detect-newline: 3.1.0
-      release-it: 15.7.0
+      release-it: 15.8.0
       semver: 7.3.8
       url-join: 4.0.1
       validate-peer-dependencies: 1.2.0
