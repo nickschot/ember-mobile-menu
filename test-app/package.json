@@ -69,7 +69,7 @@
     "qunit": "2.19.4",
     "qunit-dom": "2.0.0",
     "sass": "1.59.2",
-    "sinon": "15.0.1",
+    "sinon": "15.0.2",
     "webpack": "5.76.1"
   },
   "dependenciesMeta": {
