@@ -37,7 +37,7 @@ importers:
       ember-template-lint: 4.18.2
       eslint: 8.36.0
       eslint-config-prettier: 8.7.0
-      eslint-plugin-ember: 11.4.7
+      eslint-plugin-ember: 11.4.8
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-qunit: 7.3.4
@@ -70,7 +70,7 @@ importers:
       ember-template-lint: 4.18.2
       eslint: 8.36.0
       eslint-config-prettier: 8.7.0_eslint@8.36.0
-      eslint-plugin-ember: 11.4.7_eslint@8.36.0
+      eslint-plugin-ember: 11.4.8_eslint@8.36.0
       eslint-plugin-node: 11.1.0_eslint@8.36.0
       eslint-plugin-prettier: 4.2.1_eqzx3hpkgx5nnvxls3azrcc7dm
       eslint-plugin-qunit: 7.3.4_eslint@8.36.0
@@ -118,7 +118,7 @@ importers:
       ember-try: 2.0.0
       eslint: 8.36.0
       eslint-config-prettier: 8.7.0
-      eslint-plugin-ember: 11.4.7
+      eslint-plugin-ember: 11.4.8
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-qunit: 7.3.4
@@ -167,7 +167,7 @@ importers:
       ember-try: 2.0.0
       eslint: 8.36.0
       eslint-config-prettier: 8.7.0_eslint@8.36.0
-      eslint-plugin-ember: 11.4.7_eslint@8.36.0
+      eslint-plugin-ember: 11.4.8_eslint@8.36.0
       eslint-plugin-node: 11.1.0_eslint@8.36.0
       eslint-plugin-prettier: 4.2.1_eqzx3hpkgx5nnvxls3azrcc7dm
       eslint-plugin-qunit: 7.3.4_eslint@8.36.0
@@ -213,7 +213,7 @@ importers:
       ember-try: 2.0.0
       eslint: 8.36.0
       eslint-config-prettier: 8.7.0
-      eslint-plugin-ember: 11.4.7
+      eslint-plugin-ember: 11.4.8
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-qunit: 7.3.4
@@ -258,7 +258,7 @@ importers:
       ember-try: 2.0.0
       eslint: 8.36.0
       eslint-config-prettier: 8.7.0_eslint@8.36.0
-      eslint-plugin-ember: 11.4.7_eslint@8.36.0
+      eslint-plugin-ember: 11.4.8_eslint@8.36.0
       eslint-plugin-node: 11.1.0_eslint@8.36.0
       eslint-plugin-prettier: 4.2.1_eqzx3hpkgx5nnvxls3azrcc7dm
       eslint-plugin-qunit: 7.3.4_eslint@8.36.0
@@ -8916,8 +8916,8 @@ packages:
       eslint: 8.36.0
     dev: true
 
-  /eslint-plugin-ember/11.4.7_eslint@8.36.0:
-    resolution: {integrity: sha512-9owpi2uCBBl8XXg0V5oW6nnQf4soqmRI8xs1Srf/kg9Om109CyxpY41i+ZSjRNFaTuWufXHSs5NCraFcrThoDg==}
+  /eslint-plugin-ember/11.4.8_eslint@8.36.0:
+    resolution: {integrity: sha512-ytHEMDNkXbkBAfw2loR62pLozOiMp+Y7BJaupSQK25lCsfrhVMsfog2uTvicoCwDDPgcOJrivdUmMbfErOGOdQ==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       eslint: '>= 7'
