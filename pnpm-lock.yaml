@@ -206,7 +206,7 @@ importers:
       ember-qunit: 6.0.0
       ember-resolver: 10.0.0
       ember-sinon: 5.0.0
-      ember-sinon-qunit: 7.1.2
+      ember-sinon-qunit: 7.1.3
       ember-source: 4.11.0
       ember-source-channel-url: 3.0.0
       ember-template-lint: 4.18.2
@@ -251,7 +251,7 @@ importers:
       ember-qunit: 6.0.0_isin3swqlctgkni52ujdhd2edq
       ember-resolver: 10.0.0_kzwsaxkqup2inborfmd55uo3na
       ember-sinon: 5.0.0
-      ember-sinon-qunit: 7.1.2_ywpthljsen5mq4pajuixi5ragi
+      ember-sinon-qunit: 7.1.3_ywpthljsen5mq4pajuixi5ragi
       ember-source: 4.11.0_dktna7hz2reokdjshmzhzspjda
       ember-source-channel-url: 3.0.0
       ember-template-lint: 4.18.2
@@ -8417,8 +8417,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-sinon-qunit/7.1.2_ywpthljsen5mq4pajuixi5ragi:
-    resolution: {integrity: sha512-96jrZQVhV9mu4oIijH85fAALv4IZfitDd4/brAXqkEl9RHGKy2KGDY+OcNAIfjflixmxnPISLqlcFvAS87Eevw==}
+  /ember-sinon-qunit/7.1.3_ywpthljsen5mq4pajuixi5ragi:
+    resolution: {integrity: sha512-COp44a3KYWq3GaDGZPnyXg0LDurBPlvCQiLV9v3wX+E1UV0FJ5CyIcdlxe11kLPNG5K4jrC5XUuhhTJ+EefZig==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       ember-source: ^3.28.0 || ^4.0.0
