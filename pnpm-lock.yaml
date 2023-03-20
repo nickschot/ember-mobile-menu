@@ -36,7 +36,7 @@ importers:
       ember-source: 4.11.0
       ember-template-lint: 4.18.2
       eslint: 8.36.0
-      eslint-config-prettier: 8.7.0
+      eslint-config-prettier: 8.8.0
       eslint-plugin-ember: 11.4.8
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
@@ -69,10 +69,10 @@ importers:
       ember-source: 4.11.0_j6mhgbor4xqonp65vkpdi5nj6q
       ember-template-lint: 4.18.2
       eslint: 8.36.0
-      eslint-config-prettier: 8.7.0_eslint@8.36.0
+      eslint-config-prettier: 8.8.0_eslint@8.36.0
       eslint-plugin-ember: 11.4.8_eslint@8.36.0
       eslint-plugin-node: 11.1.0_eslint@8.36.0
-      eslint-plugin-prettier: 4.2.1_e4jq4ivnnnwcsomlcyj2qoljy4
+      eslint-plugin-prettier: 4.2.1_i2qmqyy4fgpgq2h7f6vnil3crq
       eslint-plugin-qunit: 7.3.4_eslint@8.36.0
       npm-run-all: 4.1.5
       prettier: 2.8.5
@@ -117,7 +117,7 @@ importers:
       ember-template-lint: 4.18.2
       ember-try: 2.0.0
       eslint: 8.36.0
-      eslint-config-prettier: 8.7.0
+      eslint-config-prettier: 8.8.0
       eslint-plugin-ember: 11.4.8
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
@@ -166,10 +166,10 @@ importers:
       ember-template-lint: 4.18.2
       ember-try: 2.0.0
       eslint: 8.36.0
-      eslint-config-prettier: 8.7.0_eslint@8.36.0
+      eslint-config-prettier: 8.8.0_eslint@8.36.0
       eslint-plugin-ember: 11.4.8_eslint@8.36.0
       eslint-plugin-node: 11.1.0_eslint@8.36.0
-      eslint-plugin-prettier: 4.2.1_e4jq4ivnnnwcsomlcyj2qoljy4
+      eslint-plugin-prettier: 4.2.1_i2qmqyy4fgpgq2h7f6vnil3crq
       eslint-plugin-qunit: 7.3.4_eslint@8.36.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
@@ -212,7 +212,7 @@ importers:
       ember-template-lint: 4.18.2
       ember-try: 2.0.0
       eslint: 8.36.0
-      eslint-config-prettier: 8.7.0
+      eslint-config-prettier: 8.8.0
       eslint-plugin-ember: 11.4.8
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 4.2.1
@@ -257,10 +257,10 @@ importers:
       ember-template-lint: 4.18.2
       ember-try: 2.0.0
       eslint: 8.36.0
-      eslint-config-prettier: 8.7.0_eslint@8.36.0
+      eslint-config-prettier: 8.8.0_eslint@8.36.0
       eslint-plugin-ember: 11.4.8_eslint@8.36.0
       eslint-plugin-node: 11.1.0_eslint@8.36.0
-      eslint-plugin-prettier: 4.2.1_e4jq4ivnnnwcsomlcyj2qoljy4
+      eslint-plugin-prettier: 4.2.1_i2qmqyy4fgpgq2h7f6vnil3crq
       eslint-plugin-qunit: 7.3.4_eslint@8.36.0
       loader.js: 4.7.0
       npm-run-all: 4.1.5
@@ -8908,8 +8908,8 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /eslint-config-prettier/8.7.0_eslint@8.36.0:
-    resolution: {integrity: sha512-HHVXLSlVUhMSmyW4ZzEuvjpwqamgmlfkutD53cYXLikh4pt/modINRcCIApJ84czDxM4GZInwUrromsDdTImTA==}
+  /eslint-config-prettier/8.8.0_eslint@8.36.0:
+    resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -8966,7 +8966,7 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_e4jq4ivnnnwcsomlcyj2qoljy4:
+  /eslint-plugin-prettier/4.2.1_i2qmqyy4fgpgq2h7f6vnil3crq:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -8978,7 +8978,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.36.0
-      eslint-config-prettier: 8.7.0_eslint@8.36.0
+      eslint-config-prettier: 8.8.0_eslint@8.36.0
       prettier: 2.8.5
       prettier-linter-helpers: 1.0.0
     dev: true
