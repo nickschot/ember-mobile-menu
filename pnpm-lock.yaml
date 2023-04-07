@@ -54,8 +54,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1
       ember-gesture-modifiers:
-        specifier: ^4.0.0
-        version: 4.0.1
+        specifier: ^5.0.0
+        version: 5.0.0(ember-source@4.11.0)(webpack@5.78.0)
       ember-on-resize-modifier:
         specifier: ^1.0.0
         version: 1.1.0
@@ -2154,7 +2154,6 @@ packages:
       semver: 7.3.8
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@embroider/macros@1.10.0:
     resolution: {integrity: sha512-LMbfQGk/a+f6xtvAv5fq/wf2LRxETnbgSCLUf/z6ebzmuskOUxrke+uP55chF/loWrARi9g6erFQ7RDOUoBMSg==}
@@ -8259,16 +8258,20 @@ packages:
       - supports-color
     dev: true
 
-  /ember-gesture-modifiers@4.0.1:
-    resolution: {integrity: sha512-ngOEFxD1LqUfrBvlJuwtpJGDpV01/ybNFIVW6aDVSN0UAEefx1gwLISTAXE3qq45jkZgWZRImcyswqxdSh76ww==}
-    engines: {node: 14.* || >= 16}
+  /ember-gesture-modifiers@5.0.0(ember-source@4.11.0)(webpack@5.78.0):
+    resolution: {integrity: sha512-vQMClmRpgubGjeUi+eNlPabPyctsQAT/8MkFHZUFE+KvRfUVEagaStEJhVXfGWewueEIT1IHeeWqi0MoBPQJaQ==}
+    engines: {node: 14.* || 16.* || >= 18}
+    peerDependencies:
+      ember-source: ^3.28.0 || ^4.0.0
     dependencies:
+      ember-auto-import: 2.6.1(webpack@5.78.0)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.2.0
-      ember-modifier: 3.2.7
+      ember-modifier: 4.1.0(ember-source@4.11.0)
+      ember-source: 4.11.0(@glimmer/component@1.1.2)(webpack@5.78.0)
     transitivePeerDependencies:
-      - '@babel/core'
       - supports-color
+      - webpack
 
   /ember-inflector@4.0.2:
     resolution: {integrity: sha512-+oRstEa52mm0jAFzhr51/xtEWpCEykB3SEBr7vUg8YnXUZJ5hKNBppP938q8Zzr9XfJEbzrtDSGjhKwJCJv6FQ==}
@@ -8371,7 +8374,6 @@ packages:
       ember-source: 4.11.0(@glimmer/component@1.1.2)(webpack@5.78.0)
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /ember-on-resize-modifier@1.1.0:
     resolution: {integrity: sha512-Pz7muUcwzgAVGQ3ZNCdY/KMKtmvtJk5DWetuvx2MVHZCRpVzSRvkVa2tKXcp4tmz/COYUysneJxAR4tmwAyH9Q==}
@@ -17358,7 +17360,7 @@ packages:
       ember-cli-htmlbars: 6.2.0
       ember-concurrency: 2.3.7
       ember-could-get-used-to-this: 1.0.1
-      ember-gesture-modifiers: 4.0.1
+      ember-gesture-modifiers: 5.0.0(ember-source@4.11.0)(webpack@5.78.0)
       ember-on-resize-modifier: 1.1.0
       ember-set-body-class: 1.0.2
       ember-source: 4.11.0(@glimmer/component@1.1.2)(webpack@5.78.0)
