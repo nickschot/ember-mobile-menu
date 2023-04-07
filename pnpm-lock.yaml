@@ -48,8 +48,8 @@ importers:
         specifier: ^6.0.1
         version: 6.2.0
       ember-concurrency:
-        specifier: ^2.1.0
-        version: 2.3.7
+        specifier: ^3.0.0
+        version: 3.0.0
       ember-could-get-used-to-this:
         specifier: ^1.0.0
         version: 1.0.1
@@ -8114,6 +8114,23 @@ packages:
 
   /ember-concurrency@2.3.7:
     resolution: {integrity: sha512-sz6sTIXN/CuLb5wdpauFa+rWXuvXXSnSHS4kuNzU5GSMDX1pLBWSuovoUk61FUe6CYRqBmT1/UushObwBGickQ==}
+    engines: {node: 10.* || 12.* || 14.* || >= 16}
+    dependencies:
+      '@babel/helper-plugin-utils': 7.20.2
+      '@babel/types': 7.21.3
+      '@glimmer/tracking': 1.1.2
+      ember-cli-babel: 7.26.11
+      ember-cli-babel-plugin-helpers: 1.1.1
+      ember-cli-htmlbars: 5.7.2
+      ember-compatibility-helpers: 1.2.6
+      ember-destroyable-polyfill: 2.0.3
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
+  /ember-concurrency@3.0.0:
+    resolution: {integrity: sha512-MUsOgl4qLkINxrY+9FuohSOsn7Ytd3xCxu9mThSrMPatxomscZz/0lT4M95S7xy2aNO4o/zGfAEULECQ09YkWA==}
     engines: {node: 10.* || 12.* || 14.* || >= 16}
     dependencies:
       '@babel/helper-plugin-utils': 7.20.2
@@ -17230,7 +17247,7 @@ packages:
       ember-auto-import: 2.6.1(webpack@5.78.0)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.2.0
-      ember-concurrency: 2.3.7
+      ember-concurrency: 3.0.0
       ember-could-get-used-to-this: 1.0.1
       ember-gesture-modifiers: 4.0.1
       ember-on-resize-modifier: 1.1.0
