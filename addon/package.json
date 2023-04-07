@@ -62,7 +62,7 @@
     "webpack": "5.82.1"
   },
   "peerDependencies": {
-    "ember-source": "*"
+    "ember-source": ">=3.28.0"
   },
   "engines": {
     "node": "14.* || >= 16"
