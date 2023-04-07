@@ -75,8 +75,6 @@ jobs:
           - ember-lts-3.24
           - ember-lts-3.28
           - ember-release
-          - ember-beta
-          - ember-canary
           - ember-classic
           - ember-default-with-jquery
           - embroider-safe
@@ -97,3 +95,40 @@ jobs:
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: test-app
+
+  allowed-fail-try-scenarios:
+    name: ${{ matrix.try-scenario }} - Allowed to fail
+    runs-on: ubuntu-latest
+    needs: 'test'
+    permissions:
+      pull-requests: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        try-scenario:
+          - ember-beta
+          - ember-canary
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.x
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Run Tests
+        id: tests
+        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+        continue-on-error: true
+        working-directory: test-app
+      - uses: mainmatter/continue-on-error-comment@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          outcome: ${{ steps.tests.outcome }}
+          test-id: ${{ matrix.try-scenario }}
