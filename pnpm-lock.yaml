@@ -92,7 +92,7 @@ importers:
         version: 11.1.0(eslint@8.36.0)
       eslint-plugin-prettier:
         specifier: 4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.5)
+        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.7)
       eslint-plugin-qunit:
         specifier: 7.3.4
         version: 7.3.4(eslint@8.36.0)
@@ -100,8 +100,8 @@ importers:
         specifier: 4.1.5
         version: 4.1.5
       prettier:
-        specifier: 2.8.5
-        version: 2.8.5
+        specifier: 2.8.7
+        version: 2.8.7
       sass:
         specifier: 1.61.0
         version: 1.61.0
@@ -230,7 +230,7 @@ importers:
         version: 11.1.0(eslint@8.36.0)
       eslint-plugin-prettier:
         specifier: 4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.5)
+        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.7)
       eslint-plugin-qunit:
         specifier: 7.3.4
         version: 7.3.4(eslint@8.36.0)
@@ -241,8 +241,8 @@ importers:
         specifier: 4.1.5
         version: 4.1.5
       prettier:
-        specifier: 2.8.5
-        version: 2.8.5
+        specifier: 2.8.7
+        version: 2.8.7
       qunit:
         specifier: 2.19.4
         version: 2.19.4
@@ -362,7 +362,7 @@ importers:
         version: 11.1.0(eslint@8.36.0)
       eslint-plugin-prettier:
         specifier: 4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.5)
+        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.7)
       eslint-plugin-qunit:
         specifier: 7.3.4
         version: 7.3.4(eslint@8.36.0)
@@ -373,8 +373,8 @@ importers:
         specifier: 4.1.5
         version: 4.1.5
       prettier:
-        specifier: 2.8.5
-        version: 2.8.5
+        specifier: 2.8.7
+        version: 2.8.7
       qunit:
         specifier: 2.19.4
         version: 2.19.4
@@ -9122,7 +9122,7 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.5):
+  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.7):
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -9135,7 +9135,7 @@ packages:
     dependencies:
       eslint: 8.36.0
       eslint-config-prettier: 8.8.0(eslint@8.36.0)
-      prettier: 2.8.5
+      prettier: 2.8.7
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -14100,8 +14100,8 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier@2.8.5:
-    resolution: {integrity: sha512-3gzuxrHbKUePRBB4ZeU08VNkUcqEHaUaouNt0m7LGP4Hti/NuB07C7PPTM/LkWqXoJYJn2McEo5+kxPNrtQkLQ==}
+  /prettier@2.8.7:
+    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
 
@@ -14715,7 +14715,7 @@ packages:
       '@babel/core': 7.21.3
       '@babel/plugin-syntax-decorators': 7.21.0(@babel/core@7.21.3)
       '@babel/plugin-transform-typescript': 7.21.3(@babel/core@7.21.3)
-      prettier: 2.8.5
+      prettier: 2.8.7
     transitivePeerDependencies:
       - supports-color
 
