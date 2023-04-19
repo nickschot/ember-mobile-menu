@@ -40,7 +40,7 @@ importers:
         version: 3.1.5
       ember-auto-import:
         specifier: ^2.2.4
-        version: 2.6.1(webpack@5.79.0)
+        version: 2.6.1(webpack@5.80.0)
       ember-cli-babel:
         specifier: ^7.26.11
         version: 7.26.11
@@ -55,10 +55,10 @@ importers:
         version: 1.0.1
       ember-gesture-modifiers:
         specifier: ^5.0.0
-        version: 5.0.0(ember-source@4.12.0)(webpack@5.79.0)
+        version: 5.0.0(ember-source@4.12.0)(webpack@5.80.0)
       ember-on-resize-modifier:
         specifier: ^2.0.0
-        version: 2.0.2(ember-source@4.12.0)(webpack@5.79.0)
+        version: 2.0.2(ember-source@4.12.0)(webpack@5.80.0)
       ember-set-body-class:
         specifier: ^1.0.1
         version: 1.0.2
@@ -74,7 +74,7 @@ importers:
         version: 7.21.3(eslint@8.38.0)
       ember-source:
         specifier: 4.12.0
-        version: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+        version: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
       ember-template-lint:
         specifier: 4.18.2
         version: 4.18.2
@@ -106,8 +106,8 @@ importers:
         specifier: 1.62.0
         version: 1.62.0
       webpack:
-        specifier: 5.79.0
-        version: 5.79.0
+        specifier: 5.80.0
+        version: 5.80.0
 
   docs:
     devDependencies:
@@ -134,13 +134,13 @@ importers:
         version: 3.0.0
       ember-auto-import:
         specifier: 2.6.3
-        version: 2.6.3(webpack@5.79.0)
+        version: 2.6.3(webpack@5.80.0)
       ember-cli:
         specifier: 4.12.1
         version: 4.12.1
       ember-cli-addon-docs:
         specifier: 5.1.0
-        version: 5.1.0(@ember/test-helpers@2.9.3)(ember-data@4.12.0)(ember-fetch@8.1.2)(ember-source@4.12.0)(webpack@5.79.0)
+        version: 5.1.0(@ember/test-helpers@2.9.3)(ember-data@4.12.0)(ember-fetch@8.1.2)(ember-source@4.12.0)(webpack@5.80.0)
       ember-cli-addon-docs-yuidoc:
         specifier: 1.0.0
         version: 1.0.0
@@ -179,7 +179,7 @@ importers:
         version: 4.0.2
       ember-data:
         specifier: 4.12.0
-        version: 4.12.0(@ember/string@3.0.1)(@glimmer/tracking@1.1.2)(ember-source@4.12.0)(webpack@5.79.0)
+        version: 4.12.0(@ember/string@3.0.1)(@glimmer/tracking@1.1.2)(ember-source@4.12.0)(webpack@5.80.0)
       ember-disable-prototype-extensions:
         specifier: 1.1.3
         version: 1.1.3
@@ -197,7 +197,7 @@ importers:
         version: 7.0.0
       ember-qunit:
         specifier: 6.0.0
-        version: 6.0.0(@ember/test-helpers@2.9.3)(qunit@2.19.4)(webpack@5.79.0)
+        version: 6.0.0(@ember/test-helpers@2.9.3)(qunit@2.19.4)(webpack@5.80.0)
       ember-resize-observer-polyfill:
         specifier: 0.0.1
         version: 0.0.1
@@ -206,7 +206,7 @@ importers:
         version: 10.0.0(@ember/string@3.0.1)(ember-source@4.12.0)
       ember-source:
         specifier: 4.12.0
-        version: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+        version: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
       ember-source-channel-url:
         specifier: 3.0.0
         version: 3.0.0
@@ -253,8 +253,8 @@ importers:
         specifier: 1.62.0
         version: 1.62.0
       webpack:
-        specifier: 5.79.0
-        version: 5.79.0
+        specifier: 5.80.0
+        version: 5.80.0
 
   test-app:
     devDependencies:
@@ -284,7 +284,7 @@ importers:
         version: 3.0.0
       ember-auto-import:
         specifier: 2.6.3
-        version: 2.6.3(webpack@5.79.0)
+        version: 2.6.3(webpack@5.80.0)
       ember-cli:
         specifier: 4.12.1
         version: 4.12.1
@@ -320,13 +320,13 @@ importers:
         version: 2.1.2
       ember-mobile-menu:
         specifier: 3.0.3
-        version: file:addon(ember-source@4.12.0)(webpack@5.79.0)
+        version: file:addon(ember-source@4.12.0)(webpack@5.80.0)
       ember-page-title:
         specifier: 7.0.0
         version: 7.0.0
       ember-qunit:
         specifier: 6.0.0
-        version: 6.0.0(@ember/test-helpers@2.9.3)(qunit@2.19.4)(webpack@5.79.0)
+        version: 6.0.0(@ember/test-helpers@2.9.3)(qunit@2.19.4)(webpack@5.80.0)
       ember-resolver:
         specifier: 10.0.0
         version: 10.0.0(@ember/string@3.0.1)(ember-source@4.12.0)
@@ -335,10 +335,10 @@ importers:
         version: 5.0.0
       ember-sinon-qunit:
         specifier: 7.1.4
-        version: 7.1.4(ember-source@4.12.0)(qunit@2.19.4)(sinon@15.0.3)(webpack@5.79.0)
+        version: 7.1.4(ember-source@4.12.0)(qunit@2.19.4)(sinon@15.0.3)(webpack@5.80.0)
       ember-source:
         specifier: 4.12.0
-        version: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+        version: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
       ember-source-channel-url:
         specifier: 3.0.0
         version: 3.0.0
@@ -388,8 +388,8 @@ importers:
         specifier: 15.0.3
         version: 15.0.3
       webpack:
-        specifier: 5.79.0
-        version: 5.79.0
+        specifier: 5.80.0
+        version: 5.80.0
     dependenciesMeta:
       ember-mobile-menu:
         injected: true
@@ -2989,7 +2989,7 @@ packages:
       - supports-color
     dev: true
 
-  /@ember-data/debug@4.12.0(@ember/string@3.0.1)(webpack@5.79.0):
+  /@ember-data/debug@4.12.0(@ember/string@3.0.1)(webpack@5.80.0):
     resolution: {integrity: sha512-6SNJjoV3zKnjjZEu9/tOjeWdN70mxmkvHd+0Y7kjasmjLBgIkZk20+B/nFm25MpmmpfZEsvdUY3HIfu+iPy+5A==}
     engines: {node: 16.* || >= 18.*}
     peerDependencies:
@@ -2999,7 +2999,7 @@ packages:
       '@ember/edition-utils': 1.2.0
       '@ember/string': 3.0.1
       '@embroider/macros': 1.10.0
-      ember-auto-import: 2.6.3(webpack@5.79.0)
+      ember-auto-import: 2.6.3(webpack@5.80.0)
       ember-cli-babel: 7.26.11
     transitivePeerDependencies:
       - supports-color
@@ -3079,7 +3079,7 @@ packages:
       '@ember-data/json-api':
         optional: true
     dependencies:
-      '@ember-data/debug': 4.12.0(@ember/string@3.0.1)(webpack@5.79.0)
+      '@ember-data/debug': 4.12.0(@ember/string@3.0.1)(webpack@5.80.0)
       '@ember-data/graph': 4.12.0(@ember-data/store@4.12.0)
       '@ember-data/json-api': 4.12.0(@ember-data/graph@4.12.0)(@ember-data/store@4.12.0)
       '@ember-data/legacy-compat': 4.12.0(@ember-data/graph@4.12.0)(@ember-data/json-api@4.12.0)
@@ -3257,7 +3257,7 @@ packages:
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 5.7.2
       ember-cli-typescript: 4.2.1
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -3284,7 +3284,7 @@ packages:
       '@embroider/macros': 1.10.0
       ember-cli-babel: 7.26.11
       ember-modifier-manager-polyfill: 1.2.0
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -3312,7 +3312,7 @@ packages:
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.2.0
       ember-destroyable-polyfill: 2.0.3
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
     transitivePeerDependencies:
       - '@babel/core'
       - '@glint/template'
@@ -3403,7 +3403,7 @@ packages:
       '@embroider/macros': 1.10.0
       broccoli-funnel: 3.0.8
       ember-cli-babel: 7.26.11
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4266,11 +4266,11 @@ packages:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
     dev: true
 
-  /@webassemblyjs/ast@1.11.1:
-    resolution: {integrity: sha512-ukBh14qFLjxTQNTXocdyksN5QdM28S1CxHt2rdskFyL+xFV7VremuBLVbmCePj+URalXBENx/9Lm7lnhihtCSw==}
+  /@webassemblyjs/ast@1.11.5:
+    resolution: {integrity: sha512-LHY/GSAZZRpsNQH+/oHqhRQ5FT7eoULcBqgfyTB5nQHogFnK3/7QoN7dLnwSE/JkUAF0SrRuclT7ODqMFtWxxQ==}
     dependencies:
-      '@webassemblyjs/helper-numbers': 1.11.1
-      '@webassemblyjs/helper-wasm-bytecode': 1.11.1
+      '@webassemblyjs/helper-numbers': 1.11.5
+      '@webassemblyjs/helper-wasm-bytecode': 1.11.5
 
   /@webassemblyjs/ast@1.9.0:
     resolution: {integrity: sha512-C6wW5L+b7ogSDVqymbkkvuW9kruN//YisMED04xzeBBqjHa2FYnmvOlS6Xj68xWQRgWvI9cIglsjFowH/RJyEA==}
@@ -4280,22 +4280,22 @@ packages:
       '@webassemblyjs/wast-parser': 1.9.0
     dev: true
 
-  /@webassemblyjs/floating-point-hex-parser@1.11.1:
-    resolution: {integrity: sha512-iGRfyc5Bq+NnNuX8b5hwBrRjzf0ocrJPI6GWFodBFzmFnyvrQ83SHKhmilCU/8Jv67i4GJZBMhEzltxzcNagtQ==}
+  /@webassemblyjs/floating-point-hex-parser@1.11.5:
+    resolution: {integrity: sha512-1j1zTIC5EZOtCplMBG/IEwLtUojtwFVwdyVMbL/hwWqbzlQoJsWCOavrdnLkemwNoC/EOwtUFch3fuo+cbcXYQ==}
 
   /@webassemblyjs/floating-point-hex-parser@1.9.0:
     resolution: {integrity: sha512-TG5qcFsS8QB4g4MhrxK5TqfdNe7Ey/7YL/xN+36rRjl/BlGE/NcBvJcqsRgCP6Z92mRE+7N50pRIi8SmKUbcQA==}
     dev: true
 
-  /@webassemblyjs/helper-api-error@1.11.1:
-    resolution: {integrity: sha512-RlhS8CBCXfRUR/cwo2ho9bkheSXG0+NwooXcc3PAILALf2QLdFyj7KGsKRbVc95hZnhnERon4kW/D3SZpp6Tcg==}
+  /@webassemblyjs/helper-api-error@1.11.5:
+    resolution: {integrity: sha512-L65bDPmfpY0+yFrsgz8b6LhXmbbs38OnwDCf6NpnMUYqa+ENfE5Dq9E42ny0qz/PdR0LJyq/T5YijPnU8AXEpA==}
 
   /@webassemblyjs/helper-api-error@1.9.0:
     resolution: {integrity: sha512-NcMLjoFMXpsASZFxJ5h2HZRcEhDkvnNFOAKneP5RbKRzaWJN36NC4jqQHKwStIhGXu5mUWlUUk7ygdtrO8lbmw==}
     dev: true
 
-  /@webassemblyjs/helper-buffer@1.11.1:
-    resolution: {integrity: sha512-gwikF65aDNeeXa8JxXa2BAk+REjSyhrNC9ZwdT0f8jc4dQQeDQ7G4m0f2QCLPJiMTTO6wfDmRmj/pW0PsUvIcA==}
+  /@webassemblyjs/helper-buffer@1.11.5:
+    resolution: {integrity: sha512-fDKo1gstwFFSfacIeH5KfwzjykIE6ldh1iH9Y/8YkAZrhmu4TctqYjSh7t0K2VyDSXOZJ1MLhht/k9IvYGcIxg==}
 
   /@webassemblyjs/helper-buffer@1.9.0:
     resolution: {integrity: sha512-qZol43oqhq6yBPx7YM3m9Bv7WMV9Eevj6kMi6InKOuZxhw+q9hOkvq5e/PpKSiLfyetpaBnogSbNCfBwyB00CA==}
@@ -4317,27 +4317,27 @@ packages:
       '@webassemblyjs/ast': 1.9.0
     dev: true
 
-  /@webassemblyjs/helper-numbers@1.11.1:
-    resolution: {integrity: sha512-vDkbxiB8zfnPdNK9Rajcey5C0w+QJugEglN0of+kmO8l7lDb77AnlKYQF7aarZuCrv+l0UvqL+68gSDr3k9LPQ==}
+  /@webassemblyjs/helper-numbers@1.11.5:
+    resolution: {integrity: sha512-DhykHXM0ZABqfIGYNv93A5KKDw/+ywBFnuWybZZWcuzWHfbp21wUfRkbtz7dMGwGgT4iXjWuhRMA2Mzod6W4WA==}
     dependencies:
-      '@webassemblyjs/floating-point-hex-parser': 1.11.1
-      '@webassemblyjs/helper-api-error': 1.11.1
+      '@webassemblyjs/floating-point-hex-parser': 1.11.5
+      '@webassemblyjs/helper-api-error': 1.11.5
       '@xtuc/long': 4.2.2
 
-  /@webassemblyjs/helper-wasm-bytecode@1.11.1:
-    resolution: {integrity: sha512-PvpoOGiJwXeTrSf/qfudJhwlvDQxFgelbMqtq52WWiXC6Xgg1IREdngmPN3bs4RoO83PnL/nFrxucXj1+BX62Q==}
+  /@webassemblyjs/helper-wasm-bytecode@1.11.5:
+    resolution: {integrity: sha512-oC4Qa0bNcqnjAowFn7MPCETQgDYytpsfvz4ujZz63Zu/a/v71HeCAAmZsgZ3YVKec3zSPYytG3/PrRCqbtcAvA==}
 
   /@webassemblyjs/helper-wasm-bytecode@1.9.0:
     resolution: {integrity: sha512-R7FStIzyNcd7xKxCZH5lE0Bqy+hGTwS3LJjuv1ZVxd9O7eHCedSdrId/hMOd20I+v8wDXEn+bjfKDLzTepoaUw==}
     dev: true
 
-  /@webassemblyjs/helper-wasm-section@1.11.1:
-    resolution: {integrity: sha512-10P9No29rYX1j7F3EVPX3JvGPQPae+AomuSTPiF9eBQeChHI6iqjMIwR9JmOJXwpnn/oVGDk7I5IlskuMwU/pg==}
+  /@webassemblyjs/helper-wasm-section@1.11.5:
+    resolution: {integrity: sha512-uEoThA1LN2NA+K3B9wDo3yKlBfVtC6rh0i4/6hvbz071E8gTNZD/pT0MsBf7MeD6KbApMSkaAK0XeKyOZC7CIA==}
     dependencies:
-      '@webassemblyjs/ast': 1.11.1
-      '@webassemblyjs/helper-buffer': 1.11.1
-      '@webassemblyjs/helper-wasm-bytecode': 1.11.1
-      '@webassemblyjs/wasm-gen': 1.11.1
+      '@webassemblyjs/ast': 1.11.5
+      '@webassemblyjs/helper-buffer': 1.11.5
+      '@webassemblyjs/helper-wasm-bytecode': 1.11.5
+      '@webassemblyjs/wasm-gen': 1.11.5
 
   /@webassemblyjs/helper-wasm-section@1.9.0:
     resolution: {integrity: sha512-XnMB8l3ek4tvrKUUku+IVaXNHz2YsJyOOmz+MMkZvh8h1uSJpSen6vYnw3IoQ7WwEuAhL8Efjms1ZWjqh2agvw==}
@@ -4348,8 +4348,8 @@ packages:
       '@webassemblyjs/wasm-gen': 1.9.0
     dev: true
 
-  /@webassemblyjs/ieee754@1.11.1:
-    resolution: {integrity: sha512-hJ87QIPtAMKbFq6CGTkZYJivEwZDbQUgYd3qKSadTNOhVY7p+gfP6Sr0lLRVTaG1JjFj+r3YchoqRYxNH3M0GQ==}
+  /@webassemblyjs/ieee754@1.11.5:
+    resolution: {integrity: sha512-37aGq6qVL8A8oPbPrSGMBcp38YZFXcHfiROflJn9jxSdSMMM5dS5P/9e2/TpaJuhE+wFrbukN2WI6Hw9MH5acg==}
     dependencies:
       '@xtuc/ieee754': 1.2.0
 
@@ -4359,8 +4359,8 @@ packages:
       '@xtuc/ieee754': 1.2.0
     dev: true
 
-  /@webassemblyjs/leb128@1.11.1:
-    resolution: {integrity: sha512-BJ2P0hNZ0u+Th1YZXJpzW6miwqQUGcIHT1G/sf72gLVD9DZ5AdYTqPNbHZh6K1M5VmKvFXwGSWZADz+qBWxeRw==}
+  /@webassemblyjs/leb128@1.11.5:
+    resolution: {integrity: sha512-ajqrRSXaTJoPW+xmkfYN6l8VIeNnR4vBOTQO9HzR7IygoCcKWkICbKFbVTNMjMgMREqXEr0+2M6zukzM47ZUfQ==}
     dependencies:
       '@xtuc/long': 4.2.2
 
@@ -4370,24 +4370,24 @@ packages:
       '@xtuc/long': 4.2.2
     dev: true
 
-  /@webassemblyjs/utf8@1.11.1:
-    resolution: {integrity: sha512-9kqcxAEdMhiwQkHpkNiorZzqpGrodQQ2IGrHHxCy+Ozng0ofyMA0lTqiLkVs1uzTRejX+/O0EOT7KxqVPuXosQ==}
+  /@webassemblyjs/utf8@1.11.5:
+    resolution: {integrity: sha512-WiOhulHKTZU5UPlRl53gHR8OxdGsSOxqfpqWeA2FmcwBMaoEdz6b2x2si3IwC9/fSPLfe8pBMRTHVMk5nlwnFQ==}
 
   /@webassemblyjs/utf8@1.9.0:
     resolution: {integrity: sha512-GZbQlWtopBTP0u7cHrEx+73yZKrQoBMpwkGEIqlacljhXCkVM1kMQge/Mf+csMJAjEdSwhOyLAS0AoR3AG5P8w==}
     dev: true
 
-  /@webassemblyjs/wasm-edit@1.11.1:
-    resolution: {integrity: sha512-g+RsupUC1aTHfR8CDgnsVRVZFJqdkFHpsHMfJuWQzWU3tvnLC07UqHICfP+4XyL2tnr1amvl1Sdp06TnYCmVkA==}
+  /@webassemblyjs/wasm-edit@1.11.5:
+    resolution: {integrity: sha512-C0p9D2fAu3Twwqvygvf42iGCQ4av8MFBLiTb+08SZ4cEdwzWx9QeAHDo1E2k+9s/0w1DM40oflJOpkZ8jW4HCQ==}
     dependencies:
-      '@webassemblyjs/ast': 1.11.1
-      '@webassemblyjs/helper-buffer': 1.11.1
-      '@webassemblyjs/helper-wasm-bytecode': 1.11.1
-      '@webassemblyjs/helper-wasm-section': 1.11.1
-      '@webassemblyjs/wasm-gen': 1.11.1
-      '@webassemblyjs/wasm-opt': 1.11.1
-      '@webassemblyjs/wasm-parser': 1.11.1
-      '@webassemblyjs/wast-printer': 1.11.1
+      '@webassemblyjs/ast': 1.11.5
+      '@webassemblyjs/helper-buffer': 1.11.5
+      '@webassemblyjs/helper-wasm-bytecode': 1.11.5
+      '@webassemblyjs/helper-wasm-section': 1.11.5
+      '@webassemblyjs/wasm-gen': 1.11.5
+      '@webassemblyjs/wasm-opt': 1.11.5
+      '@webassemblyjs/wasm-parser': 1.11.5
+      '@webassemblyjs/wast-printer': 1.11.5
 
   /@webassemblyjs/wasm-edit@1.9.0:
     resolution: {integrity: sha512-FgHzBm80uwz5M8WKnMTn6j/sVbqilPdQXTWraSjBwFXSYGirpkSWE2R9Qvz9tNiTKQvoKILpCuTjBKzOIm0nxw==}
@@ -4402,14 +4402,14 @@ packages:
       '@webassemblyjs/wast-printer': 1.9.0
     dev: true
 
-  /@webassemblyjs/wasm-gen@1.11.1:
-    resolution: {integrity: sha512-F7QqKXwwNlMmsulj6+O7r4mmtAlCWfO/0HdgOxSklZfQcDu0TpLiD1mRt/zF25Bk59FIjEuGAIyn5ei4yMfLhA==}
+  /@webassemblyjs/wasm-gen@1.11.5:
+    resolution: {integrity: sha512-14vteRlRjxLK9eSyYFvw1K8Vv+iPdZU0Aebk3j6oB8TQiQYuO6hj9s4d7qf6f2HJr2khzvNldAFG13CgdkAIfA==}
     dependencies:
-      '@webassemblyjs/ast': 1.11.1
-      '@webassemblyjs/helper-wasm-bytecode': 1.11.1
-      '@webassemblyjs/ieee754': 1.11.1
-      '@webassemblyjs/leb128': 1.11.1
-      '@webassemblyjs/utf8': 1.11.1
+      '@webassemblyjs/ast': 1.11.5
+      '@webassemblyjs/helper-wasm-bytecode': 1.11.5
+      '@webassemblyjs/ieee754': 1.11.5
+      '@webassemblyjs/leb128': 1.11.5
+      '@webassemblyjs/utf8': 1.11.5
 
   /@webassemblyjs/wasm-gen@1.9.0:
     resolution: {integrity: sha512-cPE3o44YzOOHvlsb4+E9qSqjc9Qf9Na1OO/BHFy4OI91XDE14MjFN4lTMezzaIWdPqHnsTodGGNP+iRSYfGkjA==}
@@ -4421,13 +4421,13 @@ packages:
       '@webassemblyjs/utf8': 1.9.0
     dev: true
 
-  /@webassemblyjs/wasm-opt@1.11.1:
-    resolution: {integrity: sha512-VqnkNqnZlU5EB64pp1l7hdm3hmQw7Vgqa0KF/KCNO9sIpI6Fk6brDEiX+iCOYrvMuBWDws0NkTOxYEb85XQHHw==}
+  /@webassemblyjs/wasm-opt@1.11.5:
+    resolution: {integrity: sha512-tcKwlIXstBQgbKy1MlbDMlXaxpucn42eb17H29rawYLxm5+MsEmgPzeCP8B1Cl69hCice8LeKgZpRUAPtqYPgw==}
     dependencies:
-      '@webassemblyjs/ast': 1.11.1
-      '@webassemblyjs/helper-buffer': 1.11.1
-      '@webassemblyjs/wasm-gen': 1.11.1
-      '@webassemblyjs/wasm-parser': 1.11.1
+      '@webassemblyjs/ast': 1.11.5
+      '@webassemblyjs/helper-buffer': 1.11.5
+      '@webassemblyjs/wasm-gen': 1.11.5
+      '@webassemblyjs/wasm-parser': 1.11.5
 
   /@webassemblyjs/wasm-opt@1.9.0:
     resolution: {integrity: sha512-Qkjgm6Anhm+OMbIL0iokO7meajkzQD71ioelnfPEj6r4eOFuqm4YC3VBPqXjFyyNwowzbMD+hizmprP/Fwkl2A==}
@@ -4438,15 +4438,15 @@ packages:
       '@webassemblyjs/wasm-parser': 1.9.0
     dev: true
 
-  /@webassemblyjs/wasm-parser@1.11.1:
-    resolution: {integrity: sha512-rrBujw+dJu32gYB7/Lup6UhdkPx9S9SnobZzRVL7VcBH9Bt9bCBLEuX/YXOOtBsOZ4NQrRykKhffRWHvigQvOA==}
+  /@webassemblyjs/wasm-parser@1.11.5:
+    resolution: {integrity: sha512-SVXUIwsLQlc8srSD7jejsfTU83g7pIGr2YYNb9oHdtldSxaOhvA5xwvIiWIfcX8PlSakgqMXsLpLfbbJ4cBYew==}
     dependencies:
-      '@webassemblyjs/ast': 1.11.1
-      '@webassemblyjs/helper-api-error': 1.11.1
-      '@webassemblyjs/helper-wasm-bytecode': 1.11.1
-      '@webassemblyjs/ieee754': 1.11.1
-      '@webassemblyjs/leb128': 1.11.1
-      '@webassemblyjs/utf8': 1.11.1
+      '@webassemblyjs/ast': 1.11.5
+      '@webassemblyjs/helper-api-error': 1.11.5
+      '@webassemblyjs/helper-wasm-bytecode': 1.11.5
+      '@webassemblyjs/ieee754': 1.11.5
+      '@webassemblyjs/leb128': 1.11.5
+      '@webassemblyjs/utf8': 1.11.5
 
   /@webassemblyjs/wasm-parser@1.9.0:
     resolution: {integrity: sha512-9+wkMowR2AmdSWQzsPEjFU7njh8HTO5MqO8vjwEHuM+AMHioNqSBONRdr0NQQ3dVQrzp0s8lTcYqzUdb7YgELA==}
@@ -4470,10 +4470,10 @@ packages:
       '@xtuc/long': 4.2.2
     dev: true
 
-  /@webassemblyjs/wast-printer@1.11.1:
-    resolution: {integrity: sha512-IQboUWM4eKzWW+N/jij2sRatKMh99QEelo3Eb2q0qXkvPRISAj8Qxtmw5itwqK+TTkBuUIE45AxYPToqPtL5gg==}
+  /@webassemblyjs/wast-printer@1.11.5:
+    resolution: {integrity: sha512-f7Pq3wvg3GSPUPzR0F6bmI89Hdb+u9WXrSKc4v+N0aV0q6r42WoF92Jp2jEorBEBRoRNXgjp53nBniDXcqZYPA==}
     dependencies:
-      '@webassemblyjs/ast': 1.11.1
+      '@webassemblyjs/ast': 1.11.5
       '@xtuc/long': 4.2.2
 
   /@webassemblyjs/wast-printer@1.9.0:
@@ -5242,7 +5242,7 @@ packages:
       webpack: 4.46.0
     dev: true
 
-  /babel-loader@8.3.0(@babel/core@7.21.3)(webpack@5.79.0):
+  /babel-loader@8.3.0(@babel/core@7.21.3)(webpack@5.80.0):
     resolution: {integrity: sha512-H8SvsMF+m9t15HNLMipppzkC+Y2Yq+v3SonZyU70RBL/h1gxPkH08Ot8pEE9Z4Kd+czyWJClmFS8qzIP9OZ04Q==}
     engines: {node: '>= 8.9'}
     peerDependencies:
@@ -5257,9 +5257,9 @@ packages:
       loader-utils: 2.0.4
       make-dir: 3.1.0
       schema-utils: 2.7.1
-      webpack: 5.79.0
+      webpack: 5.80.0
 
-  /babel-loader@8.3.0(@babel/core@7.21.4)(webpack@5.79.0):
+  /babel-loader@8.3.0(@babel/core@7.21.4)(webpack@5.80.0):
     resolution: {integrity: sha512-H8SvsMF+m9t15HNLMipppzkC+Y2Yq+v3SonZyU70RBL/h1gxPkH08Ot8pEE9Z4Kd+czyWJClmFS8qzIP9OZ04Q==}
     engines: {node: '>= 8.9'}
     peerDependencies:
@@ -5274,7 +5274,7 @@ packages:
       loader-utils: 2.0.4
       make-dir: 3.1.0
       schema-utils: 2.7.1
-      webpack: 5.79.0
+      webpack: 5.80.0
 
   /babel-messages@6.23.0:
     resolution: {integrity: sha512-Bl3ZiA+LjqaMtNYopA9TYE9HP1tQ+E5dLxE0XrAzcIJeK2UqF0/EaqXwBn9esd4UmTfEab+P+UYQ1GnioFIb/w==}
@@ -7907,7 +7907,7 @@ packages:
       type-fest: 1.4.0
     dev: true
 
-  /css-loader@5.2.7(webpack@5.79.0):
+  /css-loader@5.2.7(webpack@5.80.0):
     resolution: {integrity: sha512-Q7mOvpBNBG7YrVGMxRxcBJZFL75o+cH2abNASdibkj/fffYD8qWbInZrD0S9ccI6vZclF3DsHE7njGlLtaHbhg==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -7921,9 +7921,9 @@ packages:
       postcss-modules-scope: 3.0.0(postcss@8.4.21)
       postcss-modules-values: 4.0.0(postcss@8.4.21)
       postcss-value-parser: 4.2.0
-      schema-utils: 3.1.1
+      schema-utils: 3.1.2
       semver: 7.3.8
-      webpack: 5.79.0
+      webpack: 5.80.0
 
   /css-select-base-adapter@0.1.1:
     resolution: {integrity: sha512-jQVeeRG70QI08vSTwf1jHxp74JoZsr2XSgETae8/xC8ovSnL2WF87GTLO86Sbwdt2lK4Umg4HnnwMO4YF3Ce7w==}
@@ -8562,7 +8562,7 @@ packages:
       - webpack-command
     dev: true
 
-  /ember-auto-import@2.6.1(webpack@5.79.0):
+  /ember-auto-import@2.6.1(webpack@5.80.0):
     resolution: {integrity: sha512-3bCRi/pXp4QslmuCXGlSz9xwR7DF5oDx3zZO5OXKzNZihtkqAM1xvGuRIdQSl46pvbAXOkp8Odl5fOen1i0dRw==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
@@ -8572,7 +8572,7 @@ packages:
       '@babel/preset-env': 7.20.2(@babel/core@7.21.4)
       '@embroider/macros': 1.10.0
       '@embroider/shared-internals': 2.0.0
-      babel-loader: 8.3.0(@babel/core@7.21.4)(webpack@5.79.0)
+      babel-loader: 8.3.0(@babel/core@7.21.4)(webpack@5.80.0)
       babel-plugin-ember-modules-api-polyfill: 3.5.0
       babel-plugin-htmlbars-inline-precompile: 5.3.1
       babel-plugin-syntax-dynamic-import: 6.18.0
@@ -8581,26 +8581,26 @@ packages:
       broccoli-merge-trees: 4.2.0
       broccoli-plugin: 4.0.7
       broccoli-source: 3.0.1
-      css-loader: 5.2.7(webpack@5.79.0)
+      css-loader: 5.2.7(webpack@5.80.0)
       debug: 4.3.4
       fs-extra: 10.1.0
       fs-tree-diff: 2.0.1
       handlebars: 4.7.7
       js-string-escape: 1.0.1
       lodash: 4.17.21
-      mini-css-extract-plugin: 2.7.5(webpack@5.79.0)
+      mini-css-extract-plugin: 2.7.5(webpack@5.80.0)
       parse5: 6.0.1
       resolve: 1.22.1
       resolve-package-path: 4.0.3
       semver: 7.3.8
-      style-loader: 2.0.0(webpack@5.79.0)
+      style-loader: 2.0.0(webpack@5.80.0)
       typescript-memoize: 1.1.1
       walk-sync: 3.0.0
     transitivePeerDependencies:
       - supports-color
       - webpack
 
-  /ember-auto-import@2.6.3(webpack@5.79.0):
+  /ember-auto-import@2.6.3(webpack@5.80.0):
     resolution: {integrity: sha512-uLhrRDJYWCRvQ4JQ1e64XlSrqAKSd6PXaJ9ZsZI6Tlms9T4DtQFxNXasqji2ZRJBVrxEoLCRYX3RTldsQ0vNGQ==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
@@ -8610,7 +8610,7 @@ packages:
       '@babel/preset-env': 7.20.2(@babel/core@7.21.3)
       '@embroider/macros': 1.10.0
       '@embroider/shared-internals': 2.0.0
-      babel-loader: 8.3.0(@babel/core@7.21.3)(webpack@5.79.0)
+      babel-loader: 8.3.0(@babel/core@7.21.3)(webpack@5.80.0)
       babel-plugin-ember-modules-api-polyfill: 3.5.0
       babel-plugin-ember-template-compilation: 2.0.2
       babel-plugin-htmlbars-inline-precompile: 5.3.1
@@ -8620,19 +8620,19 @@ packages:
       broccoli-merge-trees: 4.2.0
       broccoli-plugin: 4.0.7
       broccoli-source: 3.0.1
-      css-loader: 5.2.7(webpack@5.79.0)
+      css-loader: 5.2.7(webpack@5.80.0)
       debug: 4.3.4
       fs-extra: 10.1.0
       fs-tree-diff: 2.0.1
       handlebars: 4.7.7
       js-string-escape: 1.0.1
       lodash: 4.17.21
-      mini-css-extract-plugin: 2.7.5(webpack@5.79.0)
+      mini-css-extract-plugin: 2.7.5(webpack@5.80.0)
       parse5: 6.0.1
       resolve: 1.22.1
       resolve-package-path: 4.0.3
       semver: 7.3.8
-      style-loader: 2.0.0(webpack@5.79.0)
+      style-loader: 2.0.0(webpack@5.80.0)
       typescript-memoize: 1.1.1
       walk-sync: 3.0.0
     transitivePeerDependencies:
@@ -8664,7 +8664,7 @@ packages:
       ember-cache-primitive-polyfill: 1.0.1
       ember-cli-babel: 7.26.11
       ember-cli-babel-plugin-helpers: 1.1.1
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -8685,7 +8685,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-cli-addon-docs@5.1.0(@ember/test-helpers@2.9.3)(ember-data@4.12.0)(ember-fetch@8.1.2)(ember-source@4.12.0)(webpack@5.79.0):
+  /ember-cli-addon-docs@5.1.0(@ember/test-helpers@2.9.3)(ember-data@4.12.0)(ember-fetch@8.1.2)(ember-source@4.12.0)(webpack@5.80.0):
     resolution: {integrity: sha512-O2xmirToqwKcemMuQbrlneDy6O3YI6RvjOkrKx+16em2/I28n6mUChKwquIh0PePhVQQMNn9313XEt/dENSr/w==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
@@ -8709,7 +8709,7 @@ packages:
       broccoli-source: 3.0.1
       broccoli-stew: 3.0.0
       chalk: 4.1.2
-      ember-auto-import: 2.6.3(webpack@5.79.0)
+      ember-auto-import: 2.6.3(webpack@5.80.0)
       ember-cli-autoprefixer: 2.0.0
       ember-cli-babel: 7.26.11
       ember-cli-clipboard: 0.16.0(ember-source@4.12.0)
@@ -8721,7 +8721,7 @@ packages:
       ember-code-snippet: 3.0.0
       ember-composable-helpers: 5.0.0
       ember-concurrency: 2.3.7
-      ember-data: 4.12.0(@ember/string@3.0.1)(@glimmer/tracking@1.1.2)(ember-source@4.12.0)(webpack@5.79.0)
+      ember-data: 4.12.0(@ember/string@3.0.1)(@glimmer/tracking@1.1.2)(ember-source@4.12.0)(webpack@5.80.0)
       ember-fetch: 8.1.2
       ember-keyboard: 8.2.0(@ember/test-helpers@2.9.3)(ember-source@4.12.0)
       ember-modal-dialog: 4.1.0(ember-source@4.12.0)(ember-tether@2.0.1)
@@ -9470,14 +9470,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-data@4.12.0(@ember/string@3.0.1)(@glimmer/tracking@1.1.2)(ember-source@4.12.0)(webpack@5.79.0):
+  /ember-data@4.12.0(@ember/string@3.0.1)(@glimmer/tracking@1.1.2)(ember-source@4.12.0)(webpack@5.80.0):
     resolution: {integrity: sha512-E1A94HOurihoaFzJmArhtXfp56WsLlbTyhnqWfZKgqWZz1qKF4GVbDuOsGIsy6u345LdUCp2jtodRO2s43k88Q==}
     engines: {node: 16.* || >= 18.*}
     peerDependencies:
       '@ember/string': ^3.0.1
     dependencies:
       '@ember-data/adapter': 4.12.0(@ember-data/store@4.12.0)(@ember/string@3.0.1)(ember-inflector@4.0.2)
-      '@ember-data/debug': 4.12.0(@ember/string@3.0.1)(webpack@5.79.0)
+      '@ember-data/debug': 4.12.0(@ember/string@3.0.1)(webpack@5.80.0)
       '@ember-data/graph': 4.12.0(@ember-data/store@4.12.0)
       '@ember-data/json-api': 4.12.0(@ember-data/graph@4.12.0)(@ember-data/store@4.12.0)
       '@ember-data/legacy-compat': 4.12.0(@ember-data/graph@4.12.0)(@ember-data/json-api@4.12.0)
@@ -9492,7 +9492,7 @@ packages:
       '@embroider/macros': 1.10.0
       '@glimmer/env': 0.1.7
       broccoli-merge-trees: 4.2.0
-      ember-auto-import: 2.6.3(webpack@5.79.0)
+      ember-auto-import: 2.6.3(webpack@5.80.0)
       ember-cli-babel: 7.26.11
       ember-inflector: 4.0.2
     transitivePeerDependencies:
@@ -9558,17 +9558,17 @@ packages:
       - supports-color
     dev: true
 
-  /ember-gesture-modifiers@5.0.0(ember-source@4.12.0)(webpack@5.79.0):
+  /ember-gesture-modifiers@5.0.0(ember-source@4.12.0)(webpack@5.80.0):
     resolution: {integrity: sha512-vQMClmRpgubGjeUi+eNlPabPyctsQAT/8MkFHZUFE+KvRfUVEagaStEJhVXfGWewueEIT1IHeeWqi0MoBPQJaQ==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       ember-source: ^3.28.0 || ^4.0.0
     dependencies:
-      ember-auto-import: 2.6.1(webpack@5.79.0)
+      ember-auto-import: 2.6.1(webpack@5.80.0)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.2.0
       ember-modifier: 4.1.0(ember-source@4.12.0)
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
     transitivePeerDependencies:
       - supports-color
       - webpack
@@ -9658,15 +9658,15 @@ packages:
       '@embroider/addon-shim': 1.8.4
       ember-cli-normalize-entity-name: 1.0.0
       ember-cli-string-utils: 1.1.0
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
     transitivePeerDependencies:
       - supports-color
 
-  /ember-on-resize-modifier@2.0.2(ember-source@4.12.0)(webpack@5.79.0):
+  /ember-on-resize-modifier@2.0.2(ember-source@4.12.0)(webpack@5.80.0):
     resolution: {integrity: sha512-7mcD7CNbiCaZEIASWlRz/Wmn47afCMSFTdQJSSUe0WCgnXxn9DVoqZ39B7ZuddTHa0V6otTFrV/lIRYpggQ+eg==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
-      ember-auto-import: 2.6.1(webpack@5.79.0)
+      ember-auto-import: 2.6.1(webpack@5.80.0)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 5.7.2
       ember-modifier: 4.1.0(ember-source@4.12.0)
@@ -9685,7 +9685,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-qunit@6.0.0(@ember/test-helpers@2.9.3)(qunit@2.19.4)(webpack@5.79.0):
+  /ember-qunit@6.0.0(@ember/test-helpers@2.9.3)(qunit@2.19.4)(webpack@5.80.0):
     resolution: {integrity: sha512-idNWh9Ap2HN9e3Xozh5Jrciu5tDhn0okM/bgwDjdks3dwuMhEox45iiRTx469FWQ9+ixjZ40AsXsRTDkfCmvmw==}
     engines: {node: 14.* || 16.* || >= 17}
     peerDependencies:
@@ -9696,7 +9696,7 @@ packages:
       broccoli-funnel: 3.0.8
       broccoli-merge-trees: 3.0.2
       common-tags: 1.8.2
-      ember-auto-import: 2.6.3(webpack@5.79.0)
+      ember-auto-import: 2.6.3(webpack@5.80.0)
       ember-cli-babel: 7.26.11
       ember-cli-test-loader: 3.0.0
       qunit: 2.19.4
@@ -9743,7 +9743,7 @@ packages:
     dependencies:
       '@ember/string': 3.0.1
       ember-cli-babel: 7.26.11
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -9799,7 +9799,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-sinon-qunit@7.1.4(ember-source@4.12.0)(qunit@2.19.4)(sinon@15.0.3)(webpack@5.79.0):
+  /ember-sinon-qunit@7.1.4(ember-source@4.12.0)(qunit@2.19.4)(sinon@15.0.3)(webpack@5.80.0):
     resolution: {integrity: sha512-aV9jOaLR5W4sFsx0hVqHVVdPt/TxY537YeuwMNyeOgxWYmLLFek7Jo4KMs/m442OsFlP0uCT52r7YOeBXBuEiA==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
@@ -9809,10 +9809,10 @@ packages:
     dependencies:
       '@types/sinon': 10.0.13
       broccoli-funnel: 3.0.8
-      ember-auto-import: 2.6.3(webpack@5.79.0)
+      ember-auto-import: 2.6.3(webpack@5.80.0)
       ember-cli-babel: 7.26.11
       ember-cli-typescript: 5.2.1
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
       qunit: 2.19.4
       sinon: 15.0.3
     transitivePeerDependencies:
@@ -9842,7 +9842,7 @@ packages:
       - encoding
     dev: true
 
-  /ember-source@4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0):
+  /ember-source@4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0):
     resolution: {integrity: sha512-h0lV902A4Mny2eiqXPy15uXXoCc7BnUegE4axLAy4IoxEkJ1o5h0aLJFiB4Tzb1htx8vgHjJz//Y5Jig7NSDTw==}
     engines: {node: '>= 14.*'}
     peerDependencies:
@@ -9861,7 +9861,7 @@ packages:
       broccoli-funnel: 3.0.8
       broccoli-merge-trees: 4.2.0
       chalk: 4.1.2
-      ember-auto-import: 2.6.3(webpack@5.79.0)
+      ember-auto-import: 2.6.3(webpack@5.80.0)
       ember-cli-babel: 7.26.11
       ember-cli-get-component-path-option: 1.0.0
       ember-cli-is-package-missing: 1.0.0
@@ -10119,8 +10119,8 @@ packages:
       tapable: 1.1.3
     dev: true
 
-  /enhanced-resolve@5.12.0:
-    resolution: {integrity: sha512-QHTXI/sZQmko1cbDoNAa3mJ5qhWUUNAq3vR0/YiD379fWQrcfuoX1+HW2S0MTt7XmoPLapdaDKUtelUSPic7hQ==}
+  /enhanced-resolve@5.13.0:
+    resolution: {integrity: sha512-eyV8f0y1+bzyfh8xAwW/WTSZpLbjhqc4ne9eGSH4Zo2ejdyiNG9pU6mf9DG8a7+Auk6MFTlNOT4Y2y/9k8GKVg==}
     engines: {node: '>=10.13.0'}
     dependencies:
       graceful-fs: 4.2.11
@@ -13974,14 +13974,14 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: true
 
-  /mini-css-extract-plugin@2.7.5(webpack@5.79.0):
+  /mini-css-extract-plugin@2.7.5(webpack@5.80.0):
     resolution: {integrity: sha512-9HaR++0mlgom81s95vvNjxkg52n2b5s//3ZTI1EtzFb98awsLSivs2LMsVqnQ3ay0PVhqWcGNyDaTE961FOcjQ==}
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^5.0.0
     dependencies:
       schema-utils: 4.0.0
-      webpack: 5.79.0
+      webpack: 5.80.0
 
   /minimalistic-assert@1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
@@ -16412,8 +16412,8 @@ packages:
       ajv: 6.12.6
       ajv-keywords: 3.5.2(ajv@6.12.6)
 
-  /schema-utils@3.1.1:
-    resolution: {integrity: sha512-Y5PQxS4ITlC+EahLuXaY86TXfR7Dc5lw294alXOq86JAHCihAIZfqv8nNCWvaEJvaC51uN9hbLGeV0cFBdH+Fw==}
+  /schema-utils@3.1.2:
+    resolution: {integrity: sha512-pvjEHOgWc9OWA/f/DE3ohBWTD6EleVLf7iFUkoSwAxttdBhB9QUebQgxER2kWueOvRJXPHNnyrvvh9eZINB8Eg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
       '@types/json-schema': 7.0.11
@@ -17147,15 +17147,15 @@ packages:
     resolution: {integrity: sha512-g45ZOGzHDMe2bdYMdIvdAfCQkCTDMGBazSw1ypMowwGIee7ZQ5dU0rBJ8Jqgl+jAKIv4dbeE1jscZq9wid1Tkw==}
     dev: true
 
-  /style-loader@2.0.0(webpack@5.79.0):
+  /style-loader@2.0.0(webpack@5.80.0):
     resolution: {integrity: sha512-Z0gYUJmzZ6ZdRUqpg1r8GsaFKypE+3xAzuFeMuoHgjc9KZv3wMyCRjQIWEbhoFSq7+7yoHXySDJyyWQaPajeiQ==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       webpack: ^4.0.0 || ^5.0.0
     dependencies:
       loader-utils: 2.0.4
-      schema-utils: 3.1.1
-      webpack: 5.79.0
+      schema-utils: 3.1.2
+      webpack: 5.80.0
 
   /styled_string@0.0.1:
     resolution: {integrity: sha512-DU2KZiB6VbPkO2tGSqQ9n96ZstUPjW7X4sGO6V2m1myIQluX0p1Ol8BrA/l6/EesqhMqXOIXs3cJNOy1UuU2BA==}
@@ -17337,7 +17337,7 @@ packages:
       worker-farm: 1.7.0
     dev: true
 
-  /terser-webpack-plugin@5.3.7(webpack@5.79.0):
+  /terser-webpack-plugin@5.3.7(webpack@5.80.0):
     resolution: {integrity: sha512-AfKwIktyP7Cu50xNjXF/6Qb5lBNzYaWpU6YfoX3uZicTx0zTy0stDDCsvjDapKsSDvOeWo5MEq4TmdBy2cNoHw==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -17355,10 +17355,10 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.17
       jest-worker: 27.5.1
-      schema-utils: 3.1.1
+      schema-utils: 3.1.2
       serialize-javascript: 6.0.1
       terser: 5.16.6
-      webpack: 5.79.0
+      webpack: 5.80.0
 
   /terser@4.8.1:
     resolution: {integrity: sha512-4GnLC0x667eJG0ewJTa6z/yXrbLGv80D9Ru6HIpCQmO+Q4PfEtBFi0ObSckqwL6VyQv/7ENJieXHo2ANmdQwgw==}
@@ -17686,7 +17686,7 @@ packages:
     dependencies:
       '@embroider/addon-shim': 1.8.4
       ember-cache-primitive-polyfill: 1.0.1
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -18304,8 +18304,8 @@ packages:
       - supports-color
     dev: true
 
-  /webpack@5.79.0:
-    resolution: {integrity: sha512-3mN4rR2Xq+INd6NnYuL9RC9GAmc1ROPKJoHhrZ4pAjdMFEkJJWrsPw8o2JjCIyQyTu7rTXYn4VG6OpyB3CobZg==}
+  /webpack@5.80.0:
+    resolution: {integrity: sha512-OIMiq37XK1rWO8mH9ssfFKZsXg4n6klTEDL7S8/HqbAOBBaiy8ABvXvz0dDCXeEF9gqwxSvVk611zFPjS8hJxA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
@@ -18316,14 +18316,14 @@ packages:
     dependencies:
       '@types/eslint-scope': 3.7.4
       '@types/estree': 1.0.0
-      '@webassemblyjs/ast': 1.11.1
-      '@webassemblyjs/wasm-edit': 1.11.1
-      '@webassemblyjs/wasm-parser': 1.11.1
+      '@webassemblyjs/ast': 1.11.5
+      '@webassemblyjs/wasm-edit': 1.11.5
+      '@webassemblyjs/wasm-parser': 1.11.5
       acorn: 8.8.2
       acorn-import-assertions: 1.8.0(acorn@8.8.2)
       browserslist: 4.21.5
       chrome-trace-event: 1.0.3
-      enhanced-resolve: 5.12.0
+      enhanced-resolve: 5.13.0
       es-module-lexer: 1.2.1
       eslint-scope: 5.1.1
       events: 3.3.0
@@ -18333,9 +18333,9 @@ packages:
       loader-runner: 4.3.0
       mime-types: 2.1.35
       neo-async: 2.6.2
-      schema-utils: 3.1.1
+      schema-utils: 3.1.2
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.7(webpack@5.79.0)
+      terser-webpack-plugin: 5.3.7(webpack@5.80.0)
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:
@@ -18675,7 +18675,7 @@ packages:
       - supports-color
     dev: true
 
-  file:addon(ember-source@4.12.0)(webpack@5.79.0):
+  file:addon(ember-source@4.12.0)(webpack@5.80.0):
     resolution: {directory: addon, type: directory}
     id: file:addon
     name: ember-mobile-menu
@@ -18690,15 +18690,15 @@ packages:
       '@glimmer/component': 1.1.2
       '@glimmer/tracking': 1.1.2
       body-scroll-lock: 3.1.5
-      ember-auto-import: 2.6.3(webpack@5.79.0)
+      ember-auto-import: 2.6.3(webpack@5.80.0)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.2.0
       ember-concurrency: 2.3.7
       ember-could-get-used-to-this: 1.0.1
-      ember-gesture-modifiers: 5.0.0(ember-source@4.12.0)(webpack@5.79.0)
-      ember-on-resize-modifier: 2.0.2(ember-source@4.12.0)(webpack@5.79.0)
+      ember-gesture-modifiers: 5.0.0(ember-source@4.12.0)(webpack@5.80.0)
+      ember-on-resize-modifier: 2.0.2(ember-source@4.12.0)(webpack@5.80.0)
       ember-set-body-class: 1.0.2
-      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.79.0)
+      ember-source: 4.12.0(@glimmer/component@1.1.2)(webpack@5.80.0)
       tracked-maps-and-sets: 3.0.2
       wobble: 1.5.1
     transitivePeerDependencies:
