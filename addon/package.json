@@ -47,7 +47,7 @@
     "wobble": "^1.5.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.21.3",
+    "@babel/eslint-parser": "7.21.8",
     "ember-source": "4.12.0",
     "ember-template-lint": "4.18.2",
     "eslint": "8.39.0",
