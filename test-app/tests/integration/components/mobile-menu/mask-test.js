@@ -8,16 +8,12 @@ module('Integration | Component | mobile-menu/mask', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    assert.expect(1);
-
     await render(hbs`<MobileMenu::Mask/>`);
 
     assert.strictEqual(this.element.textContent.trim(), '');
   });
 
   test('it triggers the onClick hook when clicked', async function (assert) {
-    assert.expect(1);
-
     this.handleClick = sinon.spy();
 
     // Template block usage:

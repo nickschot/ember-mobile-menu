@@ -30,8 +30,6 @@ module('Integration | Component | mobile-menu', function (hooks) {
   });
 
   test('it is a left menu by default', async function (assert) {
-    assert.expect(1);
-
     await render(
       hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`
     );
@@ -39,8 +37,6 @@ module('Integration | Component | mobile-menu', function (hooks) {
   });
 
   test(`it is a right menu if type is 'right'`, async function (assert) {
-    assert.expect(1);
-
     await render(
       hbs`<MobileMenu @type="right" @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`
     );
@@ -48,8 +44,6 @@ module('Integration | Component | mobile-menu', function (hooks) {
   });
 
   test(`it adds a mask by default`, async function (assert) {
-    assert.expect(1);
-
     await render(
       hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`
     );
@@ -57,8 +51,6 @@ module('Integration | Component | mobile-menu', function (hooks) {
   });
 
   test(`it doesn't add a mask by if maskEnabled=false`, async function (assert) {
-    assert.expect(1);
-
     await render(
       hbs`<MobileMenu @maskEnabled={{false}} @register={{this.register}} @unregister={{this.unregister}}/> @parentBoundingClientRect={{hash}}`
     );

@@ -26,8 +26,6 @@ module('Integration | Component | mobile-menu-toggle', function (hooks) {
   });
 
   test('it fires the `onClick` hook with no argument when clicked', async function (assert) {
-    assert.expect(2);
-
     this.handleClick = sinon.spy();
 
     await render(hbs`<MobileMenuToggle @onClick={{this.handleClick}}/>`);
@@ -38,8 +36,6 @@ module('Integration | Component | mobile-menu-toggle', function (hooks) {
   });
 
   test('it fires the `onClick` hook with the passed target when clicked', async function (assert) {
-    assert.expect(2);
-
     this.handleClick = sinon.spy();
 
     await render(
