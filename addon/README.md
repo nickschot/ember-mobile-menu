@@ -11,7 +11,7 @@ Requirements
 ------------------------------------------------------------------------------
 * Ember.js v3.28 or above
 * Ember CLI v3.12 or above
-* Node.js v14 or above
+* Node.js v16 or above
 * ember-cli-babel v7.23 or above
 * ember-concurrency v2.x
 * ember-auto-import v2.x
