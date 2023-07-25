@@ -72,7 +72,6 @@ jobs:
       fail-fast: false
       matrix:
         try-scenario:
-          - ember-lts-3.24
           - ember-lts-3.28
           - ember-release
           - ember-classic
