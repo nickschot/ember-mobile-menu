@@ -10,7 +10,10 @@ module.exports = {
 
       this._super.included.apply(this, arguments);
 
-      let hasSass = !!app.registry.availablePlugins['ember-cli-sass'];
+      let hasSass = !!(
+        app.registry.availablePlugins?.['ember-cli-sass'] ||
+        app.registry.registry?.css?.find((i) => i.name === 'ember-cli-sass')
+      );
 
       // Don't include the precompiled css file if the user uses a supported CSS preprocessor
       if (!hasSass) {
