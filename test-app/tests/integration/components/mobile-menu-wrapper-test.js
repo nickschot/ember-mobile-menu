@@ -260,6 +260,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
 
   test('it opens the embedded menu when dragged', async function (assert) {
     await render(hbs`
+      {{! template-lint-disable no-inline-styles }}
       <div class="root-div" style="padding: 100px; height: 500px; background: red;">
         <MobileMenuWrapper @embed={{true}} as |mmw|>
           <mmw.MobileMenu as |mm|>
@@ -291,6 +292,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
 
   test('it opens the "right" embedded menu when dragged', async function (assert) {
     await render(hbs`
+      {{! template-lint-disable no-inline-styles }}
       <div class="root-div" style="padding: 100px; height: 500px; background: red;">
         <MobileMenuWrapper @embed={{true}} as |mmw|>
           <mmw.MobileMenu @type="right" as |mm|>
