@@ -206,8 +206,8 @@ importers:
         specifier: 0.0.1
         version: 0.0.1
       ember-resolver:
-        specifier: 10.1.0
-        version: 10.1.0(@ember/string@3.1.1)(ember-source@4.12.0)
+        specifier: 10.1.1
+        version: 10.1.1(@ember/string@3.1.1)(ember-source@4.12.0)
       ember-source:
         specifier: 4.12.0
         version: 4.12.0(@glimmer/component@1.1.2)(webpack@5.88.2)
@@ -9159,12 +9159,12 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-resolver@10.1.0(@ember/string@3.1.1)(ember-source@4.12.0):
-    resolution: {integrity: sha512-Ju/ORUUbGnR83AgC3qV6fIVuM5tyi/nPRf9ggTM2+kdeGPLNTSkNZ0zSbjWEm0kerDezMjj/RoGuLvZl/L758w==}
+  /ember-resolver@10.1.1(@ember/string@3.1.1)(ember-source@4.12.0):
+    resolution: {integrity: sha512-y1zzn6C4YGJui+tJzcCKlsf1oSOSVAkRrvmg8OwqVIKnALKKb9ihx2qLCslHg8x0wJvJgMtDMXgrczvQrZW0Lw==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       '@ember/string': ^3.0.1
-      ember-source: ^4.8.3
+      ember-source: ^4.8.3 || >= 5.0.0
     peerDependenciesMeta:
       ember-source:
         optional: true
