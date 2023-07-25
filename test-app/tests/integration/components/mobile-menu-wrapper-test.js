@@ -23,8 +23,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it renders a "left" menu by default', async function (assert) {
-    assert.expect(2);
-
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
@@ -38,8 +36,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it renders a "right" menu', async function (assert) {
-    assert.expect(2);
-
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu @type="right" as |mm|>
@@ -53,8 +49,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it opens the menu when the toggle is clicked', async function (assert) {
-    assert.expect(8);
-
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
@@ -83,8 +77,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it toggles the right menu when it is the only one', async function (assert) {
-    assert.expect(2);
-
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu @type="right" as |mm|>
@@ -104,8 +96,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it toggles the targetted menu', async function (assert) {
-    assert.expect(8);
-
     this.set('target', 'right');
 
     await render(hbs`
@@ -142,8 +132,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it closes the menu when the mask is clicked', async function (assert) {
-    assert.expect(4);
-
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
@@ -169,8 +157,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it opens the menu when dragged', async function (assert) {
-    assert.expect(2);
-
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
@@ -191,8 +177,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it opens the "right" menu when dragged', async function (assert) {
-    assert.expect(2);
-
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu @type="right" as |mm|>
@@ -213,8 +197,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it does not open the menu when dragged in the wrong direction', async function (assert) {
-    assert.expect(2);
-
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
@@ -235,8 +217,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it closes the menu when dragged from outside the menu', async function (assert) {
-    assert.expect(2);
-
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
@@ -258,8 +238,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it closes the menu when dragged on the menu itself', async function (assert) {
-    assert.expect(2);
-
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
@@ -281,9 +259,8 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it opens the embedded menu when dragged', async function (assert) {
-    assert.expect(4);
-
     await render(hbs`
+      {{! template-lint-disable no-inline-styles }}
       <div class="root-div" style="padding: 100px; height: 500px; background: red;">
         <MobileMenuWrapper @embed={{true}} as |mmw|>
           <mmw.MobileMenu as |mm|>
@@ -314,9 +291,8 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it opens the "right" embedded menu when dragged', async function (assert) {
-    assert.expect(4);
-
     await render(hbs`
+      {{! template-lint-disable no-inline-styles }}
       <div class="root-div" style="padding: 100px; height: 500px; background: red;">
         <MobileMenuWrapper @embed={{true}} as |mmw|>
           <mmw.MobileMenu @type="right" as |mm|>
@@ -347,8 +323,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it closes the embedded menu when dragged from outside the menu', async function (assert) {
-    assert.expect(2);
-
     await render(hbs`
       <MobileMenuWrapper @embed={{true}} as |mmw|>
         <mmw.MobileMenu as |mm|>
@@ -370,8 +344,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it closes the embedded menu when dragged on the menu itself', async function (assert) {
-    assert.expect(2);
-
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
@@ -393,8 +365,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it renders the menu with the correct width/maxWidth', async function (assert) {
-    assert.expect(2);
-
     this.set('maxWidth', -1);
 
     await render(hbs`
@@ -425,8 +395,6 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   });
 
   test('it opens/closes the menu according to the @isOpen argument and calls the accompanying @onToggle hook', async function (assert) {
-    assert.expect(6);
-
     this.set('isOpen', true);
     this.set('onToggle', (isOpen) => {
       assert.strictEqual(this.isOpen, isOpen);
