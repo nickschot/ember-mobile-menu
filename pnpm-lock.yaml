@@ -14,13 +14,13 @@ importers:
     devDependencies:
       '@release-it-plugins/lerna-changelog':
         specifier: 5.0.0
-        version: 5.0.0(release-it@15.10.5)
+        version: 5.0.0(release-it@15.11.0)
       release-it:
-        specifier: 15.10.5
-        version: 15.10.5
+        specifier: 15.11.0
+        version: 15.11.0
       release-it-yarn-workspaces:
         specifier: github:refi93/release-it-yarn-workspaces#refi93/esm-support
-        version: github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f(release-it@15.10.5)
+        version: github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f(release-it@15.11.0)
 
   addon:
     dependencies:
@@ -3074,7 +3074,7 @@ packages:
       config-chain: 1.1.13
     dev: true
 
-  /@release-it-plugins/lerna-changelog@5.0.0(release-it@15.10.5):
+  /@release-it-plugins/lerna-changelog@5.0.0(release-it@15.11.0):
     resolution: {integrity: sha512-nMhAUptKSfIsiY0c//HuBcd2VT7D/IoxAQNwRgPx+jf3FM7HA5KD4KSl3oLoz4uA4GjvypWQP4ODX8UbWjmUZA==}
     engines: {node: ^14.13.1 || >= 16}
     peerDependencies:
@@ -3084,7 +3084,7 @@ packages:
       lerna-changelog: 2.2.0
       lodash.template: 4.5.0
       mdast-util-from-markdown: 1.3.1
-      release-it: 15.10.5
+      release-it: 15.11.0
       tmp: 0.2.1
       validate-peer-dependencies: 2.2.0
       which: 2.0.2
@@ -15471,8 +15471,8 @@ packages:
     dependencies:
       jsesc: 0.5.0
 
-  /release-it@15.10.5:
-    resolution: {integrity: sha512-6AWkcOYsEfCzegtAKvXekUG+CLjlFXztDwGzxFOGa8VJRuXbPONfM8rvaPYJX1hTlL5+KC4MWOEoKKzWhQ65gA==}
+  /release-it@15.11.0:
+    resolution: {integrity: sha512-lZwoGEnKYKwGnfxxlA7vtR7vvozPrOSsIgQaHO4bgQ5ARbG3IA6Dmo0IVusv6nR1KmnjH70QIeNAgsWs6Ji/tw==}
     engines: {node: '>=14.9'}
     hasBin: true
     dependencies:
@@ -18376,7 +18376,7 @@ packages:
       - webpack
     dev: true
 
-  github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f(release-it@15.10.5):
+  github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f(release-it@15.11.0):
     resolution: {tarball: https://codeload.github.com/refi93/release-it-yarn-workspaces/tar.gz/40643bdcd74755d6f99984004e840203f4c5cb7f}
     id: github.com/refi93/release-it-yarn-workspaces/40643bdcd74755d6f99984004e840203f4c5cb7f
     name: release-it-yarn-workspaces
@@ -18387,7 +18387,7 @@ packages:
     dependencies:
       detect-indent: 6.1.0
       detect-newline: 3.1.0
-      release-it: 15.10.5
+      release-it: 15.11.0
       semver: 7.5.4
       url-join: 4.0.1
       validate-peer-dependencies: 1.2.0
