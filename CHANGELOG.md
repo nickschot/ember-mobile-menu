@@ -5,6 +5,33 @@
 
 
 
+
+## v4.0.0-beta.0 (2023-08-11)
+
+#### :boom: Breaking Change
+* [#687](https://github.com/nickschot/ember-mobile-menu/pull/687) Drop support for node v14 ([@nickschot](https://github.com/nickschot))
+* [#685](https://github.com/nickschot/ember-mobile-menu/pull/685) Drop support for Ember 3.24 ([@nickschot](https://github.com/nickschot))
+* [#631](https://github.com/nickschot/ember-mobile-menu/pull/631) Update dependency ember-on-resize-modifier to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#576](https://github.com/nickschot/ember-mobile-menu/pull/576) Update dependency ember-gesture-modifiers to v5 ([@renovate[bot]](https://github.com/apps/renovate))
+
+#### :rocket: Enhancement
+* [#688](https://github.com/nickschot/ember-mobile-menu/pull/688) Allow ember-concurrency v3 ([@nickschot](https://github.com/nickschot))
+
+#### :bug: Bug Fix
+* [#633](https://github.com/nickschot/ember-mobile-menu/pull/633) Set correct supported ember-source as peerDependency ([@nickschot](https://github.com/nickschot))
+* [#682](https://github.com/nickschot/ember-mobile-menu/pull/682) Fix ember-cli-sass check not working under ember-cli 5/embroider ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#686](https://github.com/nickschot/ember-mobile-menu/pull/686) Add LTS 4.4, 4.8 and 4.12 to test-matrix ([@nickschot](https://github.com/nickschot))
+* [#681](https://github.com/nickschot/ember-mobile-menu/pull/681) Update test-app to ember v5, CI node to 16 ([@nickschot](https://github.com/nickschot))
+* [#679](https://github.com/nickschot/ember-mobile-menu/pull/679) Update to stable lerna-changelog package ([@nickschot](https://github.com/nickschot))
+* [#647](https://github.com/nickschot/ember-mobile-menu/pull/647) Allow ember-beta and ember-canary to fail ([@nickschot](https://github.com/nickschot))
+* [#575](https://github.com/nickschot/ember-mobile-menu/pull/575) Add missing peerDeps ([@nickschot](https://github.com/nickschot))
+* [#574](https://github.com/nickschot/ember-mobile-menu/pull/574) Upgrade to eslint v8 ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v3.0.3 (2022-07-15)
 
 ## v3.0.2 (2022-07-15)
