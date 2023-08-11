@@ -38,7 +38,7 @@
       "after:release": "cd docs && ember deploy production"
     },
     "plugins": {
-      "release-it-lerna-changelog": {
+      "@release-it-plugins/lerna-changelog": {
         "infile": "CHANGELOG.md",
         "launchEditor": false
       },
