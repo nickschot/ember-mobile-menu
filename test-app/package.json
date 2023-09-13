@@ -50,7 +50,7 @@
     "ember-mobile-menu": "4.0.0-beta.0",
     "ember-page-title": "7.0.0",
     "ember-qunit": "6.2.0",
-    "ember-resolver": "11.0.0",
+    "ember-resolver": "11.0.1",
     "ember-sinon": "5.0.0",
     "ember-sinon-qunit": "7.1.4",
     "ember-source": "5.1.2",

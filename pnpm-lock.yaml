@@ -206,8 +206,8 @@ importers:
         specifier: 0.0.1
         version: 0.0.1
       ember-resolver:
-        specifier: 11.0.0
-        version: 11.0.0(ember-source@4.12.3)
+        specifier: 11.0.1
+        version: 11.0.1(ember-source@4.12.3)
       ember-source:
         specifier: 4.12.3
         version: 4.12.3(@glimmer/component@1.1.2)(webpack@5.88.2)
@@ -332,8 +332,8 @@ importers:
         specifier: 6.2.0
         version: 6.2.0(@ember/test-helpers@2.9.4)(ember-source@5.1.2)(qunit@2.19.4)(webpack@5.88.2)
       ember-resolver:
-        specifier: 11.0.0
-        version: 11.0.0(ember-source@5.1.2)
+        specifier: 11.0.1
+        version: 11.0.1(ember-source@5.1.2)
       ember-sinon:
         specifier: 5.0.0
         version: 5.0.0
@@ -9061,8 +9061,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-resolver@11.0.0(ember-source@4.12.3):
-    resolution: {integrity: sha512-TOc685OnGEMMNEt04BukmQHOYVXnRJc+sGZij/vzWdxXRq+Wpsu1Nw2nLFo6fbMqqVLATk5oLKAQ1eKQwte2wQ==}
+  /ember-resolver@11.0.1(ember-source@4.12.3):
+    resolution: {integrity: sha512-ucBk3oM+PR+AfYoSUXeQh8cDQS1sSiEKp4Pcgbew5cFMSqPxJfqd1zyZsfQKNTuyubeGmWxBOyMVSTvX2LeCyg==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       ember-source: ^4.8.3 || >= 5.0.0
@@ -9076,8 +9076,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-resolver@11.0.0(ember-source@5.1.2):
-    resolution: {integrity: sha512-TOc685OnGEMMNEt04BukmQHOYVXnRJc+sGZij/vzWdxXRq+Wpsu1Nw2nLFo6fbMqqVLATk5oLKAQ1eKQwte2wQ==}
+  /ember-resolver@11.0.1(ember-source@5.1.2):
+    resolution: {integrity: sha512-ucBk3oM+PR+AfYoSUXeQh8cDQS1sSiEKp4Pcgbew5cFMSqPxJfqd1zyZsfQKNTuyubeGmWxBOyMVSTvX2LeCyg==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       ember-source: ^4.8.3 || >= 5.0.0
