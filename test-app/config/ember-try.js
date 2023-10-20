@@ -8,19 +8,6 @@ module.exports = async function () {
     usePnpm: true,
     scenarios: [
       {
-        name: 'ember-lts-3.28',
-        npm: {
-          devDependencies: {
-            'ember-source': '~3.28.0',
-          },
-          dependenciesMeta: {
-            'ember-mobile-menu': {
-              injected: true,
-            },
-          },
-        },
-      },
-      {
         name: 'ember-lts-4.4',
         npm: {
           devDependencies: {
@@ -95,48 +82,6 @@ module.exports = async function () {
             'ember-mobile-menu': {
               injected: true,
             },
-          },
-        },
-      },
-      {
-        name: 'ember-default-with-jquery',
-        env: {
-          EMBER_OPTIONAL_FEATURES: JSON.stringify({
-            'jquery-integration': true,
-          }),
-        },
-        npm: {
-          devDependencies: {
-            'ember-source': '~3.28.0',
-            '@ember/jquery': '^1.1.0',
-          },
-          dependenciesMeta: {
-            'ember-mobile-menu': {
-              injected: true,
-            },
-          },
-        },
-      },
-      {
-        name: 'ember-classic',
-        env: {
-          EMBER_OPTIONAL_FEATURES: JSON.stringify({
-            'application-template-wrapper': true,
-            'default-async-observers': false,
-            'template-only-glimmer-components': false,
-          }),
-        },
-        npm: {
-          devDependencies: {
-            'ember-source': '~3.28.0',
-          },
-          dependenciesMeta: {
-            'ember-mobile-menu': {
-              injected: true,
-            },
-          },
-          ember: {
-            edition: 'classic',
           },
         },
       },
