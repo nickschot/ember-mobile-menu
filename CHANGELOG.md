@@ -6,6 +6,15 @@
 
 
 
+
+## v4.0.0 (2023-10-20)
+
+#### :boom: Breaking Change
+* [#734](https://github.com/nickschot/ember-mobile-menu/pull/734) Drop Node 16 support ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v4.0.0-beta.0 (2023-08-11)
 
 #### :boom: Breaking Change

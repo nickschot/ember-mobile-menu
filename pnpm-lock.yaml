@@ -194,7 +194,7 @@ importers:
         specifier: 2.1.2
         version: 2.1.2
       ember-mobile-menu:
-        specifier: 4.0.0-beta.0
+        specifier: 4.0.0
         version: link:../addon
       ember-page-title:
         specifier: 7.0.0
@@ -323,7 +323,7 @@ importers:
         specifier: 2.1.2
         version: 2.1.2
       ember-mobile-menu:
-        specifier: 4.0.0-beta.0
+        specifier: 4.0.0
         version: file:addon(ember-source@5.1.2)(webpack@5.88.2)
       ember-page-title:
         specifier: 7.0.0
