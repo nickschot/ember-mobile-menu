@@ -1,10 +1,4 @@
 {
-  "master": {
-    "path": "versions/master",
-    "name": "master",
-    "sha": "712c1ad7f14232a9c5170f188ba28510587686c3",
-    "tag": null
-  },
   "v0.1.0-beta.1": {
     "path": "versions/v0.1.0-beta.1",
     "name": "v0.1.0-beta.1",
@@ -14,7 +8,7 @@
   "-latest": {
     "path": "",
     "name": "Latest",
-    "sha": "d914c1143d542f3e5853988febbae16ffbed65a0",
+    "sha": "712c1ad7f14232a9c5170f188ba28510587686c3",
     "tag": "v4.0.0"
   },
   "v0.1.0-beta.2": {
@@ -86,13 +80,7 @@
   "v4.0.0": {
     "path": "versions/v4.0.0",
     "name": "v4.0.0",
-    "sha": "d914c1143d542f3e5853988febbae16ffbed65a0",
+    "sha": "712c1ad7f14232a9c5170f188ba28510587686c3",
     "tag": "v4.0.0"
-  },
-  "replace-tracked-maps-sets": {
-    "path": "versions/replace-tracked-maps-sets",
-    "name": "replace-tracked-maps-sets",
-    "sha": "deb00449a9210a55b47df03bafa7383d25f8c784",
-    "tag": null
   }
 }
