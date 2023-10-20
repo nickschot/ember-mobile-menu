@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 import { action } from '@ember/object';
-import { TrackedSet } from 'tracked-maps-and-sets';
+import { TrackedSet } from 'tracked-built-ins';
 
 import MobileMenu from 'ember-mobile-menu/components/mobile-menu';
 import normalizeCoordinates from '../utils/normalize-coordinates';
