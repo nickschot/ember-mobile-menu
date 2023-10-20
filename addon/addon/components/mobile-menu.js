@@ -216,11 +216,11 @@ export default class MobileMenu extends Component {
 
     assert(
       'register function argument not passed. You should not be using <MobileMenu/> directly.',
-      typeof this.args.register === 'function'
+      typeof this.args.register === 'function',
     );
     assert(
       'unregister function argument not passed. You should not be using <MobileMenu/> directly.',
-      typeof this.args.unregister === 'function'
+      typeof this.args.unregister === 'function',
     );
 
     if (this.args.parent?.isFastBoot && this.args.isOpen) {

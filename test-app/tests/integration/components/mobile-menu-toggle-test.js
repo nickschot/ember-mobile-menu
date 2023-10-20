@@ -41,7 +41,7 @@ module('Integration | Component | mobile-menu-toggle', function (hooks) {
     };
 
     await render(
-      hbs`<MobileMenuToggle @target="right" @onClick={{this.handleClick}}/>`
+      hbs`<MobileMenuToggle @target="right" @onClick={{this.handleClick}}/>`,
     );
     await click('.mobile-menu__toggle');
 

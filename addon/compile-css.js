@@ -8,7 +8,7 @@ const inputFile = path.join(
   __dirname,
   'app',
   'styles',
-  'ember-mobile-menu.scss'
+  'ember-mobile-menu.scss',
 );
 const outputFile = path.join(__dirname, 'vendor', 'ember-mobile-menu.css');
 

@@ -26,7 +26,7 @@ module('Integration | Component | mobile-menu/tray', function (hooks) {
     this.set('isClosed', true);
 
     await render(
-      hbs`{{#if this.showMenu}}<MobileMenu::Tray @preventScroll={{true}} @embed={{false}} @isClosed={{this.isClosed}}/>{{/if}}`
+      hbs`{{#if this.showMenu}}<MobileMenu::Tray @preventScroll={{true}} @embed={{false}} @isClosed={{this.isClosed}}/>{{/if}}`,
     );
     assert.strictEqual(document.body.style.overflow, '');
 
