@@ -217,6 +217,9 @@ importers:
       ember-template-lint:
         specifier: 5.11.2
         version: 5.11.2
+      ember-tracked-storage-polyfill:
+        specifier: ^1.0.0
+        version: 1.0.0
       ember-try:
         specifier: 3.0.0
         version: 3.0.0
