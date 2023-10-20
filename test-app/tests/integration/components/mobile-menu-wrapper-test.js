@@ -282,7 +282,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
 
     await pan(
       '.mobile-menu-wrapper--embedded .mobile-menu-wrapper__content',
-      'right'
+      'right',
     );
     await settled();
 
@@ -314,7 +314,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
 
     await pan(
       '.mobile-menu-wrapper--embedded .mobile-menu-wrapper__content',
-      'left'
+      'left',
     );
     await settled();
 

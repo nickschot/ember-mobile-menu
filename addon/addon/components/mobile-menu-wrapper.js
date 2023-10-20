@@ -161,7 +161,7 @@ export default class MobileMenuWrapper extends Component {
   registerChild(component) {
     assert(
       'component was already registered as a child',
-      !this.children.has(component)
+      !this.children.has(component),
     );
 
     this.children.add(component);
@@ -372,7 +372,7 @@ export default class MobileMenuWrapper extends Component {
     menu,
     targetPosition = 'open',
     currentVelocity = 0,
-    animate = true
+    animate = true,
   ) {
     const fromValue = this.position;
     const toValue =

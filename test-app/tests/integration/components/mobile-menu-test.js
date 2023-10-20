@@ -14,7 +14,7 @@ module('Integration | Component | mobile-menu', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(
-      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`
+      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`,
     );
 
     assert.strictEqual(this.element.textContent.trim(), '');
@@ -31,28 +31,28 @@ module('Integration | Component | mobile-menu', function (hooks) {
 
   test('it is a left menu by default', async function (assert) {
     await render(
-      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`
+      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`,
     );
     assert.dom('.mobile-menu').hasClass('mobile-menu--left');
   });
 
   test(`it is a right menu if type is 'right'`, async function (assert) {
     await render(
-      hbs`<MobileMenu @type="right" @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`
+      hbs`<MobileMenu @type="right" @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`,
     );
     assert.dom('.mobile-menu').hasClass('mobile-menu--right');
   });
 
   test(`it adds a mask by default`, async function (assert) {
     await render(
-      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`
+      hbs`<MobileMenu @register={{this.register}} @unregister={{this.unregister}} @parentBoundingClientRect={{this.emptyObject}}/>`,
     );
     assert.dom('.mobile-menu__mask').exists({ count: 1 });
   });
 
   test(`it doesn't add a mask by if maskEnabled=false`, async function (assert) {
     await render(
-      hbs`<MobileMenu @maskEnabled={{false}} @register={{this.register}} @unregister={{this.unregister}}/> @parentBoundingClientRect={{hash}}`
+      hbs`<MobileMenu @maskEnabled={{false}} @register={{this.register}} @unregister={{this.unregister}}/> @parentBoundingClientRect={{hash}}`,
     );
     assert.dom('.mobile-menu__mask').doesNotExist();
   });
