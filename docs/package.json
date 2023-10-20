@@ -55,7 +55,7 @@
     "ember-export-application-global": "2.0.1",
     "ember-load-initializers": "2.1.2",
     "ember-mobile-menu": "4.0.0",
-    "ember-page-title": "7.0.0",
+    "ember-page-title": "8.0.0",
     "ember-qunit": "8.0.1",
     "ember-resize-observer-polyfill": "0.0.1",
     "ember-resolver": "11.0.1",
