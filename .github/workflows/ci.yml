@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2.4.0
         with:
           version: ${{ env.PNPM_VERSION }}
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2.4.0
         with:
           version: ${{ env.PNPM_VERSION }}
@@ -83,7 +83,7 @@ jobs:
           - embroider-optimized
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2.4.0
         with:
           version: ${{ env.PNPM_VERSION }}
@@ -113,7 +113,7 @@ jobs:
           - ember-canary
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2.4.0
         with:
           version: ${{ env.PNPM_VERSION }}
