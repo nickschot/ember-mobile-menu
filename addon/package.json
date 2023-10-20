@@ -29,7 +29,7 @@
     "prepare": "node ./compile-css.js"
   },
   "dependencies": {
-    "@ember/legacy-built-in-components": "^0.4.1",
+    "@ember/legacy-built-in-components": "^0.5.0",
     "@ember/render-modifiers": "^2.0.0",
     "@ember/test-waiters": "^3.0.0",
     "@glimmer/component": "^1.0.4",
