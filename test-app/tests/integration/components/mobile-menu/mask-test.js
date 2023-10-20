@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import sinon from 'sinon';
 
 module('Integration | Component | mobile-menu/mask', function (hooks) {
   setupRenderingTest(hooks);
@@ -14,7 +13,11 @@ module('Integration | Component | mobile-menu/mask', function (hooks) {
   });
 
   test('it triggers the onClick hook when clicked', async function (assert) {
-    this.handleClick = sinon.spy();
+    this.handleClick = (...args) => {
+      assert.strictEqual(args.length, 1);
+      assert.ok(args[0] instanceof MouseEvent);
+      assert.step(`handleClick`);
+    };
 
     // Template block usage:
     await render(hbs`
@@ -25,6 +28,6 @@ module('Integration | Component | mobile-menu/mask', function (hooks) {
 
     await click('.mobile-menu__mask');
 
-    assert.ok(this.handleClick.calledOnce, 'onClick hook has been called');
+    assert.verifySteps(['handleClick']);
   });
 });

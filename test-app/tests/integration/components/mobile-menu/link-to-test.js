@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import sinon from 'sinon';
 import Service from '@ember/service';
 
 module('Integration | Component | mobile-menu/link-to', function (hooks) {
@@ -22,11 +21,13 @@ module('Integration | Component | mobile-menu/link-to', function (hooks) {
   test('it fires the onClick hook when clicked', async function (assert) {
     this.owner.register('service:router', class Router extends Service {});
 
-    this.handleClick = sinon.spy();
+    this.handleClick = (...args) => {
+      assert.step(`handleClick: ${args}`);
+    };
 
     await render(hbs`{{mobile-menu/link-to "index" onClick=this.handleClick}}`);
     await click('a');
 
-    assert.ok(this.handleClick.calledOnce, 'onClick was called once');
+    assert.verifySteps(['handleClick: ']);
   });
 });

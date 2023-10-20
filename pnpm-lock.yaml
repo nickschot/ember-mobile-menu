@@ -125,8 +125,8 @@ importers:
         specifier: 3.1.1
         version: 3.1.1
       '@ember/test-helpers':
-        specifier: 2.9.4
-        version: 2.9.4(ember-source@4.12.3)
+        specifier: 3.2.0
+        version: 3.2.0(ember-source@4.12.3)(webpack@5.88.2)
       '@glimmer/component':
         specifier: 1.1.2
         version: 1.1.2
@@ -144,7 +144,7 @@ importers:
         version: 4.12.2
       ember-cli-addon-docs:
         specifier: 5.2.0
-        version: 5.2.0(@ember/test-helpers@2.9.4)(ember-data@4.12.3)(ember-fetch@8.1.2)(ember-source@4.12.3)(webpack@5.88.2)
+        version: 5.2.0(@ember/test-helpers@3.2.0)(ember-data@4.12.3)(ember-fetch@8.1.2)(ember-source@4.12.3)(webpack@5.88.2)
       ember-cli-addon-docs-yuidoc:
         specifier: 1.0.0
         version: 1.0.0
@@ -200,8 +200,8 @@ importers:
         specifier: 7.0.0
         version: 7.0.0
       ember-qunit:
-        specifier: 6.2.0
-        version: 6.2.0(@ember/test-helpers@2.9.4)(ember-source@4.12.3)(qunit@2.19.4)(webpack@5.88.2)
+        specifier: 7.0.0
+        version: 7.0.0(@ember/test-helpers@3.2.0)(ember-source@4.12.3)(qunit@2.20.0)(webpack@5.88.2)
       ember-resize-observer-polyfill:
         specifier: 0.0.1
         version: 0.0.1
@@ -248,8 +248,8 @@ importers:
         specifier: 2.8.8
         version: 2.8.8
       qunit:
-        specifier: 2.19.4
-        version: 2.19.4
+        specifier: 2.20.0
+        version: 2.20.0
       qunit-dom:
         specifier: 3.0.0
         version: 3.0.0
@@ -334,12 +334,6 @@ importers:
       ember-resolver:
         specifier: 11.0.1
         version: 11.0.1(ember-source@5.1.2)
-      ember-sinon:
-        specifier: 5.0.0
-        version: 5.0.0
-      ember-sinon-qunit:
-        specifier: 7.2.0
-        version: 7.2.0(ember-source@5.1.2)(qunit@2.20.0)(sinon@15.2.0)(webpack@5.88.2)
       ember-source:
         specifier: 5.1.2
         version: 5.1.2(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.88.2)
@@ -388,9 +382,6 @@ importers:
       sass:
         specifier: 1.64.2
         version: 1.64.2
-      sinon:
-        specifier: 15.2.0
-        version: 15.2.0
       webpack:
         specifier: 5.88.2
         version: 5.88.2
@@ -2308,26 +2299,25 @@ packages:
       - supports-color
     dev: true
 
-  /@ember/test-helpers@2.9.4(ember-source@4.12.3):
-    resolution: {integrity: sha512-z+Qs1NYWyIVDmrY6WdmOS5mdG1lJ5CFfzh6dRhLfs9lq45deDaDrVNcaCYhnNeJZTvUBK2XR2SvPcZm0RloXdA==}
-    engines: {node: 10.* || 12.* || 14.* || 15.* || >= 16.*}
+  /@ember/test-helpers@3.2.0(ember-source@4.12.3)(webpack@5.88.2):
+    resolution: {integrity: sha512-3yWpPsK5O77tUdCwW3HayrAcdlRitIRYMvLIG69Pkal1JMIGdNYVTvJ2R1lenhQh2syd/WFmGM07vQuDAtotQw==}
+    engines: {node: 16.* || >= 18}
     peerDependencies:
-      ember-source: '>=3.8.0'
+      ember-source: ^4.0.0 || ^5.0.0
     dependencies:
       '@ember/test-waiters': 3.0.2
       '@embroider/macros': 1.13.1
-      '@embroider/util': 1.12.0(ember-source@4.12.3)
+      '@simple-dom/interface': 1.4.0
       broccoli-debug: 0.6.5
       broccoli-funnel: 3.0.8
+      ember-auto-import: 2.6.3(webpack@5.88.2)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.3.0
-      ember-destroyable-polyfill: 2.0.3
       ember-source: 4.12.3(@glimmer/component@1.1.2)(webpack@5.88.2)
     transitivePeerDependencies:
-      - '@babel/core'
-      - '@glint/environment-ember-loose'
       - '@glint/template'
       - supports-color
+      - webpack
     dev: true
 
   /@ember/test-helpers@3.2.0(ember-source@5.1.2)(webpack@5.88.2):
@@ -3077,56 +3067,6 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /@sinonjs/commons@1.8.6:
-    resolution: {integrity: sha512-Ky+XkAkqPZSm3NLBeUng77EBQl3cmeJhITaGHdYH8kjVB+aun3S4XBRti2zt17mtt0mIUDiNxYeoJm6drVvBJQ==}
-    dependencies:
-      type-detect: 4.0.8
-    dev: true
-
-  /@sinonjs/commons@2.0.0:
-    resolution: {integrity: sha512-uLa0j859mMrg2slwQYdO/AkrOfmH+X6LTVmNTS9CqexuE2IvVORIkSpJLqePAbEnKJ77aMmCwr1NUZ57120Xcg==}
-    dependencies:
-      type-detect: 4.0.8
-    dev: true
-
-  /@sinonjs/commons@3.0.0:
-    resolution: {integrity: sha512-jXBtWAF4vmdNmZgD5FoKsVLv3rPgDnLgPbU84LIJ3otV44vJlDRokVng5v8NFJdCf/da9legHcKaRuZs4L7faA==}
-    dependencies:
-      type-detect: 4.0.8
-    dev: true
-
-  /@sinonjs/fake-timers@10.3.0:
-    resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
-    dependencies:
-      '@sinonjs/commons': 3.0.0
-    dev: true
-
-  /@sinonjs/fake-timers@6.0.1:
-    resolution: {integrity: sha512-MZPUxrmFubI36XS1DI3qmI0YdN1gks62JtFZvxR67ljjSNCeK6U08Zx4msEWOXuofgqUt6zPHSi1H9fbjR/NRA==}
-    dependencies:
-      '@sinonjs/commons': 1.8.6
-    dev: true
-
-  /@sinonjs/samsam@5.3.1:
-    resolution: {integrity: sha512-1Hc0b1TtyfBu8ixF/tpfSHTVWKwCBLY4QJbkgnE7HcwyvT2xArDxb4K7dMgqRm3szI+LJbzmW/s4xxEhv6hwDg==}
-    dependencies:
-      '@sinonjs/commons': 1.8.6
-      lodash.get: 4.4.2
-      type-detect: 4.0.8
-    dev: true
-
-  /@sinonjs/samsam@8.0.0:
-    resolution: {integrity: sha512-Bp8KUVlLp8ibJZrnvq2foVhP0IVX2CIprMJPK0vqGqgrDa0OHVKeZyBykqskkrdxV6yKBPmGasO8LVjAKR3Gew==}
-    dependencies:
-      '@sinonjs/commons': 2.0.0
-      lodash.get: 4.4.2
-      type-detect: 4.0.8
-    dev: true
-
-  /@sinonjs/text-encoding@0.7.2:
-    resolution: {integrity: sha512-sXXKG+uL9IrKqViTtao2Ws6dy0znu9sOaP1di/jKGW1M6VssO8vlpXCQcpZ+jisQ1tTFAC5Jo/EOzFbggBagFQ==}
-    dev: true
-
   /@socket.io/component-emitter@3.1.0:
     resolution: {integrity: sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==}
     dev: true
@@ -3481,16 +3421,6 @@ packages:
       '@types/http-errors': 2.0.1
       '@types/mime': 3.0.1
       '@types/node': 20.4.6
-    dev: true
-
-  /@types/sinon@10.0.20:
-    resolution: {integrity: sha512-2APKKruFNCAZgx3daAyACGzWuJ028VVCUDk6o2rw/Z4PXT0ogwdV4KUegW0MwVs0Zu59auPXbbuBJHF12Sx1Eg==}
-    dependencies:
-      '@types/sinonjs__fake-timers': 8.1.2
-    dev: true
-
-  /@types/sinonjs__fake-timers@8.1.2:
-    resolution: {integrity: sha512-9GcLXF0/v3t80caGs5p2rRfkB+a8VBGLJZVih6CNFkx8IZ994wiKKLSRs9nuFwk1HevWs/1mnUmkApGrSGsShA==}
     dev: true
 
   /@types/sizzle@2.3.3:
@@ -7504,11 +7434,6 @@ packages:
       minimist: 1.2.8
     dev: true
 
-  /diff@4.0.2:
-    resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
-    engines: {node: '>=0.3.1'}
-    dev: true
-
   /diff@5.1.0:
     resolution: {integrity: sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==}
     engines: {node: '>=0.3.1'}
@@ -7823,7 +7748,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-cli-addon-docs@5.2.0(@ember/test-helpers@2.9.4)(ember-data@4.12.3)(ember-fetch@8.1.2)(ember-source@4.12.3)(webpack@5.88.2):
+  /ember-cli-addon-docs@5.2.0(@ember/test-helpers@3.2.0)(ember-data@4.12.3)(ember-fetch@8.1.2)(ember-source@4.12.3)(webpack@5.88.2):
     resolution: {integrity: sha512-+7pRAC1qtDtm9tasOYU6OzJSh24iLZP8ouY4ZtGztCi8RV1LHTeNFq3YziSvs+QedpexS2nBTG4kPFCZpKSnFg==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
@@ -7861,7 +7786,7 @@ packages:
       ember-concurrency: 2.3.7
       ember-data: 4.12.3(@ember/string@3.1.1)(@glimmer/tracking@1.1.2)(ember-source@4.12.3)(webpack@5.88.2)
       ember-fetch: 8.1.2
-      ember-keyboard: 8.2.0(@ember/test-helpers@2.9.4)(ember-source@4.12.3)
+      ember-keyboard: 8.2.0(@ember/test-helpers@3.2.0)(ember-source@4.12.3)
       ember-modal-dialog: 4.1.2(ember-source@4.12.3)(ember-tether@2.0.1)
       ember-responsive: 5.0.0
       ember-router-generator: 2.0.0
@@ -8831,7 +8756,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-keyboard@8.2.0(@ember/test-helpers@2.9.4)(ember-source@4.12.3):
+  /ember-keyboard@8.2.0(@ember/test-helpers@3.2.0)(ember-source@4.12.3):
     resolution: {integrity: sha512-h2kuS2irtIyvNbAMkGDlDTB4TPXwgmC6Nu9bIuGWoCjkGdgJbUg0VegfyRJ1TlxbIHlAelbqVpE8UhfgY5wEag==}
     engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:
@@ -8840,7 +8765,7 @@ packages:
       '@ember/test-helpers':
         optional: true
     dependencies:
-      '@ember/test-helpers': 2.9.4(ember-source@4.12.3)
+      '@ember/test-helpers': 3.2.0(ember-source@4.12.3)(webpack@5.88.2)
       '@embroider/addon-shim': 1.8.6
       ember-destroyable-polyfill: 2.0.3
       ember-modifier: 4.1.0(ember-source@4.12.3)
@@ -8983,15 +8908,15 @@ packages:
       - supports-color
     dev: true
 
-  /ember-qunit@6.2.0(@ember/test-helpers@2.9.4)(ember-source@4.12.3)(qunit@2.19.4)(webpack@5.88.2):
-    resolution: {integrity: sha512-mC+0bp8DwWzJLn8SW3GS8KDZIkl4yLsNYwMi5Dw6+aFllq7FM2crd/dfY4MuOIHK7GKdjtmWJTMGnjSpeSayaw==}
-    engines: {node: 14.* || 16.* || >= 18}
+  /ember-qunit@7.0.0(@ember/test-helpers@3.2.0)(ember-source@4.12.3)(qunit@2.20.0)(webpack@5.88.2):
+    resolution: {integrity: sha512-KhrndHYEXsHnXvmsGyJLJQ6VCudXaRs5dzPZBsdttZJIhsB6PmYAvq2Q+mh3GRDT/59T/sRDrB3FD3/lATS8aA==}
+    engines: {node: 16.* || >= 18}
     peerDependencies:
-      '@ember/test-helpers': ^2.9.3
-      ember-source: '>=3.28'
+      '@ember/test-helpers': '>=3.0.3'
+      ember-source: '>=4.0.0'
       qunit: ^2.13.0
     dependencies:
-      '@ember/test-helpers': 2.9.4(ember-source@4.12.3)
+      '@ember/test-helpers': 3.2.0(ember-source@4.12.3)(webpack@5.88.2)
       broccoli-funnel: 3.0.8
       broccoli-merge-trees: 3.0.2
       common-tags: 1.8.2
@@ -8999,7 +8924,7 @@ packages:
       ember-cli-babel: 7.26.11
       ember-cli-test-loader: 3.1.0
       ember-source: 4.12.3(@glimmer/component@1.1.2)(webpack@5.88.2)
-      qunit: 2.19.4
+      qunit: 2.20.0
       resolve-package-path: 4.0.3
       silent-error: 1.1.1
       validate-peer-dependencies: 2.2.0
@@ -9145,40 +9070,6 @@ packages:
     engines: {node: 10.* || >= 12}
     dependencies:
       ember-cli-babel: 7.26.11
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /ember-sinon-qunit@7.2.0(ember-source@5.1.2)(qunit@2.20.0)(sinon@15.2.0)(webpack@5.88.2):
-    resolution: {integrity: sha512-yOwNLAMkYAnmwC/hPrnEg99N0y0LrOATEjcU5btAWlAkrifE0eHGvM/zymCYAfuwXOYxpmPf4gQcVw3vjb0E2w==}
-    engines: {node: 14.* || 16.* || >= 18}
-    peerDependencies:
-      ember-source: '>=3.28.0'
-      qunit: ^2.0.0
-      sinon: ^15.0.3 || ^16.0.0
-    dependencies:
-      '@types/sinon': 10.0.20
-      broccoli-funnel: 3.0.8
-      ember-auto-import: 2.6.3(webpack@5.88.2)
-      ember-cli-babel: 7.26.11
-      ember-cli-typescript: 5.2.1
-      ember-source: 5.1.2(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.88.2)
-      qunit: 2.20.0
-      sinon: 15.2.0
-    transitivePeerDependencies:
-      - '@glint/template'
-      - supports-color
-      - webpack
-    dev: true
-
-  /ember-sinon@5.0.0:
-    resolution: {integrity: sha512-dTP2vhao1xWm3OlfpOALooso/OLM71SFg7PIBmZ6JdwKCC+CzcPb4BYRAXuoAFYzmhH8z28p8HdemjZBb0B3Bw==}
-    engines: {node: 10.* || >= 12}
-    dependencies:
-      broccoli-funnel: 2.0.2
-      broccoli-merge-trees: 3.0.2
-      ember-cli-babel: 7.26.11
-      sinon: 9.2.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -12365,10 +12256,6 @@ packages:
   /jsonify@0.0.1:
     resolution: {integrity: sha512-2/Ki0GcmuqSrgFyelQq9M05y7PS0mEwuIzrf3f1fPqkVDVRvZrPZtVSMHxdgo8Aq0sxAOb/cr2aqqA3LeWHVPg==}
 
-  /just-extend@4.2.1:
-    resolution: {integrity: sha512-g3UB796vUFIY90VIv/WX3L2c8CS2MdWUww3CNrYmqza1Fg0DURc2K/O4YrnklBdQarSJ/y8JnJYDGc+1iumQjg==}
-    dev: true
-
   /keyv@3.1.0:
     resolution: {integrity: sha512-9ykJ/46SN/9KPM/sichzQ7OvXyGDYKGTaDlKMGCAlg2UK8KRy4jb0d8sFc+0Tt0YYnThq8X2RZgCg74RPxgcVA==}
     dependencies:
@@ -12678,10 +12565,6 @@ packages:
     dependencies:
       lodash._baseflatten: 3.1.4
       lodash._isiterateecall: 3.0.9
-    dev: true
-
-  /lodash.get@4.4.2:
-    resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
     dev: true
 
   /lodash.isarguments@3.1.0:
@@ -13666,26 +13549,6 @@ packages:
     resolution: {integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==}
     dev: true
 
-  /nise@4.1.0:
-    resolution: {integrity: sha512-eQMEmGN/8arp0xsvGoQ+B1qvSkR73B1nWSCh7nOt5neMCtwcQVYQGdzQMhcNscktTsWB54xnlSQFzOAPJD8nXA==}
-    dependencies:
-      '@sinonjs/commons': 1.8.6
-      '@sinonjs/fake-timers': 6.0.1
-      '@sinonjs/text-encoding': 0.7.2
-      just-extend: 4.2.1
-      path-to-regexp: 1.8.0
-    dev: true
-
-  /nise@5.1.4:
-    resolution: {integrity: sha512-8+Ib8rRJ4L0o3kfmyVCL7gzrohyDe0cMFTBa2d364yIrEGMEoetznKJx899YxjybU6bL9SQkYPSBBs1gyYs8Xg==}
-    dependencies:
-      '@sinonjs/commons': 2.0.0
-      '@sinonjs/fake-timers': 10.3.0
-      '@sinonjs/text-encoding': 0.7.2
-      just-extend: 4.2.1
-      path-to-regexp: 1.8.0
-    dev: true
-
   /no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
     dependencies:
@@ -14507,12 +14370,6 @@ packages:
     resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==}
     dev: true
 
-  /path-to-regexp@1.8.0:
-    resolution: {integrity: sha512-n43JRhlUKUAlibEJhPeir1ncUID16QnEjNpwzNdO3Lm4ywrBpBZ5oLD0I6br9evr1Y9JTqwRtAh7JLoOzAQdVA==}
-    dependencies:
-      isarray: 0.0.1
-    dev: true
-
   /path-type@3.0.0:
     resolution: {integrity: sha512-T2ZUsdZFHgA3u4e5PfPbjd7HDDpxPnQb5jN0SrDsjNSuVXHJqtwTnWqG0B1jZrgmJ/7lj1EmVIByWt1gxGkWvg==}
     engines: {node: '>=4'}
@@ -15051,16 +14908,6 @@ packages:
 
   /qunit-dom@3.0.0:
     resolution: {integrity: sha512-rqGZ9ZgOvtOY+Ph2ElCJ4pRIHouMZmI3DWK35Xr3x3c17/gIwOHHyKAQk6XetqhqepS6p+oXvK6Bx1uZu5jJuw==}
-    dev: true
-
-  /qunit@2.19.4:
-    resolution: {integrity: sha512-aqUzzUeCqlleWYKlpgfdHHw9C6KxkB9H3wNfiBg5yHqQMzy0xw/pbCRHYFkjl8MsP/t8qkTQE+JTYL71azgiew==}
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      commander: 7.2.0
-      node-watch: 0.7.3
-      tiny-glob: 0.2.9
     dev: true
 
   /qunit@2.20.0:
@@ -16030,28 +15877,6 @@ packages:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
     dependencies:
       is-arrayish: 0.3.2
-    dev: true
-
-  /sinon@15.2.0:
-    resolution: {integrity: sha512-nPS85arNqwBXaIsFCkolHjGIkFo+Oxu9vbgmBJizLAhqe6P2o3Qmj3KCUoRkfhHtvgDhZdWD3risLHAUJ8npjw==}
-    dependencies:
-      '@sinonjs/commons': 3.0.0
-      '@sinonjs/fake-timers': 10.3.0
-      '@sinonjs/samsam': 8.0.0
-      diff: 5.1.0
-      nise: 5.1.4
-      supports-color: 7.2.0
-    dev: true
-
-  /sinon@9.2.4:
-    resolution: {integrity: sha512-zljcULZQsJxVra28qIAL6ow1Z9tpattkCTEJR4RBP3TGc00FcttsP5pK284Nas5WjMZU5Yzy3kAIp3B3KRf5Yg==}
-    dependencies:
-      '@sinonjs/commons': 1.8.6
-      '@sinonjs/fake-timers': 6.0.1
-      '@sinonjs/samsam': 5.3.1
-      diff: 4.0.2
-      nise: 4.1.0
-      supports-color: 7.2.0
     dev: true
 
   /slash@1.0.0:
@@ -17191,11 +17016,6 @@ packages:
     engines: {node: '>= 0.8.0'}
     dependencies:
       prelude-ls: 1.2.1
-    dev: true
-
-  /type-detect@4.0.8:
-    resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
-    engines: {node: '>=4'}
     dev: true
 
   /type-fest@0.11.0:
