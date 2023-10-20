@@ -51,8 +51,6 @@
     "ember-page-title": "7.0.0",
     "ember-qunit": "7.0.0",
     "ember-resolver": "11.0.1",
-    "ember-sinon": "5.0.0",
-    "ember-sinon-qunit": "7.2.0",
     "ember-source": "5.1.2",
     "ember-source-channel-url": "3.0.0",
     "ember-template-lint": "5.11.2",
@@ -69,7 +67,6 @@
     "qunit": "2.20.0",
     "qunit-dom": "3.0.0",
     "sass": "1.64.2",
-    "sinon": "15.2.0",
     "webpack": "5.88.2"
   },
   "dependenciesMeta": {

@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import sinon from 'sinon';
 
 module('Integration | Component | mobile-menu-toggle', function (hooks) {
   setupRenderingTest(hooks);
@@ -26,24 +25,26 @@ module('Integration | Component | mobile-menu-toggle', function (hooks) {
   });
 
   test('it fires the `onClick` hook with no argument when clicked', async function (assert) {
-    this.handleClick = sinon.spy();
+    this.handleClick = (...args) => {
+      assert.step(`handleClick: ${args}`);
+    };
 
     await render(hbs`<MobileMenuToggle @onClick={{this.handleClick}}/>`);
     await click('.mobile-menu__toggle');
 
-    assert.ok(this.handleClick.calledOnce, 'onClick was called once');
-    assert.ok(this.handleClick.calledWithExactly(undefined));
+    assert.verifySteps(['handleClick: ']);
   });
 
   test('it fires the `onClick` hook with the passed target when clicked', async function (assert) {
-    this.handleClick = sinon.spy();
+    this.handleClick = (...args) => {
+      assert.step(`handleClick: ${args}`);
+    };
 
     await render(
       hbs`<MobileMenuToggle @target="right" @onClick={{this.handleClick}}/>`
     );
     await click('.mobile-menu__toggle');
 
-    assert.ok(this.handleClick.calledOnce, 'onClick was called once');
-    assert.ok(this.handleClick.calledWithExactly('right'));
+    assert.verifySteps(['handleClick: right']);
   });
 });
