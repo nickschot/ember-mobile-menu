@@ -74,8 +74,8 @@ importers:
         version: 1.5.1
     devDependencies:
       '@babel/eslint-parser':
-        specifier: 7.22.15
-        version: 7.22.15(eslint@8.53.0)
+        specifier: 7.23.3
+        version: 7.23.3(eslint@8.53.0)
       ember-source:
         specifier: 5.4.0
         version: 5.4.0(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.89.0)
@@ -116,8 +116,8 @@ importers:
   docs:
     devDependencies:
       '@babel/eslint-parser':
-        specifier: 7.22.15
-        version: 7.22.15(eslint@8.53.0)
+        specifier: 7.23.3
+        version: 7.23.3(eslint@8.53.0)
       '@ember/optional-features':
         specifier: 2.0.0
         version: 2.0.0
@@ -260,8 +260,8 @@ importers:
   test-app:
     devDependencies:
       '@babel/eslint-parser':
-        specifier: 7.22.15
-        version: 7.22.15(eslint@8.53.0)
+        specifier: 7.23.3
+        version: 7.23.3(eslint@8.53.0)
       '@ember/optional-features':
         specifier: 2.0.0
         version: 2.0.0
@@ -433,8 +433,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@babel/eslint-parser@7.22.15(eslint@8.53.0):
-    resolution: {integrity: sha512-yc8OOBIQk1EcRrpizuARSQS0TWAcOMpEJ1aafhNznaeYkeL+OhqnDObGFylB8ka8VFF/sZc+S4RzHyO+3LjQxg==}
+  /@babel/eslint-parser@7.23.3(eslint@8.53.0):
+    resolution: {integrity: sha512-9bTuNlyx7oSstodm1cR1bECj4fkiknsDa1YniISkJemMY3DGhJNYBECbe6QD/q54mp2J8VO66jW3/7uP//iFCw==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': ^7.11.0
@@ -7832,7 +7832,7 @@ packages:
     resolution: {integrity: sha512-nCgRkQ/ujzy4fqxSvoaQD8j1ev3LOA30STlZTvHt+dhyfYC6ojMqTBl7SatPcv7Fz6Vy6BqE/Sqy3vhOHCzQJg==}
     engines: {node: 14.* || 16.* || 18.* || >= 20}
     dependencies:
-      '@babel/eslint-parser': 7.22.15(eslint@8.53.0)
+      '@babel/eslint-parser': 7.23.3(eslint@8.53.0)
       chalk: 4.1.2
       ember-cli-deploy-plugin: 0.2.9
       glob: 10.3.10
@@ -13728,7 +13728,7 @@ packages:
       got: 12.6.1
       registry-auth-token: 5.0.2
       registry-url: 6.0.1
-      semver: 7.5.1
+      semver: 7.5.4
     dev: true
 
   /pad-start@1.0.2:
@@ -15230,7 +15230,7 @@ packages:
     resolution: {integrity: sha512-0Ju4+6A8iOnpL/Thra7dZsSlOHYAHIeMxfhWQRI1/VLcT3WDBZKKtQt/QkBOsiIN9ZpuvHE6cGZ0x4glCMmfiA==}
     engines: {node: '>=12'}
     dependencies:
-      semver: 7.5.1
+      semver: 7.5.4
     dev: true
 
   /semver@5.7.2:
@@ -16789,7 +16789,7 @@ packages:
       is-yarn-global: 0.4.1
       latest-version: 7.0.0
       pupa: 3.1.0
-      semver: 7.5.1
+      semver: 7.5.4
       semver-diff: 4.0.0
       xdg-basedir: 5.1.0
     dev: true
