@@ -69,11 +69,6 @@
     "sass": "1.69.5",
     "webpack": "5.89.0"
   },
-  "dependenciesMeta": {
-    "ember-mobile-menu": {
-      "injected": true
-    }
-  },
   "engines": {
     "node": "18.* || >= 20"
   },
