@@ -7,6 +7,13 @@ module.exports = function (defaults) {
     'ember-cli-addon-docs': {
       documentingAddonAt: '../ember-mobile-menu',
     },
+    '@embroider/macros': {
+      setConfig: {
+        'ember-mobile-menu': {
+          theme: 'android'
+        }
+      },
+    },
   });
 
   /*
