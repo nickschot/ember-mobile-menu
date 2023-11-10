@@ -1,0 +1,16 @@
+.mobile-menu__tray {
+  position: absolute;
+  top: 0;
+  height: var(--mobile-menu-height);
+  /* Avoid Chrome to see Safari hack */
+  overflow-y: auto;
+  touch-action: pan-y;
+  background: #FFF;
+  will-change: transform;
+}
+@supports (-webkit-touch-callout: none) {
+  .mobile-menu__tray {
+    /* The hack for Safari */
+    height: -webkit-fill-available;
+  }
+}

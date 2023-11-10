@@ -1,0 +1,49 @@
+:root {
+  --mobile-menu-wrapper-width: 100%;
+  --mobile-menu-wrapper-min-height: 100vh;
+
+  --mobile-menu-height: 100vh;
+  --mobile-menu-z-index: 2000;
+}
+
+body.mobile-menu--prevent-scroll {
+  overflow: hidden;
+}
+
+.mobile-menu-wrapper {
+  overflow: hidden;
+  width: var(--mobile-menu-wrapper-width);
+  min-height: var(--mobile-menu-wrapper-min-height);
+  /* Avoid Chrome to see Safari hack */
+}
+@supports (-webkit-touch-callout: none) {
+  .mobile-menu-wrapper {
+    /* The hack for Safari */
+    min-height: -webkit-fill-available;
+  }
+}
+
+.mobile-menu-wrapper--embedded {
+  position: relative;
+  min-height: 100%;
+  min-width: 100%;
+  overflow: hidden;
+}
+.mobile-menu-wrapper--embedded .mobile-menu-wrapper__content {
+  min-height: 100%;
+}
+
+.mobile-menu-wrapper__content {
+  min-height: var(--mobile-menu-wrapper-min-height);
+  position: relative;
+  background: #FFF;
+  will-change: transform, margin-left, margin-right;
+  z-index: 1;
+  touch-action: pan-y;
+}
+.mobile-menu-wrapper__content--shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.mobile-menu-wrapper__content--ios, .mobile-menu-wrapper__content--reveal, .mobile-menu-wrapper__content--squeeze-reveal {
+  z-index: 2;
+}

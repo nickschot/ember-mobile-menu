@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
+import './mask.css';
 
 const _fn = () => {};
 
