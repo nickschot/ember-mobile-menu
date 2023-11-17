@@ -4,12 +4,6 @@ import { action } from '@ember/object';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import './tray.css';
 
-import { macroCondition, getOwnConfig, importSync } from '@embroider/macros';
-
-if (macroCondition(getOwnConfig()?.theme)) {
-  importSync(`../../themes/${getOwnConfig()?.theme}.css`);
-}
-
 /**
  * The tray that resides within the menu. Menu content is placed in here.
  *

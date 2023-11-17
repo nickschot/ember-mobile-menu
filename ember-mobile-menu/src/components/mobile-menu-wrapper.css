@@ -1,9 +1,11 @@
-:root {
-  --mobile-menu-wrapper-width: 100%;
-  --mobile-menu-wrapper-min-height: 100vh;
+@layer ember-mobile-menu {
+  :root {
+    --mobile-menu-wrapper-width: 100%;
+    --mobile-menu-wrapper-min-height: 100vh;
 
-  --mobile-menu-height: 100vh;
-  --mobile-menu-z-index: 2000;
+    --mobile-menu-height: 100vh;
+    --mobile-menu-z-index: 2000;
+  }
 }
 
 body.mobile-menu--prevent-scroll {

@@ -1,9 +1,11 @@
-:root {
-  --mobile-menu-header-bg:                 #E04E39;
+@layer ember-mobile-menu {
+  :root {
+    --mobile-menu-header-bg:                 #E04E39;
 
-  --mobile-menu-item-color:                #333;
-  --mobile-menu-item-active-bg:            #EEE;
-  --mobile-menu-item-link-disabled-color:  #6C757D;
+    --mobile-menu-item-color:                #333;
+    --mobile-menu-item-active-bg:            #EEE;
+    --mobile-menu-item-link-disabled-color:  #6C757D;
+  }
 }
 
 .mobile-menu__tray .mobile-menu__header {
