@@ -57,17 +57,7 @@
         "publish": true,
         "workspaces": [
           "ember-mobile-menu"
-        ],
-        "additionalManifests": {
-          "dependencyUpdates": [
-            "docs/package.json",
-            "test-app/package.json"
-          ],
-          "versionUpdates": [
-            "docs/package.json",
-            "test-app/package.json"
-          ]
-        }
+        ]
       }
     },
     "git": {
