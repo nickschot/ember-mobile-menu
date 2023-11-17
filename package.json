@@ -11,9 +11,19 @@
   ],
   "scripts": {
     "changelog": "npx lerna-changelog --from=v0.1.0-alpha.5 > CHANGELOG.md",
-    "release": "release-it"
+    "release": "release-it",
+    "build": "pnpm --filter ember-mobile-menu build",
+    "lint": "pnpm --filter '*' lint",
+    "lint:fix": "pnpm --filter '*' lint:fix",
+    "prepare": "pnpm build",
+    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:addon": "pnpm --filter ember-mobile-menu start --no-watch.clearScreen",
+    "start:test-app": "pnpm --filter test-app start",
+    "test": "pnpm --filter '*' test",
+    "test:ember": "pnpm --filter '*' test:ember"
   },
   "devDependencies": {
+    "concurrently": "^8.2.0",
     "release-it": "15.11.0",
     "@release-it-plugins/lerna-changelog": "5.0.0",
     "release-it-yarn-workspaces": "github:refi93/release-it-yarn-workspaces#refi93/esm-support"
@@ -45,7 +55,7 @@
       "release-it-yarn-workspaces": {
         "publish": true,
         "workspaces": [
-          "addon"
+          "ember-mobile-menu"
         ],
         "additionalManifests": {
           "dependencyUpdates": [

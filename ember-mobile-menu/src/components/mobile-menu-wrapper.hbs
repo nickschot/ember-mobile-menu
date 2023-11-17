@@ -1,0 +1,57 @@
+{{#if this.preventBodyScroll}}
+  {{set-body-class "mobile-menu--prevent-scroll"}}
+{{/if}}
+
+<div
+  class="mobile-menu-wrapper {{if this.embed 'mobile-menu-wrapper--embedded'}}"
+  {{did-insert this.onInsert}}
+  {{on-resize this.onResize}}
+  ...attributes
+>
+  {{yield
+    (hash
+      MobileMenu=(component "mobile-menu"
+        isDragging=this.dragging
+        position=this.position
+        embed=this.embed
+        parentBoundingClientRect=this.boundingClientRect
+        parent=this
+        register=this.registerChild
+        unregister=this.unregisterChild
+
+        onClose=this.close
+        onOpen=this.open
+
+        onPanStart=this.didPanStart
+        onPan=this.didPan
+        onPanEnd=this.didPanEnd
+        capture=this.capture
+        preventScroll=this.preventScroll
+      )
+      Toggle=(component "mobile-menu-toggle"
+        onClick=this.toggle
+      )
+      Content=(component "mobile-menu-wrapper/content"
+        shadowEnabled=this.contentShadowEnabled
+        position=this.position
+        mode=this.mode
+        isOpen=this.activeMenu
+        maskEnabled=this.activeMenu.maskEnabled
+
+        onPanStart=this.didPanStart
+        onPan=this.didPan
+        onPanEnd=this.didPanEnd
+        capture=this.capture
+        preventScroll=this.preventScroll
+
+        onClose=this.close
+      )
+      position=this.position
+      relativePosition=this.relativePosition
+      actions=(hash
+        toggle=this.toggle
+        close=this.close
+      )
+    )
+  }}
+</div>

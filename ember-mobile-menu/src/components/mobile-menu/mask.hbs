@@ -1,0 +1,15 @@
+<button
+  class="mobile-menu__mask"
+  style={{this.style}}
+  type="button"
+  aria-label="Close"
+  {{on "click" this.onClick}}
+  {{did-pan
+    onPanStart=@onPanStart
+    onPan=@onPan
+    onPanEnd=@onPanEnd
+    capture=@capture
+    preventScroll=@preventScroll
+  }}
+  ...attributes
+></button>

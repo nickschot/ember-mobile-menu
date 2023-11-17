@@ -33,7 +33,7 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Lint Addon
         run: pnpm run lint
-        working-directory: addon
+        working-directory: ember-mobile-menu
       - name: Lint Test App
         run: pnpm run lint
         working-directory: test-app
