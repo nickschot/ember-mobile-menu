@@ -7,6 +7,27 @@
 
 
 
+
+## v5.0.0-0 (2023-11-17)
+
+#### :boom: Breaking Change
+* [#779](https://github.com/nickschot/ember-mobile-menu/pull/779) Replace SCSS with plain CSS approach ([@nickschot](https://github.com/nickschot))
+* [#778](https://github.com/nickschot/ember-mobile-menu/pull/778) Convert to v2 addon ([@nickschot](https://github.com/nickschot))
+* [#744](https://github.com/nickschot/ember-mobile-menu/pull/744) Replace tracked-maps-and-sets with tracked-built-ins ([@nickschot](https://github.com/nickschot))
+* [#742](https://github.com/nickschot/ember-mobile-menu/pull/742) Drop ember-source 3.28 ([@nickschot](https://github.com/nickschot))
+
+#### :rocket: Enhancement
+* [#779](https://github.com/nickschot/ember-mobile-menu/pull/779) Replace SCSS with plain CSS approach ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#791](https://github.com/nickschot/ember-mobile-menu/pull/791) Enable readme/license copying to published addon ([@nickschot](https://github.com/nickschot))
+* [#790](https://github.com/nickschot/ember-mobile-menu/pull/790) Remove Travis CI badge ([@nickschot](https://github.com/nickschot))
+* [#789](https://github.com/nickschot/ember-mobile-menu/pull/789) Remove v1 addon/cleanup ([@nickschot](https://github.com/nickschot))
+* [#745](https://github.com/nickschot/ember-mobile-menu/pull/745) Remove reliance on sinon ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v4.0.0 (2023-10-20)
 
 #### :boom: Breaking Change
