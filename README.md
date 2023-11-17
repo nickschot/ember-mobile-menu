@@ -1,7 +1,7 @@
 ember-mobile-menu
 ==============================================================================
 
-[![Build Status](https://travis-ci.org/nickschot/ember-mobile-menu.svg?branch=master)](https://travis-ci.org/nickschot/ember-mobile-menu) [![Ember Observer Score](https://emberobserver.com/badges/ember-mobile-menu.svg)](https://emberobserver.com/addons/ember-mobile-menu)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-mobile-menu.svg)](https://emberobserver.com/addons/ember-mobile-menu)
 
 An [ember-cli](http://www.ember-cli.com) addon providing a draggable sidebar specifically tailored to mobile devices.
 
