@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { action } from '@ember/object';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import './tray.css';
 
 /**
  * The tray that resides within the menu. Menu content is placed in here.

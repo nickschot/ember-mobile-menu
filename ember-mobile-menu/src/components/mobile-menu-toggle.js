@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import './mobile-menu-toggle.css';
 
 const _fn = () => {};
 

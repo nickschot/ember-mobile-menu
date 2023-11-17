@@ -12,6 +12,7 @@ import { assert } from '@ember/debug';
 import { waitFor } from '@ember/test-waiters';
 import { task } from 'ember-concurrency';
 import Spring from '../spring';
+import './mobile-menu-wrapper.css';
 
 const isIOSDevice =
   typeof window !== 'undefined' &&

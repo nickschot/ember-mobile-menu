@@ -4,6 +4,7 @@ import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 import { use, Resource } from 'ember-could-get-used-to-this';
 import { next } from '@ember/runloop';
+import './mobile-menu.css';
 
 const _fn = function () {};
 class StateResource extends Resource {
