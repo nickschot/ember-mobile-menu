@@ -62,11 +62,11 @@ export default {
     addon.clean(),
 
     // Copy Readme and License into published package
-    /*copy({
+    copy({
       targets: [
         { src: '../README.md', dest: '.' },
         { src: '../LICENSE.md', dest: '.' },
       ],
-    }),*/
+    }),
   ],
 };
