@@ -1,42 +1,26 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
-import { use, Resource } from 'ember-could-get-used-to-this';
+import { use, Resource } from 'ember-resources';
 import { next } from '@ember/runloop';
 import './mobile-menu.css';
 
 const _fn = function () {};
 class StateResource extends Resource {
-  open = false;
-  closed = true;
-  dragging = false;
-  transitioning = false;
+  @tracked open = false;
+  @tracked closed = true;
+  @tracked dragging = false;
+  @tracked transitioning = false;
 
-  get value() {
-    return {
-      open: this.open,
-      closed: this.closed,
-      dragging: this.dragging,
-      transitioning: this.transitioning,
-    };
-  }
-
-  setup() {
-    this.setState(...this.args.positional);
-  }
-
-  update() {
-    this.setState(...this.args.positional);
-  }
-
-  teardown() {}
-
-  setState(position, isDragging, width, onToggle) {
+  modify([position, isDragging, width, onToggle]) {
     this.dragging = position !== 0 && isDragging;
     let open = !this.dragging && Math.abs(position) === width;
     let closed = !this.dragging && position === 0;
-    this.maybeToggle(open, closed, onToggle);
+    next(() => {
+      this.maybeToggle(open, closed, onToggle);
+    });
     this.transitioning = !this.dragging && !this.open && !this.closed;
   }
 
@@ -44,12 +28,12 @@ class StateResource extends Resource {
     if (this.open !== open) {
       this.open = open;
       if (open) {
-        next(() => onToggle(true));
+        onToggle(true);
       }
     } else if (this.closed !== closed) {
       this.closed = closed;
       if (closed) {
-        next(() => onToggle(false));
+        onToggle(false);
       }
     }
   }
@@ -62,7 +46,7 @@ class StateResource extends Resource {
  * @public
  */
 export default class MobileMenu extends Component {
-  @use state = new StateResource(() => [
+  @use state = StateResource.from(() => [
     this.position,
     this.args.isDragging,
     this._width,
