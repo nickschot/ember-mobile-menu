@@ -74,7 +74,7 @@
     "eslint-plugin-prettier": "5.0.1",
     "prettier": "3.1.0",
     "prettier-plugin-ember-template-tag": "1.1.0",
-    "rollup": "3.29.4",
+    "rollup": "4.5.2",
     "rollup-plugin-copy": "3.5.0"
   },
   "publishConfig": {
