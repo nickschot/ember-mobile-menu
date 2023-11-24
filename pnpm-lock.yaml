@@ -166,7 +166,7 @@ importers:
         specifier: 1.69.5
         version: 1.69.5
       tracked-built-ins:
-        specifier: ^3.3.0
+        specifier: 3.3.0
         version: 3.3.0
       webpack:
         specifier: 5.89.0
@@ -404,7 +404,7 @@ importers:
         specifier: 1.69.5
         version: 1.69.5
       tracked-built-ins:
-        specifier: ^3.3.0
+        specifier: 3.3.0
         version: 3.3.0
       webpack:
         specifier: 5.89.0
