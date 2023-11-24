@@ -9,7 +9,7 @@ Both a left and a right menu are supported. Dragging is supported through touch 
 
 Requirements
 ------------------------------------------------------------------------------
-* Ember.js v4.0 or above
+* Ember.js v3.28 or above
 * Ember CLI v3.12 or above
 * ember-concurrency v3.x
 * tracked-built-ins v3.x
