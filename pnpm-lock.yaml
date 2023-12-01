@@ -186,12 +186,6 @@ importers:
       '@embroider/addon-shim':
         specifier: ^1.0.0
         version: 1.8.7
-      '@glimmer/component':
-        specifier: ^1.0.4
-        version: 1.1.2(@babel/core@7.23.5)
-      '@glimmer/tracking':
-        specifier: ^1.0.4
-        version: 1.1.2
       body-scroll-lock:
         specifier: ^3.0.1
         version: 3.1.5
@@ -235,6 +229,12 @@ importers:
       '@embroider/addon-dev':
         specifier: 4.1.2
         version: 4.1.2(rollup@4.6.1)
+      '@glimmer/component':
+        specifier: 1.1.2
+        version: 1.1.2(@babel/core@7.23.5)
+      '@glimmer/tracking':
+        specifier: 1.1.2
+        version: 1.1.2
       '@rollup/plugin-babel':
         specifier: 6.0.4
         version: 6.0.4(@babel/core@7.23.5)(rollup@4.6.1)
@@ -339,7 +339,7 @@ importers:
         version: 2.1.2
       ember-mobile-menu:
         specifier: workspace:*
-        version: file:ember-mobile-menu(ember-source@5.4.0)(tracked-built-ins@3.3.0)(webpack@5.89.0)
+        version: file:ember-mobile-menu(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-source@5.4.0)(tracked-built-ins@3.3.0)(webpack@5.89.0)
       ember-page-title:
         specifier: 8.1.0
         version: 8.1.0(ember-source@5.4.0)
@@ -8736,16 +8736,6 @@ packages:
       ember-source: 5.4.0(@glimmer/component@1.1.2)(webpack@5.89.0)
     transitivePeerDependencies:
       - '@babel/core'
-      - supports-color
-    dev: true
-
-  /ember-could-get-used-to-this@1.0.1:
-    resolution: {integrity: sha512-+BXc8NbJJ/DoUXZk4e3qeRvADw9ThMEW7jm+Nz+QX9jRY/5QYodnFeUEfsC4Sw3Ti2m1+RzI2Lyq0QWpgOqFYg==}
-    engines: {node: 8.* || >= 10.*}
-    dependencies:
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 4.5.0
-    transitivePeerDependencies:
       - supports-color
     dev: true
 
@@ -18079,12 +18069,14 @@ packages:
       - supports-color
     dev: true
 
-  file:ember-mobile-menu(ember-source@5.4.0)(tracked-built-ins@3.3.0)(webpack@5.89.0):
+  file:ember-mobile-menu(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-source@5.4.0)(tracked-built-ins@3.3.0)(webpack@5.89.0):
     resolution: {directory: ember-mobile-menu, type: directory}
     id: file:ember-mobile-menu
     name: ember-mobile-menu
     peerDependencies:
-      ember-source: '>=4.0.0'
+      '@glimmer/component': ^1.0.4
+      '@glimmer/tracking': ^1.0.4
+      ember-source: '>=3.28.0'
       tracked-built-ins: '>=3.0.0'
     dependencies:
       '@ember/legacy-built-in-components': 0.5.0(ember-source@5.4.0)
@@ -18095,7 +18087,6 @@ packages:
       '@glimmer/tracking': 1.1.2
       body-scroll-lock: 3.1.5
       ember-concurrency: 3.1.1(ember-source@5.4.0)
-      ember-could-get-used-to-this: 1.0.1
       ember-gesture-modifiers: 5.0.1(ember-source@5.4.0)(webpack@5.89.0)
       ember-on-resize-modifier: 2.0.2(ember-source@5.4.0)(webpack@5.89.0)
       ember-resources: 6.4.2(@ember/test-waiters@3.1.0)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-concurrency@3.1.1)(ember-source@5.4.0)

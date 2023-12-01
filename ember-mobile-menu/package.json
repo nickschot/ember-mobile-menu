@@ -44,8 +44,6 @@
     "@ember/render-modifiers": "^2.0.0",
     "@ember/test-waiters": "^3.0.0",
     "@embroider/addon-shim": "^1.0.0",
-    "@glimmer/component": "^1.0.4",
-    "@glimmer/tracking": "^1.0.4",
     "body-scroll-lock": "^3.0.1",
     "ember-concurrency": "^3.0.0",
     "ember-gesture-modifiers": "^5.0.0",
@@ -62,6 +60,8 @@
     "@babel/plugin-transform-class-static-block": "7.23.4",
     "@babel/runtime": "7.23.5",
     "@embroider/addon-dev": "4.1.2",
+    "@glimmer/component": "1.1.2",
+    "@glimmer/tracking": "1.1.2",
     "@rollup/plugin-babel": "6.0.4",
     "babel-plugin-ember-template-compilation": "2.2.1",
     "concurrently": "8.2.2",
@@ -77,6 +77,8 @@
     "rollup-plugin-copy": "3.5.0"
   },
   "peerDependencies": {
+    "@glimmer/component": "^1.0.4",
+    "@glimmer/tracking": "^1.0.4",
     "ember-source": ">=3.28.0",
     "tracked-built-ins": ">=3.0.0"
   },
