@@ -40,7 +40,6 @@
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
   },
   "dependencies": {
-    "@ember/legacy-built-in-components": "^0.5.0",
     "@ember/render-modifiers": "^2.0.0",
     "@ember/test-waiters": "^3.0.0",
     "@embroider/addon-shim": "^1.0.0",
@@ -95,7 +94,6 @@
       "./components/mobile-menu-wrapper.js": "./dist/_app_/components/mobile-menu-wrapper.js",
       "./components/mobile-menu-wrapper/content.js": "./dist/_app_/components/mobile-menu-wrapper/content.js",
       "./components/mobile-menu.js": "./dist/_app_/components/mobile-menu.js",
-      "./components/mobile-menu/link-to.js": "./dist/_app_/components/mobile-menu/link-to.js",
       "./components/mobile-menu/mask.js": "./dist/_app_/components/mobile-menu/mask.js",
       "./components/mobile-menu/tray.js": "./dist/_app_/components/mobile-menu/tray.js"
     }

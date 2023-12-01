@@ -24,7 +24,7 @@
           <div class="mobile-menu__body">
             <ul class="mobile-menu__nav">
               <li class="mobile-menu__nav-item">
-                <mm.LinkTo @route="index">Home</mm.LinkTo>
+                <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
               </li>
             </ul>
           </div>

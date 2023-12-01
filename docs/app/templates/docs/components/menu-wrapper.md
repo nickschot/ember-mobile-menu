@@ -6,7 +6,7 @@ By default it is set up to detect a pan from respectively the left or the right 
 ```handlebars
 <MobileMenuWrapper as |mmw|>
   <mmw.MobileMenu as |mm|>
-    <mm.LinkTo @route="index">Home</mm.LinkTo>
+    <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
   </mmw.MobileMenu>
 
   <mmw.Content>
@@ -30,7 +30,7 @@ By default the menu is setup to be a left menu. By passing `type=right` to the m
 ```handlebars
 <MobileMenuWrapper as |mmw|>
   <mmw.MobileMenu @type="right" as |mm|>
-    <mm.LinkTo @route="index">Home</mm.LinkTo>
+    <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
   </mmw.MobileMenu>
 
   <mmw.Content>
@@ -45,7 +45,7 @@ You can also use both a left and a right menu. A `target` option is available on
 ```handlebars
 <MobileMenuWrapper as |mmw|>
   <mmw.MobileMenu @type="left" as |mm|>
-    <mm.LinkTo @route="index">Home</mm.LinkTo>
+    <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
   </mmw.MobileMenu>
 
   <mmw.Content>
@@ -54,7 +54,7 @@ You can also use both a left and a right menu. A `target` option is available on
   </mmw.Content>
 
   <mmw.MobileMenu @type="right" as |mm|>
-    <mm.LinkTo @route="index">Home</mm.LinkTo>
+    <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
   </mmw.MobileMenu>
 </MobileMenuWrapper>
 ```
@@ -68,7 +68,7 @@ If a menu is _not_ embedded, the assumption is made that the `Content` component
   <demo.example @name="menu-quickstart.hbs" class="demo-height">
     <MobileMenuWrapper @embed={{true}} as |mmw|>
       <mmw.MobileMenu as |mm|>
-        <mm.LinkTo @route="index">Home</mm.LinkTo>
+        <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
       </mmw.MobileMenu>
       
       <mmw.Content>
