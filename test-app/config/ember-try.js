@@ -13,11 +13,6 @@ module.exports = async function () {
           devDependencies: {
             'ember-source': '~4.4.0',
           },
-          dependenciesMeta: {
-            'ember-mobile-menu': {
-              injected: true,
-            },
-          },
         },
       },
       {
@@ -25,11 +20,6 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~4.8.0',
-          },
-          dependenciesMeta: {
-            'ember-mobile-menu': {
-              injected: true,
-            },
           },
         },
       },
@@ -39,11 +29,6 @@ module.exports = async function () {
           devDependencies: {
             'ember-source': '~4.12.0',
           },
-          dependenciesMeta: {
-            'ember-mobile-menu': {
-              injected: true,
-            },
-          },
         },
       },
       {
@@ -51,11 +36,6 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('release'),
-          },
-          dependenciesMeta: {
-            'ember-mobile-menu': {
-              injected: true,
-            },
           },
         },
       },
@@ -65,11 +45,6 @@ module.exports = async function () {
           devDependencies: {
             'ember-source': await getChannelURL('beta'),
           },
-          dependenciesMeta: {
-            'ember-mobile-menu': {
-              injected: true,
-            },
-          },
         },
       },
       {
@@ -78,31 +53,10 @@ module.exports = async function () {
           devDependencies: {
             'ember-source': await getChannelURL('canary'),
           },
-          dependenciesMeta: {
-            'ember-mobile-menu': {
-              injected: true,
-            },
-          },
         },
       },
-      embroiderSafe({
-        npm: {
-          dependenciesMeta: {
-            'ember-mobile-menu': {
-              injected: true,
-            },
-          },
-        },
-      }),
-      embroiderOptimized({
-        npm: {
-          dependenciesMeta: {
-            'ember-mobile-menu': {
-              injected: true,
-            },
-          },
-        },
-      }),
+      embroiderSafe(),
+      embroiderOptimized(),
     ],
   };
 };

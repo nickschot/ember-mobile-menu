@@ -79,5 +79,10 @@
   "homepage": "https://nickschot.github.io/ember-mobile-menu",
   "volta": {
     "extends": "../package.json"
+  },
+  "dependenciesMeta": {
+    "ember-mobile-menu": {
+      "injected": true
+    }
   }
 }
