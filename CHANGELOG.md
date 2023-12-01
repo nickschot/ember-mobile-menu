@@ -8,6 +8,23 @@
 
 
 
+
+## v5.0.0-1 (2023-12-01)
+
+#### :rocket: Enhancement
+* [#804](https://github.com/nickschot/ember-mobile-menu/pull/804) Re-add support for ember-source v3.28.0 ([@nickschot](https://github.com/nickschot))
+* [#798](https://github.com/nickschot/ember-mobile-menu/pull/798) Replace ember-could-get-used-to-this with ember-resources (by @johanrd ) ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#804](https://github.com/nickschot/ember-mobile-menu/pull/804) Re-add support for ember-source v3.28.0 ([@nickschot](https://github.com/nickschot))
+* [#816](https://github.com/nickschot/ember-mobile-menu/pull/816) Add npmrc w/ proper peerDep config, fix monorepo resolution ([@nickschot](https://github.com/nickschot))
+* [#810](https://github.com/nickschot/ember-mobile-menu/pull/810) Downgrade to actions/setup-node@v3 due to performance bug with v4 ([@nickschot](https://github.com/nickschot))
+* [#788](https://github.com/nickschot/ember-mobile-menu/pull/788) Update dependency rollup to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#800](https://github.com/nickschot/ember-mobile-menu/pull/800) Specify ember-source >=v4 as a peer dependency ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v5.0.0-0 (2023-11-17)
 
 #### :boom: Breaking Change
