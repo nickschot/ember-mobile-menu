@@ -26,7 +26,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
       </MobileMenuWrapper>
     `);
@@ -39,7 +39,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu @type="right" as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
       </MobileMenuWrapper>
     `);
@@ -52,7 +52,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -80,7 +80,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu @type="right" as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -101,10 +101,10 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu @type="left" as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
         <mmw.MobileMenu @type="right" as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -135,7 +135,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -160,7 +160,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -180,7 +180,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu @type="right" as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -200,7 +200,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -220,7 +220,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -241,7 +241,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -264,7 +264,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
       <div class="root-div" style="padding: 100px; height: 500px; background: red;">
         <MobileMenuWrapper @embed={{true}} as |mmw|>
           <mmw.MobileMenu as |mm|>
-            <mm.LinkTo @route="index">Home</mm.LinkTo>
+            <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
           </mmw.MobileMenu>
 
           <mmw.Content>
@@ -296,7 +296,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
       <div class="root-div" style="padding: 100px; height: 500px; background: red;">
         <MobileMenuWrapper @embed={{true}} as |mmw|>
           <mmw.MobileMenu @type="right" as |mm|>
-            <mm.LinkTo @route="index">Home</mm.LinkTo>
+            <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
           </mmw.MobileMenu>
 
           <mmw.Content>
@@ -326,7 +326,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper @embed={{true}} as |mmw|>
         <mmw.MobileMenu as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -347,7 +347,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -370,7 +370,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu @width={{100}} @maxWidth={{this.maxWidth}} as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>
@@ -403,7 +403,7 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
     await render(hbs`
       <MobileMenuWrapper as |mmw|>
         <mmw.MobileMenu @isOpen={{this.isOpen}} @onToggle={{this.onToggle}} as |mm|>
-          <mm.LinkTo @route="index">Home</mm.LinkTo>
+          <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
         </mmw.MobileMenu>
 
         <mmw.Content>

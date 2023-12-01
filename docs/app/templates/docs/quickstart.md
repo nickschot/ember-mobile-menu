@@ -5,7 +5,7 @@ To get started the `<MobileMenuWrapper/>` component needs to be placed high in t
 ```handlebars
 <MobileMenuWrapper as |mmw|>
   <mmw.MobileMenu as |mm|>
-    <mm.LinkTo @route="index">Home</mm.LinkTo>
+    <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
   </mmw.MobileMenu>
 
   <mmw.Content>
