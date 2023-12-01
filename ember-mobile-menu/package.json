@@ -52,6 +52,7 @@
     "ember-on-resize-modifier": "^2.0.0",
     "ember-resources": "^6.0.0",
     "ember-set-body-class": "^1.0.1",
+    "tracked-built-ins": "^3.0.0",
     "wobble": "^1.5.1"
   },
   "devDependencies": {
@@ -77,8 +78,7 @@
     "rollup-plugin-copy": "3.5.0"
   },
   "peerDependencies": {
-    "ember-source": ">=3.28.0",
-    "tracked-built-ins": ">=3.0.0"
+    "ember-source": ">=3.28.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
