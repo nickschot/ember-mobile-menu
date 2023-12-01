@@ -9,6 +9,22 @@
 
 
 
+
+## v5.0.0-2 (2023-12-01)
+
+#### :boom: Breaking Change
+* [#821](https://github.com/nickschot/ember-mobile-menu/pull/821) Drop support for mm.LinkTo component, use LinkTo with on click modifier instead ([@nickschot](https://github.com/nickschot))
+
+#### :memo: Documentation
+* [#822](https://github.com/nickschot/ember-mobile-menu/pull/822) Update docs with style customization section ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#820](https://github.com/nickschot/ember-mobile-menu/pull/820) Fix workspaces reference in package.json ([@nickschot](https://github.com/nickschot))
+* [#819](https://github.com/nickschot/ember-mobile-menu/pull/819) Remove prepare from root package.json ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v5.0.0-1 (2023-12-01)
 
 #### :rocket: Enhancement
