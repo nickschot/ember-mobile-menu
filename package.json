@@ -5,7 +5,7 @@
     "url": "https://github.com/nickschot/ember-mobile-menu"
   },
   "workspaces": [
-    "addon",
+    "ember-mobile-menu",
     "docs",
     "test-app"
   ],
