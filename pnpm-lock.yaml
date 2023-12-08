@@ -196,8 +196,8 @@ importers:
         specifier: ^3.0.0
         version: 3.1.1(@babel/core@7.23.5)
       ember-gesture-modifiers:
-        specifier: ^5.0.0
-        version: 5.0.1
+        specifier: ^5.0.0 || ^6.0.0
+        version: 6.0.0(@ember/test-helpers@3.2.1)(ember-source@5.4.0)
       ember-on-resize-modifier:
         specifier: ^2.0.0
         version: 2.0.2
@@ -339,7 +339,7 @@ importers:
         version: 2.1.2
       ember-mobile-menu:
         specifier: workspace:*
-        version: file:ember-mobile-menu(ember-source@5.4.0)(webpack@5.89.0)
+        version: file:ember-mobile-menu(@ember/test-helpers@3.2.1)(ember-source@5.4.0)(webpack@5.89.0)
       ember-page-title:
         specifier: 8.1.0
         version: 8.1.0(ember-source@5.4.0)
@@ -2295,7 +2295,6 @@ packages:
       - '@glint/template'
       - supports-color
       - webpack
-    dev: true
 
   /@ember/test-waiters@3.1.0:
     resolution: {integrity: sha512-bb9h95ktG2wKY9+ja1sdsFBdOms2lB19VWs8wmNpzgHv1NCetonBoV5jHBV4DHt0uS1tg9z66cZqhUVlYs96KQ==}
@@ -8824,38 +8823,21 @@ packages:
       - supports-color
     dev: true
 
-  /ember-gesture-modifiers@5.0.1:
-    resolution: {integrity: sha512-25vRcw8bn0+GnOZDWUk0IrRjMQtpSe8jac0hZskQ1IxGQ5+cZSLS5etziQQqWAUMk/+ylG8cgHHian3sM6CnQA==}
-    engines: {node: 14.* || 16.* || >= 18}
+  /ember-gesture-modifiers@6.0.0(@ember/test-helpers@3.2.1)(ember-source@5.4.0):
+    resolution: {integrity: sha512-PUddYyB+NRaGuqNytt7WJDb1BP/qWiVytGqCKbESZWpOawBSl+UOf/U7ocGal+VB2DRwRVNWIin1TGohoaYP+A==}
     peerDependencies:
+      '@ember/test-helpers': '>=3.0.0'
       ember-source: '>=3.28.0'
+    peerDependenciesMeta:
+      '@ember/test-helpers':
+        optional: true
     dependencies:
-      ember-auto-import: 2.7.0
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.3.0
-      ember-modifier: 4.1.0(ember-source@5.4.0)
-    transitivePeerDependencies:
-      - '@glint/template'
-      - supports-color
-      - webpack
-    dev: false
-
-  /ember-gesture-modifiers@5.0.1(ember-source@5.4.0)(webpack@5.89.0):
-    resolution: {integrity: sha512-25vRcw8bn0+GnOZDWUk0IrRjMQtpSe8jac0hZskQ1IxGQ5+cZSLS5etziQQqWAUMk/+ylG8cgHHian3sM6CnQA==}
-    engines: {node: 14.* || 16.* || >= 18}
-    peerDependencies:
-      ember-source: '>=3.28.0'
-    dependencies:
-      ember-auto-import: 2.7.0(webpack@5.89.0)
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.3.0
+      '@ember/test-helpers': 3.2.1(ember-source@5.4.0)(webpack@5.89.0)
+      '@embroider/addon-shim': 1.8.7
       ember-modifier: 4.1.0(ember-source@5.4.0)
       ember-source: 5.4.0(@glimmer/component@1.1.2)(webpack@5.89.0)
     transitivePeerDependencies:
-      - '@glint/template'
       - supports-color
-      - webpack
-    dev: true
 
   /ember-get-config@2.1.1:
     resolution: {integrity: sha512-uNmv1cPG/4qsac8oIf5txJ2FZ8p88LEpG4P3dNcjsJS98Y8hd0GPMFwVqpnzI78Lz7VYRGQWY4jnE4qm5R3j4g==}
@@ -18067,7 +18049,7 @@ packages:
       - supports-color
     dev: true
 
-  file:ember-mobile-menu(ember-source@5.4.0)(webpack@5.89.0):
+  file:ember-mobile-menu(@ember/test-helpers@3.2.1)(ember-source@5.4.0)(webpack@5.89.0):
     resolution: {directory: ember-mobile-menu, type: directory}
     id: file:ember-mobile-menu
     name: ember-mobile-menu
@@ -18081,7 +18063,7 @@ packages:
       '@glimmer/tracking': 1.1.2
       body-scroll-lock: 3.1.5
       ember-concurrency: 3.1.1(ember-source@5.4.0)
-      ember-gesture-modifiers: 5.0.1(ember-source@5.4.0)(webpack@5.89.0)
+      ember-gesture-modifiers: 6.0.0(@ember/test-helpers@3.2.1)(ember-source@5.4.0)
       ember-on-resize-modifier: 2.0.2(ember-source@5.4.0)(webpack@5.89.0)
       ember-resources: 6.4.2(@ember/test-waiters@3.1.0)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-concurrency@3.1.1)(ember-source@5.4.0)
       ember-set-body-class: 1.0.2
@@ -18090,6 +18072,7 @@ packages:
       wobble: 1.5.1
     transitivePeerDependencies:
       - '@babel/core'
+      - '@ember/test-helpers'
       - '@glint/template'
       - supports-color
       - webpack
