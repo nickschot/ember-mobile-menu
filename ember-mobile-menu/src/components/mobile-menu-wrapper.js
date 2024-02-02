@@ -5,7 +5,9 @@ import { action } from '@ember/object';
 import { TrackedSet } from 'tracked-built-ins';
 
 import MobileMenu from './mobile-menu';
-import normalizeCoordinates from '../utils/normalize-coordinates';
+import normalizeCoordinates, {
+  scaleCorrection,
+} from '../utils/normalize-coordinates';
 
 import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
@@ -291,7 +293,11 @@ export default class MobileMenuWrapper extends Component {
     }
 
     const fromOpen = this.isOpen;
-    const pan = normalizeCoordinates(e, this.boundingClientRect);
+    const pan = scaleCorrection(
+      normalizeCoordinates(e, this.boundingClientRect),
+      this.scaleX,
+      this.scaleY,
+    );
 
     if (
       fromOpen ||
@@ -312,7 +318,13 @@ export default class MobileMenuWrapper extends Component {
   @action
   didPan(e) {
     if (this.dragging) {
-      this.updatePosition(normalizeCoordinates(e, this.boundingClientRect));
+      this.updatePosition(
+        scaleCorrection(
+          normalizeCoordinates(e, this.boundingClientRect),
+          this.scaleX,
+          this.scaleY,
+        ),
+      );
     }
   }
 
@@ -320,7 +332,11 @@ export default class MobileMenuWrapper extends Component {
   didPanEnd(e) {
     if (this.dragging) {
       this.dragging = false;
-      const pan = normalizeCoordinates(e, this.boundingClientRect);
+      const pan = scaleCorrection(
+        normalizeCoordinates(e, this.boundingClientRect),
+        this.scaleX,
+        this.scaleY,
+      );
       const menu = this.activeMenu;
 
       if (menu) {
@@ -413,14 +429,25 @@ export default class MobileMenuWrapper extends Component {
     this.finishTransitionTask.perform(menu, 'close', currentVelocity, animate);
   }
 
+  scaleX = 1;
+  scaleY = 1;
+
   @action
   onInsert(element) {
     this.boundingClientRect = element.getBoundingClientRect();
+    this.updateScale(element);
   }
 
   @action
   onResize({ target }) {
     this.boundingClientRect = target.getBoundingClientRect();
+    this.updateScale(target);
+  }
+
+  @action
+  updateScale(element) {
+    this.scaleX = this.boundingClientRect.width / element.clientWidth;
+    this.scaleY = this.boundingClientRect.height / element.clientHeight;
   }
 
   /**

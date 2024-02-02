@@ -22,3 +22,16 @@ export default function normalizeCoordinates(e, bcr) {
     },
   };
 }
+
+export function scaleCorrection(e, scaleX, scaleY) {
+  // TODO: convert rest of API
+  return {
+    ...e,
+    current: {
+      ...e.current,
+      distance: e.current.distance / ((scaleX + scaleY) / 2),
+      distanceX: e.current.distanceX / scaleX,
+      distanceY: e.current.distanceY / scaleY,
+    },
+  };
+}
