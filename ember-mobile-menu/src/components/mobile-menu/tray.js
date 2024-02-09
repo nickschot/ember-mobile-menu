@@ -1,7 +1,10 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { action } from '@ember/object';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+} from '../../utils/body-scroll-lock';
 import './tray.css';
 
 /**
