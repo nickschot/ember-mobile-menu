@@ -10,6 +10,20 @@
 
 
 
+
+## v5.0.0 (2024-02-09)
+
+#### :boom: Breaking Change
+* [#877](https://github.com/nickschot/ember-mobile-menu/pull/877) Require ember-resources >=v6.4.0 (inc. v7) ([@nickschot](https://github.com/nickschot))
+
+#### :rocket: Enhancement
+* [#878](https://github.com/nickschot/ember-mobile-menu/pull/878) Allow ember-concurrency v4 ([@nickschot](https://github.com/nickschot))
+* [#855](https://github.com/nickschot/ember-mobile-menu/pull/855) Implement basic scale correction for gestures ([@nickschot](https://github.com/nickschot))
+* [#827](https://github.com/nickschot/ember-mobile-menu/pull/827) Add ember-gesture-modifiers v6 to allowed range ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v5.0.0-2 (2023-12-01)
 
 #### :boom: Breaking Change
