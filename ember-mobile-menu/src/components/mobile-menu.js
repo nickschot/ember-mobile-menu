@@ -3,7 +3,8 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
-import { use, Resource } from 'ember-resources';
+import { use } from 'ember-resources';
+import { Resource } from 'ember-modify-based-class-resource';
 import { next } from '@ember/runloop';
 import './mobile-menu.css';
 
