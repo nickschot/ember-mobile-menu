@@ -28,7 +28,7 @@
 // https://stackoverflow.com/questions/41594997/ios-10-safari-prevent-scrolling-behind-a-fixed-overlay-and-maintain-scroll-posi
 
 let hasPassiveEvents = false;
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && typeof FastBoot === 'undefined') {
   const passiveTestOptions = {
     get passive() {
       hasPassiveEvents = true;
@@ -41,6 +41,7 @@ if (typeof window !== 'undefined') {
 
 const isIosDevice =
   typeof window !== 'undefined' &&
+  typeof FastBoot === 'undefined' &&
   window.navigator &&
   window.navigator.platform &&
   (/iP(ad|hone|od)/.test(window.navigator.platform) ||
