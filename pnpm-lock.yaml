@@ -193,7 +193,7 @@ importers:
         specifier: ^3.0.1
         version: 3.1.5
       ember-concurrency:
-        specifier: ^3.0.0
+        specifier: ^3.0.0 || ^4.0.0
         version: 3.1.1(@babel/core@7.23.9)
       ember-gesture-modifiers:
         specifier: ^5.0.0 || ^6.0.0
@@ -7442,6 +7442,15 @@ packages:
       mimic-response: 3.1.0
     dev: true
 
+  /decorator-transforms@1.1.0:
+    resolution: {integrity: sha512-n3WCgc3PB2t9mLV4SJd87IjTbKeFUGw2sU5eEBYczSmcvj3guX4eMW4XOowlQqGk7I/da6+bwv1ydw1ZtNqWaw==}
+    dependencies:
+      '@babel/plugin-syntax-decorators': 7.23.3(@babel/core@7.23.9)
+      babel-import-util: 2.0.1
+    transitivePeerDependencies:
+      - '@babel/core'
+    dev: true
+
   /deep-extend@0.6.0:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}
     engines: {node: '>=4.0.0'}
@@ -8834,6 +8843,25 @@ packages:
       ember-cli-babel-plugin-helpers: 1.1.1
       ember-cli-htmlbars: 6.3.0
       ember-compatibility-helpers: 1.2.7(@babel/core@7.23.9)
+      ember-source: 5.6.0(@glimmer/component@1.1.2)(webpack@5.90.1)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
+  /ember-concurrency@4.0.0(@glimmer/tracking@1.1.2)(ember-source@5.6.0):
+    resolution: {integrity: sha512-Ap1xlD1pfPuZBZbiZT06eVPPUqT2K6kBF3VByDdIicCKU0bR11Dz0hqoA0QkPcVixReHyHoAeIXx9JemESIwqg==}
+    engines: {node: 16.* || >= 18}
+    peerDependencies:
+      '@glimmer/tracking': ^1.1.2
+      '@glint/template': '>= 1.0.0'
+      ember-source: ^3.28.0 || ^4.0.0 || >=5.0.0
+    dependencies:
+      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/types': 7.23.9
+      '@embroider/addon-shim': 1.8.7
+      '@glimmer/tracking': 1.1.2
+      decorator-transforms: 1.1.0
       ember-source: 5.6.0(@glimmer/component@1.1.2)(webpack@5.90.1)
     transitivePeerDependencies:
       - '@babel/core'
@@ -18120,7 +18148,7 @@ packages:
       '@glimmer/component': 1.1.2(@babel/core@7.23.9)
       '@glimmer/tracking': 1.1.2
       body-scroll-lock: 3.1.5
-      ember-concurrency: 3.1.1(ember-source@5.6.0)
+      ember-concurrency: 4.0.0(@glimmer/tracking@1.1.2)(ember-source@5.6.0)
       ember-gesture-modifiers: 6.0.1(@ember/test-helpers@3.2.1)(ember-source@5.6.0)
       ember-modify-based-class-resource: 1.1.0(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-resources@7.0.0)(ember-source@5.6.0)
       ember-on-resize-modifier: 2.0.2(ember-source@5.6.0)(webpack@5.90.1)
