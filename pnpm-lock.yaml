@@ -198,11 +198,14 @@ importers:
       ember-gesture-modifiers:
         specifier: ^5.0.0 || ^6.0.0
         version: 6.0.1(@ember/test-helpers@3.2.1)(ember-source@5.6.0)
+      ember-modify-based-class-resource:
+        specifier: ^1.1.0
+        version: 1.1.0(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-resources@6.5.1)
       ember-on-resize-modifier:
         specifier: ^2.0.0
         version: 2.0.2
       ember-resources:
-        specifier: ^6.0.0
+        specifier: ^6.4.0
         version: 6.5.1(@ember/test-waiters@3.1.0)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-concurrency@3.1.1)
       ember-set-body-class:
         specifier: ^1.0.1
@@ -9070,6 +9073,51 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+  /ember-modify-based-class-resource@1.1.0(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-resources@6.5.1):
+    resolution: {integrity: sha512-35PqPA6XFncpJkePr1Zs5aR/bANpsCEa8X7fXkA0EkTyuILqP3ycqtlfK0VxkADz62lk86BR8biGsTz0jgdZUQ==}
+    peerDependencies:
+      '@glimmer/component': ^1.1.2
+      '@glimmer/tracking': ^1.1.2
+      ember-resources: '>= 6.4.0'
+      ember-source: ^3.28.0 || ^4.0.0 || ^5.0.0
+    peerDependenciesMeta:
+      '@glimmer/component':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.23.9
+      '@embroider/addon-shim': 1.8.7
+      '@embroider/macros': 1.13.5
+      '@glimmer/component': 1.1.2(@babel/core@7.23.9)
+      '@glimmer/tracking': 1.1.2
+      ember-resources: 6.5.1(@ember/test-waiters@3.1.0)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-concurrency@3.1.1)
+    transitivePeerDependencies:
+      - '@glint/template'
+      - supports-color
+    dev: false
+
+  /ember-modify-based-class-resource@1.1.0(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-resources@6.5.1)(ember-source@5.6.0):
+    resolution: {integrity: sha512-35PqPA6XFncpJkePr1Zs5aR/bANpsCEa8X7fXkA0EkTyuILqP3ycqtlfK0VxkADz62lk86BR8biGsTz0jgdZUQ==}
+    peerDependencies:
+      '@glimmer/component': ^1.1.2
+      '@glimmer/tracking': ^1.1.2
+      ember-resources: '>= 6.4.0'
+      ember-source: ^3.28.0 || ^4.0.0 || ^5.0.0
+    peerDependenciesMeta:
+      '@glimmer/component':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.23.9
+      '@embroider/addon-shim': 1.8.7
+      '@embroider/macros': 1.13.5
+      '@glimmer/component': 1.1.2(@babel/core@7.23.9)
+      '@glimmer/tracking': 1.1.2
+      ember-resources: 6.5.1(@ember/test-waiters@3.1.0)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-concurrency@3.1.1)(ember-source@5.6.0)
+      ember-source: 5.6.0(@glimmer/component@1.1.2)(webpack@5.90.1)
+    transitivePeerDependencies:
+      - '@glint/template'
+      - supports-color
+    dev: true
+
   /ember-on-resize-modifier@2.0.2:
     resolution: {integrity: sha512-7mcD7CNbiCaZEIASWlRz/Wmn47afCMSFTdQJSSUe0WCgnXxn9DVoqZ39B7ZuddTHa0V6otTFrV/lIRYpggQ+eg==}
     engines: {node: 12.* || 14.* || >= 16}
@@ -14385,7 +14433,7 @@ packages:
       got: 12.6.1
       registry-auth-token: 5.0.2
       registry-url: 6.0.1
-      semver: 7.5.1
+      semver: 7.5.4
     dev: true
 
   /pad-start@1.0.2:
@@ -15904,7 +15952,7 @@ packages:
     resolution: {integrity: sha512-0Ju4+6A8iOnpL/Thra7dZsSlOHYAHIeMxfhWQRI1/VLcT3WDBZKKtQt/QkBOsiIN9ZpuvHE6cGZ0x4glCMmfiA==}
     engines: {node: '>=12'}
     dependencies:
-      semver: 7.5.1
+      semver: 7.5.4
     dev: true
 
   /semver@5.7.2:
@@ -18157,6 +18205,7 @@ packages:
       body-scroll-lock: 3.1.5
       ember-concurrency: 3.1.1(ember-source@5.6.0)
       ember-gesture-modifiers: 6.0.1(@ember/test-helpers@3.2.1)(ember-source@5.6.0)
+      ember-modify-based-class-resource: 1.1.0(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-resources@6.5.1)(ember-source@5.6.0)
       ember-on-resize-modifier: 2.0.2(ember-source@5.6.0)(webpack@5.90.1)
       ember-resources: 6.5.1(@ember/test-waiters@3.1.0)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-concurrency@3.1.1)(ember-source@5.6.0)
       ember-set-body-class: 1.0.2
