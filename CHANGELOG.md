@@ -1,28 +1,40 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## v5.0.0 (2024-02-09)
 
 #### :boom: Breaking Change
 * [#877](https://github.com/nickschot/ember-mobile-menu/pull/877) Require ember-resources >=v6.4.0 (inc. v7) ([@nickschot](https://github.com/nickschot))
+* [#821](https://github.com/nickschot/ember-mobile-menu/pull/821) Drop support for mm.LinkTo component, use LinkTo with on click modifier instead ([@nickschot](https://github.com/nickschot))
+* [#779](https://github.com/nickschot/ember-mobile-menu/pull/779) Replace SCSS with plain CSS approach ([@nickschot](https://github.com/nickschot))
+* [#778](https://github.com/nickschot/ember-mobile-menu/pull/778) Convert to v2 addon ([@nickschot](https://github.com/nickschot))
+* [#744](https://github.com/nickschot/ember-mobile-menu/pull/744) Replace tracked-maps-and-sets with tracked-built-ins ([@nickschot](https://github.com/nickschot))
+* [#742](https://github.com/nickschot/ember-mobile-menu/pull/742) Drop ember-source 3.28 ([@nickschot](https://github.com/nickschot))
 
 #### :rocket: Enhancement
 * [#878](https://github.com/nickschot/ember-mobile-menu/pull/878) Allow ember-concurrency v4 ([@nickschot](https://github.com/nickschot))
 * [#855](https://github.com/nickschot/ember-mobile-menu/pull/855) Implement basic scale correction for gestures ([@nickschot](https://github.com/nickschot))
 * [#827](https://github.com/nickschot/ember-mobile-menu/pull/827) Add ember-gesture-modifiers v6 to allowed range ([@nickschot](https://github.com/nickschot))
+* [#804](https://github.com/nickschot/ember-mobile-menu/pull/804) Re-add support for ember-source v3.28.0 ([@nickschot](https://github.com/nickschot))
+* [#798](https://github.com/nickschot/ember-mobile-menu/pull/798) Replace ember-could-get-used-to-this with ember-resources (by @johanrd ) ([@nickschot](https://github.com/nickschot))
+* [#779](https://github.com/nickschot/ember-mobile-menu/pull/779) Replace SCSS with plain CSS approach ([@nickschot](https://github.com/nickschot))
+
+#### :memo: Documentation
+* [#822](https://github.com/nickschot/ember-mobile-menu/pull/822) Update docs with style customization section ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#820](https://github.com/nickschot/ember-mobile-menu/pull/820) Fix workspaces reference in package.json ([@nickschot](https://github.com/nickschot))
+* [#819](https://github.com/nickschot/ember-mobile-menu/pull/819) Remove prepare from root package.json ([@nickschot](https://github.com/nickschot))
+* [#804](https://github.com/nickschot/ember-mobile-menu/pull/804) Re-add support for ember-source v3.28.0 ([@nickschot](https://github.com/nickschot))
+* [#816](https://github.com/nickschot/ember-mobile-menu/pull/816) Add npmrc w/ proper peerDep config, fix monorepo resolution ([@nickschot](https://github.com/nickschot))
+* [#810](https://github.com/nickschot/ember-mobile-menu/pull/810) Downgrade to actions/setup-node@v3 due to performance bug with v4 ([@nickschot](https://github.com/nickschot))
+* [#788](https://github.com/nickschot/ember-mobile-menu/pull/788) Update dependency rollup to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#800](https://github.com/nickschot/ember-mobile-menu/pull/800) Specify ember-source >=v4 as a peer dependency ([@nickschot](https://github.com/nickschot))
+* [#791](https://github.com/nickschot/ember-mobile-menu/pull/791) Enable readme/license copying to published addon ([@nickschot](https://github.com/nickschot))
+* [#790](https://github.com/nickschot/ember-mobile-menu/pull/790) Remove Travis CI badge ([@nickschot](https://github.com/nickschot))
+* [#789](https://github.com/nickschot/ember-mobile-menu/pull/789) Remove v1 addon/cleanup ([@nickschot](https://github.com/nickschot))
+* [#745](https://github.com/nickschot/ember-mobile-menu/pull/745) Remove reliance on sinon ([@nickschot](https://github.com/nickschot))
 
 #### Committers: 1
 - Nick Schot ([@nickschot](https://github.com/nickschot))
+- johanrd ([@johanrd](https://github.com/johanrd))
 
 ## v5.0.0-2 (2023-12-01)
 
