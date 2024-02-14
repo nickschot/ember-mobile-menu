@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "concurrently": "8.2.2",
-    "release-it": "15.11.0",
+    "release-it": "17.0.5",
     "@release-it-plugins/lerna-changelog": "5.0.0",
     "release-it-yarn-workspaces": "github:refi93/release-it-yarn-workspaces#refi93/esm-support"
   },
