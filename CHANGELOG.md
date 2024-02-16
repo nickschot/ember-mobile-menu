@@ -2,6 +2,17 @@
 
 ## Release (2024-02-16)
 
+
+
+#### :house: Internal
+* [#896](https://github.com/nickschot/ember-mobile-menu/pull/896) Update dependency release-plan to v0.8.0 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#897](https://github.com/nickschot/ember-mobile-menu/pull/897) Fix docs deploy ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+## Release (2024-02-16)
+
 ember-mobile-menu 5.1.0 (minor)
 
 #### :rocket: Enhancement
