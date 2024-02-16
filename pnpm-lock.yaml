@@ -16,8 +16,8 @@ importers:
         specifier: 8.2.2
         version: 8.2.2
       release-plan:
-        specifier: 0.7.0
-        version: 0.7.0
+        specifier: 0.7.1
+        version: 0.7.1
 
   docs:
     devDependencies:
@@ -14353,8 +14353,8 @@ packages:
     dependencies:
       jsesc: 0.5.0
 
-  /release-plan@0.7.0:
-    resolution: {integrity: sha512-DHQ8o1Vnv27fIKecM4EA8r10NqVCa441Qld9STCZ90DOgxCTMUDpOxB3TASxeNd6gtHTvOwen6CPZWYM3uE+AA==}
+  /release-plan@0.7.1:
+    resolution: {integrity: sha512-BLrJ1eyZ9i4tpzFmf/sd0XvtMUV/wJsWZMw7fxXsBzlBqPUrPPEx5olPR/g0UEfyJaXbiTkbOB6PzZ/KfV4KCQ==}
     hasBin: true
     dependencies:
       '@ef4/lerna-changelog': 2.2.1
