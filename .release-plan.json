@@ -1,0 +1,17 @@
+{
+  "solution": {
+    "ember-mobile-menu": {
+      "impact": "minor",
+      "oldVersion": "5.0.0",
+      "newVersion": "5.1.0",
+      "constraints": [
+        {
+          "impact": "minor",
+          "reason": "Appears in changelog section :rocket: Enhancement"
+        }
+      ],
+      "pkgJSONPath": "./ember-mobile-menu/package.json"
+    }
+  },
+  "description": "## Release (2024-02-16)\n\nember-mobile-menu 5.1.0 (minor)\n\n#### :rocket: Enhancement\n* `ember-mobile-menu`\n  * [#891](https://github.com/nickschot/ember-mobile-menu/pull/891) Inline body scroll lock library, apply small fixes & (unofficial) fastboot support ([@nickschot](https://github.com/nickschot))\n\n#### :house: Internal\n* [#892](https://github.com/nickschot/ember-mobile-menu/pull/892) Setup release-plan ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 1\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n"
+}
