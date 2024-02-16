@@ -1,3 +1,5 @@
+# Changelog
+
 ## v5.0.0 (2024-02-09)
 
 #### :boom: Breaking Change
