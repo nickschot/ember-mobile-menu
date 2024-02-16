@@ -189,9 +189,6 @@ importers:
       '@glimmer/tracking':
         specifier: ^1.0.4
         version: 1.1.2
-      body-scroll-lock:
-        specifier: ^3.0.1
-        version: 3.1.5
       ember-concurrency:
         specifier: ^3.0.0 || ^4.0.0
         version: 4.0.0(@babel/core@7.23.9)(@glimmer/tracking@1.1.2)
@@ -5281,6 +5278,7 @@ packages:
 
   /body-scroll-lock@3.1.5:
     resolution: {integrity: sha512-Yi1Xaml0EvNA0OYWxXiYNqY24AfWkbA6w5vxE7GWxtKfzIbZM+Qw+aSmkgsbWzbHiy/RCSkUZBplVxTA+E4jJg==}
+    dev: true
 
   /body@5.1.0:
     resolution: {integrity: sha512-chUsBxGRtuElD6fmw1gHLpvnKdVLK302peeFa9ZqAEk8TyzZ3fygLyUEDDPTJvL9+Bor0dIwn6ePOsRM2y0zQQ==}
