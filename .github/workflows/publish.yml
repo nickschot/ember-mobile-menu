@@ -61,4 +61,4 @@ jobs:
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: deploy docs
-        run: cd docs && ember deploy production
+        run: cd docs && pnpm ember deploy production
