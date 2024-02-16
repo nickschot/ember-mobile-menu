@@ -15,7 +15,6 @@
     "changelog": "npx lerna-changelog --from=v0.1.0-alpha.5 > CHANGELOG.md",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "release": "release-it",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "pnpm --filter ember-mobile-menu start --no-watch.clearScreen",
     "start:docs": "pnpm --filter docs start",
@@ -24,10 +23,7 @@
     "test:ember": "pnpm --filter '*' test:ember"
   },
   "devDependencies": {
-    "@release-it-plugins/lerna-changelog": "5.0.0",
     "concurrently": "8.2.2",
-    "release-it": "15.11.0",
-    "release-it-yarn-workspaces": "github:refi93/release-it-yarn-workspaces#refi93/esm-support",
     "release-plan": "^0.7.0"
   },
   "volta": {
@@ -47,31 +43,5 @@
         "@babel/core"
       ]
     }
-  },
-  "release-it": {
-    "hooks": {
-      "after:bump": "pnpm install",
-      "after:release": "cd docs && ember deploy production"
-    },
-    "plugins": {
-      "@release-it-plugins/lerna-changelog": {
-        "infile": "CHANGELOG.md",
-        "launchEditor": false
-      },
-      "release-it-yarn-workspaces": {
-        "publish": true,
-        "workspaces": [
-          "ember-mobile-menu"
-        ]
-      }
-    },
-    "git": {
-      "tagName": "v${version}"
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "GITHUB_AUTH"
-    },
-    "npm": false
   }
 }
