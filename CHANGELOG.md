@@ -1,5 +1,19 @@
 # Changelog
 
+## Release (2024-02-16)
+
+ember-mobile-menu 5.1.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-mobile-menu`
+  * [#891](https://github.com/nickschot/ember-mobile-menu/pull/891) Inline body scroll lock library, apply small fixes & (unofficial) fastboot support ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#892](https://github.com/nickschot/ember-mobile-menu/pull/892) Setup release-plan ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## v5.0.0 (2024-02-09)
 
 #### :boom: Breaking Change
