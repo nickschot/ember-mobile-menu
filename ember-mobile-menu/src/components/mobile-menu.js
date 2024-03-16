@@ -12,29 +12,33 @@ class StateResource extends Resource {
   @tracked open = false;
   @tracked closed = true;
   @tracked dragging = false;
-  @tracked transitioning = false;
+
+  get transitioning() {
+    return !this.dragging && !this.open && !this.closed;
+  }
 
   modify([position, isDragging, width, onToggle]) {
     this.dragging = position !== 0 && isDragging;
     let open = !this.dragging && Math.abs(position) === width;
     let closed = !this.dragging && position === 0;
-    next(() => {
-      this.maybeToggle(open, closed, onToggle);
-    });
-    this.transitioning = !this.dragging && !this.open && !this.closed;
+    this.maybeToggle(open, closed, onToggle);
   }
 
   maybeToggle(open, closed, onToggle) {
     if (this.open !== open) {
-      this.open = open;
-      if (open) {
-        onToggle(true);
-      }
+      next(() => {
+        this.open = open;
+        if (open) {
+          onToggle(true);
+        }
+      });
     } else if (this.closed !== closed) {
-      this.closed = closed;
-      if (closed) {
-        onToggle(false);
-      }
+      next(() => {
+        this.closed = closed;
+        if (closed) {
+          onToggle(false);
+        }
+      });
     }
   }
 }
