@@ -5,6 +5,19 @@
 
 
 #### :house: Internal
+* [#898](https://github.com/nickschot/ember-mobile-menu/pull/898) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#896](https://github.com/nickschot/ember-mobile-menu/pull/896) Update dependency release-plan to v0.8.0 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#897](https://github.com/nickschot/ember-mobile-menu/pull/897) Fix docs deploy ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 2
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+- [@github-actions[bot]](https://github.com/apps/github-actions)
+
+## Release (2024-02-16)
+
+
+
+#### :house: Internal
 * [#896](https://github.com/nickschot/ember-mobile-menu/pull/896) Update dependency release-plan to v0.8.0 ([@renovate[bot]](https://github.com/apps/renovate))
 * [#897](https://github.com/nickschot/ember-mobile-menu/pull/897) Fix docs deploy ([@nickschot](https://github.com/nickschot))
 
