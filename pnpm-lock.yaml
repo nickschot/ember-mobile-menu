@@ -16,8 +16,8 @@ importers:
         specifier: 8.2.2
         version: 8.2.2
       release-plan:
-        specifier: 0.8.0
-        version: 0.8.0
+        specifier: 0.9.0
+        version: 0.9.0
 
   docs:
     devDependencies:
@@ -3475,25 +3475,6 @@ packages:
   /@csstools/sass-import-resolve@1.0.0:
     resolution: {integrity: sha512-pH4KCsbtBLLe7eqUrw8brcuFO8IZlN36JjdKlOublibVdAIPHCzEnpBWOVUXK5sCf+DpBi8ZtuWtjF0srybdeA==}
     engines: {node: '>=4.0.0'}
-    dev: true
-
-  /@ef4/lerna-changelog@2.2.1:
-    resolution: {integrity: sha512-x0SkFpfvNj6l4LV6UnvnWIohmt8bC+i/P3ybmPc8X92KVMP6X/rkPeOxa2hI8BfDEHJMNXLJrDgQrJawI57aGQ==}
-    engines: {node: 12.* || 14.* || >= 16}
-    hasBin: true
-    dependencies:
-      '@manypkg/get-packages': 2.2.1
-      chalk: 4.1.2
-      cli-highlight: 2.1.11
-      execa: 5.1.1
-      hosted-git-info: 4.1.0
-      make-fetch-happen: 9.1.0
-      p-map: 3.0.0
-      progress: 2.0.3
-      yargs: 17.7.2
-    transitivePeerDependencies:
-      - bluebird
-      - supports-color
     dev: true
 
   /@ember-data/adapter@5.3.3(@ember-data/legacy-compat@5.3.3)(@ember-data/store@5.3.3)(@ember/string@3.1.1)(@warp-drive/core-types@0.0.0-beta.4)(ember-inflector@4.0.2):
@@ -13167,6 +13148,25 @@ packages:
     engines: {node: '>= 4.0'}
     dev: true
 
+  /github-changelog@1.0.0:
+    resolution: {integrity: sha512-8roCgUIEH6DDKHuywYKTk/TOSS7UxlmEbgQMevpSjF3Umf5067W2ihkmbuZmvH3m0MsM1DUiPJ27yzYbo4Fkaw==}
+    engines: {node: 12.* || 14.* || >= 16}
+    hasBin: true
+    dependencies:
+      '@manypkg/get-packages': 2.2.1
+      chalk: 4.1.2
+      cli-highlight: 2.1.11
+      execa: 5.1.1
+      hosted-git-info: 4.1.0
+      make-fetch-happen: 9.1.0
+      p-map: 3.0.0
+      progress: 2.0.3
+      yargs: 17.7.2
+    transitivePeerDependencies:
+      - bluebird
+      - supports-color
+    dev: true
+
   /glob-parent@3.1.0:
     resolution: {integrity: sha512-E8Ak/2+dZY6fnzlR7+ueWvhsH1SjHr4jjss4YS/h4py44jY9MhK/VFdaZJAWDz6BbL21KeteKxFSFpq8OS5gVA==}
     requiresBuild: true
@@ -17117,11 +17117,10 @@ packages:
     dependencies:
       jsesc: 0.5.0
 
-  /release-plan@0.8.0:
-    resolution: {integrity: sha512-kOR8rjuSD4ljH/BOoWeX5ECjQ0Wf0jl0xLFeKQpOCx2Qoo2Y+A+is4t2GRMtFUGjoA5Wp+j7aJaIFFbZNEC+oA==}
+  /release-plan@0.9.0:
+    resolution: {integrity: sha512-ckD2hwbnmrLEA325ndC5nQcxtuqm5Lp1Y05sa2yWAvgbN9SFG3F90n0VaHXj5JzQ6oAWDz88r0IRStHYOHXGOw==}
     hasBin: true
     dependencies:
-      '@ef4/lerna-changelog': 2.2.1
       '@manypkg/get-packages': 2.2.1
       '@npmcli/package-json': 5.0.0
       '@octokit/rest': 19.0.13
@@ -17134,6 +17133,7 @@ packages:
       cli-highlight: 2.1.11
       execa: 4.1.0
       fs-extra: 10.1.0
+      github-changelog: 1.0.0
       js-yaml: 4.1.0
       latest-version: 5.1.0
       parse-github-repo-url: 1.4.1
