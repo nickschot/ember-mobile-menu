@@ -27,7 +27,7 @@
     "release-plan": "0.8.0"
   },
   "volta": {
-    "node": "18.19.1",
+    "node": "18.20.0",
     "pnpm": "8.15.5"
   },
   "publishConfig": {
