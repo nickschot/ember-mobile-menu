@@ -154,8 +154,8 @@ importers:
         specifier: 2.20.1
         version: 2.20.1
       qunit-dom:
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.1.0
+        version: 3.1.0
       sass:
         specifier: 1.74.1
         version: 1.74.1
@@ -386,8 +386,8 @@ importers:
         specifier: 2.20.1
         version: 2.20.1
       qunit-dom:
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.1.0
+        version: 3.1.0
       sass:
         specifier: 1.74.1
         version: 1.74.1
@@ -14904,6 +14904,7 @@ packages:
 
   /psl@1.9.0:
     resolution: {integrity: sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==}
+    requiresBuild: true
     dev: true
 
   /public-encrypt@4.0.3:
@@ -14980,6 +14981,7 @@ packages:
 
   /querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
+    requiresBuild: true
     dev: true
 
   /queue-microtask@1.2.3:
@@ -14998,8 +15000,8 @@ packages:
       rimraf: 2.7.1
       underscore.string: 3.3.6
 
-  /qunit-dom@3.0.0:
-    resolution: {integrity: sha512-rqGZ9ZgOvtOY+Ph2ElCJ4pRIHouMZmI3DWK35Xr3x3c17/gIwOHHyKAQk6XetqhqepS6p+oXvK6Bx1uZu5jJuw==}
+  /qunit-dom@3.1.0:
+    resolution: {integrity: sha512-gpek3SkGM4uCX7tV466fbkrtCXkxGyHNeBPqwXO2QvcAr36TbmbvfpVW77KNbw1N5xm2KNNzVOQHItxH/3pLVA==}
     dev: true
 
   /qunit@2.20.1:
@@ -17287,6 +17289,7 @@ packages:
   /universalify@0.2.0:
     resolution: {integrity: sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==}
     engines: {node: '>= 4.0.0'}
+    requiresBuild: true
     dev: true
 
   /universalify@2.0.1:
@@ -17348,6 +17351,7 @@ packages:
 
   /url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
+    requiresBuild: true
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
