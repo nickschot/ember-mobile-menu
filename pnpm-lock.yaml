@@ -227,8 +227,8 @@ importers:
         specifier: 7.24.4
         version: 7.24.4
       '@embroider/addon-dev':
-        specifier: 4.2.1
-        version: 4.2.1(rollup@4.14.1)
+        specifier: 4.3.0
+        version: 4.3.0(rollup@4.14.1)
       '@rollup/plugin-babel':
         specifier: 6.0.4
         version: 6.0.4(@babel/core@7.24.4)(rollup@4.14.1)
@@ -2449,12 +2449,12 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@embroider/addon-dev@4.2.1(rollup@4.14.1):
-    resolution: {integrity: sha512-oMNlVqsqNjtNu7sFGGgo4igOy+Xa7g1I1aXMf7XRbYKWBCiYKX7C7lDKZ65qgsEpRKV3LtbC+XIYiGfHiqhFAg==}
+  /@embroider/addon-dev@4.3.0(rollup@4.14.1):
+    resolution: {integrity: sha512-3wOwMXaU2Kl/xLR7G9QyFUPpkwTTXijkFOtnduQf0GyYuR+vpjpG632SIYKmCsaOImfZkYls34YmoQVO5aNIPQ==}
     engines: {node: 12.* || 14.* || >= 16}
     hasBin: true
     dependencies:
-      '@embroider/core': 3.4.6
+      '@embroider/core': 3.4.7
       '@rollup/pluginutils': 4.2.1
       content-tag: 2.0.1
       fs-extra: 10.1.0
@@ -2482,15 +2482,15 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@embroider/core@3.4.6:
-    resolution: {integrity: sha512-RR+3WHS0l/itoyNYs2n/Fk7YOtpT7j7n9onJJeUo+C1RpocpGYsww/cR1EQaPbWVF8iv1PyRKKlS8kVO4zuipA==}
+  /@embroider/core@3.4.7:
+    resolution: {integrity: sha512-JTXpPBzsIrTdQdv/UdUQVinCxCtcLjHb0CgCksifFyut/JZC+6Dh65eP8KuPuF9eUX0ptxEhr7DQiMNeAD/p7w==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       '@babel/core': 7.24.4
       '@babel/parser': 7.17.3
       '@babel/traverse': 7.24.1
-      '@embroider/macros': 1.15.0
-      '@embroider/shared-internals': 2.5.2
+      '@embroider/macros': 1.15.1
+      '@embroider/shared-internals': 2.6.0
       assert-never: 1.2.1
       babel-plugin-ember-template-compilation: 2.2.1
       broccoli-node-api: 1.7.0
@@ -2539,6 +2539,28 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+  /@embroider/macros@1.15.1:
+    resolution: {integrity: sha512-l6rv4UVyQ+0XZbabpGXXUNpm7vMEVFzFwWnBeyKFLmmxuEQ4tgxEgR9qDRF/IWJXGS6na6pXN3jTk/cOaQiCpw==}
+    engines: {node: 12.* || 14.* || >= 16}
+    peerDependencies:
+      '@glint/template': ^1.0.0
+    peerDependenciesMeta:
+      '@glint/template':
+        optional: true
+    dependencies:
+      '@babel/core': 7.24.4
+      '@embroider/shared-internals': 2.6.0
+      assert-never: 1.2.1
+      babel-import-util: 2.0.1
+      ember-cli-babel: 8.2.0(@babel/core@7.24.4)
+      find-up: 5.0.0
+      lodash: 4.17.21
+      resolve: 1.22.8
+      semver: 7.6.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@embroider/shared-internals@1.8.3:
     resolution: {integrity: sha512-N5Gho6Qk8z5u+mxLCcMYAoQMbN4MmH+z2jXwQHVs859bxuZTxwF6kKtsybDAASCtd2YGxEmzcc1Ja/wM28824w==}
     engines: {node: 12.* || 14.* || >= 16}
@@ -2568,6 +2590,24 @@ packages:
       typescript-memoize: 1.1.1
     transitivePeerDependencies:
       - supports-color
+
+  /@embroider/shared-internals@2.6.0:
+    resolution: {integrity: sha512-A2BYQkhotdKOXuTaxvo9dqOIMbk+2LqFyqvfaaePkZcFJvtCkvTaD31/sSzqvRF6rdeBHjdMwU9Z2baPZ55fEQ==}
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      babel-import-util: 2.0.1
+      debug: 4.3.4(supports-color@9.4.0)
+      ember-rfc176-data: 0.3.18
+      fs-extra: 9.1.0
+      js-string-escape: 1.0.1
+      lodash: 4.17.21
+      minimatch: 3.1.2
+      resolve-package-path: 4.0.3
+      semver: 7.6.0
+      typescript-memoize: 1.1.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@embroider/test-setup@3.0.3:
     resolution: {integrity: sha512-3K5KSyTdnxAkZQill6+TdC/XTRr6226LNwZMsrhRbBM0FFZXw2D8qmJSHPvZLheQx3A1jnF9t1lyrAzrKlg6Yw==}
@@ -13858,6 +13898,7 @@ packages:
   /normalize-path@2.1.1:
     resolution: {integrity: sha512-3pKJwH184Xo/lnH6oyP1q2pMd7HcypqqmRs91/6/i2CGtWwIKGCkOOMTm/zXbgTEWHw1uNpNi/igc3ePOYHb6w==}
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
     dependencies:
       remove-trailing-separator: 1.1.0
 
@@ -15303,6 +15344,7 @@ packages:
 
   /remove-trailing-separator@1.1.0:
     resolution: {integrity: sha512-/hS+Y0u3aOfIETiaiirUFwDBDzmXPvO+jAfKTitUngIPzdKc6Z0LoFjM/CK5PL4C+eKwHohlHAb6H0VFfmmUsw==}
+    requiresBuild: true
 
   /remove-types@1.0.0:
     resolution: {integrity: sha512-G7Hk1Q+UJ5DvlNAoJZObxANkBZGiGdp589rVcTW/tYqJWJ5rwfraSnKSQaETN8Epaytw8J40nS/zC7bcHGv36w==}
