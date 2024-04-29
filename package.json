@@ -35,7 +35,7 @@
   },
   "pnpm": {
     "overrides": {
-      "@babel/parser": "7.17.3",
+      "@babel/parser": "7.17.12",
       "@octokit/rest": "^19.0.0"
     },
     "peerDependencyRules": {
