@@ -233,8 +233,8 @@ importers:
         specifier: 6.0.4
         version: 6.0.4(@babel/core@7.24.5)(rollup@4.17.2)
       babel-plugin-ember-template-compilation:
-        specifier: 2.2.4
-        version: 2.2.4
+        specifier: 2.2.5
+        version: 2.2.5
       concurrently:
         specifier: 8.2.2
         version: 8.2.2
@@ -2431,7 +2431,7 @@ packages:
       '@embroider/macros': 1.16.1
       '@embroider/shared-internals': 2.6.0
       assert-never: 1.2.1
-      babel-plugin-ember-template-compilation: 2.2.4
+      babel-plugin-ember-template-compilation: 2.2.5
       broccoli-node-api: 1.7.0
       broccoli-persistent-filter: 3.1.3
       broccoli-plugin: 4.0.7
@@ -5181,8 +5181,8 @@ packages:
       '@glimmer/syntax': 0.84.3
       babel-import-util: 2.1.1
 
-  /babel-plugin-ember-template-compilation@2.2.4:
-    resolution: {integrity: sha512-g1p/6CZL4lYUl2gnmdZ1/2ZRSL412Hm67+jpKocG6Ac0ZArEY4+uwrLiaOxd/31SgkkDtAykhycBV9VamZG+bw==}
+  /babel-plugin-ember-template-compilation@2.2.5:
+    resolution: {integrity: sha512-NQ2DT0DsYyHVrEpFQIy2U8S91JaKSE8NOSZzMd7KZFJVgA6KodJq3Uj852HcH9LsSfvwppnM+dRo1G8bzTnnFw==}
     engines: {node: '>= 12.*'}
     dependencies:
       '@glimmer/syntax': 0.84.3
