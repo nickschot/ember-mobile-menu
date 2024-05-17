@@ -157,8 +157,8 @@ importers:
         specifier: 3.1.2
         version: 3.1.2
       sass:
-        specifier: 1.77.1
-        version: 1.77.1
+        specifier: 1.77.2
+        version: 1.77.2
       tracked-built-ins:
         specifier: 3.3.0
         version: 3.3.0
@@ -389,8 +389,8 @@ importers:
         specifier: 3.1.2
         version: 3.1.2
       sass:
-        specifier: 1.77.1
-        version: 1.77.1
+        specifier: 1.77.2
+        version: 1.77.2
       tracked-built-ins:
         specifier: 3.3.0
         version: 3.3.0
@@ -1918,7 +1918,7 @@ packages:
     dependencies:
       '@csstools/sass-import-resolve': 1.0.0
       postcss: 8.4.38
-      sass: 1.77.1
+      sass: 1.77.2
       source-map: 0.7.4
     dev: true
 
@@ -14857,6 +14857,7 @@ packages:
 
   /psl@1.9.0:
     resolution: {integrity: sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==}
+    requiresBuild: true
     dev: true
 
   /public-encrypt@4.0.3:
@@ -14933,6 +14934,7 @@ packages:
 
   /querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
+    requiresBuild: true
     dev: true
 
   /queue-microtask@1.2.3:
@@ -15700,8 +15702,8 @@ packages:
       walker: 1.0.8
     dev: true
 
-  /sass@1.77.1:
-    resolution: {integrity: sha512-OMEyfirt9XEfyvocduUIOlUSkWOXS/LAt6oblR/ISXCTukyavjex+zQNm51pPCOiFKY1QpWvEH1EeCkgyV3I6w==}
+  /sass@1.77.2:
+    resolution: {integrity: sha512-eb4GZt1C3avsX3heBNlrc7I09nyT00IUuo4eFhAbeXWU2fvA7oXI53SxODVAA+zgZCk9aunAZgO+losjR3fAwA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -17240,6 +17242,7 @@ packages:
   /universalify@0.2.0:
     resolution: {integrity: sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==}
     engines: {node: '>= 4.0.0'}
+    requiresBuild: true
     dev: true
 
   /universalify@2.0.1:
@@ -17301,6 +17304,7 @@ packages:
 
   /url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
+    requiresBuild: true
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
