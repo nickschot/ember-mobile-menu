@@ -1,3 +1,9 @@
-{{page-title "ember-mobile-menu test-app"}}
-
-{{outlet}}
+<MobileMenuWrapper as |mmw|>
+  <mmw.MobileMenu data-test-menu as |mm|>
+    <LinkTo @route="index" {{on "click" mm.actions.close}}>Home</LinkTo>
+  </mmw.MobileMenu>
+  <mmw.Content>
+    <mmw.Toggle data-test-menu-toggle>Toggle menu</mmw.Toggle>
+    {{outlet}}
+  </mmw.Content>
+</MobileMenuWrapper>
