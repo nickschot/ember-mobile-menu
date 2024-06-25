@@ -43,8 +43,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-auto-import:
-        specifier: 2.7.3
-        version: 2.7.3(webpack@5.92.1)
+        specifier: 2.7.4
+        version: 2.7.4(webpack@5.92.1)
       ember-cli:
         specifier: 5.9.0
         version: 5.9.0
@@ -296,8 +296,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-auto-import:
-        specifier: 2.7.3
-        version: 2.7.3(webpack@5.92.1)
+        specifier: 2.7.4
+        version: 2.7.4(webpack@5.92.1)
       ember-cli:
         specifier: 5.9.0
         version: 5.9.0
@@ -2348,7 +2348,7 @@ packages:
       broccoli-debug: 0.6.5
       broccoli-funnel: 3.0.8
       dom-element-descriptors: 0.5.0
-      ember-auto-import: 2.7.3(webpack@5.92.1)
+      ember-auto-import: 2.7.4(webpack@5.92.1)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.3.0
       ember-source: 5.9.0(@glimmer/component@1.1.2)(webpack@5.92.1)
@@ -7684,7 +7684,7 @@ packages:
     engines: {node: 14.* || >= 16}
     dependencies:
       '@embroider/macros': 1.16.4
-      ember-auto-import: 2.7.3(webpack@5.92.1)
+      ember-auto-import: 2.7.4(webpack@5.92.1)
       ember-cli-babel: 7.26.11
       ember-cli-typescript: 5.3.0
       ember-get-config: 2.1.1
@@ -7734,8 +7734,8 @@ packages:
       - webpack-command
     dev: true
 
-  /ember-auto-import@2.7.3:
-    resolution: {integrity: sha512-EQzStGYxNvTPYWCFh0X57HFAzAvA2rHHRgBeWNDKHQ/rENNlHw0c0e0i1XebwEfv+yGHOodE4dN+f/mrYkQXLw==}
+  /ember-auto-import@2.7.4:
+    resolution: {integrity: sha512-6CdXSegJJc8nwwK7+1lIcBUnMVrJRNd4ZdMgcKbCAwPvcGxMgRVBddSzrX/+q/UuflvTEO26Dk1g7Z6KHMXUhw==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       '@babel/core': 7.24.7
@@ -7778,8 +7778,8 @@ packages:
       - webpack
     dev: false
 
-  /ember-auto-import@2.7.3(webpack@5.92.1):
-    resolution: {integrity: sha512-EQzStGYxNvTPYWCFh0X57HFAzAvA2rHHRgBeWNDKHQ/rENNlHw0c0e0i1XebwEfv+yGHOodE4dN+f/mrYkQXLw==}
+  /ember-auto-import@2.7.4(webpack@5.92.1):
+    resolution: {integrity: sha512-6CdXSegJJc8nwwK7+1lIcBUnMVrJRNd4ZdMgcKbCAwPvcGxMgRVBddSzrX/+q/UuflvTEO26Dk1g7Z6KHMXUhw==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       '@babel/core': 7.24.7
@@ -7873,7 +7873,7 @@ packages:
       broccoli-source: 3.0.1
       broccoli-stew: 3.0.0
       chalk: 4.1.2
-      ember-auto-import: 2.7.3(webpack@5.92.1)
+      ember-auto-import: 2.7.4(webpack@5.92.1)
       ember-cli-autoprefixer: 2.0.0
       ember-cli-babel: 7.26.11
       ember-cli-clipboard: 1.1.0(ember-source@5.9.0)(webpack@5.92.1)
@@ -8070,7 +8070,7 @@ packages:
       '@embroider/macros': 1.16.4
       clipboard: 2.0.11
       ember-arg-types: 1.1.0(webpack@5.92.1)
-      ember-auto-import: 2.7.3(webpack@5.92.1)
+      ember-auto-import: 2.7.4(webpack@5.92.1)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.3.0
       ember-modifier: 4.1.0(ember-source@5.9.0)
@@ -8959,7 +8959,7 @@ packages:
     resolution: {integrity: sha512-7mcD7CNbiCaZEIASWlRz/Wmn47afCMSFTdQJSSUe0WCgnXxn9DVoqZ39B7ZuddTHa0V6otTFrV/lIRYpggQ+eg==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
-      ember-auto-import: 2.7.3
+      ember-auto-import: 2.7.4
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 5.7.2
       ember-modifier: 4.1.0(ember-source@5.9.0)
@@ -8975,7 +8975,7 @@ packages:
     resolution: {integrity: sha512-7mcD7CNbiCaZEIASWlRz/Wmn47afCMSFTdQJSSUe0WCgnXxn9DVoqZ39B7ZuddTHa0V6otTFrV/lIRYpggQ+eg==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
-      ember-auto-import: 2.7.3(webpack@5.92.1)
+      ember-auto-import: 2.7.4(webpack@5.92.1)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 5.7.2
       ember-modifier: 4.1.0(ember-source@5.9.0)
@@ -9174,7 +9174,7 @@ packages:
       broccoli-funnel: 3.0.8
       broccoli-merge-trees: 4.2.0
       chalk: 4.1.2
-      ember-auto-import: 2.7.3(webpack@5.92.1)
+      ember-auto-import: 2.7.4(webpack@5.92.1)
       ember-cli-babel: 7.26.11
       ember-cli-get-component-path-option: 1.0.0
       ember-cli-is-package-missing: 1.0.0
@@ -9293,7 +9293,7 @@ packages:
     dependencies:
       '@babel/core': 7.24.7
       '@ember/render-modifiers': 2.1.0(@babel/core@7.24.7)(ember-source@5.9.0)
-      ember-auto-import: 2.7.3(webpack@5.92.1)
+      ember-auto-import: 2.7.4(webpack@5.92.1)
       ember-cli-babel: 8.2.0(@babel/core@7.24.7)
       ember-cli-htmlbars: 6.3.0
       ember-source: 5.9.0(@glimmer/component@1.1.2)(webpack@5.92.1)
