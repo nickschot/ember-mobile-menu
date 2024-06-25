@@ -28,7 +28,7 @@
   },
   "volta": {
     "node": "18.20.3",
-    "pnpm": "8.15.8"
+    "pnpm": "9.4.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
