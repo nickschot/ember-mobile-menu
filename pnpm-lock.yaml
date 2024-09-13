@@ -46,8 +46,8 @@ importers:
         specifier: 2.7.4
         version: 2.7.4(webpack@5.94.0)
       ember-cli:
-        specifier: 5.9.0
-        version: 5.9.0
+        specifier: 5.11.0
+        version: 5.11.0
       ember-cli-addon-docs:
         specifier: 7.0.1
         version: 7.0.1(@ember/test-helpers@3.3.1)(ember-data@5.3.8)(ember-source@5.9.0)(webpack@5.94.0)
@@ -59,7 +59,7 @@ importers:
         version: 8.2.0
       ember-cli-dependency-checker:
         specifier: 3.3.2
-        version: 3.3.2(ember-cli@5.9.0)
+        version: 3.3.2(ember-cli@5.11.0)
       ember-cli-deploy:
         specifier: 2.0.0
         version: 2.0.0
@@ -299,8 +299,8 @@ importers:
         specifier: 2.7.4
         version: 2.7.4(webpack@5.94.0)
       ember-cli:
-        specifier: 5.9.0
-        version: 5.9.0
+        specifier: 5.11.0
+        version: 5.11.0
       ember-cli-babel:
         specifier: 8.2.0
         version: 8.2.0
@@ -309,7 +309,7 @@ importers:
         version: 3.0.0
       ember-cli-dependency-checker:
         specifier: 3.3.2
-        version: 3.3.2(ember-cli@5.9.0)
+        version: 3.3.2(ember-cli@5.11.0)
       ember-cli-htmlbars:
         specifier: 6.3.0
         version: 6.3.0
@@ -9720,14 +9720,14 @@ packages:
       - webpack
     dev: true
 
-  /ember-cli-dependency-checker@3.3.2(ember-cli@5.9.0):
+  /ember-cli-dependency-checker@3.3.2(ember-cli@5.11.0):
     resolution: {integrity: sha512-PwkrW5oYsdPWwt+0Tojufmv/hxVETTjkrEdK7ANQB2VSnqpA5UcYubwpQM9ONuR2J8wyNDMwEHlqIrk/FYtBsQ==}
     engines: {node: '>= 6'}
     peerDependencies:
       ember-cli: ^3.2.0 || >=4.0.0
     dependencies:
       chalk: 2.4.2
-      ember-cli: 5.9.0
+      ember-cli: 5.11.0
       find-yarn-workspace-root: 1.2.1
       is-git-url: 1.0.0
       resolve: 1.22.8
@@ -10130,8 +10130,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-cli@5.9.0:
-    resolution: {integrity: sha512-3+4F9STw4yRttzMCCrbpAwwQLtUqIwVug/Ve6rvUFvcpK//n8Q6N7iaPBHhYOFGwwok8Nr0jfkINxLWTl6WrlA==}
+  /ember-cli@5.11.0:
+    resolution: {integrity: sha512-G+Fp194KLZy6NHC9c2i1ZlCB2SurxAMd5Hg61o9kRH4rogjDeoVUC3uiQ/mmrdn5DWRSnS0bfXV+i7+W4wu1Ug==}
     engines: {node: '>= 18'}
     hasBin: true
     dependencies:
@@ -10157,7 +10157,7 @@ packages:
       compression: 1.7.4
       configstore: 5.0.1
       console-ui: 3.1.2
-      content-tag: 1.2.2
+      content-tag: 2.0.1
       core-object: 3.1.5
       dag-map: 2.0.2
       diff: 5.2.0
