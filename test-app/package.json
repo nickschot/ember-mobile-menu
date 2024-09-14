@@ -65,7 +65,7 @@
     "npm-run-all2": "6.2.3",
     "prettier": "3.3.3",
     "qunit": "2.22.0",
-    "qunit-dom": "3.1.2",
+    "qunit-dom": "3.2.0",
     "sass": "1.77.8",
     "tracked-built-ins": "3.3.0",
     "webpack": "5.94.0"
