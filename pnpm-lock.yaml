@@ -46,8 +46,8 @@ importers:
         specifier: 2.9.0
         version: 2.9.0(webpack@5.94.0)
       ember-cli:
-        specifier: 5.11.0
-        version: 5.11.0
+        specifier: 5.12.0
+        version: 5.12.0
       ember-cli-addon-docs:
         specifier: 7.0.1
         version: 7.0.1(@ember/test-helpers@3.3.1)(ember-data@5.3.9)(ember-source@5.11.1)(webpack@5.94.0)
@@ -59,7 +59,7 @@ importers:
         version: 8.2.0
       ember-cli-dependency-checker:
         specifier: 3.3.2
-        version: 3.3.2(ember-cli@5.11.0)
+        version: 3.3.2(ember-cli@5.12.0)
       ember-cli-deploy:
         specifier: 2.0.0
         version: 2.0.0
@@ -299,8 +299,8 @@ importers:
         specifier: 2.9.0
         version: 2.9.0(webpack@5.94.0)
       ember-cli:
-        specifier: 5.11.0
-        version: 5.11.0
+        specifier: 5.12.0
+        version: 5.12.0
       ember-cli-babel:
         specifier: 8.2.0
         version: 8.2.0
@@ -309,7 +309,7 @@ importers:
         version: 3.0.0
       ember-cli-dependency-checker:
         specifier: 3.3.2
-        version: 3.3.2(ember-cli@5.11.0)
+        version: 3.3.2(ember-cli@5.12.0)
       ember-cli-htmlbars:
         specifier: 6.3.0
         version: 6.3.0
@@ -9922,14 +9922,14 @@ packages:
       - webpack
     dev: true
 
-  /ember-cli-dependency-checker@3.3.2(ember-cli@5.11.0):
+  /ember-cli-dependency-checker@3.3.2(ember-cli@5.12.0):
     resolution: {integrity: sha512-PwkrW5oYsdPWwt+0Tojufmv/hxVETTjkrEdK7ANQB2VSnqpA5UcYubwpQM9ONuR2J8wyNDMwEHlqIrk/FYtBsQ==}
     engines: {node: '>= 6'}
     peerDependencies:
       ember-cli: ^3.2.0 || >=4.0.0
     dependencies:
       chalk: 2.4.2
-      ember-cli: 5.11.0
+      ember-cli: 5.12.0
       find-yarn-workspace-root: 1.2.1
       is-git-url: 1.0.0
       resolve: 1.22.8
@@ -10332,8 +10332,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-cli@5.11.0:
-    resolution: {integrity: sha512-G+Fp194KLZy6NHC9c2i1ZlCB2SurxAMd5Hg61o9kRH4rogjDeoVUC3uiQ/mmrdn5DWRSnS0bfXV+i7+W4wu1Ug==}
+  /ember-cli@5.12.0:
+    resolution: {integrity: sha512-48ZOoUZTXsav37RIYY9gyCR35yo64mhzfv5YHtTbsZZwLv/HjvTz27X0CTvkfVQaOWHYDFekxdp9ppaKz84VNA==}
     engines: {node: '>= 18'}
     hasBin: true
     dependencies:
@@ -10409,12 +10409,12 @@ packages:
       resolve-package-path: 4.0.3
       safe-stable-stringify: 2.4.3
       sane: 5.0.1
-      semver: 7.6.2
+      semver: 7.6.3
       silent-error: 1.1.1
       sort-package-json: 1.57.0
       symlink-or-copy: 1.3.1
       temp: 0.9.4
-      testem: 3.14.0(lodash@4.17.21)
+      testem: 3.15.2
       tiny-lr: 2.0.0
       tree-sync: 2.1.0
       walk-sync: 3.0.0
@@ -14238,16 +14238,8 @@ packages:
     resolution: {integrity: sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==}
     dev: true
 
-  /lodash.assignin@4.2.0:
-    resolution: {integrity: sha512-yX/rx6d/UTVh7sSVWVSIMjfnz95evAgDFdb1ZozC35I9mSFCkmzptOzevxjgbQUsc78NR44LVHWjsoMQXy9FDg==}
-    dev: true
-
   /lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
-    dev: true
-
-  /lodash.castarray@4.4.0:
-    resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==}
     dev: true
 
   /lodash.clonedeep@4.5.0:
@@ -14265,10 +14257,6 @@ packages:
 
   /lodash.defaultsdeep@4.6.1:
     resolution: {integrity: sha512-3j8wdDzYuWO3lM3Reg03MuQR957t287Rpcxp1njpEa8oDrikb+FwGdW3n+FELh/A6qib6yPit0j/pv9G/yeAqA==}
-    dev: true
-
-  /lodash.find@4.6.0:
-    resolution: {integrity: sha512-yaRZoAV3Xq28F1iafWN1+a0rflOej93l1DQUejs3SZ41h2O9UJBoS9aueGjPDgAl4B6tPC0NuuchLKaDQQ3Isg==}
     dev: true
 
   /lodash.flatten@3.0.2:
@@ -14317,10 +14305,6 @@ packages:
 
   /lodash.uniq@4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
-    dev: true
-
-  /lodash.uniqby@4.7.0:
-    resolution: {integrity: sha512-e/zcLx6CSbmaEgFHCA7BnoQKyCtKMxnuWrJygbwPs/AIn+IMKl66L8/s+wBUn5LRw2pZx3bUHibiV1b6aTWIww==}
     dev: true
 
   /lodash@4.17.21:
@@ -16481,7 +16465,7 @@ packages:
     resolution: {integrity: sha512-G7Hk1Q+UJ5DvlNAoJZObxANkBZGiGdp589rVcTW/tYqJWJ5rwfraSnKSQaETN8Epaytw8J40nS/zC7bcHGv36w==}
     dependencies:
       '@babel/core': 7.26.0
-      '@babel/plugin-syntax-decorators': 7.24.7(@babel/core@7.26.0)
+      '@babel/plugin-syntax-decorators': 7.25.9(@babel/core@7.26.0)
       '@babel/plugin-transform-typescript': 7.24.7(@babel/core@7.26.0)
       prettier: 2.8.8
     transitivePeerDependencies:
@@ -17843,8 +17827,8 @@ packages:
       commander: 2.20.3
       source-map-support: 0.5.21
 
-  /testem@3.14.0(lodash@4.17.21):
-    resolution: {integrity: sha512-hpybTZhio6DXUM7s0HsE8EOnN8zuA6LdNcz3EsTpQSnD56Cj6gSuFQx82wDKZQ6OmM1kvIBebxP+rEoOYBgCOA==}
+  /testem@3.15.2:
+    resolution: {integrity: sha512-mRzqZktqTCWi/rUP/RQOKXvMtuvY3lxuzBVb1xGXPnRNGMEj/1DaLGn6X447yOsz6SlWxSsZfcNuiE7fT1MOKg==}
     engines: {node: '>= 7.*'}
     hasBin: true
     dependencies:
@@ -17861,11 +17845,7 @@ packages:
       glob: 7.2.3
       http-proxy: 1.18.1
       js-yaml: 3.14.1
-      lodash.assignin: 4.2.0
-      lodash.castarray: 4.4.0
-      lodash.clonedeep: 4.5.0
-      lodash.find: 4.6.0
-      lodash.uniqby: 4.7.0
+      lodash: 4.17.21
       mkdirp: 3.0.1
       mustache: 4.2.0
       node-notifier: 10.0.1
@@ -17904,7 +17884,6 @@ packages:
       - just
       - liquid-node
       - liquor
-      - lodash
       - marko
       - mote
       - nunjucks
