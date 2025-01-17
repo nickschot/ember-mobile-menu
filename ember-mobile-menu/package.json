@@ -43,8 +43,6 @@
     "@ember/render-modifiers": "^2.0.0",
     "@ember/test-waiters": "^3.0.0",
     "@embroider/addon-shim": "^1.0.0",
-    "@glimmer/component": "^1.0.4",
-    "@glimmer/tracking": "^1.0.4",
     "ember-concurrency": "^3.0.0 || ^4.0.0",
     "ember-gesture-modifiers": "^5.0.0 || ^6.0.0",
     "ember-modify-based-class-resource": "^1.1.0",
@@ -77,7 +75,9 @@
     "rollup-plugin-copy": "3.5.0"
   },
   "peerDependencies": {
-    "ember-source": ">=3.28.0"
+    "ember-source": ">=3.28.0",
+    "@glimmer/component": "^1.0.4 || >=2.0.0",
+    "@glimmer/tracking": "^1.0.4"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
