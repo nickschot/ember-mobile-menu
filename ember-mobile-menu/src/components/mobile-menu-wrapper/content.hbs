@@ -1,5 +1,7 @@
 <div
-  class="mobile-menu-wrapper__content {{if @shadowEnabled "mobile-menu-wrapper__content--shadow"}} mobile-menu-wrapper__content--{{this.mode}}"
+  class="mobile-menu-wrapper__content
+    {{if @shadowEnabled 'mobile-menu-wrapper__content--shadow'}}
+    mobile-menu-wrapper__content--{{this.mode}}"
   style={{this.style}}
   {{did-pan
     onPanStart=@onPanStart
@@ -13,9 +15,6 @@
   {{yield}}
 
   {{#if this.mask}}
-    <MobileMenu::Mask
-      @isOpen={{@isOpen}}
-      @onClick={{@onClose}}
-    />
+    <MobileMenu::Mask @isOpen={{@isOpen}} @onClick={{@onClose}} />
   {{/if}}
 </div>

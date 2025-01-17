@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 import {
   disableBodyScroll,
   enableBodyScroll,
-} from '../../utils/body-scroll-lock';
+} from '../../utils/body-scroll-lock.js';
 import './tray.css';
 
 /**
