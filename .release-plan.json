@@ -4,5 +4,5 @@
       "oldVersion": "5.1.0"
     }
   },
-  "description": "## Release (2024-02-16)\n\n\n\n#### :house: Internal\n* [#896](https://github.com/nickschot/ember-mobile-menu/pull/896) Update dependency release-plan to v0.8.0 ([@renovate[bot]](https://github.com/apps/renovate))\n* [#897](https://github.com/nickschot/ember-mobile-menu/pull/897) Fix docs deploy ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 1\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n"
+  "description": "## Release (2025-01-17)\n\n\n\n#### :house: Internal\n* `test-app`\n  * [#1071](https://github.com/nickschot/ember-mobile-menu/pull/1071) Add all ember v5 LTS versions to ember-try ([@nickschot](https://github.com/nickschot))\n* Other\n  * [#898](https://github.com/nickschot/ember-mobile-menu/pull/898) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))\n  * [#897](https://github.com/nickschot/ember-mobile-menu/pull/897) Fix docs deploy ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 2\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n- [@github-actions[bot]](https://github.com/apps/github-actions)\n"
 }
