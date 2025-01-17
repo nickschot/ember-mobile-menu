@@ -16,7 +16,7 @@
     "lint": "pnpm --filter '!docs' lint",
     "lint:fix": "pnpm --filter '!docs' lint:fix",
     "prepare": "pnpm build",
-    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefixColors auto",
     "start:addon": "pnpm --filter ember-mobile-menu start --no-watch.clearScreen",
     "start:docs": "pnpm --filter docs start",
     "start:test-app": "pnpm --filter test-app start",
