@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2025-01-17)
+
+
+
+#### :house: Internal
+* `test-app`
+  * [#1071](https://github.com/nickschot/ember-mobile-menu/pull/1071) Add all ember v5 LTS versions to ember-try ([@nickschot](https://github.com/nickschot))
+* Other
+  * [#898](https://github.com/nickschot/ember-mobile-menu/pull/898) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#897](https://github.com/nickschot/ember-mobile-menu/pull/897) Fix docs deploy ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 2
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+- [@github-actions[bot]](https://github.com/apps/github-actions)
+
 ## Release (2024-02-16)
 
 
