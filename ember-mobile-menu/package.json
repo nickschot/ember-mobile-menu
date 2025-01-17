@@ -51,7 +51,7 @@
     "ember-on-resize-modifier": "^2.0.0",
     "ember-resources": "^6.4.0 || ^7.0.0",
     "ember-set-body-class": "^1.0.1",
-    "tracked-built-ins": "^3.0.0",
+    "tracked-built-ins": "^4.0.0",
     "wobble": "^1.5.1"
   },
   "devDependencies": {
