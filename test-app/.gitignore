@@ -1,5 +1,6 @@
 # compiled output
 /dist/
+/declarations/
 
 # dependencies
 /node_modules/
@@ -20,5 +21,5 @@
 /package-lock.json.ember-try
 /yarn.lock.ember-try
 
-/.idea/
-/vendor/ember-mobile-menu.css
+# broccoli-debug
+/DEBUG/
