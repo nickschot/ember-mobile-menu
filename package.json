@@ -15,6 +15,7 @@
     "changelog": "npx lerna-changelog --from=v0.1.0-alpha.5 > CHANGELOG.md",
     "lint": "pnpm --filter '!docs' lint",
     "lint:fix": "pnpm --filter '!docs' lint:fix",
+    "prepare": "pnpm build",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "pnpm --filter ember-mobile-menu start --no-watch.clearScreen",
     "start:docs": "pnpm --filter docs start",
