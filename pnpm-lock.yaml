@@ -160,8 +160,8 @@ importers:
         specifier: 1.78.0
         version: 1.78.0
       tracked-built-ins:
-        specifier: 3.3.0
-        version: 3.3.0
+        specifier: 4.0.0
+        version: 4.0.0(@babel/core@7.26.0)
       webpack:
         specifier: 5.94.0
         version: 5.94.0
@@ -202,8 +202,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.2
       tracked-built-ins:
-        specifier: ^3.0.0
-        version: 3.3.0
+        specifier: ^4.0.0
+        version: 4.0.0(@babel/core@7.26.0)
       wobble:
         specifier: ^1.5.1
         version: 1.5.1
@@ -392,8 +392,8 @@ importers:
         specifier: 1.78.0
         version: 1.78.0
       tracked-built-ins:
-        specifier: 3.3.0
-        version: 3.3.0
+        specifier: 4.0.0
+        version: 4.0.0(@babel/core@7.26.0)
       webpack:
         specifier: 5.94.0
         version: 5.94.0
@@ -16154,12 +16154,14 @@ packages:
       punycode: 2.3.1
     dev: true
 
-  /tracked-built-ins@3.3.0:
-    resolution: {integrity: sha512-ewKFrW/AQs05oLPM5isOUb/1aOwBRfHfmF408CCzTk21FLAhKrKVOP5Q5ebX+zCT4kvg81PGBGwrBiEGND1nWA==}
+  /tracked-built-ins@4.0.0(@babel/core@7.26.0):
+    resolution: {integrity: sha512-0Jl43A1SDZd+yYCJvXfgDSn4Wk/zcawkyFTBPqOETU5UJRngnVEnQ8oOjawqPRg6qja3sKjIQ8z6X9xJzcUTUA==}
     dependencies:
       '@embroider/addon-shim': 1.9.0
+      decorator-transforms: 2.3.0(@babel/core@7.26.0)
       ember-tracked-storage-polyfill: 1.0.0
     transitivePeerDependencies:
+      - '@babel/core'
       - supports-color
 
   /tracked-toolbox@2.0.0(ember-source@5.12.0):
@@ -17106,7 +17108,7 @@ packages:
       ember-resources: 7.0.3(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-source@5.12.0)
       ember-set-body-class: 1.0.2
       ember-source: 5.12.0(@glimmer/component@1.1.2)(webpack@5.94.0)
-      tracked-built-ins: 3.3.0
+      tracked-built-ins: 4.0.0(@babel/core@7.26.0)
       wobble: 1.5.1
     transitivePeerDependencies:
       - '@babel/core'
