@@ -100,5 +100,8 @@
       "./components/mobile-menu/mask.js": "./dist/_app_/components/mobile-menu/mask.js",
       "./components/mobile-menu/tray.js": "./dist/_app_/components/mobile-menu/tray.js"
     }
+  },
+  "volta": {
+    "extends": "../package.json"
   }
 }
