@@ -4,16 +4,16 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { TrackedSet } from 'tracked-built-ins';
 
-import MobileMenu from './mobile-menu';
+import MobileMenu from './mobile-menu.js';
 import normalizeCoordinates, {
   scaleCorrection,
-} from '../utils/normalize-coordinates';
+} from '../utils/normalize-coordinates.js';
 
 import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
 import { waitFor } from '@ember/test-waiters';
 import { task } from 'ember-concurrency';
-import Spring from '../spring';
+import Spring from '../spring.js';
 import './mobile-menu-wrapper.css';
 
 const isIOSDevice =
