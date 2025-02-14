@@ -13,7 +13,7 @@ module.exports = async function () {
           devDependencies: {
             'ember-cli': '~4.12.0',
             'ember-source': '~3.28.0',
-            'ember-resolver': '^10.0.0',
+            'ember-resolver': '^11.0.0',
             'ember-load-initializers': '^2.1.2',
             '@ember/test-helpers': '^3.0.0',
           },
@@ -24,7 +24,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~4.4.0',
-            'ember-resolver': '^10.0.0',
+            'ember-resolver': '^11.0.0',
             'ember-load-initializers': '^2.1.2',
             '@ember/test-helpers': '^3.0.0',
           },
