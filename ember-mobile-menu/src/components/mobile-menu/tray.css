@@ -5,7 +5,7 @@
   /* Avoid Chrome to see Safari hack */
   overflow-y: auto;
   touch-action: pan-y;
-  background: #FFF;
+  background: #fff;
   will-change: transform;
 }
 @supports (-webkit-touch-callout: none) {

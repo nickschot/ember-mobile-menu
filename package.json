@@ -13,35 +13,24 @@
   "scripts": {
     "build": "pnpm --filter ember-mobile-menu build",
     "changelog": "npx lerna-changelog --from=v0.1.0-alpha.5 > CHANGELOG.md",
-    "lint": "pnpm --filter '*' lint",
-    "lint:fix": "pnpm --filter '*' lint:fix",
-    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "lint": "pnpm --filter '!docs' lint",
+    "lint:fix": "pnpm --filter '!docs' lint:fix",
+    "prepare": "pnpm build",
+    "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefixColors auto",
     "start:addon": "pnpm --filter ember-mobile-menu start --no-watch.clearScreen",
     "start:docs": "pnpm --filter docs start",
     "start:test-app": "pnpm --filter test-app start",
-    "test": "pnpm --filter '*' test",
-    "test:ember": "pnpm --filter '*' test:ember"
+    "test": "pnpm --filter '!docs' test",
+    "test:ember": "pnpm --filter '!docs' test:ember"
   },
   "devDependencies": {
     "concurrently": "8.2.2",
-    "release-plan": "0.9.2"
+    "release-plan": "0.9.2",
+    "prettier": "^3.0.3",
+    "prettier-plugin-ember-template-tag": "^2.0.2"
   },
-  "volta": {
-    "node": "18.20.4",
-    "pnpm": "8.15.9"
-  },
+  "packageManager": "pnpm@10.4.0+sha512.6b849d0787d97f8f4e1f03a9b8ff8f038e79e153d6f11ae539ae7c435ff9e796df6a862c991502695c7f9e8fac8aeafc1ac5a8dab47e36148d183832d886dd52",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
-  },
-  "pnpm": {
-    "overrides": {
-      "@babel/parser": "7.26.2",
-      "@octokit/rest": "^19.0.0"
-    },
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "@babel/core"
-      ]
-    }
   }
 }

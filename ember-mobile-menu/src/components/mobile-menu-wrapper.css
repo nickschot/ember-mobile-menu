@@ -38,7 +38,7 @@ body.mobile-menu--prevent-scroll {
 .mobile-menu-wrapper__content {
   min-height: var(--mobile-menu-wrapper-min-height);
   position: relative;
-  background: #FFF;
+  background: #fff;
   will-change: transform, margin-left, margin-right;
   z-index: 1;
   touch-action: pan-y;
@@ -46,6 +46,8 @@ body.mobile-menu--prevent-scroll {
 .mobile-menu-wrapper__content--shadow {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-.mobile-menu-wrapper__content--ios, .mobile-menu-wrapper__content--reveal, .mobile-menu-wrapper__content--squeeze-reveal {
+.mobile-menu-wrapper__content--ios,
+.mobile-menu-wrapper__content--reveal,
+.mobile-menu-wrapper__content--squeeze-reveal {
   z-index: 2;
 }

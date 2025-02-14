@@ -209,7 +209,6 @@ const handleScroll = (event, targetElement) => {
 export const disableBodyScroll = (targetElement, options) => {
   // targetElement must be provided
   if (!targetElement) {
-    // eslint-disable-next-line no-console
     console.error(
       'disableBodyScroll unsuccessful - targetElement must be provided when calling disableBodyScroll on IOS devices.',
     );
@@ -291,7 +290,6 @@ export const clearAllBodyScrollLocks = () => {
 
 export const enableBodyScroll = (targetElement) => {
   if (!targetElement) {
-    // eslint-disable-next-line no-console
     console.error(
       'enableBodyScroll unsuccessful - targetElement must be provided when calling enableBodyScroll on IOS devices.',
     );
