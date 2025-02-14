@@ -30,7 +30,7 @@
     "@babel/plugin-proposal-decorators": "^7.25.9",
     "@ember/optional-features": "^2.2.0",
     "@ember/string": "^4.0.0",
-    "@ember/test-helpers": "^3.0.0",
+    "@ember/test-helpers": "^4.0.4",
     "@embroider/test-setup": "^3.0.1",
     "@eslint/js": "^9.17.0",
     "@glimmer/component": "^1.1.2",
@@ -49,13 +49,13 @@
     "ember-cli-terser": "^4.0.2",
     "ember-data": "~5.3.9",
     "ember-fetch": "^8.1.2",
-    "ember-load-initializers": "^2.1.2",
+    "ember-load-initializers": "^3.0.1",
     "ember-mobile-menu": "workspace:*",
     "ember-modifier": "^4.2.0",
     "ember-page-title": "^8.2.3",
     "ember-qunit": "^8.1.1",
-    "ember-resolver": "^11.0.0",
-    "ember-source": "~4.8.0",
+    "ember-resolver": "^13.1.0",
+    "ember-source": "~6.1.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-imports": "^4.2.0",
     "ember-template-lint": "^6.0.0",
@@ -83,8 +83,5 @@
   },
   "ember": {
     "edition": "octane"
-  },
-  "volta": {
-    "extends": "../package.json"
   }
 }
