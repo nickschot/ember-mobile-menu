@@ -7,9 +7,6 @@ on:
       - master
   pull_request: {}
 
-env:
-  PNPM_VERSION: 10.0.0
-
 concurrency:
    group: ci-${{ github.head_ref || github.ref }}
    cancel-in-progress: true
@@ -22,7 +19,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4.0.0
+      - uses: pnpm/action-setup@v4
         with:
           version: ${{ env.PNPM_VERSION }}
       - name: Install Node
@@ -44,9 +41,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4.0.0
-        with:
-          version: ${{ env.PNPM_VERSION }}
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 18.x
@@ -84,9 +79,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4.0.0
-        with:
-          version: ${{ env.PNPM_VERSION }}
+      - uses: pnpm/action-setup@v4
       - name: Install Node
         uses: actions/setup-node@v3
         with:
@@ -115,8 +108,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4.0.0
-        with:
-          version: ${{ env.PNPM_VERSION }}
       - name: Install Node
         uses: actions/setup-node@v3
         with:
