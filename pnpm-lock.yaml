@@ -189,15 +189,9 @@ importers:
       ember-gesture-modifiers:
         specifier: ^5.0.0 || ^6.0.0
         version: 6.0.1(@babel/core@7.26.0)
-      ember-modify-based-class-resource:
-        specifier: ^1.1.0
-        version: 1.1.1(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-resources@7.0.3)(ember-source@5.12.0)
       ember-on-resize-modifier:
         specifier: ^2.0.0
         version: 2.0.2(@babel/core@7.26.0)
-      ember-resources:
-        specifier: ^6.4.0 || ^7.0.0
-        version: 7.0.3(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(ember-source@5.12.0)
       ember-set-body-class:
         specifier: ^1.0.1
         version: 1.0.2
@@ -8791,6 +8785,7 @@ packages:
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
+    dev: true
 
   /ember-on-resize-modifier@2.0.2(@babel/core@7.26.0):
     resolution: {integrity: sha512-7mcD7CNbiCaZEIASWlRz/Wmn47afCMSFTdQJSSUe0WCgnXxn9DVoqZ39B7ZuddTHa0V6otTFrV/lIRYpggQ+eg==}
@@ -8914,6 +8909,7 @@ packages:
       ember-source: 5.12.0(@glimmer/component@1.1.2)(webpack@5.94.0)
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /ember-responsive@5.0.0:
     resolution: {integrity: sha512-JDwNIKHNcHrILGkpLqLqZ1idO7hxxt6f4M2wmiktOuzhBm2/JxUjkK+yec+tzIzXaD7rrl2/S7STa/Uj5s6TEw==}
