@@ -16,7 +16,6 @@ module.exports = async function () {
             'ember-resolver': '^8.0.0',
             'ember-load-initializers': '^2.1.2',
             '@ember/test-helpers': '^2.0.0',
-            'ember-cached-decorator-polyfill': '^1.0.2',
           },
         },
       },
