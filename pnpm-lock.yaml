@@ -174,7 +174,7 @@ importers:
         specifier: ^2.0.0
         version: 2.1.0(@babel/core@7.26.9)(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5))
       '@ember/test-waiters':
-        specifier: ^3.0.0
+        specifier: ^3.0.0 || ^4.0.0
         version: 3.1.0
       '@embroider/addon-shim':
         specifier: ^1.8.9
@@ -286,8 +286,8 @@ importers:
         specifier: 4.0.0
         version: 4.0.0
       '@ember/test-helpers':
-        specifier: 4.0.4
-        version: 4.0.4(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
+        specifier: 4.0.5
+        version: 4.0.5(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
       '@embroider/test-setup':
         specifier: 3.0.3
         version: 3.0.3(@embroider/core@3.5.0)
@@ -344,7 +344,7 @@ importers:
         version: 3.0.1(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
       ember-mobile-menu:
         specifier: workspace:*
-        version: file:ember-mobile-menu(@babel/core@7.26.9)(@ember/test-helpers@4.0.4(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.9))(@glimmer/tracking@1.1.2)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        version: file:ember-mobile-menu(@babel/core@7.26.9)(@ember/test-helpers@4.0.5(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.9))(@glimmer/tracking@1.1.2)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       ember-modifier:
         specifier: 4.2.0
         version: 4.2.0(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
@@ -353,7 +353,7 @@ importers:
         version: 8.2.3(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
       ember-qunit:
         specifier: 8.1.1
-        version: 8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1)
+        version: 8.1.1(@ember/test-helpers@4.0.5(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1)
       ember-resolver:
         specifier: 13.1.0
         version: 13.1.0(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
@@ -1228,11 +1228,6 @@ packages:
 
   '@ember/string@4.0.0':
     resolution: {integrity: sha512-IMVyVE72twuAMSYcHzWSgtgYTtzlHlKSGW8vEbztnnmkU6uo7kVHmiqSN9R4RkBhzvh0VD4G76Eph+55t3iNIA==}
-
-  '@ember/test-helpers@4.0.4':
-    resolution: {integrity: sha512-1mbOVyVEcLxYOGzBaeeaQkCrL1o9Av86QaHk/1RvrVBW24I6YUj1ILLEi2qLZT5PzcCy0TdfadHT3hKJwJ0GcQ==}
-    peerDependencies:
-      ember-source: '>= 4.0.0'
 
   '@ember/test-helpers@4.0.5':
     resolution: {integrity: sha512-wQtibrTbsTyqkF14m1pFwaLECzda7ObY9HpCPpRghYkgBcnwlD2dBpvfYtamMK1HCh59vEZ3OdrxEBU9jKLyng==}
@@ -10793,20 +10788,6 @@ snapshots:
 
   '@ember/string@4.0.0': {}
 
-  '@ember/test-helpers@4.0.4(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))':
-    dependencies:
-      '@ember/test-waiters': 3.1.0
-      '@embroider/addon-shim': 1.9.0
-      '@embroider/macros': 1.16.10
-      '@simple-dom/interface': 1.4.0
-      decorator-transforms: 2.3.0(@babel/core@7.26.9)
-      dom-element-descriptors: 0.5.1
-      ember-source: 6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@glint/template'
-      - supports-color
-
   '@ember/test-helpers@4.0.5(@babel/core@7.26.9)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.94.0))':
     dependencies:
       '@ember/test-waiters': 3.1.0
@@ -10816,6 +10797,20 @@ snapshots:
       decorator-transforms: 2.3.0(@babel/core@7.26.9)
       dom-element-descriptors: 0.5.1
       ember-source: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.94.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@glint/template'
+      - supports-color
+
+  '@ember/test-helpers@4.0.5(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))':
+    dependencies:
+      '@ember/test-waiters': 3.1.0
+      '@embroider/addon-shim': 1.9.0
+      '@embroider/macros': 1.16.10
+      '@simple-dom/interface': 1.4.0
+      decorator-transforms: 2.3.0(@babel/core@7.26.9)
+      dom-element-descriptors: 0.5.1
+      ember-source: 6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)
     transitivePeerDependencies:
       - '@babel/core'
       - '@glint/template'
@@ -15906,13 +15901,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-gesture-modifiers@6.0.1(@babel/core@7.26.9)(@ember/test-helpers@4.0.4(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)):
+  ember-gesture-modifiers@6.0.1(@babel/core@7.26.9)(@ember/test-helpers@4.0.5(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)):
     dependencies:
       '@embroider/addon-shim': 1.9.0
       ember-modifier: 4.2.0(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
       ember-source: 6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)
     optionalDependencies:
-      '@ember/test-helpers': 4.0.4(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
+      '@ember/test-helpers': 4.0.5(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -15961,7 +15956,7 @@ snapshots:
     dependencies:
       ember-source: 6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)
 
-  ember-mobile-menu@file:ember-mobile-menu(@babel/core@7.26.9)(@ember/test-helpers@4.0.4(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.9))(@glimmer/tracking@1.1.2)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1):
+  ember-mobile-menu@file:ember-mobile-menu(@babel/core@7.26.9)(@ember/test-helpers@4.0.5(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.9))(@glimmer/tracking@1.1.2)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1):
     dependencies:
       '@ember/render-modifiers': 2.1.0(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
       '@ember/test-waiters': 3.1.0
@@ -15971,7 +15966,7 @@ snapshots:
       decorator-transforms: 2.3.0(@babel/core@7.26.9)
       ember-cached-decorator-polyfill: 1.0.2(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
       ember-concurrency: 4.0.2(@babel/core@7.26.9)(@glimmer/tracking@1.1.2)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
-      ember-gesture-modifiers: 6.0.1(@babel/core@7.26.9)(@ember/test-helpers@4.0.4(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
+      ember-gesture-modifiers: 6.0.1(@babel/core@7.26.9)(@ember/test-helpers@4.0.5(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
       ember-on-resize-modifier: 2.0.2(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       ember-set-body-class: 1.0.2
       ember-source: 6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)
@@ -16104,9 +16099,9 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  ember-qunit@8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1):
+  ember-qunit@8.1.1(@ember/test-helpers@4.0.5(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1):
     dependencies:
-      '@ember/test-helpers': 4.0.4(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
+      '@ember/test-helpers': 4.0.5(@babel/core@7.26.9)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.9))(rsvp@4.8.5)(webpack@5.97.1))
       '@embroider/addon-shim': 1.9.0
       '@embroider/macros': 1.16.10
       ember-cli-test-loader: 3.1.0
