@@ -27,10 +27,14 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+      # This has been really annoying
+      # due to injected dependencies :(
+      - name: 'Re-sync injected dependencies'
+        run: pnpm install --frozen-lockfile --force
       - name: Lint
         run: pnpm lint
       - name: Run Tests
-        run: pnpm test
+        run: pnpm test:ember
 
   floating:
     name: "Floating Dependencies"
@@ -49,8 +53,12 @@ jobs:
         run: rm pnpm-lock.yaml
       - name: Install Dependencies
         run: pnpm install
+      # This has been really annoying
+      # due to injected dependencies :(
+      - name: 'Re-sync injected dependencies'
+        run: pnpm install --force
       - name: Run Tests
-        run: pnpm test
+        run: pnpm test:ember
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
@@ -85,6 +93,10 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+      # This has been really annoying
+      # due to injected dependencies :(
+      - name: 'Re-sync injected dependencies'
+        run: pnpm install --frozen-lockfile --force
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: test-app
@@ -113,6 +125,10 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+      # This has been really annoying
+      # due to injected dependencies :(
+      - name: 'Re-sync injected dependencies'
+        run: pnpm install --frozen-lockfile --force
       - name: Run Tests
         id: tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}

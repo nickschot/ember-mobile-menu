@@ -20,8 +20,8 @@
     "start:addon": "pnpm --filter ember-mobile-menu start --no-watch.clearScreen",
     "start:docs": "pnpm --filter docs start",
     "start:test-app": "pnpm --filter test-app start",
-    "test": "pnpm --filter '!docs' test",
-    "test:ember": "pnpm --filter '!docs' test:ember"
+    "test": "pnpm --filter 'test-app' test",
+    "test:ember": "pnpm --filter 'test-app' test:ember"
   },
   "devDependencies": {
     "concurrently": "8.2.2",
