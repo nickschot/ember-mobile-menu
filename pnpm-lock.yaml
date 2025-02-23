@@ -12,10 +12,10 @@ importers:
         specifier: 8.2.2
         version: 8.2.2
       prettier:
-        specifier: ^3.0.3
+        specifier: 3.4.2
         version: 3.4.2
       prettier-plugin-ember-template-tag:
-        specifier: ^2.0.2
+        specifier: 2.0.4
         version: 2.0.4(prettier@3.4.2)
       release-plan:
         specifier: 0.13.1
@@ -211,64 +211,64 @@ importers:
         version: 1.5.1
     devDependencies:
       '@babel/core':
-        specifier: ^7.25.2
+        specifier: 7.26.0
         version: 7.26.0
       '@babel/eslint-parser':
-        specifier: ^7.25.1
+        specifier: 7.25.9
         version: 7.25.9(@babel/core@7.26.0)(eslint@9.18.0)
       '@babel/runtime':
-        specifier: ^7.25.6
+        specifier: 7.26.0
         version: 7.26.0
       '@embroider/addon-dev':
-        specifier: ^7.1.0
+        specifier: 7.1.1
         version: 7.1.1(rollup@4.30.1)
       '@eslint/js':
-        specifier: ^9.17.0
+        specifier: 9.18.0
         version: 9.18.0
       '@rollup/plugin-babel':
-        specifier: ^6.0.4
+        specifier: 6.0.4
         version: 6.0.4(@babel/core@7.26.0)(rollup@4.30.1)
       babel-plugin-ember-template-compilation:
-        specifier: ^2.2.5
+        specifier: 2.3.0
         version: 2.3.0
       concurrently:
-        specifier: ^9.0.1
+        specifier: 9.1.2
         version: 9.1.2
       ember-source:
-        specifier: ~6.2.0
+        specifier: 6.2.0
         version: 6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)
       ember-template-lint:
-        specifier: ^6.0.0
+        specifier: 6.0.0
         version: 6.0.0
       eslint:
-        specifier: ^9.17.0
+        specifier: 9.18.0
         version: 9.18.0
       eslint-config-prettier:
-        specifier: ^9.1.0
+        specifier: 9.1.0
         version: 9.1.0(eslint@9.18.0)
       eslint-plugin-ember:
-        specifier: ^12.3.3
+        specifier: 12.3.3
         version: 12.3.3(@babel/core@7.26.0)(eslint@9.18.0)
       eslint-plugin-import:
-        specifier: ^2.31.0
+        specifier: 2.31.0
         version: 2.31.0(eslint@9.18.0)
       eslint-plugin-n:
-        specifier: ^17.15.1
+        specifier: 17.15.1
         version: 17.15.1(eslint@9.18.0)
       globals:
-        specifier: ^15.14.0
+        specifier: 15.14.0
         version: 15.14.0
       prettier:
-        specifier: ^3.4.2
+        specifier: 3.4.2
         version: 3.4.2
       prettier-plugin-ember-template-tag:
-        specifier: ^2.0.4
+        specifier: 2.0.4
         version: 2.0.4(prettier@3.4.2)
       rollup:
-        specifier: ^4.22.5
+        specifier: 4.30.1
         version: 4.30.1
       rollup-plugin-copy:
-        specifier: ^3.5.0
+        specifier: 3.5.0
         version: 3.5.0
 
   test-app:
@@ -277,28 +277,28 @@ importers:
         injected: true
     devDependencies:
       '@babel/core':
-        specifier: ^7.26.0
+        specifier: 7.26.0
         version: 7.26.0
       '@babel/eslint-parser':
-        specifier: ^7.25.9
+        specifier: 7.25.9
         version: 7.25.9(@babel/core@7.26.0)(eslint@9.18.0)
       '@babel/plugin-proposal-decorators':
-        specifier: ^7.25.9
+        specifier: 7.25.9
         version: 7.25.9(@babel/core@7.26.0)
       '@ember/optional-features':
-        specifier: ^2.2.0
+        specifier: 2.2.0
         version: 2.2.0
       '@ember/string':
-        specifier: ^4.0.0
+        specifier: 4.0.0
         version: 4.0.0
       '@ember/test-helpers':
-        specifier: ^4.0.4
+        specifier: 4.0.4
         version: 4.0.4(@babel/core@7.26.0)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1))
       '@embroider/test-setup':
-        specifier: ^3.0.1
+        specifier: 3.0.3
         version: 3.0.3(@embroider/core@3.5.0)
       '@eslint/js':
-        specifier: ^9.17.0
+        specifier: 9.18.0
         version: 9.18.0
       '@glimmer/component':
         specifier: ^1.1.2
@@ -307,127 +307,127 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
       broccoli-asset-rev:
-        specifier: ^3.0.0
+        specifier: 3.0.0
         version: 3.0.0
       concurrently:
-        specifier: ^9.1.0
+        specifier: 9.1.2
         version: 9.1.2
       ember-auto-import:
-        specifier: ^2.10.0
+        specifier: 2.10.0
         version: 2.10.0(webpack@5.97.1)
       ember-cli:
-        specifier: ~6.1.0
+        specifier: 6.1.0
         version: 6.1.0(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
       ember-cli-app-version:
-        specifier: ^7.0.0
+        specifier: 7.0.0
         version: 7.0.0(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1))
       ember-cli-babel:
-        specifier: ^8.2.0
+        specifier: 8.2.0
         version: 8.2.0(@babel/core@7.26.0)
       ember-cli-clean-css:
-        specifier: ^3.0.0
+        specifier: 3.0.0
         version: 3.0.0
       ember-cli-dependency-checker:
-        specifier: ^3.3.3
+        specifier: 3.3.3
         version: 3.3.3(ember-cli@6.1.0(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7))
       ember-cli-htmlbars:
-        specifier: ^6.3.0
+        specifier: 6.3.0
         version: 6.3.0
       ember-cli-inject-live-reload:
-        specifier: ^2.1.0
+        specifier: 2.1.0
         version: 2.1.0
       ember-cli-sri:
-        specifier: ^2.1.1
+        specifier: 2.1.1
         version: 2.1.1
       ember-cli-terser:
-        specifier: ^4.0.2
+        specifier: 4.0.2
         version: 4.0.2
       ember-fetch:
-        specifier: ^8.1.2
+        specifier: 8.1.2
         version: 8.1.2(encoding@0.1.13)
       ember-load-initializers:
-        specifier: ^3.0.1
+        specifier: 3.0.1
         version: 3.0.1(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1))
       ember-mobile-menu:
         specifier: workspace:*
         version: file:ember-mobile-menu(@babel/core@7.26.0)(@ember/test-helpers@4.0.4(@babel/core@7.26.0)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       ember-modifier:
-        specifier: ^4.2.0
+        specifier: 4.2.0
         version: 4.2.0(@babel/core@7.26.0)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1))
       ember-page-title:
-        specifier: ^8.2.3
+        specifier: 8.2.3
         version: 8.2.3(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1))
       ember-qunit:
-        specifier: ^8.1.1
+        specifier: 8.1.1
         version: 8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.0)(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1)
       ember-resolver:
-        specifier: ^13.1.0
+        specifier: 13.1.0
         version: 13.1.0(ember-source@6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1))
       ember-source:
-        specifier: ~6.1.0
+        specifier: 6.1.0
         version: 6.1.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1)
       ember-source-channel-url:
-        specifier: ^3.0.0
+        specifier: 3.0.0
         version: 3.0.0(encoding@0.1.13)
       ember-template-imports:
-        specifier: ^4.2.0
+        specifier: 4.2.0
         version: 4.2.0
       ember-template-lint:
-        specifier: ^6.0.0
+        specifier: 6.0.0
         version: 6.0.0
       ember-try:
-        specifier: ^3.0.0
+        specifier: 3.0.0
         version: 3.0.0(encoding@0.1.13)
       eslint:
-        specifier: ^9.17.0
+        specifier: 9.18.0
         version: 9.18.0
       eslint-config-prettier:
-        specifier: ^9.1.0
+        specifier: 9.1.0
         version: 9.1.0(eslint@9.18.0)
       eslint-plugin-ember:
-        specifier: ^12.3.3
+        specifier: 12.3.3
         version: 12.3.3(@babel/core@7.26.0)(eslint@9.18.0)
       eslint-plugin-n:
-        specifier: ^17.15.1
+        specifier: 17.15.1
         version: 17.15.1(eslint@9.18.0)
       eslint-plugin-prettier:
-        specifier: ^5.2.1
+        specifier: 5.2.1
         version: 5.2.1(@types/eslint@9.6.1)(eslint-config-prettier@9.1.0(eslint@9.18.0))(eslint@9.18.0)(prettier@3.4.2)
       eslint-plugin-qunit:
-        specifier: ^8.1.2
+        specifier: 8.1.2
         version: 8.1.2(eslint@9.18.0)
       globals:
-        specifier: ^15.14.0
+        specifier: 15.14.0
         version: 15.14.0
       loader.js:
-        specifier: ^4.7.0
+        specifier: 4.7.0
         version: 4.7.0
       prettier:
-        specifier: ^3.4.2
+        specifier: 3.4.2
         version: 3.4.2
       prettier-plugin-ember-template-tag:
-        specifier: ^2.0.4
+        specifier: 2.0.4
         version: 2.0.4(prettier@3.4.2)
       qunit:
-        specifier: ^2.23.1
+        specifier: 2.23.1
         version: 2.23.1
       qunit-dom:
-        specifier: ^3.4.0
+        specifier: 3.4.0
         version: 3.4.0
       stylelint:
-        specifier: ^16.12.0
+        specifier: 16.13.2
         version: 16.13.2
       stylelint-config-standard:
-        specifier: ^36.0.1
+        specifier: 36.0.1
         version: 36.0.1(stylelint@16.13.2)
       stylelint-prettier:
-        specifier: ^5.0.2
+        specifier: 5.0.2
         version: 5.0.2(prettier@3.4.2)(stylelint@16.13.2)
       tracked-built-ins:
-        specifier: ^3.4.0
+        specifier: 3.4.0
         version: 3.4.0(@babel/core@7.26.0)
       webpack:
-        specifier: ^5.97.1
+        specifier: 5.97.1
         version: 5.97.1
 
 packages:
