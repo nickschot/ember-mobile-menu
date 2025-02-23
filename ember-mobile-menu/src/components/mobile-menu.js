@@ -1,39 +1,71 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
+import { cached, tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
-import { use } from 'ember-resources';
-import { Resource } from 'ember-modify-based-class-resource';
 import { next } from '@ember/runloop';
 import './mobile-menu.css';
+import { registerDestructor } from '@ember/destroyable';
 
 const _fn = function () {};
-class StateResource extends Resource {
-  @tracked open = false;
-  @tracked closed = true;
-  @tracked dragging = false;
-  @tracked transitioning = false;
+class StateResource {
+  @tracked _open = false;
+  @tracked _closed = true;
+  @tracked _dragging = false;
+  @tracked _transitioning = false;
 
-  modify([position, isDragging, width, onToggle]) {
-    this.dragging = position !== 0 && isDragging;
-    let open = !this.dragging && Math.abs(position) === width;
-    let closed = !this.dragging && position === 0;
+  _useState;
+
+  constructor(owner, useState = () => {}) {
+    this._useState = useState;
+
+    registerDestructor(owner, () => {
+      this._useState = undefined;
+    });
+  }
+
+  @cached
+  get current() {
+    let [position, isDragging, width, onToggle] = this._useState();
+
+    this._dragging = position !== 0 && isDragging;
+    let open = !this._dragging && Math.abs(position) === width;
+    let closed = !this._dragging && position === 0;
     // eslint-disable-next-line ember/no-runloop
     next(() => {
       this.maybeToggle(open, closed, onToggle);
     });
-    this.transitioning = !this.dragging && !this.open && !this.closed;
+    this._transitioning = !this._dragging && !this._open && !this._closed;
+
+    return {
+      open: this._open,
+      closed: this._closed,
+      dragging: this._dragging,
+      transitioning: this._transitioning,
+    };
+  }
+
+  get open() {
+    return this.current.open;
+  }
+  get closed() {
+    return this.current.closed;
+  }
+  get dragging() {
+    return this.current.dragging;
+  }
+  get transitioning() {
+    return this.current.transitioning;
   }
 
   maybeToggle(open, closed, onToggle) {
-    if (this.open !== open) {
-      this.open = open;
+    if (this._open !== open) {
+      this._open = open;
       if (open) {
         onToggle(true);
       }
     } else if (this.closed !== closed) {
-      this.closed = closed;
+      this._closed = closed;
       if (closed) {
         onToggle(false);
       }
@@ -48,7 +80,7 @@ class StateResource extends Resource {
  * @public
  */
 export default class MobileMenu extends Component {
-  @use state = StateResource.from(() => [
+  state = new StateResource(this, () => [
     this.position,
     this.args.isDragging,
     this._width,
