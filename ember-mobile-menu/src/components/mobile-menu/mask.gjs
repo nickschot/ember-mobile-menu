@@ -1,6 +1,8 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import './mask.css';
+import { on } from '@ember/modifier';
+import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
 
 const _fn = () => {};
 
@@ -88,4 +90,22 @@ export default class MaskComponent extends Component {
 
     return htmlSafe(style);
   }
+
+  <template>
+    <button
+      class="mobile-menu__mask"
+      style={{this.style}}
+      type="button"
+      aria-label="Close"
+      {{on "click" this.onClick}}
+      {{didPan
+        onPanStart=@onPanStart
+        onPan=@onPan
+        onPanEnd=@onPanEnd
+        capture=@capture
+        preventScroll=@preventScroll
+      }}
+      ...attributes
+    ></button>
+  </template>
 }
