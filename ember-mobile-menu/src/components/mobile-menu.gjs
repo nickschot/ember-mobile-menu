@@ -6,6 +6,13 @@ import { htmlSafe } from '@ember/template';
 import { next } from '@ember/runloop';
 import './mobile-menu.css';
 import { registerDestructor } from '@ember/destroyable';
+import MaskComponent from './mobile-menu/mask.gjs';
+import TrayComponent from './mobile-menu/tray.gjs';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+import { fn, hash } from '@ember/helper';
 
 const _fn = function () {};
 class StateResource {
@@ -331,4 +338,50 @@ export default class MobileMenu extends Component {
       this.close();
     }
   }
+
+  <template>
+    {{#if this.renderMenu}}
+      <div
+        class={{this.classNames}}
+        style={{this.style}}
+        {{didInsert (fn @register this)}}
+        {{didInsert (fn this.openOrClose @isOpen false)}}
+        {{didUpdate (fn this.openOrClose @isOpen) @isOpen}}
+        {{didUpdate this.close this.type}}
+        aria-hidden={{if this.state.closed "true"}}
+      >
+        {{#if this.maskEnabled}}
+          <MaskComponent
+            @isOpen={{this.state.open}}
+            @position={{this.relativePosition}}
+            @invertOpacity={{this.invertOpacity}}
+            @onClick={{@onClose}}
+            @onPanStart={{@onPanStart}}
+            @onPan={{@onPan}}
+            @onPanEnd={{@onPanEnd}}
+            @capture={{@capture}}
+            @preventScroll={{@preventScroll}}
+          />
+        {{/if}}
+
+        <TrayComponent
+          ...attributes
+          @width={{this._width}}
+          @isLeft={{this.isLeft}}
+          @position={{this.position}}
+          @shadowEnabled={{this.shadowEnabled}}
+          @mode={{@mode}}
+          @embed={{@embed}}
+          @isClosed={{this.state.closed}}
+          @onPanStart={{@onPanStart}}
+          @onPan={{@onPan}}
+          @onPanEnd={{@onPanEnd}}
+          @capture={{@capture}}
+          @preventScroll={{@preventScroll}}
+        >
+          {{yield (hash actions=(hash open=this.open close=this.close))}}
+        </TrayComponent>
+      </div>
+    {{/if}}
+  </template>
 }

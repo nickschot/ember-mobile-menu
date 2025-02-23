@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { TrackedSet } from 'tracked-built-ins';
 
-import MobileMenu from './mobile-menu.js';
+import MobileMenu from './mobile-menu.gjs';
 import normalizeCoordinates, {
   scaleCorrection,
 } from '../utils/normalize-coordinates.js';
@@ -15,6 +15,15 @@ import { waitFor } from '@ember/test-waiters';
 import { task } from 'ember-concurrency';
 import Spring from '../spring.js';
 import './mobile-menu-wrapper.css';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+import onResize from 'ember-on-resize-modifier/modifiers/on-resize';
+import setBodyClass from 'ember-set-body-class/helpers/set-body-class';
+import { hash } from '@ember/helper';
+
+import MobileMenuComponent from './mobile-menu.gjs';
+import ToggleComponent from './mobile-menu-toggle.gjs';
+import ContentComponent from './mobile-menu-wrapper/content.gjs';
 
 const isIOSDevice =
   typeof window !== 'undefined' &&
@@ -464,4 +473,58 @@ export default class MobileMenuWrapper extends Component {
   get _windowWidth() {
     return window.innerWidth;
   }
+
+  <template>
+    {{#if this.preventBodyScroll}}
+      {{setBodyClass "mobile-menu--prevent-scroll"}}
+    {{/if}}
+
+    <div
+      class="mobile-menu-wrapper
+        {{if this.embed 'mobile-menu-wrapper--embedded'}}"
+      {{didInsert this.onInsert}}
+      {{onResize this.onResize}}
+      ...attributes
+    >
+      {{yield
+        (hash
+          MobileMenu=(component
+            MobileMenuComponent
+            isDragging=this.dragging
+            position=this.position
+            embed=this.embed
+            parentBoundingClientRect=this.boundingClientRect
+            parent=this
+            register=this.registerChild
+            unregister=this.unregisterChild
+            onClose=this.close
+            onOpen=this.open
+            onPanStart=this.didPanStart
+            onPan=this.didPan
+            onPanEnd=this.didPanEnd
+            capture=this.capture
+            preventScroll=this.preventScroll
+          )
+          Toggle=(component ToggleComponent onClick=this.toggle)
+          Content=(component
+            ContentComponent
+            shadowEnabled=this.contentShadowEnabled
+            position=this.position
+            mode=this.mode
+            isOpen=this.activeMenu
+            maskEnabled=this.activeMenu.maskEnabled
+            onPanStart=this.didPanStart
+            onPan=this.didPan
+            onPanEnd=this.didPanEnd
+            capture=this.capture
+            preventScroll=this.preventScroll
+            onClose=this.close
+          )
+          position=this.position
+          relativePosition=this.relativePosition
+          actions=(hash toggle=this.toggle close=this.close)
+        )
+      }}
+    </div>
+  </template>
 }

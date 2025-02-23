@@ -6,6 +6,11 @@ import {
   enableBodyScroll,
 } from '../../utils/body-scroll-lock.js';
 import './tray.css';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
 
 /**
  * The tray that resides within the menu. Menu content is placed in here.
@@ -95,4 +100,23 @@ export default class TrayComponent extends Component {
       }
     }
   }
+
+  <template>
+    <div
+      class="mobile-menu__tray"
+      style={{this.style}}
+      {{didPan
+        onPanStart=@onPanStart
+        onPan=@onPan
+        onPanEnd=@onPanEnd
+        capture=@capture
+        preventScroll=@preventScroll
+      }}
+      {{didUpdate this.toggleBodyScroll @isClosed}}
+      {{willDestroy this.toggleBodyScroll true}}
+      ...attributes
+    >
+      {{yield}}
+    </div>
+  </template>
 }
