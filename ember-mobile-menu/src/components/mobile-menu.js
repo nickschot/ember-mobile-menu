@@ -19,6 +19,7 @@ class StateResource extends Resource {
     this.dragging = position !== 0 && isDragging;
     let open = !this.dragging && Math.abs(position) === width;
     let closed = !this.dragging && position === 0;
+    // eslint-disable-next-line ember/no-runloop
     next(() => {
       this.maybeToggle(open, closed, onToggle);
     });

@@ -1,3 +1,5 @@
+{{! template-lint-disable no-at-ember-render-modifiers }}
+
 {{#if this.renderMenu}}
   <div
     class={{this.classNames}}
@@ -14,7 +16,6 @@
         @position={{this.relativePosition}}
         @invertOpacity={{this.invertOpacity}}
         @onClick={{@onClose}}
-
         @onPanStart={{@onPanStart}}
         @onPan={{@onPan}}
         @onPanEnd={{@onPanEnd}}
@@ -25,7 +26,6 @@
 
     <MobileMenu::Tray
       ...attributes
-
       @width={{this._width}}
       @isLeft={{this.isLeft}}
       @position={{this.position}}
@@ -33,21 +33,13 @@
       @mode={{@mode}}
       @embed={{@embed}}
       @isClosed={{this.state.closed}}
-
       @onPanStart={{@onPanStart}}
       @onPan={{@onPan}}
       @onPanEnd={{@onPanEnd}}
       @capture={{@capture}}
       @preventScroll={{@preventScroll}}
     >
-      {{yield
-        (hash
-          actions=(hash
-            open=this.open
-            close=this.close
-          )
-        )
-      }}
+      {{yield (hash actions=(hash open=this.open close=this.close))}}
     </MobileMenu::Tray>
   </div>
 {{/if}}

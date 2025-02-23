@@ -7,9 +7,6 @@ on:
       - master
   pull_request: {}
 
-env:
-  PNPM_VERSION: 8.15.9
-
 concurrency:
    group: ci-${{ github.head_ref || github.ref }}
    cancel-in-progress: true
@@ -18,55 +15,56 @@ jobs:
   test:
     name: "Tests"
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4.0.0
-        with:
-          version: ${{ env.PNPM_VERSION }}
+      - uses: pnpm/action-setup@v4
       - name: Install Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 20.x
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
-      - name: Lint Addon
-        run: pnpm run lint
-        working-directory: ember-mobile-menu
-      - name: Lint Test App
-        run: pnpm run lint
-        working-directory: test-app
+      # This has been really annoying
+      # due to injected dependencies :(
+      - name: 'Re-sync injected dependencies'
+        run: pnpm install --frozen-lockfile --force
+      - name: Lint
+        run: pnpm lint
       - name: Run Tests
-        run: pnpm run test:ember
-        working-directory: test-app
+        run: pnpm test:ember
 
   floating:
     name: "Floating Dependencies"
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4.0.0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          version: ${{ env.PNPM_VERSION }}
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
+          node-version: 20.x
           cache: pnpm
       - name: Remove lock file
         shell: bash
         run: rm pnpm-lock.yaml
       - name: Install Dependencies
         run: pnpm install
+      # This has been really annoying
+      # due to injected dependencies :(
+      - name: 'Re-sync injected dependencies'
+        run: pnpm install --force
       - name: Run Tests
-        run: pnpm run test:ember
-        working-directory: test-app
+        run: pnpm test:ember
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
     runs-on: ubuntu-latest
     needs: 'test'
+    timeout-minutes: 10
 
     strategy:
       fail-fast: false
@@ -87,16 +85,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4.0.0
-        with:
-          version: ${{ env.PNPM_VERSION }}
+      - uses: pnpm/action-setup@v4
       - name: Install Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 20.x
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+      # This has been really annoying
+      # due to injected dependencies :(
+      - name: 'Re-sync injected dependencies'
+        run: pnpm install --frozen-lockfile --force
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: test-app
@@ -117,16 +117,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4.0.0
-        with:
-          version: ${{ env.PNPM_VERSION }}
+      - uses: pnpm/action-setup@v4
       - name: Install Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 20.x
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+      # This has been really annoying
+      # due to injected dependencies :(
+      - name: 'Re-sync injected dependencies'
+        run: pnpm install --frozen-lockfile --force
       - name: Run Tests
         id: tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}

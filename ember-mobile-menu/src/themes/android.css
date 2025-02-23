@@ -1,17 +1,17 @@
 @layer ember-mobile-menu {
   :root {
-    --mobile-menu-header-bg:                 #E04E39;
+    --mobile-menu-header-bg: #e04e39;
 
-    --mobile-menu-item-color:                #333;
-    --mobile-menu-item-active-bg:            #EEE;
-    --mobile-menu-item-link-disabled-color:  #6C757D;
+    --mobile-menu-item-color: #333;
+    --mobile-menu-item-active-bg: #eee;
+    --mobile-menu-item-link-disabled-color: #6c757d;
   }
 }
 
 .mobile-menu__tray .mobile-menu__header {
   min-height: 150px;
   background: var(--mobile-menu-header-bg);
-  color: #FFF;
+  color: #fff;
   margin-bottom: 8px;
 }
 .mobile-menu__tray .mobile-menu__header .header__text {
@@ -19,7 +19,7 @@
 }
 .mobile-menu__tray .mobile-menu__header .header__btn {
   padding: 16px;
-  color: #FFF;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -38,7 +38,10 @@
 
   padding: 12px;
 }
-.mobile-menu__tray .mobile-menu__nav .mobile-menu__nav-item a.mobile-menu__nav-link.disabled {
+.mobile-menu__tray
+  .mobile-menu__nav
+  .mobile-menu__nav-item
+  a.mobile-menu__nav-link.disabled {
   color: var(--mobile-menu-item-link-disabled-color);
 }
 .mobile-menu__tray .mobile-menu__nav .mobile-menu__nav-item a.active {
