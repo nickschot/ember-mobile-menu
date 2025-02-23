@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { registerDestructor } from '@ember/destroyable';
 import { htmlSafe } from '@ember/template';
 import { action } from '@ember/object';
 import {
@@ -6,11 +7,33 @@ import {
   enableBodyScroll,
 } from '../../utils/body-scroll-lock.js';
 import './tray.css';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
+import Modifier from 'ember-modifier';
+
+function cleanup(instance) {
+  let { toggleBodyScroll, element } = instance;
+  toggleBodyScroll(element, true);
+
+  instance.element = undefined;
+  instance.toggleBodyScroll = undefined;
+}
+
+class TrayModifier extends Modifier {
+  element;
+  toggleBodyScroll;
+  isClosed;
+
+  modify(element, [toggleBodyScroll, isClosed]) {
+    if (!this.element) {
+      this.element = element;
+      registerDestructor(this, cleanup);
+    }
+
+    this.toggleBodyScroll = toggleBodyScroll;
+    this.isClosed = isClosed;
+    this.toggleBodyScroll(this.element, this.isClosed);
+  }
+}
 
 /**
  * The tray that resides within the menu. Menu content is placed in here.
@@ -91,7 +114,7 @@ export default class TrayComponent extends Component {
   }
 
   @action
-  toggleBodyScroll(target, [isClosed]) {
+  toggleBodyScroll(target, isClosed) {
     if (this.args.preventScroll && !this.args.embed) {
       if (isClosed) {
         enableBodyScroll(target);
@@ -112,8 +135,7 @@ export default class TrayComponent extends Component {
         capture=@capture
         preventScroll=@preventScroll
       }}
-      {{didUpdate this.toggleBodyScroll @isClosed}}
-      {{willDestroy this.toggleBodyScroll true}}
+      {{TrayModifier this.toggleBodyScroll @isClosed}}
       ...attributes
     >
       {{yield}}
