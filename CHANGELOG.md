@@ -1,5 +1,34 @@
 # Changelog
 
+## Release (2025-02-23)
+
+ember-mobile-menu 5.2.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-mobile-menu`, `test-app`
+  * [#1080](https://github.com/nickschot/ember-mobile-menu/pull/1080) Add support for @ember/test-waiters v4 ([@nickschot](https://github.com/nickschot))
+* `ember-mobile-menu`
+  * [#1077](https://github.com/nickschot/ember-mobile-menu/pull/1077) Add support for tracked-built-ins v4 ([@nickschot](https://github.com/nickschot))
+  * [#1064](https://github.com/nickschot/ember-mobile-menu/pull/1064) Make @glimmer/component & @glimmer/component peerDependency instead of dependency & support 2.0.0 ([@nickschot](https://github.com/nickschot))
+  * [#1073](https://github.com/nickschot/ember-mobile-menu/pull/1073) Replace ember-resources & friends with native code ([@nickschot](https://github.com/nickschot))
+
+#### :bug: Bug Fix
+* `ember-mobile-menu`
+  * [#1064](https://github.com/nickschot/ember-mobile-menu/pull/1064) Make @glimmer/component & @glimmer/component peerDependency instead of dependency & support 2.0.0 ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* `docs`, `ember-mobile-menu`, `test-app`
+  * [#1072](https://github.com/nickschot/ember-mobile-menu/pull/1072) Upgrade to latest v2 blueprint structure ([@nickschot](https://github.com/nickschot))
+* `test-app`
+  * [#1071](https://github.com/nickschot/ember-mobile-menu/pull/1071) Add all ember v5 LTS versions to ember-try ([@nickschot](https://github.com/nickschot))
+* Other
+  * [#898](https://github.com/nickschot/ember-mobile-menu/pull/898) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#897](https://github.com/nickschot/ember-mobile-menu/pull/897) Fix docs deploy ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 2
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+- [@github-actions[bot]](https://github.com/apps/github-actions)
+
 ## Release (2024-02-16)
 
 

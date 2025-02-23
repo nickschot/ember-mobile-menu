@@ -1,8 +1,25 @@
 {
   "solution": {
     "ember-mobile-menu": {
-      "oldVersion": "5.1.0"
+      "impact": "minor",
+      "oldVersion": "5.1.0",
+      "newVersion": "5.2.0",
+      "constraints": [
+        {
+          "impact": "minor",
+          "reason": "Appears in changelog section :rocket: Enhancement"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :bug: Bug Fix"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
+        }
+      ],
+      "pkgJSONPath": "./ember-mobile-menu/package.json"
     }
   },
-  "description": "## Release (2024-02-16)\n\n\n\n#### :house: Internal\n* [#896](https://github.com/nickschot/ember-mobile-menu/pull/896) Update dependency release-plan to v0.8.0 ([@renovate[bot]](https://github.com/apps/renovate))\n* [#897](https://github.com/nickschot/ember-mobile-menu/pull/897) Fix docs deploy ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 1\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n"
+  "description": "## Release (2025-02-23)\n\nember-mobile-menu 5.2.0 (minor)\n\n#### :rocket: Enhancement\n* `ember-mobile-menu`, `test-app`\n  * [#1080](https://github.com/nickschot/ember-mobile-menu/pull/1080) Add support for @ember/test-waiters v4 ([@nickschot](https://github.com/nickschot))\n* `ember-mobile-menu`\n  * [#1077](https://github.com/nickschot/ember-mobile-menu/pull/1077) Add support for tracked-built-ins v4 ([@nickschot](https://github.com/nickschot))\n  * [#1064](https://github.com/nickschot/ember-mobile-menu/pull/1064) Make @glimmer/component & @glimmer/component peerDependency instead of dependency & support 2.0.0 ([@nickschot](https://github.com/nickschot))\n  * [#1073](https://github.com/nickschot/ember-mobile-menu/pull/1073) Replace ember-resources & friends with native code ([@nickschot](https://github.com/nickschot))\n\n#### :bug: Bug Fix\n* `ember-mobile-menu`\n  * [#1064](https://github.com/nickschot/ember-mobile-menu/pull/1064) Make @glimmer/component & @glimmer/component peerDependency instead of dependency & support 2.0.0 ([@nickschot](https://github.com/nickschot))\n\n#### :house: Internal\n* `docs`, `ember-mobile-menu`, `test-app`\n  * [#1072](https://github.com/nickschot/ember-mobile-menu/pull/1072) Upgrade to latest v2 blueprint structure ([@nickschot](https://github.com/nickschot))\n* `test-app`\n  * [#1071](https://github.com/nickschot/ember-mobile-menu/pull/1071) Add all ember v5 LTS versions to ember-try ([@nickschot](https://github.com/nickschot))\n* Other\n  * [#898](https://github.com/nickschot/ember-mobile-menu/pull/898) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))\n  * [#897](https://github.com/nickschot/ember-mobile-menu/pull/897) Fix docs deploy ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 2\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n- [@github-actions[bot]](https://github.com/apps/github-actions)\n"
 }
