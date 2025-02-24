@@ -24,7 +24,7 @@
     "test:ember": "pnpm --filter 'test-app' test:ember"
   },
   "devDependencies": {
-    "concurrently": "8.2.2",
+    "concurrently": "9.1.2",
     "release-plan": "0.13.1",
     "prettier": "3.5.2",
     "prettier-plugin-ember-template-tag": "2.0.4"
