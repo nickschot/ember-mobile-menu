@@ -73,7 +73,7 @@
     "prettier": "3.5.2",
     "qunit": "2.22.0",
     "qunit-dom": "3.4.0",
-    "sass": "1.78.0",
+    "sass": "1.85.0",
     "tracked-built-ins": "4.0.0",
     "webpack": "5.94.0"
   },
