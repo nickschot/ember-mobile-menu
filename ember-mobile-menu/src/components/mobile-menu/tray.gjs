@@ -23,10 +23,14 @@ class TrayModifier extends Modifier {
   toggleBodyScroll;
   isClosed;
 
+  constructor() {
+    super(...arguments);
+    registerDestructor(this, cleanup);
+  }
+
   modify(element, [toggleBodyScroll, isClosed]) {
     if (!this.element) {
       this.element = element;
-      registerDestructor(this, cleanup);
     }
 
     this.toggleBodyScroll = toggleBodyScroll;

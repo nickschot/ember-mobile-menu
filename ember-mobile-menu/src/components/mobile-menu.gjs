@@ -22,12 +22,15 @@ class MobileMenuModifier extends Modifier {
   isOpen;
   type;
 
+  constructor() {
+    super(...arguments);
+    registerDestructor(this, cleanup);
+  }
+
   modify(element, _, { register, openOrClose, close, type, isOpen }) {
     if (!this.element) {
       this.element = element;
       this.isOpen = isOpen;
-
-      registerDestructor(this, cleanup);
 
       Promise.resolve().then(() => {
         register();
