@@ -73,7 +73,7 @@
     "qunit-dom": "3.4.0",
     "stylelint": "16.13.2",
     "stylelint-config-standard": "36.0.1",
-    "stylelint-prettier": "5.0.2",
+    "stylelint-prettier": "5.0.3",
     "tracked-built-ins": "4.0.0",
     "webpack": "5.97.1"
   },
