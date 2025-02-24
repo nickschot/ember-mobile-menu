@@ -66,7 +66,7 @@ class StateResource {
 
   @cached
   get current() {
-    let [position, isDragging, width, onToggle] = this._useState();
+    let { position, isDragging, width, onToggle } = this._useState();
 
     this._dragging = position !== 0 && isDragging;
     let open = !this._dragging && Math.abs(position) === width;
@@ -120,12 +120,12 @@ class StateResource {
  * @public
  */
 export default class MobileMenu extends Component {
-  state = new StateResource(this, () => [
-    this.position,
-    this.args.isDragging,
-    this._width,
-    this.onToggle,
-  ]);
+  state = new StateResource(this, () => ({
+    position: this.position,
+    isDragging: this.args.isDragging,
+    width: this._width,
+    onToggle: this.onToggle,
+  }));
 
   /**
    * The type of menu. Currently 'left' and 'right' are supported.
