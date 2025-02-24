@@ -28,7 +28,7 @@
     "test:ember-compatibility": "ember try:each"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.25.9",
+    "@babel/eslint-parser": "7.26.8",
     "@ember/optional-features": "2.2.0",
     "@ember/string": "4.0.1",
     "@ember/test-helpers": "4.0.5",
