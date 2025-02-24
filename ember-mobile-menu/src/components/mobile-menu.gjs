@@ -8,11 +8,47 @@ import './mobile-menu.css';
 import { registerDestructor } from '@ember/destroyable';
 import MaskComponent from './mobile-menu/mask.gjs';
 import TrayComponent from './mobile-menu/tray.gjs';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 import { fn, hash } from '@ember/helper';
+import Modifier from 'ember-modifier';
+
+function cleanup(instance) {
+  instance.element = undefined;
+  instance.isOpen = undefined;
+  instance.type = undefined;
+}
+
+class MobileMenuModifier extends Modifier {
+  element;
+  isOpen;
+  type;
+
+  constructor() {
+    super(...arguments);
+    registerDestructor(this, cleanup);
+  }
+
+  modify(element, _, { register, openOrClose, close, type, isOpen }) {
+    if (!this.element) {
+      this.element = element;
+      this.isOpen = isOpen;
+
+      Promise.resolve().then(() => {
+        register();
+        openOrClose(isOpen, false);
+      });
+    } else {
+      if (this.isOpen !== isOpen) {
+        this.isOpen = isOpen;
+        openOrClose(isOpen);
+      }
+
+      if (this.type !== type) {
+        this.type = type;
+        close();
+      }
+    }
+  }
+}
 
 const _fn = function () {};
 class StateResource {
@@ -33,7 +69,7 @@ class StateResource {
 
   @cached
   get current() {
-    let [position, isDragging, width, onToggle] = this._useState();
+    let { position, isDragging, width, onToggle } = this._useState();
 
     this._dragging = position !== 0 && isDragging;
     let open = !this._dragging && Math.abs(position) === width;
@@ -87,12 +123,12 @@ class StateResource {
  * @public
  */
 export default class MobileMenu extends Component {
-  state = new StateResource(this, () => [
-    this.position,
-    this.args.isDragging,
-    this._width,
-    this.onToggle,
-  ]);
+  state = new StateResource(this, () => ({
+    position: this.position,
+    isDragging: this.args.isDragging,
+    width: this._width,
+    onToggle: this.onToggle,
+  }));
 
   /**
    * The type of menu. Currently 'left' and 'right' are supported.
@@ -344,10 +380,13 @@ export default class MobileMenu extends Component {
       <div
         class={{this.classNames}}
         style={{this.style}}
-        {{didInsert (fn @register this)}}
-        {{didInsert (fn this.openOrClose @isOpen false)}}
-        {{didUpdate (fn this.openOrClose @isOpen) @isOpen}}
-        {{didUpdate this.close this.type}}
+        {{MobileMenuModifier
+          register=(fn @register this)
+          openOrClose=this.openOrClose
+          close=this.close
+          isOpen=@isOpen
+          type=this.type
+        }}
         aria-hidden={{if this.state.closed "true"}}
       >
         {{#if this.maskEnabled}}
