@@ -71,7 +71,7 @@
     "loader.js": "4.7.0",
     "npm-run-all2": "6.2.6",
     "prettier": "3.5.2",
-    "qunit": "2.22.0",
+    "qunit": "2.24.1",
     "qunit-dom": "3.4.0",
     "sass": "1.85.0",
     "tracked-built-ins": "4.0.0",
