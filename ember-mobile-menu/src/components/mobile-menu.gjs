@@ -8,11 +8,44 @@ import './mobile-menu.css';
 import { registerDestructor } from '@ember/destroyable';
 import MaskComponent from './mobile-menu/mask.gjs';
 import TrayComponent from './mobile-menu/tray.gjs';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 import { fn, hash } from '@ember/helper';
+import Modifier from 'ember-modifier';
+
+function cleanup(instance) {
+  instance.element = undefined;
+  instance.isOpen = undefined;
+  instance.type = undefined;
+}
+
+class MobileMenuModifier extends Modifier {
+  element;
+  isOpen;
+  type;
+
+  modify(element, _, { register, openOrClose, close, type, isOpen }) {
+    if (!this.element) {
+      this.element = element;
+      this.isOpen = isOpen;
+
+      registerDestructor(this, cleanup);
+
+      Promise.resolve().then(() => {
+        register();
+        openOrClose(isOpen, false);
+      });
+    } else {
+      if (this.isOpen !== isOpen) {
+        this.isOpen = isOpen;
+        openOrClose(isOpen);
+      }
+
+      if (this.type !== type) {
+        this.type = type;
+        close();
+      }
+    }
+  }
+}
 
 const _fn = function () {};
 class StateResource {
@@ -344,10 +377,13 @@ export default class MobileMenu extends Component {
       <div
         class={{this.classNames}}
         style={{this.style}}
-        {{didInsert (fn @register this)}}
-        {{didInsert (fn this.openOrClose @isOpen false)}}
-        {{didUpdate (fn this.openOrClose @isOpen) @isOpen}}
-        {{didUpdate this.close this.type}}
+        {{MobileMenuModifier
+          register=(fn @register this)
+          openOrClose=this.openOrClose
+          close=this.close
+          isOpen=@isOpen
+          type=this.type
+        }}
         aria-hidden={{if this.state.closed "true"}}
       >
         {{#if this.maskEnabled}}
