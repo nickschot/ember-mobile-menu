@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2025-02-25)
+
+ember-mobile-menu 5.3.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-mobile-menu`
+  * [#1084](https://github.com/nickschot/ember-mobile-menu/pull/1084) Convert to GJS components ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## Release (2025-02-23)
 
 ember-mobile-menu 5.2.0 (minor)
