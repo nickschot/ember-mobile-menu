@@ -1,5 +1,10 @@
 # Changelog
 
+
+
+
+
+
 ## Release (2025-02-25)
 
 ember-mobile-menu 5.3.0 (minor)
