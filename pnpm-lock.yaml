@@ -180,7 +180,7 @@ importers:
   ember-mobile-menu:
     dependencies:
       '@ember/render-modifiers':
-        specifier: ^3.0.0
+        specifier: ^2.0.0 || ^3.0.0
         version: 3.0.0(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5))
       '@ember/test-waiters':
         specifier: ^3.0.0 || ^4.0.0
