@@ -1,4 +1,4 @@
-(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[773],{39:(t,e,i)=>{"use strict"
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[139],{39:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>L})
 var n=i(8855),o=i.n(n),s=i(473),r=i(4471),a=i(1553),l=i(2440)
 function d(t,e){return{...t,initial:{...t.initial,x:t.initial.x-e.x,y:t.initial.x-e.x},current:{...t.current,x:t.current.x-e.x,y:t.current.x-e.x}}}function u(t,e,i){return{...t,current:{...t.current,distance:t.current.distance/((e+i)/2),distanceX:t.current.distanceX/e,distanceY:t.current.distanceY/i}}}var h=i(2294),c=i(1603),p=i(2186),g=i(6446),m=i(3032)
@@ -40,7 +40,7 @@ const h=()=>{}
 class c extends(s()){get maskOpacityOffset(){return this.args.maskOpacityOffset??.1}get isOpen(){return this.args.isOpen??!1}get position(){return this.args.position??0}get onClick(){return this.args.onClick??h}get style(){let t=""
 t+=this.isOpen||0!==this.position?"visibility: visible;":"visibility: hidden;"
 let e=this.position>this.maskOpacityOffset?(this.position-this.maskOpacityOffset)/(1-this.maskOpacityOffset):0
-return this.args.invertOpacity&&(e=1-e),t+=`opacity: ${e};`,(0,r.htmlSafe)(t)}}n=c,(0,d.setComponentTemplate)((0,u.createTemplateFactory)({id:"gvPGQ7mV",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__mask"],[16,5,[30,0,["style"]]],[24,4,"button"],[24,"aria-label","Close"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[4,[32,1],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[12],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll"],false,[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/mask.js",scope:()=>[a.on,l.default],isStrictMode:!0}),n)},2440:(t,e,i)=>{"use strict"
+return this.args.invertOpacity&&(e=1-e),t+=`opacity: ${e};`,(0,r.htmlSafe)(t)}}n=c,(0,d.setComponentTemplate)((0,u.createTemplateFactory)({id:"gvPGQ7mV",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__mask"],[16,5,[30,0,["style"]]],[24,4,"button"],[24,"aria-label","Close"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[4,[32,1],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[12],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll"],false,[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/mask.js",scope:()=>[a.on,l.default],isStrictMode:!0}),n)},1138:function(t,e){window._eai_r=require,window._eai_d=define},2440:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>V})
 var n,o,s=i(8855),r=i.n(s),a=i(4471),l=i(473),d=i(1603),u=i(7970),h=i(1223),c=i(1130),p=i(851),g=i(7133),m=i(2234),f=i.n(m),b=i(6278),v=i.n(b),y=i(6712),w=i(2663),M=i(8183),P=i(1465)
 function _(t,e,i){return(e=function(t){var e=function(t){if("object"!=typeof t||!t)return t
@@ -63,7 +63,7 @@ i.r(e),i.d(e,{default:()=>u})
 var n,o=i(8855),s=i.n(o),r=i(2377),a=i(2663),l=i(1465)
 const d=()=>{}
 class u extends(s()){get onClick(){return()=>this.args.onClick(this.args.target)??d}}n=u,(0,a.setComponentTemplate)((0,l.createTemplateFactory)({id:"yBwzrdSn",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__toggle"],[24,4,"button"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[12],[1,"\\n      "],[18,2,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","&default"],false,["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-toggle.js",scope:()=>[r.on],isStrictMode:!0}),n)},4082:()=>{},5751:(t,e,i)=>{"use strict"
-i.r(e)},6164:function(t,e){window._eai_r=require,window._eai_d=define},7133:(t,e,i)=>{"use strict"
+i.r(e)},7133:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>C})
 var n=i(8855),o=i.n(n),s=i(7970),r=i(4471)
 let a=!1
