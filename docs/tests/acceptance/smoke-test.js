@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | smoke test', function (hooks) {
@@ -9,7 +9,7 @@ module('Acceptance | smoke test', function (hooks) {
     await visit('/');
 
     assert.dom('h1').exists();
-    assert.dom('h1').hasText('Ember MobileMenu')
+    assert.dom('h1').hasText('Ember MobileMenu');
     assert.dom('.mobile-menu').exists();
   });
 });
