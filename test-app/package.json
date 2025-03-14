@@ -82,10 +82,5 @@
   },
   "ember": {
     "edition": "octane"
-  },
-  "dependenciesMeta": {
-    "ember-mobile-menu": {
-      "injected": true
-    }
   }
 }
