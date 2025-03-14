@@ -100,5 +100,11 @@
     "name": "v5.0.0",
     "sha": "28d7bd939834ba6e125a8832995fb2341e795d8f",
     "tag": "v5.0.0"
+  },
+  "master": {
+    "path": "versions/master",
+    "name": "master",
+    "sha": "f106fd45abb5dae20f54274b13cfed1166d90f1b",
+    "tag": null
   }
 }

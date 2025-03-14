@@ -1,0 +1,47 @@
+.demo-height {
+  height: 500px;
+}
+.demo-height .mobile-menu-wrapper {
+  height: 100%;
+}
+
+.mobile-menu-example-options {
+  margin-top: 2rem;
+}
+.mobile-menu-example-options h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+.mobile-menu-example-options label input {
+  margin-right: 0.5rem;
+}
+
+.mobile-menu-demo {
+  background: #FFF;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  border-width: 2px;
+}
+.mobile-menu-demo > .example {
+  padding: 0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.mobile-menu-demo .mobile-menu-wrapper {
+  height: 500px;
+}
+.mobile-menu-demo .mobile-menu__header {
+  background: rgb(227.4519650655, 97.7096069869, 79.0480349345);
+}
+
+table {
+  margin-bottom: 1rem;
+}
+table th {
+  font-weight: bold;
+  white-space: nowrap;
+}
+table th, table td {
+  border: 1px solid #6c757d;
+  padding: 0.25rem 0.5rem;
+}
