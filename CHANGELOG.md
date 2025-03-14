@@ -1,5 +1,17 @@
 # Changelog
 
+## Release (2025-03-14)
+
+
+
+#### :house: Internal
+* [#1129](https://github.com/nickschot/ember-mobile-menu/pull/1129) Docs smoke test & lint config fixes ([@nickschot](https://github.com/nickschot))
+* [#1128](https://github.com/nickschot/ember-mobile-menu/pull/1128) Fix addon-docs deployment ([@nickschot](https://github.com/nickschot))
+* [#1124](https://github.com/nickschot/ember-mobile-menu/pull/1124) Get rid of dependenciesMeta injected and use pnpm flags only when needed in CI ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## Release (2025-02-25)
 
 ember-mobile-menu 5.3.0 (minor)
