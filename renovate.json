@@ -8,8 +8,9 @@
     ":semanticCommitsDisabled",
     "github>Turbo87/renovate-config:automergeCaretConstraint"
   ],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["^.github/workflows/[^\\.]+\\.ya?ml$"],
       "matchStrings": ["PNPM_VERSION:\\s*(?<currentValue>.*?)\n"],
       "depNameTemplate": "pnpm",
@@ -18,11 +19,7 @@
   ],
   "packageRules": [
     {
-      "packageNames": [
-        "ember-cli",
-        "ember-data",
-        "ember-source"
-      ],
+      "matchPackageNames": ["ember-cli", "ember-data", "ember-source"],
       "separateMinorPatch": true
     }
   ]
