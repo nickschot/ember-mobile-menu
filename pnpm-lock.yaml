@@ -168,8 +168,8 @@ importers:
         specifier: 3.4.0
         version: 3.4.0
       sass:
-        specifier: 1.85.1
-        version: 1.85.1
+        specifier: 1.86.0
+        version: 1.86.0
       tracked-built-ins:
         specifier: 4.0.0
         version: 4.0.0(@babel/core@7.26.10)
@@ -7806,8 +7806,8 @@ packages:
     engines: {node: 10.* || >= 12.*}
     hasBin: true
 
-  sass@1.85.1:
-    resolution: {integrity: sha512-Uk8WpxM5v+0cMR0XjX9KfRIacmSG86RH4DCCZjLU2rFh5tyutt9siAXJ7G+YfxQ99Q6wrRMbMlVl6KqUms71ag==}
+  sass@1.86.0:
+    resolution: {integrity: sha512-zV8vGUld/+mP4KbMLJMX7TyGCuUp7hnkOScgCMsWuHtns8CWBoz+vmEhoGMXsaJrbUP8gj+F1dLvVe79sK8UdA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -9825,7 +9825,7 @@ snapshots:
     dependencies:
       '@csstools/sass-import-resolve': 1.0.0
       postcss: 8.5.3
-      sass: 1.85.1
+      sass: 1.86.0
       source-map: 0.7.4
 
   '@csstools/sass-import-resolve@1.0.0': {}
@@ -18994,7 +18994,7 @@ snapshots:
       minimist: 1.2.8
       walker: 1.0.8
 
-  sass@1.85.1:
+  sass@1.86.0:
     dependencies:
       chokidar: 4.0.3
       immutable: 5.0.3
