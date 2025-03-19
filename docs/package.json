@@ -57,7 +57,7 @@
     "ember-load-initializers": "3.0.1",
     "ember-mobile-menu": "workspace:*",
     "ember-page-title": "9.0.1",
-    "ember-qunit": "8.1.1",
+    "ember-qunit": "9.0.1",
     "ember-resize-observer-polyfill": "0.0.1",
     "ember-resolver": "13.1.0",
     "ember-source": "6.3.0",
