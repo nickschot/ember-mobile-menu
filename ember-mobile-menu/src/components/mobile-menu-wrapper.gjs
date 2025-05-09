@@ -17,7 +17,7 @@ import Spring from '../spring.js';
 import './mobile-menu-wrapper.css';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-import { onResize } from 'ember-promitives/on-resize';
+import { onResize } from 'ember-primitives/on-resize';
 import { bodyClass } from 'ember-primitives/helpers/body-class';
 import { hash } from '@ember/helper';
 
