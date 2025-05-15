@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { cached, tracked } from '@glimmer/tracking';
+import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 import { next } from '@ember/runloop';
@@ -13,6 +13,17 @@ import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 import { fn, hash } from '@ember/helper';
+
+/**
+ * NOTE: @cached isn't supported in ember < 4.1,
+ * and we don't want to use the polyfill, because it's a v1 addon.
+ * So to have broad ember support *and* strive for avoiding v1 addons for the most modern of ember apps,
+ * we need to implement "cached" ourselves
+ *
+ * These APIs are technically private (intimate?), and shouldn't be used.
+ * However, they are what the @cached decorator is built on
+ */
+import { createCache, getValue } from '@glimmer/validator';
 
 const _fn = function () {};
 class StateResource {
@@ -31,10 +42,16 @@ class StateResource {
     });
   }
 
-  @cached
-  get current() {
-    let [position, isDragging, width, onToggle] = this._useState();
+  currentCache = createCache(() => {
+    let state = this._useState();
+    return this.calculateCurrent(state);
+  });
 
+  get current() {
+    return getValue(this.currentCache);
+  }
+
+  calculateCurrent(position, isDragging, width, onToggle) {
     this._dragging = position !== 0 && isDragging;
     let open = !this._dragging && Math.abs(position) === width;
     let closed = !this._dragging && position === 0;
