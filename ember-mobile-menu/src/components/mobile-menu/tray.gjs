@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
-import { action } from '@ember/object';
 import { modifier as eModifier } from 'ember-modifier';
 import {
   disableBodyScroll,
