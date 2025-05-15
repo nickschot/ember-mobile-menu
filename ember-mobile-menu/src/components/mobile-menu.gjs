@@ -14,9 +14,16 @@ import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 import { fn, hash } from '@ember/helper';
 
-function hasNewState(a, b) {
-  return a[0] !== b[0] || a[1] !== b[1] || a[2] !== b[2] || a[3] !== b[3];
-}
+/**
+ * NOTE: @cached isn't supported in ember < 4.1,
+ * and we don't want to use the polyfill, because it's a v1 addon.
+ * So to have broad ember support *and* strive for avoiding v1 addons for the most modern of ember apps,
+ * we need to implement "cached" ourselves
+ *
+ * These APIs are technically private (intimate?), and shouldn't be used.
+ * However, they are what the @cached decorator is built on
+ */
+import { createCache, getValue } from '@glimmer/validator';
 
 const _fn = function () {};
 class StateResource {
@@ -35,20 +42,13 @@ class StateResource {
     });
   }
 
-  oldCurrentInput = [];
-  /**
-   * NOTE: @cached isn't supported in ember < 4.1,
-   * and we don't want to use the polyfill, because it's a v1 addon.
-   * So to have broad ember support *and* strive for avoiding v1 addons for the most modern of ember apps,
-   * we need to implement "cached" ourselves
-   */
-  get current() {
-    let currentInput = this._useState();
+  currentCache = createCache(() => {
+    let state = this._useState();
+    return this.calculateCurrent(state);
+  });
 
-    if (hasNewState(currentInput, this.oldCurrentInput)) {
-      this.oldCurrentInput = currentInput;
-    }
-    return this.calculateCurrent(currentInput);
+  get current() {
+    return getValue(this.currentCache);
   }
 
   calculateCurrent(position, isDragging, width, onToggle) {
