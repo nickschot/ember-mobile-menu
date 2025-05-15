@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: false
   excludeLinksFromLockfile: false
 
+overrides:
+  '@handlebars/parser': 2.0.0
+
 importers:
 
   .:
@@ -1445,9 +1448,6 @@ packages:
 
   '@handlebars/parser@2.0.0':
     resolution: {integrity: sha512-EP9uEDZv/L5Qh9IWuMUGJRfwhXJ4h1dqKTT4/3+tY0eu7sPis7xh23j61SYUnNF4vqCQvvUXpDo9Bh/+q1zASA==}
-
-  '@handlebars/parser@2.1.0':
-    resolution: {integrity: sha512-R14NuNaSKZ6eE9y4t0fg/1f8iKd5ZJtSOTIseGFzXINTV17XffhLG2Y0CvdKOgyVQ7+UnXi89YGzRo/xsgwHIA==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -10465,8 +10465,6 @@ snapshots:
 
   '@handlebars/parser@2.0.0': {}
 
-  '@handlebars/parser@2.1.0': {}
-
   '@humanfs/core@0.19.1': {}
 
   '@humanfs/node@0.16.6':
@@ -13965,7 +13963,7 @@ snapshots:
       '@glimmer/component': 1.1.2(@babel/core@7.26.10)
       '@glimmer/syntax': 0.87.1
       '@glimmer/tracking': 1.1.2
-      '@handlebars/parser': 2.1.0
+      '@handlebars/parser': 2.0.0
       broccoli-bridge: 1.0.0
       broccoli-caching-writer: 3.0.3
       broccoli-filter: 1.3.0
