@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
+import { modifier as eModifier } from 'ember-modifier';
 import { action } from '@ember/object';
 import { TrackedSet } from 'tracked-built-ins';
 
@@ -15,8 +16,6 @@ import { waitFor } from '@ember/test-waiters';
 import { task } from 'ember-concurrency';
 import Spring from '../spring.js';
 import './mobile-menu-wrapper.css';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import onResize from 'ember-on-resize-modifier/modifiers/on-resize';
 import setBodyClass from 'ember-set-body-class/helpers/set-body-class';
 import { hash } from '@ember/helper';
@@ -442,12 +441,6 @@ export default class MobileMenuWrapper extends Component {
   scaleY = 1;
 
   @action
-  onInsert(element) {
-    this.boundingClientRect = element.getBoundingClientRect();
-    this.updateScale(element);
-  }
-
-  @action
   onResize({ target }) {
     this.boundingClientRect = target.getBoundingClientRect();
     this.updateScale(target);
@@ -474,6 +467,11 @@ export default class MobileMenuWrapper extends Component {
     return window.innerWidth;
   }
 
+  updateBounds = eModifier((element) => {
+    this.boundingClientRect = element.getBoundingClientRect();
+    this.updateScale(element);
+  });
+
   <template>
     {{#if this.preventBodyScroll}}
       {{setBodyClass "mobile-menu--prevent-scroll"}}
@@ -482,7 +480,7 @@ export default class MobileMenuWrapper extends Component {
     <div
       class="mobile-menu-wrapper
         {{if this.embed 'mobile-menu-wrapper--embedded'}}"
-      {{didInsert this.onInsert}}
+      {{this.updateBounds}}
       {{onResize this.onResize}}
       ...attributes
     >
