@@ -29,14 +29,14 @@ class StateResource {
 
   @cached
   get current() {
-    let [position, isDragging, width, onToggle] = this._useState();
+    let [position, isDragging, width] = this._useState();
 
     this._dragging = position !== 0 && isDragging;
     let open = !this._dragging && Math.abs(position) === width;
     let closed = !this._dragging && position === 0;
 
     effect(() => {
-      this.maybeToggle(open, closed, onToggle);
+      this.maybeToggle(open, closed);
     });
     this._transitioning = !this._dragging && !this._open && !this._closed;
 
@@ -61,7 +61,7 @@ class StateResource {
     return this.current.transitioning;
   }
 
-  maybeToggle(open, closed, onToggle) {
+  maybeToggle(open, closed) {
     if (this._open !== open) {
       this._open = open;
     } else if (this.closed !== closed) {
@@ -81,7 +81,6 @@ export default class MobileMenu extends Component {
     this.position,
     this.args.isDragging,
     this._width,
-    this.onToggle,
   ]);
 
   /**
