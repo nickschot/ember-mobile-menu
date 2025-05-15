@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { cached, tracked } from '@glimmer/tracking';
+import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 import { next } from '@ember/runloop';
@@ -13,6 +13,10 @@ import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 import { fn, hash } from '@ember/helper';
+
+function hasNewState(a, b) {
+  return a[0] !== b[0] || a[1] !== b[1] || a[2] !== b[2] || a[3] !== b[3];
+}
 
 const _fn = function () {};
 class StateResource {
@@ -31,10 +35,23 @@ class StateResource {
     });
   }
 
-  @cached
+  oldCurrentInput = [];
+  /**
+   * NOTE: @cached isn't supported in ember < 4.1,
+   * and we don't want to use the polyfill, because it's a v1 addon.
+   * So to have broad ember support *and* strive for avoiding v1 addons for the most modern of ember apps,
+   * we need to implement "cached" ourselves
+   */
   get current() {
-    let [position, isDragging, width, onToggle] = this._useState();
+    let currentInput = this._useState();
 
+    if (hasNewState(currentInput, this.oldCurrentInput)) {
+      this.oldCurrentInput = currentInput;
+    }
+    return this.calculateCurrent(currentInput);
+  }
+
+  calculateCurrent(position, isDragging, width, onToggle) {
     this._dragging = position !== 0 && isDragging;
     let open = !this._dragging && Math.abs(position) === width;
     let closed = !this._dragging && position === 0;
