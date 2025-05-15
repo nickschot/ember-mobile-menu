@@ -6,10 +6,6 @@ import {
   enableBodyScroll,
 } from '../../utils/body-scroll-lock.js';
 import './tray.css';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
 
 /**
