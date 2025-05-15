@@ -94,7 +94,8 @@
       "./components/mobile-menu-wrapper/content.js": "./dist/_app_/components/mobile-menu-wrapper/content.js",
       "./components/mobile-menu.js": "./dist/_app_/components/mobile-menu.js",
       "./components/mobile-menu/mask.js": "./dist/_app_/components/mobile-menu/mask.js",
-      "./components/mobile-menu/tray.js": "./dist/_app_/components/mobile-menu/tray.js"
+      "./components/mobile-menu/tray.js": "./dist/_app_/components/mobile-menu/tray.js",
+      "./components/utils.js": "./dist/_app_/components/utils.js"
     }
   }
 }

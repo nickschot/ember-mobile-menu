@@ -8,11 +8,8 @@ import './mobile-menu.css';
 import { registerDestructor } from '@ember/destroyable';
 import MaskComponent from './mobile-menu/mask.gjs';
 import TrayComponent from './mobile-menu/tray.gjs';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 import { fn, hash } from '@ember/helper';
+import { effect } from './utils.js';
 
 const _fn = function () {};
 class StateResource {
@@ -320,11 +317,17 @@ export default class MobileMenu extends Component {
 
   @action
   close(animate) {
+    if (!this.hasRendered) return;
+
     this.onClose(this, 0, animate);
   }
 
+  hasRendered = false;
+
   @action
-  openOrClose(open, animate = true) {
+  openOrClose(open) {
+    let animate = this.hasRendered;
+
     if (open) {
       this.open(animate);
     } else {
@@ -339,15 +342,22 @@ export default class MobileMenu extends Component {
     }
   }
 
+  @action setRendered() {
+    if (!this.hasRendered) {
+      this.hasRendered = true;
+    }
+  }
+
   <template>
     {{#if this.renderMenu}}
+      {{effect (fn @register this)}}
+      {{effect (fn this.openOrClose @isOpen)}}
+      {{effect this.setRendered}}
+      {{effect this.close this.type}}
+
       <div
         class={{this.classNames}}
         style={{this.style}}
-        {{didInsert (fn @register this)}}
-        {{didInsert (fn this.openOrClose @isOpen false)}}
-        {{didUpdate (fn this.openOrClose @isOpen) @isOpen}}
-        {{didUpdate this.close this.type}}
         aria-hidden={{if this.state.closed "true"}}
       >
         {{#if this.maskEnabled}}
