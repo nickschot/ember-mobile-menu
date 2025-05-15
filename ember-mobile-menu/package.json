@@ -77,9 +77,7 @@
     "rollup-plugin-copy": "3.5.0"
   },
   "peerDependencies": {
-    "ember-source": ">=3.28.0",
-    "@glimmer/component": "^1.0.4 || >=2.0.0",
-    "@glimmer/tracking": "^1.0.4"
+    "@glimmer/component": "^1.0.4 || >=2.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
