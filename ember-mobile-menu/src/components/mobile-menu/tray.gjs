@@ -88,7 +88,7 @@ export default class TrayComponent extends Component {
   }
 
   lockBodyScroll = eModifier((element) => {
-    let { isClosed, preventScroll, embed } = this.args.isClosed;
+    let { isClosed, preventScroll, embed } = this.args;
 
     if (preventScroll && !embed) {
       if (isClosed) {
