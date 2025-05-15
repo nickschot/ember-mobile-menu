@@ -228,6 +228,9 @@ importers:
       '@eslint/js':
         specifier: 9.22.0
         version: 9.22.0
+      '@glimmer/component':
+        specifier: ^1.0.4
+        version: 1.1.2(@babel/core@7.26.10)
       '@rollup/plugin-babel':
         specifier: 6.0.4
         version: 6.0.4(@babel/core@7.26.10)(rollup@4.36.0)
@@ -288,6 +291,9 @@ importers:
       '@ember/optional-features':
         specifier: 2.2.0
         version: 2.2.0
+      '@ember/render-modifiers':
+        specifier: ^3.0.0
+        version: 3.0.0(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))
       '@ember/string':
         specifier: 4.0.1
         version: 4.0.1
@@ -10027,6 +10033,16 @@ snapshots:
       ember-source: 6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0)
     transitivePeerDependencies:
       - '@babel/core'
+      - supports-color
+
+  '@ember/render-modifiers@3.0.0(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))':
+    dependencies:
+      '@babel/core': 7.26.10(supports-color@8.1.1)
+      '@embroider/macros': 1.17.3
+      ember-cli-babel: 8.2.0(@babel/core@7.26.10)
+      ember-modifier-manager-polyfill: 1.2.0(@babel/core@7.26.10)
+      ember-source: 6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0)
+    transitivePeerDependencies:
       - supports-color
 
   '@ember/render-modifiers@3.0.0(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5))':
