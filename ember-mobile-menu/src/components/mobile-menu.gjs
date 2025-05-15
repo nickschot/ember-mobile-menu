@@ -3,12 +3,11 @@ import { action } from '@ember/object';
 import { cached, tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
-import { next } from '@ember/runloop';
 import './mobile-menu.css';
 import { registerDestructor } from '@ember/destroyable';
 import MaskComponent from './mobile-menu/mask.gjs';
 import TrayComponent from './mobile-menu/tray.gjs';
-import { fn, hash } from '@ember/helper';
+import { hash } from '@ember/helper';
 import { effect } from './utils.js';
 
 const _fn = function () {};
@@ -35,8 +34,8 @@ class StateResource {
     this._dragging = position !== 0 && isDragging;
     let open = !this._dragging && Math.abs(position) === width;
     let closed = !this._dragging && position === 0;
-    // eslint-disable-next-line ember/no-runloop
-    next(() => {
+
+    effect(() => {
       this.maybeToggle(open, closed, onToggle);
     });
     this._transitioning = !this._dragging && !this._open && !this._closed;
@@ -65,14 +64,8 @@ class StateResource {
   maybeToggle(open, closed, onToggle) {
     if (this._open !== open) {
       this._open = open;
-      if (open) {
-        onToggle(true);
-      }
     } else if (this.closed !== closed) {
       this._closed = closed;
-      if (closed) {
-        onToggle(false);
-      }
     }
   }
 }
@@ -333,6 +326,8 @@ export default class MobileMenu extends Component {
     } else {
       this.close(animate);
     }
+
+    this.onToggle(open);
   }
 
   @action
@@ -350,10 +345,10 @@ export default class MobileMenu extends Component {
 
   <template>
     {{#if this.renderMenu}}
-      {{effect (fn @register this)}}
-      {{effect (fn this.openOrClose @isOpen)}}
-      {{effect this.setRendered}}
+      {{effect @register this}}
+      {{effect this.openOrClose @isOpen}}
       {{effect this.close this.type}}
+      {{effect this.setRendered}}
 
       <div
         class={{this.classNames}}

@@ -397,7 +397,11 @@ module('Integration | Component | mobile-menu-wrapper', function (hooks) {
   test('it opens/closes the menu according to the @isOpen argument and calls the accompanying @onToggle hook', async function (assert) {
     this.set('isOpen', true);
     this.set('onToggle', (isOpen) => {
-      assert.strictEqual(this.isOpen, isOpen);
+      assert.strictEqual(
+        this.isOpen,
+        isOpen,
+        `onToggle called with the same value (${isOpen}) is this.isOpen (${this.isOpen})`,
+      );
     });
 
     await render(hbs`
