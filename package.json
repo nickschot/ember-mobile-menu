@@ -23,6 +23,11 @@
     "test": "pnpm --filter '*' test",
     "test:ember": "pnpm --filter '*' test:ember"
   },
+  "pnpm": {
+    "overrides": {
+      "@handlebars/parser": "2.0.0"
+    }
+  },
   "devDependencies": {
     "concurrently": "9.1.2",
     "release-plan": "0.16.0",
