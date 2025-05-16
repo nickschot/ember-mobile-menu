@@ -42,12 +42,12 @@
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
   },
   "dependencies": {
-    "@ember/render-modifiers": "^2.0.0 || ^3.0.0",
     "@ember/test-waiters": "^3.0.0 || ^4.0.0",
     "@embroider/addon-shim": "^1.8.9",
     "decorator-transforms": "^2.2.2",
     "ember-cached-decorator-polyfill": "^1.0.2",
     "ember-concurrency": "^3.0.0 || ^4.0.0",
+    "ember-modifier": "^4.2.2",
     "ember-gesture-modifiers": "^5.0.0 || ^6.0.0",
     "ember-on-resize-modifier": "^2.0.0",
     "ember-set-body-class": "^1.0.1",
@@ -95,7 +95,8 @@
       "./components/mobile-menu-wrapper/content.js": "./dist/_app_/components/mobile-menu-wrapper/content.js",
       "./components/mobile-menu.js": "./dist/_app_/components/mobile-menu.js",
       "./components/mobile-menu/mask.js": "./dist/_app_/components/mobile-menu/mask.js",
-      "./components/mobile-menu/tray.js": "./dist/_app_/components/mobile-menu/tray.js"
+      "./components/mobile-menu/tray.js": "./dist/_app_/components/mobile-menu/tray.js",
+      "./components/utils.js": "./dist/_app_/components/utils.js"
     }
   }
 }

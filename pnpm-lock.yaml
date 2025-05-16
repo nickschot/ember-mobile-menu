@@ -182,9 +182,6 @@ importers:
 
   ember-mobile-menu:
     dependencies:
-      '@ember/render-modifiers':
-        specifier: ^2.0.0 || ^3.0.0
-        version: 3.0.0(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5))
       '@ember/test-waiters':
         specifier: ^3.0.0 || ^4.0.0
         version: 3.1.0
@@ -203,9 +200,12 @@ importers:
       ember-gesture-modifiers:
         specifier: ^5.0.0 || ^6.0.0
         version: 6.1.0(@babel/core@7.26.10)(@ember/test-helpers@5.1.0(@babel/core@7.26.10)(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)))(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5))
+      ember-modifier:
+        specifier: ^4.2.2
+        version: 4.2.2(@babel/core@7.26.10)
       ember-on-resize-modifier:
         specifier: ^2.0.0
-        version: 2.0.2(@babel/core@7.26.10)(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5))
+        version: 2.0.2(@babel/core@7.26.10)
       ember-set-body-class:
         specifier: ^1.0.1
         version: 1.0.2
@@ -348,6 +348,9 @@ importers:
       ember-fetch:
         specifier: 8.1.2
         version: 8.1.2(encoding@0.1.13)
+      ember-functions-as-helper-polyfill:
+        specifier: ^2.1.3
+        version: 2.1.3(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))
       ember-load-initializers:
         specifier: 3.0.1
         version: 3.0.1(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))
@@ -1206,16 +1209,6 @@ packages:
     peerDependencies:
       '@glint/template': ^1.0.2
       ember-source: ^3.8 || ^4.0.0 || ^5.0.0
-    peerDependenciesMeta:
-      '@glint/template':
-        optional: true
-
-  '@ember/render-modifiers@3.0.0':
-    resolution: {integrity: sha512-gJztS8dI7Jt8ohFQptEDJAgpl9DG84IpqwQoR1JDpVIBy2uLbf8KFD6S3h3LfyMsgJce6G38cOvyQv6BDgcnsA==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      '@glint/template': ^1.0.2
-      ember-source: '>= 4.0.0'
     peerDependenciesMeta:
       '@glint/template':
         optional: true
@@ -4325,8 +4318,8 @@ packages:
     resolution: {integrity: sha512-TVx24/jrvDIuPL296DV0hBwp7BWLcSMf0I8464KGz01sPytAB+ZAePbc9ooBTJDkKZEGFgatJa4nj3yF1S9Bpw==}
     engines: {node: '>= 10'}
 
-  ember-functions-as-helper-polyfill@2.1.2:
-    resolution: {integrity: sha512-yvW6xykvZEIYzzwlrC/g9yu6LtLkkj5F+ho6U+BDxN1uREMgoMOZnji7sSILn5ITVpaJ055DPcO+utEFD7IZOA==}
+  ember-functions-as-helper-polyfill@2.1.3:
+    resolution: {integrity: sha512-Hte8jfOmSNzrz/vOchf68CGaBWXN2/5qKgFaylqr9omW2i4Wt9JmaBWRkeR0AJ53N57q3DX2TOb166Taq6QjiA==}
     engines: {node: '>= 14.0.0'}
     peerDependencies:
       ember-source: ^3.25.0 || >=4.0.0
@@ -4377,14 +4370,6 @@ packages:
   ember-modifier-manager-polyfill@1.2.0:
     resolution: {integrity: sha512-bnaKF1LLKMkBNeDoetvIJ4vhwRPKIIumWr6dbVuW6W6p4QV8ZiO+GdF8J7mxDNlog9CeL9Z/7wam4YS86G8BYA==}
     engines: {node: 6.* || 8.* || >= 10.*}
-
-  ember-modifier@4.2.0:
-    resolution: {integrity: sha512-BJ48eTEGxD8J7+lofwVmee7xDgNDgpr5dd6+MSu4gk+I6xb35099RMNorXY5hjjwMJEyi/IRR6Yn3M7iJMz8Zw==}
-    peerDependencies:
-      ember-source: ^3.24 || >=4.0
-    peerDependenciesMeta:
-      ember-source:
-        optional: true
 
   ember-modifier@4.2.2:
     resolution: {integrity: sha512-pPYBAGyczX0hedGWQFQOEiL9s45KS9efKxJxUQkMLjQyh+1Uef1mcmAGsdw2KmvNupITkE/nXxmVO1kZ9tt3ag==}
@@ -10056,16 +10041,6 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  '@ember/render-modifiers@3.0.0(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5))':
-    dependencies:
-      '@babel/core': 7.26.10
-      '@embroider/macros': 1.16.11
-      ember-cli-babel: 8.2.0(@babel/core@7.26.10)
-      ember-modifier-manager-polyfill: 1.2.0(@babel/core@7.26.10)
-      ember-source: 6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)
-    transitivePeerDependencies:
-      - supports-color
-
   '@ember/string@4.0.1': {}
 
   '@ember/test-helpers@5.1.0(@babel/core@7.26.10)(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))':
@@ -14812,7 +14787,7 @@ snapshots:
       - encoding
       - supports-color
 
-  ember-functions-as-helper-polyfill@2.1.2(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0)):
+  ember-functions-as-helper-polyfill@2.1.3(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0)):
     dependencies:
       ember-cli-babel: 7.26.11
       ember-cli-typescript: 5.3.0
@@ -14825,7 +14800,7 @@ snapshots:
     dependencies:
       '@embroider/addon-shim': 1.9.0
       decorator-transforms: 2.3.0(@babel/core@7.26.10)
-      ember-modifier: 4.2.0(@babel/core@7.26.10)(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5))
+      ember-modifier: 4.2.2(@babel/core@7.26.10)
       ember-source: 6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)
     optionalDependencies:
       '@ember/test-helpers': 5.1.0(@babel/core@7.26.10)(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5))
@@ -14884,18 +14859,6 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-modifier@4.2.0(@babel/core@7.26.10)(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)):
-    dependencies:
-      '@embroider/addon-shim': 1.9.0
-      decorator-transforms: 2.3.0(@babel/core@7.26.10)
-      ember-cli-normalize-entity-name: 1.0.0
-      ember-cli-string-utils: 1.1.0
-    optionalDependencies:
-      ember-source: 6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - supports-color
-
   ember-modifier@4.2.2(@babel/core@7.26.10):
     dependencies:
       '@embroider/addon-shim': 1.9.0
@@ -14906,17 +14869,16 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-on-resize-modifier@2.0.2(@babel/core@7.26.10)(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)):
+  ember-on-resize-modifier@2.0.2(@babel/core@7.26.10):
     dependencies:
       ember-auto-import: 2.10.0
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 5.7.2
-      ember-modifier: 4.2.0(@babel/core@7.26.10)(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5))
+      ember-modifier: 4.2.2(@babel/core@7.26.10)
       ember-resize-observer-service: 1.1.0
     transitivePeerDependencies:
       - '@babel/core'
       - '@glint/template'
-      - ember-source
       - supports-color
       - webpack
 
@@ -15210,7 +15172,7 @@ snapshots:
   ember-truth-helpers@4.0.3(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0)):
     dependencies:
       '@embroider/addon-shim': 1.9.0
-      ember-functions-as-helper-polyfill: 2.1.2(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))
+      ember-functions-as-helper-polyfill: 2.1.3(ember-source@6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))
       ember-source: 6.3.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0)
     transitivePeerDependencies:
       - supports-color
