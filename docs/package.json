@@ -38,7 +38,7 @@
     "@glimmer/tracking": "1.1.2",
     "broccoli-asset-rev": "3.0.0",
     "ember-auto-import": "2.10.0",
-    "ember-cli": "6.2.3",
+    "ember-cli": "6.4.0",
     "ember-cli-addon-docs": "8.0.8",
     "ember-cli-addon-docs-yuidoc": "1.1.0",
     "ember-cli-babel": "8.2.0",
