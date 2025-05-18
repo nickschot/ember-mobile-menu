@@ -1,8 +1,8 @@
-(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[40],{3206:(t,e,i)=>{"use strict"
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[950],{3087:function(t,e){window._eai_r=require,window._eai_d=define},3206:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>u})
 var n,o=i(8855),s=i.n(o),r=i(2377),a=i(2663),l=i(1465)
 const d=()=>{}
-class u extends(s()){get onClick(){return()=>this.args.onClick(this.args.target)??d}}n=u,(0,a.setComponentTemplate)((0,l.createTemplateFactory)({id:"I+Mg7MYq",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__toggle"],[24,4,"button"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[12],[1,"\\n      "],[18,2,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-toggle.js",scope:()=>[r.on],isStrictMode:!0}),n)},3357:function(t,e){window._eai_r=require,window._eai_d=define},4082:()=>{},4515:(t,e,i)=>{"use strict"
+class u extends(s()){get onClick(){return()=>this.args.onClick(this.args.target)??d}}n=u,(0,a.setComponentTemplate)((0,l.createTemplateFactory)({id:"I+Mg7MYq",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__toggle"],[24,4,"button"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[12],[1,"\\n      "],[18,2,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-toggle.js",scope:()=>[r.on],isStrictMode:!0}),n)},4082:()=>{},4515:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>L})
 var n=i(8855),o=i.n(n),s=i(473),r=i(4471),a=i(9371),l=i(6941)
 function d(t,e){return{...t,initial:{...t.initial,x:t.initial.x-e.x,y:t.initial.x-e.x},current:{...t.current,x:t.current.x-e.x,y:t.current.x-e.x}}}function u(t,e,i){return{...t,current:{...t.current,distance:t.current.distance/((e+i)/2),distanceX:t.current.distanceX/e,distanceY:t.current.distanceY/i}}}var h=i(2294),c=i(1603),p=i(2186),g=i(1156),m=i(6059)
