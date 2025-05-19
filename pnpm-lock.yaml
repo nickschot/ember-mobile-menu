@@ -28,7 +28,7 @@ importers:
     devDependencies:
       '@babel/eslint-parser':
         specifier: 7.27.1
-        version: 7.27.1(@babel/core@7.27.1)(eslint@9.22.0)
+        version: 7.27.1(@babel/core@7.27.1)(eslint@9.27.0)
       '@ember/optional-features':
         specifier: 2.2.0
         version: 2.2.0
@@ -42,8 +42,8 @@ importers:
         specifier: 3.1.0
         version: 3.1.0
       '@eslint/js':
-        specifier: 9.22.0
-        version: 9.22.0
+        specifier: 9.27.0
+        version: 9.27.0
       '@glimmer/component':
         specifier: 1.1.2
         version: 1.1.2(@babel/core@7.27.1)
@@ -76,7 +76,7 @@ importers:
         version: 2.0.0
       ember-cli-deploy-build:
         specifier: 3.0.0
-        version: 3.0.0(@babel/core@7.27.1)(eslint@9.22.0)
+        version: 3.0.0(@babel/core@7.27.1)(eslint@9.27.0)
       ember-cli-deploy-git:
         specifier: 1.3.4
         version: 1.3.4(@babel/core@7.27.1)
@@ -135,23 +135,23 @@ importers:
         specifier: 4.0.0
         version: 4.0.0(encoding@0.1.13)
       eslint:
-        specifier: 9.22.0
-        version: 9.22.0
+        specifier: 9.27.0
+        version: 9.27.0
       eslint-config-prettier:
         specifier: 10.1.5
-        version: 10.1.5(eslint@9.22.0)
+        version: 10.1.5(eslint@9.27.0)
       eslint-plugin-ember:
         specifier: 12.5.0
-        version: 12.5.0(@babel/core@7.27.1)(eslint@9.22.0)
+        version: 12.5.0(@babel/core@7.27.1)(eslint@9.27.0)
       eslint-plugin-n:
         specifier: 17.18.0
-        version: 17.18.0(eslint@9.22.0)
+        version: 17.18.0(eslint@9.27.0)
       eslint-plugin-prettier:
         specifier: 5.4.0
-        version: 5.4.0(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.22.0))(eslint@9.22.0)(prettier@3.5.3)
+        version: 5.4.0(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0))(eslint@9.27.0)(prettier@3.5.3)
       eslint-plugin-qunit:
         specifier: 8.1.2
-        version: 8.1.2(eslint@9.22.0)
+        version: 8.1.2(eslint@9.27.0)
       globals:
         specifier: 16.1.0
         version: 16.1.0
@@ -221,7 +221,7 @@ importers:
         version: 7.27.1
       '@babel/eslint-parser':
         specifier: 7.27.1
-        version: 7.27.1(@babel/core@7.27.1)(eslint@9.22.0)
+        version: 7.27.1(@babel/core@7.27.1)(eslint@9.27.0)
       '@babel/runtime':
         specifier: 7.27.1
         version: 7.27.1
@@ -229,8 +229,8 @@ importers:
         specifier: 7.1.4
         version: 7.1.4(rollup@4.41.0)
       '@eslint/js':
-        specifier: 9.22.0
-        version: 9.22.0
+        specifier: 9.27.0
+        version: 9.27.0
       '@rollup/plugin-babel':
         specifier: 6.0.4
         version: 6.0.4(@babel/core@7.27.1)(rollup@4.41.0)
@@ -247,20 +247,20 @@ importers:
         specifier: 7.7.0
         version: 7.7.0(@babel/core@7.27.1)
       eslint:
-        specifier: 9.22.0
-        version: 9.22.0
+        specifier: 9.27.0
+        version: 9.27.0
       eslint-config-prettier:
         specifier: 10.1.5
-        version: 10.1.5(eslint@9.22.0)
+        version: 10.1.5(eslint@9.27.0)
       eslint-plugin-ember:
         specifier: 12.5.0
-        version: 12.5.0(@babel/core@7.27.1)(eslint@9.22.0)
+        version: 12.5.0(@babel/core@7.27.1)(eslint@9.27.0)
       eslint-plugin-import:
         specifier: 2.31.0
-        version: 2.31.0(eslint@9.22.0)
+        version: 2.31.0(eslint@9.27.0)
       eslint-plugin-n:
         specifier: 17.18.0
-        version: 17.18.0(eslint@9.22.0)
+        version: 17.18.0(eslint@9.27.0)
       globals:
         specifier: 16.1.0
         version: 16.1.0
@@ -284,7 +284,7 @@ importers:
         version: 7.27.1
       '@babel/eslint-parser':
         specifier: 7.27.1
-        version: 7.27.1(@babel/core@7.27.1)(eslint@9.22.0)
+        version: 7.27.1(@babel/core@7.27.1)(eslint@9.27.0)
       '@babel/plugin-proposal-decorators':
         specifier: 7.27.1
         version: 7.27.1(@babel/core@7.27.1)
@@ -301,8 +301,8 @@ importers:
         specifier: 4.0.0
         version: 4.0.0(@embroider/core@3.5.6)
       '@eslint/js':
-        specifier: 9.22.0
-        version: 9.22.0
+        specifier: 9.27.0
+        version: 9.27.0
       '@glimmer/component':
         specifier: 1.1.2
         version: 1.1.2(@babel/core@7.27.1)
@@ -382,23 +382,23 @@ importers:
         specifier: 4.0.0
         version: 4.0.0(encoding@0.1.13)
       eslint:
-        specifier: 9.22.0
-        version: 9.22.0
+        specifier: 9.27.0
+        version: 9.27.0
       eslint-config-prettier:
         specifier: 10.1.5
-        version: 10.1.5(eslint@9.22.0)
+        version: 10.1.5(eslint@9.27.0)
       eslint-plugin-ember:
         specifier: 12.5.0
-        version: 12.5.0(@babel/core@7.27.1)(eslint@9.22.0)
+        version: 12.5.0(@babel/core@7.27.1)(eslint@9.27.0)
       eslint-plugin-n:
         specifier: 17.18.0
-        version: 17.18.0(eslint@9.22.0)
+        version: 17.18.0(eslint@9.27.0)
       eslint-plugin-prettier:
         specifier: 5.4.0
-        version: 5.4.0(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.22.0))(eslint@9.22.0)(prettier@3.5.3)
+        version: 5.4.0(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0))(eslint@9.27.0)(prettier@3.5.3)
       eslint-plugin-qunit:
         specifier: 8.1.2
-        version: 8.1.2(eslint@9.22.0)
+        version: 8.1.2(eslint@9.27.0)
       globals:
         specifier: 16.1.0
         version: 16.1.0
@@ -1319,36 +1319,32 @@ packages:
     resolution: {integrity: sha512-CCZCDJuduB9OUkFkY2IgppNZMi2lBQgD2qzwXkEia16cge2pijY/aXi96CJMquDMn3nJdlPV1A5KrJEXwfLNzQ==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
-  '@eslint/config-array@0.19.2':
-    resolution: {integrity: sha512-GNKqxfHG2ySmJOBSHg7LxeUx4xpuCoFjacmlCoYWEbaPXLwvfIjixRI12xCQZeULksQb23uiA8F40w5TojpV7w==}
+  '@eslint/config-array@0.20.0':
+    resolution: {integrity: sha512-fxlS1kkIjx8+vy2SjuCB94q3htSNrufYTXubwiBFeaQHbH6Ipi43gFJq2zCMt6PHhImH3Xmr0NksKDvchWlpQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/config-helpers@0.1.0':
-    resolution: {integrity: sha512-kLrdPDJE1ckPo94kmPPf9Hfd0DU0Jw6oKYrhe+pwSC0iTUInmTa+w6fw8sGgcfkFJGNdWOUeOaDM4quW4a7OkA==}
+  '@eslint/config-helpers@0.2.2':
+    resolution: {integrity: sha512-+GPzk8PlG0sPpzdU5ZvIRMPidzAnZDl/s9L+y13iodqvb8leL53bTannOrQ/Im7UkpsmFU5Ily5U60LWixnmLg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/core@0.12.0':
-    resolution: {integrity: sha512-cmrR6pytBuSMTaBweKoGMwu3EiHiEC+DoyupPmlZ0HxBJBtIxwe+j/E4XPIKNx+Q74c8lXKPwYawBf5glsTkHg==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  '@eslint/core@0.13.0':
-    resolution: {integrity: sha512-yfkgDw1KR66rkT5A8ci4irzDysN7FRpq3ttJolR88OqQikAWqwA8j5VZyas+vjyBNFIJ7MfybJ9plMILI2UrCw==}
+  '@eslint/core@0.14.0':
+    resolution: {integrity: sha512-qIbV0/JZr7iSDjqAc60IqbLdsj9GDt16xQtWD+B78d/HAlvysGdZZ6rpJHGAc2T0FQx1X6thsSPdnoiGKdNtdg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/eslintrc@3.3.1':
     resolution: {integrity: sha512-gtF186CXhIl1p4pJNGZw8Yc6RlshoePRvE0X91oPGb3vZ8pM3qOS9W9NGPat9LziaBV7XrJWGylNQXkGcnM3IQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/js@9.22.0':
-    resolution: {integrity: sha512-vLFajx9o8d1/oL2ZkpMYbkLv8nDB6yaIwFNt7nI4+I80U/z03SxmfOMsLbvWr3p7C+Wnoh//aOu2pQW8cS0HCQ==}
+  '@eslint/js@9.27.0':
+    resolution: {integrity: sha512-G5JD9Tu5HJEu4z2Uo4aHY2sLV64B7CDMXxFzqzjl3NKd6RVzSXNoE80jk7Y0lJkTTkjiIhBAqmlYwjuBY3tvpA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/object-schema@2.1.6':
     resolution: {integrity: sha512-RBMg5FRL0I0gs51M/guSAj5/e14VQ4tpZnQNWwuDT66P14I43ItmPfIZRhO9fUVIPOAQXU47atlywZ/czoqFPA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/plugin-kit@0.2.8':
-    resolution: {integrity: sha512-ZAoA40rNMPwSm+AeHpCq8STiNAwzWLJuP8Xv4CHIc9wv/PSuExjMrmjfYNj682vW0OOiZ1HKxzvjQr9XZIisQA==}
+  '@eslint/plugin-kit@0.3.1':
+    resolution: {integrity: sha512-0J+zgWxHN+xXONWIyPWKFMgVuJoZuGiIFu8yxk7RJjxkzpGmyja5wRFqZIVtjDVOQpV+Rw0iOAjYPE2eQyjr0w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@fullhuman/postcss-purgecss@2.3.0':
@@ -4771,8 +4767,8 @@ packages:
     resolution: {integrity: sha512-UyLnSehNt62FFhSwjZlHmeokpRK59rcz29j+F1/aDgbkbRTk7wIc9XzdoasMUbRNKDM0qQt/+BJ4BrpFeABemw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  eslint@9.22.0:
-    resolution: {integrity: sha512-9V/QURhsRN40xuHXWjV64yvrzMjcz7ZyNoF2jJFmy9j/SLk0u1OLSZgXi28MrXjymnjEGSR80WCdab3RGMDveQ==}
+  eslint@9.27.0:
+    resolution: {integrity: sha512-ixRawFQuMB9DZ7fjU3iGGganFDp3+45bPOdaRurcFHSXO1e/sYwUX/FtQZpLZJR6SjMoJH8hR2pPEAfDyCoU2Q==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     hasBin: true
     peerDependencies:
@@ -9137,11 +9133,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/eslint-parser@7.27.1(@babel/core@7.27.1)(eslint@9.22.0)':
+  '@babel/eslint-parser@7.27.1(@babel/core@7.27.1)(eslint@9.27.0)':
     dependencies:
       '@babel/core': 7.27.1
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
-      eslint: 9.22.0
+      eslint: 9.27.0
       eslint-visitor-keys: 2.1.0
       semver: 6.3.1
 
@@ -10258,14 +10254,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@eslint-community/eslint-utils@4.7.0(eslint@9.22.0)':
+  '@eslint-community/eslint-utils@4.7.0(eslint@9.27.0)':
     dependencies:
-      eslint: 9.22.0
+      eslint: 9.27.0
       eslint-visitor-keys: 3.4.3
 
   '@eslint-community/regexpp@4.12.1': {}
 
-  '@eslint/config-array@0.19.2':
+  '@eslint/config-array@0.20.0':
     dependencies:
       '@eslint/object-schema': 2.1.6
       debug: 4.4.1
@@ -10273,13 +10269,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@eslint/config-helpers@0.1.0': {}
+  '@eslint/config-helpers@0.2.2': {}
 
-  '@eslint/core@0.12.0':
-    dependencies:
-      '@types/json-schema': 7.0.15
-
-  '@eslint/core@0.13.0':
+  '@eslint/core@0.14.0':
     dependencies:
       '@types/json-schema': 7.0.15
 
@@ -10297,13 +10289,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@eslint/js@9.22.0': {}
+  '@eslint/js@9.27.0': {}
 
   '@eslint/object-schema@2.1.6': {}
 
-  '@eslint/plugin-kit@0.2.8':
+  '@eslint/plugin-kit@0.3.1':
     dependencies:
-      '@eslint/core': 0.13.0
+      '@eslint/core': 0.14.0
       levn: 0.4.1
 
   '@fullhuman/postcss-purgecss@2.3.0':
@@ -14269,9 +14261,9 @@ snapshots:
       resolve: 1.22.10
       semver: 5.7.2
 
-  ember-cli-deploy-build@3.0.0(@babel/core@7.27.1)(eslint@9.22.0):
+  ember-cli-deploy-build@3.0.0(@babel/core@7.27.1)(eslint@9.27.0):
     dependencies:
-      '@babel/eslint-parser': 7.27.1(@babel/core@7.27.1)(eslint@9.22.0)
+      '@babel/eslint-parser': 7.27.1(@babel/core@7.27.1)(eslint@9.27.0)
       chalk: 4.1.2
       ember-cli-deploy-plugin: 0.2.9
       glob: 10.4.5
@@ -14780,10 +14772,10 @@ snapshots:
 
   ember-disable-prototype-extensions@1.1.3: {}
 
-  ember-eslint-parser@0.5.9(@babel/core@7.27.1)(eslint@9.22.0):
+  ember-eslint-parser@0.5.9(@babel/core@7.27.1)(eslint@9.27.0):
     dependencies:
       '@babel/core': 7.27.1
-      '@babel/eslint-parser': 7.27.1(@babel/core@7.27.1)(eslint@9.22.0)
+      '@babel/eslint-parser': 7.27.1(@babel/core@7.27.1)(eslint@9.27.0)
       '@glimmer/syntax': 0.92.3
       content-tag: 2.0.3
       eslint-scope: 7.2.2
@@ -15357,14 +15349,14 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-compat-utils@0.5.1(eslint@9.22.0):
+  eslint-compat-utils@0.5.1(eslint@9.27.0):
     dependencies:
-      eslint: 9.22.0
+      eslint: 9.27.0
       semver: 7.7.2
 
-  eslint-config-prettier@10.1.5(eslint@9.22.0):
+  eslint-config-prettier@10.1.5(eslint@9.27.0):
     dependencies:
-      eslint: 9.22.0
+      eslint: 9.27.0
 
   eslint-formatter-kakoune@1.0.0: {}
 
@@ -15376,23 +15368,23 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(eslint-import-resolver-node@0.3.9)(eslint@9.22.0):
+  eslint-module-utils@2.12.0(eslint-import-resolver-node@0.3.9)(eslint@9.27.0):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
-      eslint: 9.22.0
+      eslint: 9.27.0
       eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-ember@12.5.0(@babel/core@7.27.1)(eslint@9.22.0):
+  eslint-plugin-ember@12.5.0(@babel/core@7.27.1)(eslint@9.27.0):
     dependencies:
       '@ember-data/rfc395-data': 0.0.4
       css-tree: 3.1.0
-      ember-eslint-parser: 0.5.9(@babel/core@7.27.1)(eslint@9.22.0)
+      ember-eslint-parser: 0.5.9(@babel/core@7.27.1)(eslint@9.27.0)
       ember-rfc176-data: 0.3.18
-      eslint: 9.22.0
-      eslint-utils: 3.0.0(eslint@9.22.0)
+      eslint: 9.27.0
+      eslint-utils: 3.0.0(eslint@9.27.0)
       estraverse: 5.3.0
       lodash.camelcase: 4.3.0
       lodash.kebabcase: 4.1.1
@@ -15401,14 +15393,14 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
 
-  eslint-plugin-es-x@7.8.0(eslint@9.22.0):
+  eslint-plugin-es-x@7.8.0(eslint@9.27.0):
     dependencies:
-      '@eslint-community/eslint-utils': 4.7.0(eslint@9.22.0)
+      '@eslint-community/eslint-utils': 4.7.0(eslint@9.27.0)
       '@eslint-community/regexpp': 4.12.1
-      eslint: 9.22.0
-      eslint-compat-utils: 0.5.1(eslint@9.22.0)
+      eslint: 9.27.0
+      eslint-compat-utils: 0.5.1(eslint@9.27.0)
 
-  eslint-plugin-import@2.31.0(eslint@9.22.0):
+  eslint-plugin-import@2.31.0(eslint@9.27.0):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
@@ -15417,9 +15409,9 @@ snapshots:
       array.prototype.flatmap: 1.3.3
       debug: 3.2.7
       doctrine: 2.1.0
-      eslint: 9.22.0
+      eslint: 9.27.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint@9.22.0)
+      eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint@9.27.0)
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -15435,31 +15427,31 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-n@17.18.0(eslint@9.22.0):
+  eslint-plugin-n@17.18.0(eslint@9.27.0):
     dependencies:
-      '@eslint-community/eslint-utils': 4.7.0(eslint@9.22.0)
+      '@eslint-community/eslint-utils': 4.7.0(eslint@9.27.0)
       enhanced-resolve: 5.18.1
-      eslint: 9.22.0
-      eslint-plugin-es-x: 7.8.0(eslint@9.22.0)
+      eslint: 9.27.0
+      eslint-plugin-es-x: 7.8.0(eslint@9.27.0)
       get-tsconfig: 4.10.0
       globals: 15.15.0
       ignore: 5.3.2
       minimatch: 9.0.5
       semver: 7.7.2
 
-  eslint-plugin-prettier@5.4.0(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.22.0))(eslint@9.22.0)(prettier@3.5.3):
+  eslint-plugin-prettier@5.4.0(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0))(eslint@9.27.0)(prettier@3.5.3):
     dependencies:
-      eslint: 9.22.0
+      eslint: 9.27.0
       prettier: 3.5.3
       prettier-linter-helpers: 1.0.0
       synckit: 0.11.6
     optionalDependencies:
       '@types/eslint': 9.6.1
-      eslint-config-prettier: 10.1.5(eslint@9.22.0)
+      eslint-config-prettier: 10.1.5(eslint@9.27.0)
 
-  eslint-plugin-qunit@8.1.2(eslint@9.22.0):
+  eslint-plugin-qunit@8.1.2(eslint@9.27.0):
     dependencies:
-      eslint-utils: 3.0.0(eslint@9.22.0)
+      eslint-utils: 3.0.0(eslint@9.27.0)
       requireindex: 1.2.0
     transitivePeerDependencies:
       - eslint
@@ -15484,9 +15476,9 @@ snapshots:
       esrecurse: 4.3.0
       estraverse: 5.3.0
 
-  eslint-utils@3.0.0(eslint@9.22.0):
+  eslint-utils@3.0.0(eslint@9.27.0):
     dependencies:
-      eslint: 9.22.0
+      eslint: 9.27.0
       eslint-visitor-keys: 2.1.0
 
   eslint-visitor-keys@2.1.0: {}
@@ -15495,16 +15487,16 @@ snapshots:
 
   eslint-visitor-keys@4.2.0: {}
 
-  eslint@9.22.0:
+  eslint@9.27.0:
     dependencies:
-      '@eslint-community/eslint-utils': 4.7.0(eslint@9.22.0)
+      '@eslint-community/eslint-utils': 4.7.0(eslint@9.27.0)
       '@eslint-community/regexpp': 4.12.1
-      '@eslint/config-array': 0.19.2
-      '@eslint/config-helpers': 0.1.0
-      '@eslint/core': 0.12.0
+      '@eslint/config-array': 0.20.0
+      '@eslint/config-helpers': 0.2.2
+      '@eslint/core': 0.14.0
       '@eslint/eslintrc': 3.3.1
-      '@eslint/js': 9.22.0
-      '@eslint/plugin-kit': 0.2.8
+      '@eslint/js': 9.27.0
+      '@eslint/plugin-kit': 0.3.1
       '@humanfs/node': 0.16.6
       '@humanwhocodes/module-importer': 1.0.1
       '@humanwhocodes/retry': 0.4.3
