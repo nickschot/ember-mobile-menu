@@ -26,13 +26,24 @@
   "pnpm": {
     "overrides": {
       "@handlebars/parser": "2.0.0"
+    },
+    "patchedDependencies": {
+      "ember-app-scheduler": "patches/ember-app-scheduler.patch"
+    },
+    "packageExtensions": {
+      "ember-app-scheduler": {
+        "dependencies": {
+          "@ember/test-waiters": "*",
+          "ember-auto-import": "*"
+        }
+      }
     }
   },
   "devDependencies": {
     "concurrently": "9.1.2",
-    "release-plan": "0.16.0",
     "prettier": "3.5.3",
-    "prettier-plugin-ember-template-tag": "2.0.5"
+    "prettier-plugin-ember-template-tag": "2.0.5",
+    "release-plan": "0.16.0"
   },
   "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977",
   "publishConfig": {
