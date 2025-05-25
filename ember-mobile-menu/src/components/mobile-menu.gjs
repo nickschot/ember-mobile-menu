@@ -3,16 +3,12 @@ import { action } from '@ember/object';
 import { cached, tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
-import { next } from '@ember/runloop';
 import './mobile-menu.css';
 import { registerDestructor } from '@ember/destroyable';
 import MaskComponent from './mobile-menu/mask.gjs';
 import TrayComponent from './mobile-menu/tray.gjs';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
-import { fn, hash } from '@ember/helper';
+import { hash } from '@ember/helper';
+import { effect } from './utils.js';
 
 const _fn = function () {};
 class StateResource {
@@ -33,14 +29,14 @@ class StateResource {
 
   @cached
   get current() {
-    let [position, isDragging, width, onToggle] = this._useState();
+    let [position, isDragging, width] = this._useState();
 
     this._dragging = position !== 0 && isDragging;
     let open = !this._dragging && Math.abs(position) === width;
     let closed = !this._dragging && position === 0;
-    // eslint-disable-next-line ember/no-runloop
-    next(() => {
-      this.maybeToggle(open, closed, onToggle);
+
+    effect(() => {
+      this.maybeToggle(open, closed);
     });
     this._transitioning = !this._dragging && !this._open && !this._closed;
 
@@ -65,17 +61,11 @@ class StateResource {
     return this.current.transitioning;
   }
 
-  maybeToggle(open, closed, onToggle) {
+  maybeToggle(open, closed) {
     if (this._open !== open) {
       this._open = open;
-      if (open) {
-        onToggle(true);
-      }
     } else if (this.closed !== closed) {
       this._closed = closed;
-      if (closed) {
-        onToggle(false);
-      }
     }
   }
 }
@@ -91,7 +81,6 @@ export default class MobileMenu extends Component {
     this.position,
     this.args.isDragging,
     this._width,
-    this.onToggle,
   ]);
 
   /**
@@ -320,16 +309,24 @@ export default class MobileMenu extends Component {
 
   @action
   close(animate) {
+    if (!this.hasRendered) return;
+
     this.onClose(this, 0, animate);
   }
 
+  hasRendered = false;
+
   @action
-  openOrClose(open, animate = true) {
+  openOrClose(open) {
+    let animate = this.hasRendered;
+
     if (open) {
       this.open(animate);
     } else {
       this.close(animate);
     }
+
+    this.onToggle(open);
   }
 
   @action
@@ -339,15 +336,22 @@ export default class MobileMenu extends Component {
     }
   }
 
+  @action setRendered() {
+    if (!this.hasRendered) {
+      this.hasRendered = true;
+    }
+  }
+
   <template>
     {{#if this.renderMenu}}
+      {{effect @register this}}
+      {{effect this.openOrClose @isOpen}}
+      {{effect this.close this.type}}
+      {{effect this.setRendered}}
+
       <div
         class={{this.classNames}}
         style={{this.style}}
-        {{didInsert (fn @register this)}}
-        {{didInsert (fn this.openOrClose @isOpen false)}}
-        {{didUpdate (fn this.openOrClose @isOpen) @isOpen}}
-        {{didUpdate this.close this.type}}
         aria-hidden={{if this.state.closed "true"}}
       >
         {{#if this.maskEnabled}}

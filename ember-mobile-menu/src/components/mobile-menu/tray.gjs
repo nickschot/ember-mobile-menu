@@ -1,15 +1,11 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
-import { action } from '@ember/object';
+import { modifier as eModifier } from 'ember-modifier';
 import {
   disableBodyScroll,
   enableBodyScroll,
 } from '../../utils/body-scroll-lock.js';
 import './tray.css';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
 
 /**
@@ -90,16 +86,23 @@ export default class TrayComponent extends Component {
     return htmlSafe(style);
   }
 
-  @action
-  toggleBodyScroll(target, [isClosed]) {
-    if (this.args.preventScroll && !this.args.embed) {
+  lockBodyScroll = eModifier((element) => {
+    let { isClosed, preventScroll, embed } = this.args;
+
+    if (preventScroll && !embed) {
       if (isClosed) {
-        enableBodyScroll(target);
+        enableBodyScroll(element);
       } else {
-        disableBodyScroll(target);
+        disableBodyScroll(element);
       }
     }
-  }
+
+    return () => {
+      if (preventScroll && !embed) {
+        enableBodyScroll(element);
+      }
+    };
+  });
 
   <template>
     <div
@@ -112,8 +115,7 @@ export default class TrayComponent extends Component {
         capture=@capture
         preventScroll=@preventScroll
       }}
-      {{didUpdate this.toggleBodyScroll @isClosed}}
-      {{willDestroy this.toggleBodyScroll true}}
+      {{this.lockBodyScroll}}
       ...attributes
     >
       {{yield}}
