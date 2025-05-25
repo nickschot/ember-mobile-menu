@@ -47,7 +47,7 @@ class StateResource {
     return getValue(this.currentCache);
   }
 
-  calculateCurrent(position, isDragging, width, onToggle) {
+  calculateCurrent(position, isDragging, width) {
     this._dragging = position !== 0 && isDragging;
     let open = !this._dragging && Math.abs(position) === width;
     let closed = !this._dragging && position === 0;
