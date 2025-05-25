@@ -25,7 +25,9 @@
   },
   "pnpm": {
     "overrides": {
-      "@handlebars/parser": "2.0.0"
+      "@handlebars/parser": "2.0.0",
+      "@ember/test-helpers": "5.2.2",
+      "@ember/test-waiters": "4.1.0"
     }
   },
   "devDependencies": {
