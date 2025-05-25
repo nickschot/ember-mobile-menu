@@ -36,6 +36,16 @@
           "@ember/test-waiters": "*",
           "ember-auto-import": "*"
         }
+      },
+      "ember-tether": {
+        "peerDependencies": {
+          "ember-source": "*"
+        }
+      },
+      "@ember/render-modifiers": {
+        "peerDependencies": {
+          "ember-source": "*"
+        }
       }
     }
   },
