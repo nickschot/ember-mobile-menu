@@ -1,11 +1,11 @@
-(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[896],{991:function(t,e){window._eai_r=require,window._eai_d=define},1980:(t,e,i)=>{"use strict"
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[304],{1980:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>c})
 var n,o=i(8855),s=i.n(o),r=i(7970),a=i(2377),l=i(4225),d=i(2663),u=i(1465)
 const h=()=>{}
 class c extends(s()){get maskOpacityOffset(){return this.args.maskOpacityOffset??.1}get isOpen(){return this.args.isOpen??!1}get position(){return this.args.position??0}get onClick(){return this.args.onClick??h}get style(){let t=""
 t+=this.isOpen||0!==this.position?"visibility: visible;":"visibility: hidden;"
 let e=this.position>this.maskOpacityOffset?(this.position-this.maskOpacityOffset)/(1-this.maskOpacityOffset):0
-return this.args.invertOpacity&&(e=1-e),t+=`opacity: ${e};`,(0,r.htmlSafe)(t)}}n=c,(0,d.setComponentTemplate)((0,u.createTemplateFactory)({id:"wYevBVaj",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__mask"],[16,5,[30,0,["style"]]],[24,4,"button"],[24,"aria-label","Close"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[4,[32,1],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[12],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll"],[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/mask.js",scope:()=>[a.on,l.default],isStrictMode:!0}),n)},4082:()=>{},5953:(t,e,i)=>{"use strict"
+return this.args.invertOpacity&&(e=1-e),t+=`opacity: ${e};`,(0,r.htmlSafe)(t)}}n=c,(0,d.setComponentTemplate)((0,u.createTemplateFactory)({id:"wYevBVaj",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__mask"],[16,5,[30,0,["style"]]],[24,4,"button"],[24,"aria-label","Close"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[4,[32,1],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[12],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll"],[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/mask.js",scope:()=>[a.on,l.default],isStrictMode:!0}),n)},2559:function(t,e){window._eai_r=require,window._eai_d=define},4082:()=>{},5953:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>C})
 var n=i(8855),o=i.n(n),s=i(7970),r=i(4471)
 let a=!1
