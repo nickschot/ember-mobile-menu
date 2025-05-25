@@ -1,0 +1,16 @@
+diff --git a/package.json b/package.json
+index d35c583d22f08797101030ba0e047284836e7e5d..e99149e2c9ea1e34b7cb809af953d94b111b606f 100644
+--- a/package.json
++++ b/package.json
+@@ -44,9 +44,10 @@
+     ]
+   },
+   "dependencies": {
+-    "@ember/test-waiters": "^3.0.0",
++    "@ember/test-waiters": "*",
+     "@types/ember": "^3.16.5",
+     "@types/rsvp": "^4.0.4",
++    "ember-auto-import": "*",
+     "ember-cli-babel": "^7.26.6",
+     "ember-cli-typescript": "^4.2.1",
+     "ember-compatibility-helpers": "^1.2.5",
