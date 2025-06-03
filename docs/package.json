@@ -28,7 +28,7 @@
     "test:ember-compatibility": "ember try:each --port=4300"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.27.1",
+    "@babel/eslint-parser": "7.27.5",
     "@ember/optional-features": "2.2.0",
     "@ember/string": "4.0.1",
     "@ember/test-helpers": "5.2.2",
