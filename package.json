@@ -32,7 +32,7 @@
     "concurrently": "9.1.2",
     "release-plan": "0.16.0",
     "prettier": "3.5.3",
-    "prettier-plugin-ember-template-tag": "2.0.5"
+    "prettier-plugin-ember-template-tag": "2.0.6"
   },
   "packageManager": "pnpm@10.11.1+sha512.e519b9f7639869dc8d5c3c5dfef73b3f091094b0a006d7317353c72b124e80e1afd429732e28705ad6bfa1ee879c1fce46c128ccebd3192101f43dd67c667912",
   "publishConfig": {
