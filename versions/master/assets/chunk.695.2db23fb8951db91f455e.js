@@ -1,5 +1,5 @@
-"use strict";(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[261],{3642:(e,t,n)=>{let r
-function o(e){r=e}function i(){return r}n.r(t),n.d(t,{blur:()=>Ot,clearRender:()=>Ze,click:()=>At,currentRouteName:()=>fe,currentURL:()=>pe,doubleClick:()=>Nt,fillIn:()=>Gt,find:()=>nn,findAll:()=>rn,focus:()=>Rt,getApplication:()=>c,getContext:()=>Oe,getDebugInfo:()=>ne,getDeprecations:()=>$e,getDeprecationsDuringCallback:()=>Ae,getResolver:()=>i,getRootElement:()=>He,getSettledState:()=>ve,getTestMetadata:()=>W,getWarnings:()=>Ne,getWarningsDuringCallback:()=>Le,hasEmberVersion:()=>f,isSettled:()=>Ee,pauseTest:()=>Re,registerDebugInfoHelper:()=>Z,registerHook:()=>z,render:()=>Je,rerender:()=>it,resetOnerror:()=>_e,resumeTest:()=>je,runHooks:()=>X,scrollTo:()=>un,select:()=>Zt,setApplication:()=>a,setContext:()=>Me,setResolver:()=>o,settled:()=>Te,setupApplicationContext:()=>me,setupContext:()=>De,setupOnerror:()=>ke,setupRenderingContext:()=>et,tab:()=>Ft,tap:()=>Wt,teardownContext:()=>Fe,triggerEvent:()=>Ht,triggerKeyEvent:()=>Yt,typeIn:()=>on,unsetContext:()=>Se,validateErrorHandler:()=>lt,visit:()=>de,waitFor:()=>tn,waitUntil:()=>$})
+"use strict";(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[695],{8695:(e,t,n)=>{let r
+function o(e){r=e}function i(){return r}n.r(t),n.d(t,{blur:()=>Ot,clearRender:()=>Ze,click:()=>At,currentRouteName:()=>fe,currentURL:()=>pe,doubleClick:()=>Nt,fillIn:()=>Gt,find:()=>nn,findAll:()=>rn,focus:()=>Rt,getApplication:()=>c,getContext:()=>Oe,getDebugInfo:()=>ne,getDeprecations:()=>je,getDeprecationsDuringCallback:()=>Ae,getResolver:()=>i,getRootElement:()=>He,getSettledState:()=>ve,getTestMetadata:()=>W,getWarnings:()=>Ne,getWarningsDuringCallback:()=>Le,hasEmberVersion:()=>f,isSettled:()=>Ee,pauseTest:()=>Re,registerDebugInfoHelper:()=>Z,registerHook:()=>Y,render:()=>Je,rerender:()=>it,resetOnerror:()=>_e,resumeTest:()=>$e,runHooks:()=>X,scrollTo:()=>un,select:()=>Zt,setApplication:()=>a,setContext:()=>Me,setResolver:()=>o,settled:()=>Te,setupApplicationContext:()=>me,setupContext:()=>De,setupOnerror:()=>ke,setupRenderingContext:()=>et,tab:()=>Ft,tap:()=>Wt,teardownContext:()=>Fe,triggerEvent:()=>Ht,triggerKeyEvent:()=>zt,typeIn:()=>on,unsetContext:()=>Se,validateErrorHandler:()=>lt,visit:()=>de,waitFor:()=>tn,waitUntil:()=>j})
 var s=n(2294),u=n.n(s)
 let l
 function a(e){l=e,i()||o(e.Resolver.create({namespace:e}))}function c(){return l}var d=n(5152)
@@ -21,10 +21,10 @@ if(r&&r in e){const t=r
 e[t]=function(...n){return e._registry[t](...n)}}}}(i),{registry:r,container:i,owner:o}}(t)
 return Promise.resolve(n)}var T=n(8234),P=n(2394)
 function k(e){return null!==e&&"object"==typeof e&&Reflect.get(e,"nodeType")===Node.ELEMENT_NODE}function _(e){return e instanceof Window}function C(e){return null!==e&&"object"==typeof e&&Reflect.get(e,"nodeType")===Node.DOCUMENT_NODE}function I(e){return"isContentEditable"in e&&e.isContentEditable}const x=["INPUT","BUTTON","SELECT","TEXTAREA"]
-function M(e){return!_(e)&&!C(e)&&x.indexOf(e.tagName)>-1&&"hidden"!==e.type}const O=e=>Promise.resolve().then(e),S=setTimeout,R=[0,1,2,5,7],j=10
-function $(e,t={}){const n="timeout"in t?t.timeout:1e3,r="timeoutMessage"in t?t.timeoutMessage:"waitUntil timed out",o=new Error(r)
+function M(e){return!_(e)&&!C(e)&&x.indexOf(e.tagName)>-1&&"hidden"!==e.type}const O=e=>Promise.resolve().then(e),S=setTimeout,R=[0,1,2,5,7],$=10
+function j(e,t={}){const n="timeout"in t?t.timeout:1e3,r="timeoutMessage"in t?t.timeoutMessage:"waitUntil timed out",o=new Error(r)
 return new Promise(function(t,r){let i=0
-!function s(u){const l=R[u],a=void 0===l?j:l
+!function s(u){const l=R[u],a=void 0===l?$:l
 S(function(){let l
 i+=a
 try{l=e()}catch(e){return void r(e)}if(l)t(l)
@@ -45,9 +45,9 @@ function V(e){if(!e)throw new TypeError(`[@ember/test-helpers] could not get war
 let t=Q.get(e)
 return Array.isArray(t)||(t=[],Q.set(e,t)),t}if("undefined"!=typeof URLSearchParams){const e=new URLSearchParams(document.location.search.substring(1)),t=e.get("disabledWarnings"),n=e.get("debugWarnings")
 t&&(0,N.registerWarnHandler)((e,n,r)=>{n&&t.includes(n.id)||r.apply(null,[e,n])}),n&&(0,N.registerWarnHandler)((e,t,r)=>{t&&n.includes(t.id),r.apply(null,[e,t])})}const B=new Map
-function Y(e,t){return`${e}:${t}`}function z(e,t,n){const r=Y(e,t)
+function z(e,t){return`${e}:${t}`}function Y(e,t,n){const r=z(e,t)
 let o=B.get(r)
-return void 0===o&&(o=new Set,B.set(r,o)),o.add(n),{unregister(){o.delete(n)}}}function X(e,t,...n){const r=B.get(Y(e,t))||new Set,o=[]
+return void 0===o&&(o=new Set,B.set(r,o)),o.add(n),{unregister(){o.delete(n)}}}function X(e,t,...n){const r=B.get(z(e,t))||new Set,o=[]
 return r.forEach(e=>{const t=e(...n)
 o.push(t)}),Promise.all(o).then(()=>{})}var G=n(2186)
 const J=new Set
@@ -91,7 +91,7 @@ return null===e||(0,N.assert)("currentUrl should be a string, but was "+typeof e
 const we=T.Test.checkWaiters
 function be(e,t){ge.push(t)}function ye(e,t){O(()=>{for(let e=0;e<ge.length;e++)t===ge[e]&&ge.splice(e,1)})}function ve(){const e=h._backburner.hasTimers(),t=Boolean(h._backburner.currentInstance),n=we(),r=(0,G.hasPendingWaiters)(),o=(void 0!==ge?ge.length:0)+(0,P.pendingRequests)(),i=o>0,s=!!t
 return{hasPendingTimers:e,hasRunLoop:t,hasPendingWaiters:n||r,hasPendingRequests:i,hasPendingTransitions:ce(),isRenderPending:s,pendingRequestCount:o,debugInfo:new re({hasPendingTimers:e,hasRunLoop:t,hasPendingLegacyWaiters:n,hasPendingTestWaiters:r,hasPendingRequests:i,isRenderPending:s})}}function Ee(){const{hasPendingTimers:e,hasRunLoop:t,hasPendingRequests:n,hasPendingWaiters:r,hasPendingTransitions:o,isRenderPending:i}=ve()
-return!(e||t||n||r||o||i)}function Te(){return $(Ee,{timeout:1/0}).then(()=>{})}const Pe=new Map
+return!(e||t||n||r||o||i)}function Te(){return j(Ee,{timeout:1/0}).then(()=>{})}const Pe=new Map
 function ke(e){const t=Oe()
 if(!t)throw new Error("Must setup test context before calling setupOnerror")
 if(!Pe.has(t))throw new Error("_cacheOriginalOnerror must be called before setupOnerror. Normally, this will happen as part of your test harness.")
@@ -103,9 +103,9 @@ void 0!==r?(V(r).push({message:e,options:t}),n.apply(null,[e,t])):n.apply(null,[
 const xe=Ie("object"==typeof globalThis&&globalThis)||Ie("object"==typeof window&&window)||Ie("object"==typeof self&&self)||Ie("object"==typeof L&&L)
 function Me(e){xe.__test_context__=e}function Oe(){return xe.__test_context__}function Se(){xe.__test_context__=void 0}function Re(){const e=Oe()
 if(!e||!Ce(e))throw new Error("Cannot call `pauseTest` without having first called `setupTest` or `setupRenderingTest`.")
-return e.pauseTest()}function je(){const e=Oe()
+return e.pauseTest()}function $e(){const e=Oe()
 if(!e||!Ce(e))throw new Error("Cannot call `resumeTest` without having first called `setupTest` or `setupRenderingTest`.")
-e.resumeTest()}function $e(){const e=Oe()
+e.resumeTest()}function je(){const e=Oe()
 if(!e)throw new Error("[@ember/test-helpers] could not get deprecations if no test context is currently active")
 return q(e)}function Ae(e){const t=Oe()
 if(!t)throw new Error("[@ember/test-helpers] could not get deprecations if no test context is currently active")
@@ -122,7 +122,7 @@ return(0,N.setTesting)(!0),Me(n),W(n).setupTypes.push("setupContext"),h._backbur
 Pe.set(e,(0,A.getOnerror)())}(n),Promise.resolve().then(()=>{const e=c()
 if(e)return e.boot().then(()=>{})}).then(()=>{const{resolver:e}=t
 return e?E(null,e):E(c(),i())}).then(e=>{let t
-return Object.defineProperty(n,"owner",{configurable:!0,enumerable:!0,value:e,writable:!1}),(0,s.setOwner)(n,e),Object.defineProperty(n,"set",{configurable:!0,enumerable:!0,value:(e,t)=>(0,h.run)(function(){return(0,p.set)(n,e,t)}),writable:!1}),Object.defineProperty(n,"setProperties",{configurable:!0,enumerable:!0,value:e=>(0,h.run)(function(){return(0,p.setProperties)(n,e)}),writable:!1}),Object.defineProperty(n,"get",{configurable:!0,enumerable:!0,value:e=>(0,p.get)(n,e),writable:!1}),Object.defineProperty(n,"getProperties",{configurable:!0,enumerable:!0,value:(...e)=>(0,p.getProperties)(n,e),writable:!1}),n.resumeTest=function(){(0,N.assert)("Testing has not been paused. There is nothing to resume.",!!t),t(),L.resumeTest=t=void 0},n.pauseTest=function(){return console.info("Testing paused. Use `resumeTest()` to continue."),new Promise(e=>{t=e,L.resumeTest=je})},ge=[],void 0!==globalThis.jQuery&&(globalThis.jQuery(document).on("ajaxSend",be),globalThis.jQuery(document).on("ajaxComplete",ye)),n})}var Ke=n(1130)
+return Object.defineProperty(n,"owner",{configurable:!0,enumerable:!0,value:e,writable:!1}),(0,s.setOwner)(n,e),Object.defineProperty(n,"set",{configurable:!0,enumerable:!0,value:(e,t)=>(0,h.run)(function(){return(0,p.set)(n,e,t)}),writable:!1}),Object.defineProperty(n,"setProperties",{configurable:!0,enumerable:!0,value:e=>(0,h.run)(function(){return(0,p.setProperties)(n,e)}),writable:!1}),Object.defineProperty(n,"get",{configurable:!0,enumerable:!0,value:e=>(0,p.get)(n,e),writable:!1}),Object.defineProperty(n,"getProperties",{configurable:!0,enumerable:!0,value:(...e)=>(0,p.getProperties)(n,e),writable:!1}),n.resumeTest=function(){(0,N.assert)("Testing has not been paused. There is nothing to resume.",!!t),t(),L.resumeTest=t=void 0},n.pauseTest=function(){return console.info("Testing paused. Use `resumeTest()` to continue."),new Promise(e=>{t=e,L.resumeTest=$e})},ge=[],void 0!==globalThis.jQuery&&(globalThis.jQuery(document).on("ajaxSend",be),globalThis.jQuery(document).on("ajaxComplete",ye)),n})}var Ke=n(1130)
 function Fe(e,{waitForSettled:t=!0}={}){return Promise.resolve().then(()=>{!function(e){_e(),Pe.delete(e)}(e),ge=[],void 0!==globalThis.jQuery&&(globalThis.jQuery(document).off("ajaxSend",be),globalThis.jQuery(document).off("ajaxComplete",ye)),(0,N.setTesting)(!1),Se(),(0,Ke.destroy)(e.owner)}).finally(()=>{if(t)return Te()})}var We=n(4334)
 function He(){const e=Oe()
 if(!e||!Ce(e)||!e.owner)throw new Error("Must setup rendering context before attempting to interact with elements.")
@@ -132,12 +132,12 @@ if(n=t&&void 0===t._emberTestHelpersMockOwner?t.rootElement:"#ember-testing",n i
 if("string"==typeof n){const e=document.querySelector(n)
 if(e)return e
 throw new Error(`Application.rootElement (${n}) not found`)}throw new Error("Application.rootElement must be an element or a selector string")}var Ue=n(9095),qe=n(1465)
-const Qe=(0,qe.createTemplateFactory)({id:"fCA8rCIn",block:'[[[46,[28,[37,1],null,null],null,null,null]],[],["component","-outlet"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.2.2_@babel+core@7.27.4/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),Ve=(0,qe.createTemplateFactory)({id:"qPSAYElr",block:"[[],[],[]]",moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.2.2_@babel+core@7.27.4/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),Be=(0,qe.createTemplateFactory)({id:"NmkjsdYJ",block:'[[[8,[30,0,["ProvidedComponent"]],null,null,null]],[],[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.2.2_@babel+core@7.27.4/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),Ye=Symbol()
-function ze(e){return Ce(e)&&Ye in e}function Xe(e,t){const n=e.lookup(t)
+const Qe=(0,qe.createTemplateFactory)({id:"h+dYn6fo",block:'[[[46,[28,[37,1],null,null],null,null,null]],[],["component","-outlet"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.2.2_@babel+core@7.27.7/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),Ve=(0,qe.createTemplateFactory)({id:"ivGtKNMm",block:"[[],[],[]]",moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.2.2_@babel+core@7.27.7/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),Be=(0,qe.createTemplateFactory)({id:"bT4MoZeP",block:'[[[8,[30,0,["ProvidedComponent"]],null,null,null]],[],[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.2.2_@babel+core@7.27.7/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),ze=Symbol()
+function Ye(e){return Ce(e)&&ze in e}function Xe(e,t){const n=e.lookup(t)
 return"function"==typeof n?n(e):n}let Ge=0
 function Je(e,t){let n=Oe()
 if(!e)throw new Error("you must pass a template to `render()`")
-return Promise.resolve().then(()=>X("render","start")).then(()=>{if(!n||!ze(n))throw new Error("Cannot call `render` without having first called `setupRenderingContext`.")
+return Promise.resolve().then(()=>X("render","start")).then(()=>{if(!n||!Ye(n))throw new Error("Cannot call `render` without having first called `setupRenderingContext`.")
 const{owner:r}=n
 W(n).usedHelpers.push("render")
 const o=r.lookup("-top-level-view:main"),i=function(e){let t=Xe(e,"template:-outlet")
@@ -148,13 +148,13 @@ const l=`template:-undertest-${Ge}`
 s.register(l,e)
 const a=Xe(s,l),c={render:{owner:r,into:void 0,outlet:"main",name:"application",controller:void 0,ViewClass:void 0,template:i},outlets:{main:{render:{owner:s,into:void 0,outlet:"main",name:"index",controller:n,ViewClass:void 0,template:a,outlets:{}},outlets:{}}}}
 return o.setOutletState(c),Te()}).then(()=>X("render","end"))}function Ze(){const e=Oe()
-if(!e||!ze(e))throw new Error("Cannot call `clearRender` without having first called `setupRenderingContext`.")
+if(!e||!Ye(e))throw new Error("Cannot call `clearRender` without having first called `setupRenderingContext`.")
 return Je(Ve)}function et(e){W(e).setupTypes.push("setupRenderingContext")
-const t=function(e){return e[Ye]=!0,e}(e)
+const t=function(e){return e[ze]=!0,e}(e)
 return Promise.resolve().then(()=>{const{owner:e}=t
 e._emberTestHelpersMockOwner&&(e.lookup("event_dispatcher:main")||We.EventDispatcher.create()).setup({},"#ember-testing")
 const n=e.factoryFor?e.factoryFor("view:-outlet"):e._lookupFactory("view:-outlet"),r=e.lookup("-environment:main"),o=e.lookup("template:-outlet"),i=n.create({template:o,environment:r})
-return e.register("-top-level-view:main",{create:()=>i}),Je(Ve).then(()=>((0,h.run)(i,"appendTo",He()),Te()))}).then(()=>(Object.defineProperty(t,"element",{configurable:!0,enumerable:!0,value:He(),writable:!1}),t))}var tt=n(7906),nt=n(8935)
+return e.register("-top-level-view:main",{create:()=>i}),Je(Ve).then(()=>((0,h.run)(i,"appendTo",He()),Te()))}).then(()=>(Object.defineProperty(t,"element",{configurable:!0,enumerable:!0,value:He(),writable:!1}),t))}var tt=n(4879),nt=n(8935)
 let rt
 rt=(0,tt.A)(nt).renderSettled
 var ot=rt
@@ -173,7 +173,7 @@ if(void 0!==t.element)return t.element
 for(let n of t.elements||[])return n
 return null}(t)
 throw new Error("Must use an element, selector string, or DOM element descriptor")}}function ht(e){return _(e)?e:ft(e)}function pt(...e){return e}function mt(e,t,...n){"undefined"!=typeof location&&-1!==location.search.indexOf("testHelperLogging")&&console.log(`${e}(${[gt(t),...n.filter(Boolean)].join(", ")})`)}function gt(e){let t
-return e instanceof NodeList?0===e.length?"empty NodeList":(t=Array.prototype.slice.call(e,0,5).map(gt).join(", "),e.length>5?`${t}... (+${e.length-5} more)`:t):e instanceof HTMLElement||e instanceof SVGElement?(t=e.tagName.toLowerCase(),e.id&&(t+=`#${e.id}`),!e.className||e.className instanceof SVGAnimatedString||(t+=`.${String(e.className).replace(/\s+/g,".")}`),Array.prototype.forEach.call(e.attributes,function(e){"class"!==e.name&&"id"!==e.name&&(t+=`[${e.name}${e.value?`="${e.value}"]`:"]"}`)}),t):String(e)}z("fireEvent","start",e=>{mt("fireEvent",e)})
+return e instanceof NodeList?0===e.length?"empty NodeList":(t=Array.prototype.slice.call(e,0,5).map(gt).join(", "),e.length>5?`${t}... (+${e.length-5} more)`:t):e instanceof HTMLElement||e instanceof SVGElement?(t=e.tagName.toLowerCase(),e.id&&(t+=`#${e.id}`),!e.className||e.className instanceof SVGAnimatedString||(t+=`.${String(e.className).replace(/\s+/g,".")}`),Array.prototype.forEach.call(e.attributes,function(e){"class"!==e.name&&"id"!==e.name&&(t+=`[${e.name}${e.value?`="${e.value}"]`:"]"}`)}),t):String(e)}Y("fireEvent","start",e=>{mt("fireEvent",e)})
 const wt=(()=>{try{return new MouseEvent("test"),!0}catch{return!1}})(),bt={bubbles:!0,cancelable:!0},yt=pt("keydown","keypress","keyup")
 function vt(e){return yt.indexOf(e)>-1}const Et=pt("click","mousedown","mouseup","dblclick","mouseenter","mouseleave","mousemove","mouseout","mouseover"),Tt=pt("change")
 function Pt(e,t,n={}){return Promise.resolve().then(()=>X("fireEvent","start",e)).then(()=>X(`fireEvent:${t}`,"start",e)).then(()=>{if(!e)throw new Error("Must pass an element to `fireEvent`")
@@ -217,19 +217,19 @@ return t?Promise.resolve():Promise.resolve().then(()=>Pt(e,"focus",{bubbles:!1})
 const t=ft(e)
 if(!t){const t=xt(e)
 throw new Error(`Element not found when calling \`focus('${t}')\`.`)}if(!It(t))throw new Error(`${t} is not focusable`)
-return St(t).then(Te)}).then(()=>X("focus","end",e))}z("blur","start",e=>{mt("blur",e)}),z("focus","start",e=>{mt("focus",e)}),z("click","start",e=>{mt("click",e)})
-const jt={buttons:1,button:0}
-function $t(e,t){return Promise.resolve().then(()=>Pt(e,"mousedown",t)).then(t=>_(e)||t?.defaultPrevented?Promise.resolve():St(e)).then(()=>Pt(e,"mouseup",t)).then(()=>Pt(e,"click",t))}function At(e,t={}){const n={...jt,...t}
+return St(t).then(Te)}).then(()=>X("focus","end",e))}Y("blur","start",e=>{mt("blur",e)}),Y("focus","start",e=>{mt("focus",e)}),Y("click","start",e=>{mt("click",e)})
+const $t={buttons:1,button:0}
+function jt(e,t){return Promise.resolve().then(()=>Pt(e,"mousedown",t)).then(t=>_(e)||t?.defaultPrevented?Promise.resolve():St(e)).then(()=>Pt(e,"mouseup",t)).then(()=>Pt(e,"click",t))}function At(e,t={}){const n={...$t,...t}
 return Promise.resolve().then(()=>X("click","start",e,t)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `click`.")
 const t=ht(e)
 if(!t){const t=xt(e)
 throw new Error(`Element not found when calling \`click('${t}')\`.`)}if(M(t)&&t.disabled)throw new Error(`Can not \`click\` disabled ${t}`)
-return $t(t,n).then(Te)}).then(()=>X("click","end",e,t))}function Nt(e,t={}){const n={...jt,...t}
+return jt(t,n).then(Te)}).then(()=>X("click","end",e,t))}function Nt(e,t={}){const n={...$t,...t}
 return Promise.resolve().then(()=>X("doubleClick","start",e,t)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `doubleClick`.")
 const t=ht(e)
 if(!t){const t=xt(e)
 throw new Error(`Element not found when calling \`doubleClick('${t}')\`.`)}if(M(t)&&t.disabled)throw new Error(`Can not \`doubleClick\` disabled ${t}`)
-return function(e,t){return Promise.resolve().then(()=>Pt(e,"mousedown",t)).then(t=>_(e)||t?.defaultPrevented?Promise.resolve():St(e)).then(()=>Pt(e,"mouseup",t)).then(()=>Pt(e,"click",t)).then(()=>Pt(e,"mousedown",t)).then(()=>Pt(e,"mouseup",t)).then(()=>Pt(e,"click",t)).then(()=>Pt(e,"dblclick",t))}(t,n).then(Te)}).then(()=>X("doubleClick","end",e,t))}z("doubleClick","start",e=>{mt("doubleClick",e)})
+return function(e,t){return Promise.resolve().then(()=>Pt(e,"mousedown",t)).then(t=>_(e)||t?.defaultPrevented?Promise.resolve():St(e)).then(()=>Pt(e,"mouseup",t)).then(()=>Pt(e,"click",t)).then(()=>Pt(e,"mousedown",t)).then(()=>Pt(e,"mouseup",t)).then(()=>Pt(e,"click",t)).then(()=>Pt(e,"dblclick",t))}(t,n).then(Te)}).then(()=>X("doubleClick","end",e,t))}Y("doubleClick","start",e=>{mt("doubleClick",e)})
 const Lt="inert"in Element.prototype,Dt=["CANVAS","VIDEO","PICTURE"]
 function Kt(e){return e.activeElement||e.body}function Ft({backwards:e=!1,unRestrainTabIndex:t=!1}={}){return Promise.resolve().then(()=>function(e,t){const n=He()
 let r,o
@@ -254,12 +254,12 @@ return Pt(e,"keyup",i).then(()=>e)}).then(e=>{if(!t&&e.tabIndex>0)throw new Erro
 const n=ft(e)
 if(!n){const t=xt(e)
 throw new Error(`Element not found when calling \`tap('${t}')\`.`)}if(M(n)&&n.disabled)throw new Error(`Can not \`tap\` disabled ${n}`)
-return Pt(n,"touchstart",t).then(e=>Pt(n,"touchend",t).then(t=>[e,t])).then(([e,r])=>e.defaultPrevented||r.defaultPrevented?Promise.resolve():$t(n,t)).then(Te)}).then(()=>X("tap","end",e,t))}function Ht(e,t,n){return Promise.resolve().then(()=>X("triggerEvent","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `triggerEvent`.")
+return Pt(n,"touchstart",t).then(e=>Pt(n,"touchend",t).then(t=>[e,t])).then(([e,r])=>e.defaultPrevented||r.defaultPrevented?Promise.resolve():jt(n,t)).then(Te)}).then(()=>X("tap","end",e,t))}function Ht(e,t,n){return Promise.resolve().then(()=>X("triggerEvent","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `triggerEvent`.")
 if(!t)throw new Error("Must provide an `eventType` to `triggerEvent`")
 const r=ht(e)
 if(!r){const t=xt(e)
 throw new Error(`Element not found when calling \`triggerEvent('${t}', ...)\`.`)}if(M(r)&&r.disabled)throw new Error(`Can not \`triggerEvent\` on disabled ${r}`)
-return Pt(r,t,n).then(Te)}).then(()=>X("triggerEvent","end",e,t,n))}z("tab","start",e=>{mt("tab",e)}),z("tap","start",e=>{mt("tap",e)}),z("triggerEvent","start",(e,t)=>{mt("triggerEvent",e,t)}),z("triggerKeyEvent","start",(e,t,n)=>{mt("triggerKeyEvent",e,t,n)})
+return Pt(r,t,n).then(Te)}).then(()=>X("triggerEvent","end",e,t,n))}Y("tab","start",e=>{mt("tab",e)}),Y("tap","start",e=>{mt("tap",e)}),Y("triggerEvent","start",(e,t)=>{mt("triggerEvent",e,t)}),Y("triggerKeyEvent","start",(e,t,n)=>{mt("triggerKeyEvent",e,t,n)})
 const Ut=Object.freeze({ctrlKey:!1,altKey:!1,shiftKey:!1,metaKey:!1}),qt={8:"Backspace",9:"Tab",13:"Enter",16:"Shift",17:"Control",18:"Alt",20:"CapsLock",27:"Escape",32:" ",37:"ArrowLeft",38:"ArrowUp",39:"ArrowRight",40:"ArrowDown",48:"0",49:"1",50:"2",51:"3",52:"4",53:"5",54:"6",55:"7",56:"8",57:"9",65:"a",66:"b",67:"c",68:"d",69:"e",70:"f",71:"g",72:"h",73:"i",74:"j",75:"k",76:"l",77:"m",78:"n",79:"o",80:"p",81:"q",82:"r",83:"s",84:"t",85:"u",86:"v",87:"w",88:"x",89:"y",90:"z",91:"Meta",93:"Meta",186:";",187:"=",188:",",189:"-",190:".",191:"/",219:"[",220:"\\",221:"]",222:"'"},Qt={48:")",49:"!",50:"@",51:"#",52:"$",53:"%",54:"^",55:"&",56:"*",57:"(",186:":",187:"+",188:"<",189:"_",190:">",191:"?",219:"{",220:"|",221:"}",222:'"'}
 function Vt(e,t){return e>64&&e<91?t.shiftKey?String.fromCharCode(e):String.fromCharCode(e).toLocaleLowerCase():t.shiftKey&&Qt[e]||qt[e]}function Bt(e,t,n,r=Ut){return Promise.resolve().then(()=>{let o
 if("number"==typeof n)o={keyCode:n,which:n,key:Vt(n,r),...r}
@@ -270,15 +270,15 @@ if(i=n,!isNaN(parseFloat(i))&&isFinite(Number(i))&&n.length>1)throw new Error(`M
 const t=function(e){const t=Object.keys(qt),n=t.find(t=>qt[Number(t)]===e)||t.find(t=>qt[Number(t)]===e.toLowerCase())
 return void 0!==n?parseInt(n):void 0}(n)
 o={keyCode:t,which:t,key:n,...r}}}var i
-return Pt(e,t,o)})}function Yt(e,t,n,r=Ut){return Promise.resolve().then(()=>X("triggerKeyEvent","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `triggerKeyEvent`.")
+return Pt(e,t,o)})}function zt(e,t,n,r=Ut){return Promise.resolve().then(()=>X("triggerKeyEvent","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `triggerKeyEvent`.")
 const o=ft(e)
 if(!o){const t=xt(e)
 throw new Error(`Element not found when calling \`triggerKeyEvent('${t}')\`.`)}if(!t)throw new Error("Must provide an `eventType` to `triggerKeyEvent`")
 if(!vt(t)){const e=yt.join(", ")
 throw new Error(`Must provide an \`eventType\` of ${e} to \`triggerKeyEvent\` but you passed \`${t}\`.`)}if(M(o)&&o.disabled)throw new Error(`Can not \`triggerKeyEvent\` on disabled ${o}`)
-return Bt(o,t,n,r).then(Te)}).then(()=>X("triggerKeyEvent","end",e,t,n))}const zt=["text","search","url","tel","email","password"]
+return Bt(o,t,n,r).then(Te)}).then(()=>X("triggerKeyEvent","end",e,t,n))}const Yt=["text","search","url","tel","email","password"]
 function Xt(e,t,n){const r=e.getAttribute("maxlength")
-if(function(e){return!!Number(e.getAttribute("maxlength"))&&(e instanceof HTMLTextAreaElement||e instanceof HTMLInputElement&&zt.indexOf(e.type)>-1)}(e)&&r&&t&&t.length>Number(r))throw new Error(`Can not \`${n}\` with text: '${t}' that exceeds maxlength: '${r}'.`)}function Gt(e,t){return Promise.resolve().then(()=>X("fillIn","start",e,t)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `fillIn`.")
+if(function(e){return!!Number(e.getAttribute("maxlength"))&&(e instanceof HTMLTextAreaElement||e instanceof HTMLInputElement&&Yt.indexOf(e.type)>-1)}(e)&&r&&t&&t.length>Number(r))throw new Error(`Can not \`${n}\` with text: '${t}' that exceeds maxlength: '${r}'.`)}function Gt(e,t){return Promise.resolve().then(()=>X("fillIn","start",e,t)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `fillIn`.")
 const n=ft(e)
 if(!n){const t=xt(e)
 throw new Error(`Element not found when calling \`fillIn('${t}')\`.`)}if(null==t)throw new Error("Must provide `text` when calling `fillIn`.")
@@ -304,7 +304,7 @@ throw new Error("Must use a selector string or DOM element descriptor")}}functio
 const{timeout:n=1e3,count:r=null}=t
 let o,{timeoutMessage:i}=t
 return i||(i=`waitFor timed out waiting for selector "${xt(e)}"`),o=null!==r?()=>{const t=Array.from(en(e))
-if(t.length===r)return t}:()=>ft(e),$(o,{timeout:n,timeoutMessage:i})})}function nn(e){if(!e)throw new Error("Must pass a selector to `find`.")
+if(t.length===r)return t}:()=>ft(e),j(o,{timeout:n,timeoutMessage:i})})}function nn(e){if(!e)throw new Error("Must pass a selector to `find`.")
 if(arguments.length>1)throw new Error("The `find` test helper only takes a single argument.")
 return ft(e)}function rn(e){if(!e)throw new Error("Must pass a selector to `findAll`.")
 if(arguments.length>1)throw new Error("The `findAll` test helper only takes a single argument.")
@@ -324,4 +324,4 @@ if(void 0===t||void 0===n)throw new Error("Must pass both x and y coordinates to
 const r=ft(e)
 if(!r)throw new Error(sn("Element not found",e))
 if(!k(r)){let t
-throw t=C(r)?"Document":r.nodeType,new Error(sn(`"target" must be an element, but was a ${t}`,e))}return r.scrollTop=n,r.scrollLeft=t,Pt(r,"scroll").then(Te)}).then(()=>X("scrollTo","end",e))}z("fillIn","start",(e,t)=>{mt("fillIn",e,t)}),z("typeIn","start",(e,t)=>{mt("typeIn",e,t)})}}])
+throw t=C(r)?"Document":r.nodeType,new Error(sn(`"target" must be an element, but was a ${t}`,e))}return r.scrollTop=n,r.scrollLeft=t,Pt(r,"scroll").then(Te)}).then(()=>X("scrollTo","end",e))}Y("fillIn","start",(e,t)=>{mt("fillIn",e,t)}),Y("typeIn","start",(e,t)=>{mt("typeIn",e,t)})}}])
