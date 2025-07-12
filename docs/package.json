@@ -69,7 +69,7 @@
     "eslint-plugin-ember": "12.5.0",
     "eslint-plugin-n": "17.21.0",
     "eslint-plugin-prettier": "5.5.1",
-    "eslint-plugin-qunit": "8.1.2",
+    "eslint-plugin-qunit": "8.2.3",
     "globals": "16.2.0",
     "loader.js": "4.7.0",
     "npm-run-all2": "7.0.2",
