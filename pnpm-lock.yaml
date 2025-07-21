@@ -39,8 +39,8 @@ importers:
         specifier: 5.2.2
         version: 5.2.2(@babel/core@7.28.0)
       '@ember/test-waiters':
-        specifier: 3.1.0
-        version: 3.1.0
+        specifier: 4.1.1
+        version: 4.1.1
       '@eslint/js':
         specifier: 9.31.0
         version: 9.31.0
@@ -61,7 +61,7 @@ importers:
         version: 6.5.0(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
       ember-cli-addon-docs:
         specifier: 8.0.8
-        version: 8.0.8(@babel/core@7.28.0)(@ember-data/adapter@5.6.0)(@ember-data/model@5.6.0)(@ember-data/serializer@5.6.0)(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@3.1.0))(@ember/test-waiters@3.1.0))(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(ember-data@5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(@ember/test-waiters@3.1.0)(qunit@2.24.1))(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))(webpack@5.100.2)
+        version: 8.0.8(@babel/core@7.28.0)(@ember-data/adapter@5.6.0)(@ember-data/model@5.6.0)(@ember-data/serializer@5.6.0)(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1))(@ember/test-waiters@4.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(ember-data@5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(@ember/test-waiters@4.1.1)(qunit@2.24.1))(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))(webpack@5.100.2)
       ember-cli-addon-docs-yuidoc:
         specifier: 1.1.0
         version: 1.1.0
@@ -100,7 +100,7 @@ importers:
         version: 4.0.2
       ember-data:
         specifier: 5.6.0
-        version: 5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(@ember/test-waiters@3.1.0)(qunit@2.24.1)
+        version: 5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(@ember/test-waiters@4.1.1)(qunit@2.24.1)
       ember-disable-prototype-extensions:
         specifier: 1.1.3
         version: 1.1.3
@@ -1165,6 +1165,9 @@ packages:
   '@ember/test-waiters@3.1.0':
     resolution: {integrity: sha512-bb9h95ktG2wKY9+ja1sdsFBdOms2lB19VWs8wmNpzgHv1NCetonBoV5jHBV4DHt0uS1tg9z66cZqhUVlYs96KQ==}
     engines: {node: 10.* || 12.* || >= 14.*}
+
+  '@ember/test-waiters@4.1.1':
+    resolution: {integrity: sha512-HbK70JYCDJcGI0CrwcbjeL2QHAn0HLwa3oGep7mr6l/yO95U7JYA8VN+/9VTsWJTmKueLtWayUqEmGS3a3mVOg==}
 
   '@embroider/addon-dev@7.1.5':
     resolution: {integrity: sha512-fa7PqRePEPk41AGSydRg9XgFBSTRGzcez2Rh9HFZ4Lz0aGZtvkZMEnetQYCUNDzDGUyc9mDodA9uBN2KU3Cb/A==}
@@ -9808,11 +9811,11 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/debug@5.6.0(@ember-data/model@5.6.0)(@ember-data/request-utils@5.6.0)(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@3.1.0))(@ember/test-waiters@3.1.0))(@warp-drive/core-types@5.6.0)':
+  '@ember-data/debug@5.6.0(@ember-data/model@5.6.0)(@ember-data/request-utils@5.6.0)(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1))(@ember/test-waiters@4.1.1))(@warp-drive/core-types@5.6.0)':
     dependencies:
       '@ember-data/model': 5.6.0
       '@ember-data/request-utils': 5.6.0
-      '@ember-data/store': 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@3.1.0))(@ember/test-waiters@3.1.0)
+      '@ember-data/store': 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1))(@ember/test-waiters@4.1.1)
       '@ember/edition-utils': 1.2.0
       '@embroider/macros': 1.18.0
       '@warp-drive/core': 5.6.0
@@ -9896,20 +9899,20 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@3.1.0))(@ember/test-waiters@3.1.0)':
+  '@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1))(@ember/test-waiters@4.1.1)':
     dependencies:
       '@embroider/macros': 1.18.0
       '@warp-drive/core': 5.6.0
     optionalDependencies:
-      '@ember-data/tracking': 5.6.0(@ember/test-waiters@3.1.0)
-      '@ember/test-waiters': 3.1.0
+      '@ember-data/tracking': 5.6.0(@ember/test-waiters@4.1.1)
+      '@ember/test-waiters': 4.1.1
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/tracking@5.6.0(@ember/test-waiters@3.1.0)':
+  '@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1)':
     dependencies:
-      '@ember/test-waiters': 3.1.0
+      '@ember/test-waiters': 4.1.1
       '@embroider/macros': 1.18.0
       '@warp-drive/core': 5.6.0
     transitivePeerDependencies:
@@ -9943,7 +9946,7 @@ snapshots:
 
   '@ember/test-helpers@5.2.2(@babel/core@7.28.0)':
     dependencies:
-      '@ember/test-waiters': 3.1.0
+      '@ember/test-waiters': 4.1.1
       '@embroider/addon-shim': 1.10.0
       '@embroider/macros': 1.18.0
       '@simple-dom/interface': 1.4.0
@@ -9961,6 +9964,14 @@ snapshots:
       ember-cli-version-checker: 5.1.2
       semver: 7.7.2
     transitivePeerDependencies:
+      - supports-color
+
+  '@ember/test-waiters@4.1.1':
+    dependencies:
+      '@embroider/addon-shim': 1.10.0
+      '@embroider/macros': 1.18.0
+    transitivePeerDependencies:
+      - '@glint/template'
       - supports-color
 
   '@embroider/addon-dev@7.1.5(rollup@4.45.1)':
@@ -11019,9 +11030,9 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  '@warp-drive/ember@5.6.0(@ember/test-waiters@3.1.0)':
+  '@warp-drive/ember@5.6.0(@ember/test-waiters@4.1.1)':
     dependencies:
-      '@ember/test-waiters': 3.1.0
+      '@ember/test-waiters': 4.1.1
       '@embroider/macros': 1.18.0
       '@warp-drive/core': 5.6.0
     transitivePeerDependencies:
@@ -13927,7 +13938,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-cli-addon-docs@8.0.8(@babel/core@7.28.0)(@ember-data/adapter@5.6.0)(@ember-data/model@5.6.0)(@ember-data/serializer@5.6.0)(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@3.1.0))(@ember/test-waiters@3.1.0))(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(ember-data@5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(@ember/test-waiters@3.1.0)(qunit@2.24.1))(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))(webpack@5.100.2):
+  ember-cli-addon-docs@8.0.8(@babel/core@7.28.0)(@ember-data/adapter@5.6.0)(@ember-data/model@5.6.0)(@ember-data/serializer@5.6.0)(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1))(@ember/test-waiters@4.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(ember-data@5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(@ember/test-waiters@4.1.1)(qunit@2.24.1))(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))(webpack@5.100.2):
     dependencies:
       '@csstools/postcss-sass': 5.1.1(postcss@8.5.6)
       '@ember/render-modifiers': 2.1.0(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
@@ -13959,7 +13970,7 @@ snapshots:
       ember-code-snippet: 3.0.0
       ember-composable-helpers: 5.0.0
       ember-concurrency: 3.1.1(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
-      ember-data: 5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(@ember/test-waiters@3.1.0)(qunit@2.24.1)
+      ember-data: 5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(@ember/test-waiters@4.1.1)(qunit@2.24.1)
       ember-keyboard: 9.0.2(@babel/core@7.28.0)(@ember/test-helpers@5.2.2(@babel/core@7.28.0))
       ember-modal-dialog: 4.1.5(@ember/string@4.0.1)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))(ember-tether@3.1.0(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))(webpack@5.100.2))
       ember-responsive: 5.0.0
@@ -14002,7 +14013,7 @@ snapshots:
       '@ember-data/adapter': 5.6.0
       '@ember-data/model': 5.6.0
       '@ember-data/serializer': 5.6.0
-      '@ember-data/store': 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@3.1.0))(@ember/test-waiters@3.1.0)
+      '@ember-data/store': 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1))(@ember/test-waiters@4.1.1)
     transitivePeerDependencies:
       - '@babel/core'
       - '@ember/test-helpers'
@@ -14624,10 +14635,10 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-data@5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(@ember/test-waiters@3.1.0)(qunit@2.24.1):
+  ember-data@5.6.0(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(@ember/test-waiters@4.1.1)(qunit@2.24.1):
     dependencies:
       '@ember-data/adapter': 5.6.0
-      '@ember-data/debug': 5.6.0(@ember-data/model@5.6.0)(@ember-data/request-utils@5.6.0)(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@3.1.0))(@ember/test-waiters@3.1.0))(@warp-drive/core-types@5.6.0)
+      '@ember-data/debug': 5.6.0(@ember-data/model@5.6.0)(@ember-data/request-utils@5.6.0)(@ember-data/store@5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1))(@ember/test-waiters@4.1.1))(@warp-drive/core-types@5.6.0)
       '@ember-data/graph': 5.6.0
       '@ember-data/json-api': 5.6.0
       '@ember-data/legacy-compat': 5.6.0
@@ -14635,14 +14646,14 @@ snapshots:
       '@ember-data/request': 5.6.0
       '@ember-data/request-utils': 5.6.0
       '@ember-data/serializer': 5.6.0
-      '@ember-data/store': 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@3.1.0))(@ember/test-waiters@3.1.0)
-      '@ember-data/tracking': 5.6.0(@ember/test-waiters@3.1.0)
+      '@ember-data/store': 5.6.0(@ember-data/tracking@5.6.0(@ember/test-waiters@4.1.1))(@ember/test-waiters@4.1.1)
+      '@ember-data/tracking': 5.6.0(@ember/test-waiters@4.1.1)
       '@ember/edition-utils': 1.2.0
-      '@ember/test-waiters': 3.1.0
+      '@ember/test-waiters': 4.1.1
       '@embroider/macros': 1.18.0
       '@warp-drive/core': 5.6.0
       '@warp-drive/core-types': 5.6.0
-      '@warp-drive/ember': 5.6.0(@ember/test-waiters@3.1.0)
+      '@warp-drive/ember': 5.6.0(@ember/test-waiters@4.1.1)
       '@warp-drive/json-api': 5.6.0(@warp-drive/core@5.6.0)
       '@warp-drive/legacy': 5.6.0(@warp-drive/core@5.6.0)(@warp-drive/utilities@5.6.0(@warp-drive/core@5.6.0))
       '@warp-drive/utilities': 5.6.0(@warp-drive/core@5.6.0)
