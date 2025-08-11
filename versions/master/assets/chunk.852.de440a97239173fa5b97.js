@@ -1,5 +1,5 @@
 "use strict";(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[852],{2852:(e,t,n)=>{let r
-function o(e){r=e}function i(){return r}n.r(t),n.d(t,{blur:()=>Ot,clearRender:()=>Ze,click:()=>At,currentRouteName:()=>fe,currentURL:()=>pe,doubleClick:()=>Nt,fillIn:()=>Jt,find:()=>nn,findAll:()=>rn,focus:()=>Rt,getApplication:()=>c,getContext:()=>Oe,getDebugInfo:()=>ne,getDeprecations:()=>je,getDeprecationsDuringCallback:()=>Ae,getResolver:()=>i,getRootElement:()=>He,getSettledState:()=>ve,getTestMetadata:()=>W,getWarnings:()=>Ne,getWarningsDuringCallback:()=>Le,hasEmberVersion:()=>f,isSettled:()=>Ee,pauseTest:()=>Re,registerDebugInfoHelper:()=>Z,registerHook:()=>X,render:()=>Ge,rerender:()=>it,resetOnerror:()=>_e,resumeTest:()=>$e,runHooks:()=>Y,scrollTo:()=>un,select:()=>Zt,setApplication:()=>a,setContext:()=>Me,setResolver:()=>o,settled:()=>Te,setupApplicationContext:()=>me,setupContext:()=>De,setupOnerror:()=>ke,setupRenderingContext:()=>et,tab:()=>Ft,tap:()=>Wt,teardownContext:()=>Fe,triggerEvent:()=>Ht,triggerKeyEvent:()=>zt,typeIn:()=>on,unsetContext:()=>Se,validateErrorHandler:()=>lt,visit:()=>de,waitFor:()=>tn,waitUntil:()=>j})
+function o(e){r=e}function i(){return r}n.r(t),n.d(t,{blur:()=>xt,clearRender:()=>et,click:()=>$t,currentRouteName:()=>fe,currentURL:()=>pe,doubleClick:()=>jt,fillIn:()=>Xt,find:()=>en,findAll:()=>tn,focus:()=>Ot,getApplication:()=>c,getContext:()=>Oe,getDebugInfo:()=>ne,getDeprecations:()=>je,getDeprecationsDuringCallback:()=>Ae,getResolver:()=>i,getRootElement:()=>He,getSettledState:()=>ve,getTestMetadata:()=>W,getWarnings:()=>Ne,getWarningsDuringCallback:()=>Le,hasEmberVersion:()=>f,isSettled:()=>Ee,pauseTest:()=>Re,registerDebugInfoHelper:()=>Z,registerHook:()=>X,render:()=>Ze,rerender:()=>rt,resetOnerror:()=>_e,resumeTest:()=>$e,runHooks:()=>Y,scrollTo:()=>on,select:()=>Jt,setApplication:()=>a,setContext:()=>Me,setResolver:()=>o,settled:()=>Te,setupApplicationContext:()=>me,setupContext:()=>De,setupOnerror:()=>ke,setupRenderingContext:()=>tt,tab:()=>Dt,tap:()=>Kt,teardownContext:()=>Fe,triggerEvent:()=>Ft,triggerKeyEvent:()=>Vt,typeIn:()=>nn,unsetContext:()=>Se,validateErrorHandler:()=>st,visit:()=>de,waitFor:()=>Zt,waitUntil:()=>j})
 var s=n(2294),u=n.n(s)
 let l
 function a(e){l=e,i()||o(e.Resolver.create({namespace:e}))}function c(){return l}var d=n(5152)
@@ -134,8 +134,8 @@ if(e)return e
 throw new Error(`Application.rootElement (${n}) not found`)}throw new Error("Application.rootElement must be an element or a selector string")}var Ue=n(9095),qe=n(1465)
 const Qe=(0,qe.createTemplateFactory)({id:"PsXKpUzY",block:'[[[46,[28,[37,1],null,null],null,null,null]],[],["component","-outlet"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.2.2_@babel+core@7.28.0/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),Ve=(0,qe.createTemplateFactory)({id:"QgLJaJdR",block:"[[],[],[]]",moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.2.2_@babel+core@7.28.0/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),Be=(0,qe.createTemplateFactory)({id:"mp+JPAMk",block:'[[[8,[30,0,["ProvidedComponent"]],null,null,null]],[],[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.2.2_@babel+core@7.28.0/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),ze=Symbol()
 function Xe(e){return Ce(e)&&ze in e}function Ye(e,t){const n=e.lookup(t)
-return"function"==typeof n?n(e):n}let Je=0
-function Ge(e,t){let n=Oe()
+return"function"==typeof n?n(e):n}let Je,Ge=0
+function Ze(e,t){let n=Oe()
 if(!e)throw new Error("you must pass a template to `render()`")
 return Promise.resolve().then(()=>Y("render","start")).then(()=>{if(!n||!Xe(n))throw new Error("Cannot call `render` without having first called `setupRenderingContext`.")
 const{owner:r}=n
@@ -143,185 +143,183 @@ W(n).usedHelpers.push("render")
 const o=r.lookup("-top-level-view:main"),i=function(e){let t=Ye(e,"template:-outlet")
 return t||(e.register("template:-outlet",Qe),t=Ye(e,"template:-outlet")),t}(r),s=t?.owner||r
 var u
-u=e,(0,Ue.getInternalComponentManager)(u,!0)&&(n={ProvidedComponent:e},e=Be),Je+=1
-const l=`template:-undertest-${Je}`
+u=e,(0,Ue.getInternalComponentManager)(u,!0)&&(n={ProvidedComponent:e},e=Be),Ge+=1
+const l=`template:-undertest-${Ge}`
 s.register(l,e)
 const a=Ye(s,l),c={render:{owner:r,into:void 0,outlet:"main",name:"application",controller:void 0,ViewClass:void 0,template:i},outlets:{main:{render:{owner:s,into:void 0,outlet:"main",name:"index",controller:n,ViewClass:void 0,template:a,outlets:{}},outlets:{}}}}
-return o.setOutletState(c),Te()}).then(()=>Y("render","end"))}function Ze(){const e=Oe()
+return o.setOutletState(c),Te()}).then(()=>Y("render","end"))}function et(){const e=Oe()
 if(!e||!Xe(e))throw new Error("Cannot call `clearRender` without having first called `setupRenderingContext`.")
-return Ge(Ve)}function et(e){W(e).setupTypes.push("setupRenderingContext")
+return Ze(Ve)}function tt(e){W(e).setupTypes.push("setupRenderingContext")
 const t=function(e){return e[ze]=!0,e}(e)
 return Promise.resolve().then(()=>{const{owner:e}=t
 e._emberTestHelpersMockOwner&&(e.lookup("event_dispatcher:main")||We.EventDispatcher.create()).setup({},"#ember-testing")
 const n=e.factoryFor?e.factoryFor("view:-outlet"):e._lookupFactory("view:-outlet"),r=e.lookup("-environment:main"),o=e.lookup("template:-outlet"),i=n.create({template:o,environment:r})
-return e.register("-top-level-view:main",{create:()=>i}),Ge(Ve).then(()=>((0,h.run)(i,"appendTo",He()),Te()))}).then(()=>(Object.defineProperty(t,"element",{configurable:!0,enumerable:!0,value:He(),writable:!1}),t))}var tt=n(9569),nt=n(8935)
-let rt
-rt=(0,tt.A)(nt).renderSettled
-var ot=rt
-function it(){return ot()}const st=Object.freeze({isValid:!0,message:null}),ut=Object.freeze({isValid:!1,message:"error handler should have re-thrown the provided error"})
-function lt(e=(0,A.getOnerror)()){if(null==e)return st
+return e.register("-top-level-view:main",{create:()=>i}),Ze(Ve).then(()=>((0,h.run)(i,"appendTo",He()),Te()))}).then(()=>(Object.defineProperty(t,"element",{configurable:!0,enumerable:!0,value:He(),writable:!1}),t))}Je=(0,n(3202).A)(n(8935)).renderSettled
+var nt=Je
+function rt(){return nt()}const ot=Object.freeze({isValid:!0,message:null}),it=Object.freeze({isValid:!1,message:"error handler should have re-thrown the provided error"})
+function st(e=(0,A.getOnerror)()){if(null==e)return ot
 const t=new Error("Error handler validation error!"),n=(0,N.isTesting)();(0,N.setTesting)(!0)
-try{e(t)}catch(e){if(e===t)return st}finally{(0,N.setTesting)(n)}return ut}const at="__dom_element_descriptor_is_descriptor__"
-function ct(e){return Boolean("object"==typeof e&&e&&at in e)}function dt(e){return function(){const e=window
-return e.domElementDescriptorsRegistry=e.domElementDescriptorsRegistry||new WeakMap,e.domElementDescriptorsRegistry}().get(e)||null}function ft(e){if("string"==typeof e)return He().querySelector(e)
+try{e(t)}catch(e){if(e===t)return ot}finally{(0,N.setTesting)(n)}return it}const ut="__dom_element_descriptor_is_descriptor__"
+function lt(e){return Boolean("object"==typeof e&&e&&ut in e)}function at(e){return function(){const e=window
+return e.domElementDescriptorsRegistry=e.domElementDescriptorsRegistry||new WeakMap,e.domElementDescriptorsRegistry}().get(e)||null}function ct(e){if("string"==typeof e)return He().querySelector(e)
 if(k(e)||C(e))return e
 if(e instanceof Window)return e.document
-{const t=dt(e)
-if(t)return function(e){let t=ct(e)?dt(e):e
+{const t=at(e)
+if(t)return function(e){let t=lt(e)?at(e):e
 if(!t)return null
 if(void 0!==t.element)return t.element
 for(let n of t.elements||[])return n
 return null}(t)
-throw new Error("Must use an element, selector string, or DOM element descriptor")}}function ht(e){return _(e)?e:ft(e)}function pt(...e){return e}function mt(e,t,...n){"undefined"!=typeof location&&-1!==location.search.indexOf("testHelperLogging")&&console.log(`${e}(${[gt(t),...n.filter(Boolean)].join(", ")})`)}function gt(e){let t
-return e instanceof NodeList?0===e.length?"empty NodeList":(t=Array.prototype.slice.call(e,0,5).map(gt).join(", "),e.length>5?`${t}... (+${e.length-5} more)`:t):e instanceof HTMLElement||e instanceof SVGElement?(t=e.tagName.toLowerCase(),e.id&&(t+=`#${e.id}`),!e.className||e.className instanceof SVGAnimatedString||(t+=`.${String(e.className).replace(/\s+/g,".")}`),Array.prototype.forEach.call(e.attributes,function(e){"class"!==e.name&&"id"!==e.name&&(t+=`[${e.name}${e.value?`="${e.value}"]`:"]"}`)}),t):String(e)}X("fireEvent","start",e=>{mt("fireEvent",e)})
-const wt=(()=>{try{return new MouseEvent("test"),!0}catch{return!1}})(),bt={bubbles:!0,cancelable:!0},yt=pt("keydown","keypress","keyup")
-function vt(e){return yt.indexOf(e)>-1}const Et=pt("click","mousedown","mouseup","dblclick","mouseenter","mouseleave","mousemove","mouseout","mouseover"),Tt=pt("change")
-function Pt(e,t,n={}){return Promise.resolve().then(()=>Y("fireEvent","start",e)).then(()=>Y(`fireEvent:${t}`,"start",e)).then(()=>{if(!e)throw new Error("Must pass an element to `fireEvent`")
+throw new Error("Must use an element, selector string, or DOM element descriptor")}}function dt(e){return _(e)?e:ct(e)}function ft(...e){return e}function ht(e,t,...n){"undefined"!=typeof location&&-1!==location.search.indexOf("testHelperLogging")&&console.log(`${e}(${[pt(t),...n.filter(Boolean)].join(", ")})`)}function pt(e){let t
+return e instanceof NodeList?0===e.length?"empty NodeList":(t=Array.prototype.slice.call(e,0,5).map(pt).join(", "),e.length>5?`${t}... (+${e.length-5} more)`:t):e instanceof HTMLElement||e instanceof SVGElement?(t=e.tagName.toLowerCase(),e.id&&(t+=`#${e.id}`),!e.className||e.className instanceof SVGAnimatedString||(t+=`.${String(e.className).replace(/\s+/g,".")}`),Array.prototype.forEach.call(e.attributes,function(e){"class"!==e.name&&"id"!==e.name&&(t+=`[${e.name}${e.value?`="${e.value}"]`:"]"}`)}),t):String(e)}X("fireEvent","start",e=>{ht("fireEvent",e)})
+const mt=(()=>{try{return new MouseEvent("test"),!0}catch{return!1}})(),gt={bubbles:!0,cancelable:!0},wt=ft("keydown","keypress","keyup")
+function bt(e){return wt.indexOf(e)>-1}const yt=ft("click","mousedown","mouseup","dblclick","mouseenter","mouseleave","mousemove","mouseout","mouseover"),vt=ft("change")
+function Et(e,t,n={}){return Promise.resolve().then(()=>Y("fireEvent","start",e)).then(()=>Y(`fireEvent:${t}`,"start",e)).then(()=>{if(!e)throw new Error("Must pass an element to `fireEvent`")
 let r
-if(vt(t))r=_t(t,n)
-else if(function(e){return Et.indexOf(e)>-1}(t)){let o
+if(bt(t))r=Pt(t,n)
+else if(function(e){return yt.indexOf(e)>-1}(t)){let o
 if(e instanceof Window&&e.document.documentElement)o=e.document.documentElement.getBoundingClientRect()
 else if(C(e))o=e.documentElement.getBoundingClientRect()
 else{if(!k(e))return
 o=e.getBoundingClientRect()}const i=o.left+1,s=o.top+1,u={screenX:i+5,screenY:s+95,clientX:i,clientY:s,...n}
 r=function(e,t={}){let n
-const r={view:window,...bt,...t}
-if(wt)n=new MouseEvent(e,r)
-else try{n=document.createEvent("MouseEvents"),n.initMouseEvent(e,r.bubbles,r.cancelable,window,r.detail,r.screenX,r.screenY,r.clientX,r.clientY,r.ctrlKey,r.altKey,r.shiftKey,r.metaKey,r.button,r.relatedTarget)}catch{n=kt(e,t)}return n}(t,u)}else r=function(e){return Tt.indexOf(e)>-1}(t)&&function(e){return e.files}(e)?function(e,t,n={}){const r=kt(e),o=n.files
+const r={view:window,...gt,...t}
+if(mt)n=new MouseEvent(e,r)
+else try{n=document.createEvent("MouseEvents"),n.initMouseEvent(e,r.bubbles,r.cancelable,window,r.detail,r.screenX,r.screenY,r.clientX,r.clientY,r.ctrlKey,r.altKey,r.shiftKey,r.metaKey,r.button,r.relatedTarget)}catch{n=Tt(e,t)}return n}(t,u)}else r=function(e){return vt.indexOf(e)>-1}(t)&&function(e){return e.files}(e)?function(e,t,n={}){const r=Tt(e),o=n.files
 if(Array.isArray(n))throw new Error("Please pass an object with a files array to `triggerEvent` instead of passing the `options` param as an array to.")
 if(Array.isArray(o)){Object.defineProperty(o,"item",{value(e){return"number"==typeof e?this[e]:null},configurable:!0}),Object.defineProperty(t,"files",{value:o,configurable:!0})
 const e=Object.getPrototypeOf(t),n=Object.getOwnPropertyDescriptor(e,"value")
-Object.defineProperty(t,"value",{configurable:!0,get:()=>n.get.call(t),set(e){n.set.call(t,e),Object.defineProperty(t,"files",{configurable:!0,value:[]})}})}return Object.defineProperty(r,"target",{value:t}),r}(t,e,n):kt(t,n)
-return e.dispatchEvent(r),r}).then(n=>Y(`fireEvent:${t}`,"end",e).then(()=>n)).then(t=>Y("fireEvent","end",e).then(()=>t))}function kt(e,t={}){const n=document.createEvent("Events"),r=void 0===t.bubbles||t.bubbles,o=void 0===t.cancelable||t.cancelable
+Object.defineProperty(t,"value",{configurable:!0,get:()=>n.get.call(t),set(e){n.set.call(t,e),Object.defineProperty(t,"files",{configurable:!0,value:[]})}})}return Object.defineProperty(r,"target",{value:t}),r}(t,e,n):Tt(t,n)
+return e.dispatchEvent(r),r}).then(n=>Y(`fireEvent:${t}`,"end",e).then(()=>n)).then(t=>Y("fireEvent","end",e).then(()=>t))}function Tt(e,t={}){const n=document.createEvent("Events"),r=void 0===t.bubbles||t.bubbles,o=void 0===t.cancelable||t.cancelable
 delete t.bubbles,delete t.cancelable,n.initEvent(e,r,o)
 for(const i in t)n[i]=t[i]
-return n}function _t(e,t={}){const n={...bt,...t}
+return n}function Pt(e,t={}){const n={...gt,...t}
 let r,o
-try{return r=new KeyboardEvent(e,n),Object.defineProperty(r,"keyCode",{get:()=>parseInt(n.keyCode)}),Object.defineProperty(r,"which",{get:()=>parseInt(n.which)}),r}catch{}try{r=document.createEvent("KeyboardEvents"),o="initKeyboardEvent"}catch{}if(!r)try{r=document.createEvent("KeyEvents"),o="initKeyEvent"}catch{}return r&&o?r[o](e,n.bubbles,n.cancelable,window,n.ctrlKey,n.altKey,n.shiftKey,n.metaKey,n.keyCode,n.charCode):r=kt(e,t),r}const Ct=["A","SUMMARY"]
-function It(e){return!_(e)&&!C(e)&&(M(e)?!e.disabled:!(!I(e)&&!function(e){return Ct.indexOf(e.tagName)>-1}(e))||e.hasAttribute("tabindex"))}function xt(e){const t=ct(e)?dt(e):null
-return t?t.description||"<unknown descriptor>":`${e}`}function Mt(e,t=null){if(!It(e))throw new Error(`${e} is not focusable`)
+try{return r=new KeyboardEvent(e,n),Object.defineProperty(r,"keyCode",{get:()=>parseInt(n.keyCode)}),Object.defineProperty(r,"which",{get:()=>parseInt(n.which)}),r}catch{}try{r=document.createEvent("KeyboardEvents"),o="initKeyboardEvent"}catch{}if(!r)try{r=document.createEvent("KeyEvents"),o="initKeyEvent"}catch{}return r&&o?r[o](e,n.bubbles,n.cancelable,window,n.ctrlKey,n.altKey,n.shiftKey,n.metaKey,n.keyCode,n.charCode):r=Tt(e,t),r}const kt=["A","SUMMARY"]
+function _t(e){return!_(e)&&!C(e)&&(M(e)?!e.disabled:!(!I(e)&&!function(e){return kt.indexOf(e.tagName)>-1}(e))||e.hasAttribute("tabindex"))}function Ct(e){const t=lt(e)?at(e):null
+return t?t.description||"<unknown descriptor>":`${e}`}function It(e,t=null){if(!_t(e))throw new Error(`${e} is not focusable`)
 const n=document.hasFocus&&!document.hasFocus(),r=null!==t
 r||e.blur()
 const o={relatedTarget:t}
-return n||r?Promise.resolve().then(()=>Pt(e,"blur",{bubbles:!1,...o})).then(()=>Pt(e,"focusout",o)):Promise.resolve()}function Ot(e=document.activeElement){return Promise.resolve().then(()=>Y("blur","start",e)).then(()=>{const t=ft(e)
-if(!t){const t=xt(e)
-throw new Error(`Element not found when calling \`blur('${t}')\`.`)}return Mt(t).then(()=>Te())}).then(()=>Y("blur","end",e))}function St(e){return Promise.resolve().then(()=>{const t=function(e){if(C(e))return null
+return n||r?Promise.resolve().then(()=>Et(e,"blur",{bubbles:!1,...o})).then(()=>Et(e,"focusout",o)):Promise.resolve()}function xt(e=document.activeElement){return Promise.resolve().then(()=>Y("blur","start",e)).then(()=>{const t=ct(e)
+if(!t){const t=Ct(e)
+throw new Error(`Element not found when calling \`blur('${t}')\`.`)}return It(t).then(()=>Te())}).then(()=>Y("blur","end",e))}function Mt(e){return Promise.resolve().then(()=>{const t=function(e){if(C(e))return null
 let t=e
-for(;t&&!It(t);)t=t.parentElement
-return t}(e),n=document.activeElement&&document.activeElement!==t&&It(document.activeElement)?document.activeElement:null
-return!t&&n?Mt(n,null).then(()=>Promise.resolve({focusTarget:t,previousFocusedElement:n})):Promise.resolve({focusTarget:t,previousFocusedElement:n})}).then(({focusTarget:e,previousFocusedElement:t})=>{if(!e)throw new Error("There was a previously focused element")
+for(;t&&!_t(t);)t=t.parentElement
+return t}(e),n=document.activeElement&&document.activeElement!==t&&_t(document.activeElement)?document.activeElement:null
+return!t&&n?It(n,null).then(()=>Promise.resolve({focusTarget:t,previousFocusedElement:n})):Promise.resolve({focusTarget:t,previousFocusedElement:n})}).then(({focusTarget:e,previousFocusedElement:t})=>{if(!e)throw new Error("There was a previously focused element")
 const n=!document?.hasFocus()
-return t&&n?Mt(t,e).then(()=>Promise.resolve({focusTarget:e})):Promise.resolve({focusTarget:e})}).then(({focusTarget:e})=>{e.focus()
+return t&&n?It(t,e).then(()=>Promise.resolve({focusTarget:e})):Promise.resolve({focusTarget:e})}).then(({focusTarget:e})=>{e.focus()
 const t=document?.hasFocus()
-return t?Promise.resolve():Promise.resolve().then(()=>Pt(e,"focus",{bubbles:!1})).then(()=>Pt(e,"focusin")).then(()=>Te())}).catch(()=>{})}function Rt(e){return Promise.resolve().then(()=>Y("focus","start",e)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `focus`.")
-const t=ft(e)
-if(!t){const t=xt(e)
-throw new Error(`Element not found when calling \`focus('${t}')\`.`)}if(!It(t))throw new Error(`${t} is not focusable`)
-return St(t).then(Te)}).then(()=>Y("focus","end",e))}X("blur","start",e=>{mt("blur",e)}),X("focus","start",e=>{mt("focus",e)}),X("click","start",e=>{mt("click",e)})
-const $t={buttons:1,button:0}
-function jt(e,t){return Promise.resolve().then(()=>Pt(e,"mousedown",t)).then(t=>_(e)||t?.defaultPrevented?Promise.resolve():St(e)).then(()=>Pt(e,"mouseup",t)).then(()=>Pt(e,"click",t))}function At(e,t={}){const n={...$t,...t}
+return t?Promise.resolve():Promise.resolve().then(()=>Et(e,"focus",{bubbles:!1})).then(()=>Et(e,"focusin")).then(()=>Te())}).catch(()=>{})}function Ot(e){return Promise.resolve().then(()=>Y("focus","start",e)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `focus`.")
+const t=ct(e)
+if(!t){const t=Ct(e)
+throw new Error(`Element not found when calling \`focus('${t}')\`.`)}if(!_t(t))throw new Error(`${t} is not focusable`)
+return Mt(t).then(Te)}).then(()=>Y("focus","end",e))}X("blur","start",e=>{ht("blur",e)}),X("focus","start",e=>{ht("focus",e)}),X("click","start",e=>{ht("click",e)})
+const St={buttons:1,button:0}
+function Rt(e,t){return Promise.resolve().then(()=>Et(e,"mousedown",t)).then(t=>_(e)||t?.defaultPrevented?Promise.resolve():Mt(e)).then(()=>Et(e,"mouseup",t)).then(()=>Et(e,"click",t))}function $t(e,t={}){const n={...St,...t}
 return Promise.resolve().then(()=>Y("click","start",e,t)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `click`.")
-const t=ht(e)
-if(!t){const t=xt(e)
+const t=dt(e)
+if(!t){const t=Ct(e)
 throw new Error(`Element not found when calling \`click('${t}')\`.`)}if(M(t)&&t.disabled)throw new Error(`Can not \`click\` disabled ${t}`)
-return jt(t,n).then(Te)}).then(()=>Y("click","end",e,t))}function Nt(e,t={}){const n={...$t,...t}
+return Rt(t,n).then(Te)}).then(()=>Y("click","end",e,t))}function jt(e,t={}){const n={...St,...t}
 return Promise.resolve().then(()=>Y("doubleClick","start",e,t)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `doubleClick`.")
-const t=ht(e)
-if(!t){const t=xt(e)
+const t=dt(e)
+if(!t){const t=Ct(e)
 throw new Error(`Element not found when calling \`doubleClick('${t}')\`.`)}if(M(t)&&t.disabled)throw new Error(`Can not \`doubleClick\` disabled ${t}`)
-return function(e,t){return Promise.resolve().then(()=>Pt(e,"mousedown",t)).then(t=>_(e)||t?.defaultPrevented?Promise.resolve():St(e)).then(()=>Pt(e,"mouseup",t)).then(()=>Pt(e,"click",t)).then(()=>Pt(e,"mousedown",t)).then(()=>Pt(e,"mouseup",t)).then(()=>Pt(e,"click",t)).then(()=>Pt(e,"dblclick",t))}(t,n).then(Te)}).then(()=>Y("doubleClick","end",e,t))}X("doubleClick","start",e=>{mt("doubleClick",e)})
-const Lt="inert"in Element.prototype,Dt=["CANVAS","VIDEO","PICTURE"]
-function Kt(e){return e.activeElement||e.body}function Ft({backwards:e=!1,unRestrainTabIndex:t=!1}={}){return Promise.resolve().then(()=>function(e,t){const n=He()
+return function(e,t){return Promise.resolve().then(()=>Et(e,"mousedown",t)).then(t=>_(e)||t?.defaultPrevented?Promise.resolve():Mt(e)).then(()=>Et(e,"mouseup",t)).then(()=>Et(e,"click",t)).then(()=>Et(e,"mousedown",t)).then(()=>Et(e,"mouseup",t)).then(()=>Et(e,"click",t)).then(()=>Et(e,"dblclick",t))}(t,n).then(Te)}).then(()=>Y("doubleClick","end",e,t))}X("doubleClick","start",e=>{ht("doubleClick",e)})
+const At="inert"in Element.prototype,Nt=["CANVAS","VIDEO","PICTURE"]
+function Lt(e){return e.activeElement||e.body}function Dt({backwards:e=!1,unRestrainTabIndex:t=!1}={}){return Promise.resolve().then(()=>function(e,t){const n=He()
 let r,o
 C(n)?(o=n.body,r=n):(o=n,r=n.ownerDocument)
 const i={keyCode:9,which:9,key:"Tab",code:"Tab",shiftKey:e},s={keyboardEventOptions:i,ownerDocument:r,rootElement:o}
-return Promise.resolve().then(()=>Y("tab","start",s)).then(()=>Kt(r)).then(e=>Y("tab","targetFound",e).then(()=>e)).then(t=>{const n=_t("keydown",i)
-if(t.dispatchEvent(n)){t=Kt(r)
+return Promise.resolve().then(()=>Y("tab","start",s)).then(()=>Lt(r)).then(e=>Y("tab","targetFound",e).then(()=>e)).then(t=>{const n=Pt("keydown",i)
+if(t.dispatchEvent(n)){t=Lt(r)
 const n=function(e,t){const n=function(e=document.body){const{ownerDocument:t}=e
 if(!t)throw new Error("Element must be in the DOM")
-const n=Kt(t),r=t.createTreeWalker(e,NodeFilter.SHOW_ELEMENT,{acceptNode:e=>{if("AREA"!==e.tagName&&!1===function(e){const t=window.getComputedStyle(e)
+const n=Lt(t),r=t.createTreeWalker(e,NodeFilter.SHOW_ELEMENT,{acceptNode:e=>{if("AREA"!==e.tagName&&!1===function(e){const t=window.getComputedStyle(e)
 return"none"!==t.display&&"hidden"!==t.visibility}(e))return NodeFilter.FILTER_REJECT
 const t=e.parentNode
-return t&&-1!==Dt.indexOf(t.tagName)||Lt&&e.inert||M(r=e)&&r.disabled?NodeFilter.FILTER_REJECT:e===n||e.tabIndex>=0?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_SKIP
+return t&&-1!==Nt.indexOf(t.tagName)||At&&e.inert||M(r=e)&&r.disabled?NodeFilter.FILTER_REJECT:e===n||e.tabIndex>=0?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_SKIP
 var r}})
 let o
 const i=[]
 for(;o=r.nextNode();)i.push(o)
 return i}(e),r=function(e){return e.map((e,t)=>({index:t,element:e})).sort((e,t)=>e.element.tabIndex===t.element.tabIndex?e.index-t.index:0===e.element.tabIndex||0===t.element.tabIndex?t.element.tabIndex-e.element.tabIndex:e.element.tabIndex-t.element.tabIndex).map(e=>e.element)}(n),o=-1===t.tabIndex?n:r,i=o.indexOf(t)
 return-1===i?{next:r[0],previous:r[r.length-1]}:{next:o[i+1],previous:o[i-1]}}(o,t)
-if(n)return e&&n.previous?St(n.previous):!e&&n.next?St(n.next):Mt(t)}return Promise.resolve()}).then(()=>{const e=Kt(r)
-return Pt(e,"keyup",i).then(()=>e)}).then(e=>{if(!t&&e.tabIndex>0)throw new Error(`tabindex of greater than 0 is not allowed. Found tabindex=${e.tabIndex}`)}).then(()=>Y("tab","end",s))}(e,t)).then(()=>Te())}function Wt(e,t={}){return Promise.resolve().then(()=>Y("tap","start",e,t)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `tap`.")
-const n=ft(e)
-if(!n){const t=xt(e)
+if(n)return e&&n.previous?Mt(n.previous):!e&&n.next?Mt(n.next):It(t)}return Promise.resolve()}).then(()=>{const e=Lt(r)
+return Et(e,"keyup",i).then(()=>e)}).then(e=>{if(!t&&e.tabIndex>0)throw new Error(`tabindex of greater than 0 is not allowed. Found tabindex=${e.tabIndex}`)}).then(()=>Y("tab","end",s))}(e,t)).then(()=>Te())}function Kt(e,t={}){return Promise.resolve().then(()=>Y("tap","start",e,t)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `tap`.")
+const n=ct(e)
+if(!n){const t=Ct(e)
 throw new Error(`Element not found when calling \`tap('${t}')\`.`)}if(M(n)&&n.disabled)throw new Error(`Can not \`tap\` disabled ${n}`)
-return Pt(n,"touchstart",t).then(e=>Pt(n,"touchend",t).then(t=>[e,t])).then(([e,r])=>e.defaultPrevented||r.defaultPrevented?Promise.resolve():jt(n,t)).then(Te)}).then(()=>Y("tap","end",e,t))}function Ht(e,t,n){return Promise.resolve().then(()=>Y("triggerEvent","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `triggerEvent`.")
+return Et(n,"touchstart",t).then(e=>Et(n,"touchend",t).then(t=>[e,t])).then(([e,r])=>e.defaultPrevented||r.defaultPrevented?Promise.resolve():Rt(n,t)).then(Te)}).then(()=>Y("tap","end",e,t))}function Ft(e,t,n){return Promise.resolve().then(()=>Y("triggerEvent","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `triggerEvent`.")
 if(!t)throw new Error("Must provide an `eventType` to `triggerEvent`")
-const r=ht(e)
-if(!r){const t=xt(e)
+const r=dt(e)
+if(!r){const t=Ct(e)
 throw new Error(`Element not found when calling \`triggerEvent('${t}', ...)\`.`)}if(M(r)&&r.disabled)throw new Error(`Can not \`triggerEvent\` on disabled ${r}`)
-return Pt(r,t,n).then(Te)}).then(()=>Y("triggerEvent","end",e,t,n))}X("tab","start",e=>{mt("tab",e)}),X("tap","start",e=>{mt("tap",e)}),X("triggerEvent","start",(e,t)=>{mt("triggerEvent",e,t)}),X("triggerKeyEvent","start",(e,t,n)=>{mt("triggerKeyEvent",e,t,n)})
-const Ut=Object.freeze({ctrlKey:!1,altKey:!1,shiftKey:!1,metaKey:!1}),qt={8:"Backspace",9:"Tab",13:"Enter",16:"Shift",17:"Control",18:"Alt",20:"CapsLock",27:"Escape",32:" ",37:"ArrowLeft",38:"ArrowUp",39:"ArrowRight",40:"ArrowDown",48:"0",49:"1",50:"2",51:"3",52:"4",53:"5",54:"6",55:"7",56:"8",57:"9",65:"a",66:"b",67:"c",68:"d",69:"e",70:"f",71:"g",72:"h",73:"i",74:"j",75:"k",76:"l",77:"m",78:"n",79:"o",80:"p",81:"q",82:"r",83:"s",84:"t",85:"u",86:"v",87:"w",88:"x",89:"y",90:"z",91:"Meta",93:"Meta",186:";",187:"=",188:",",189:"-",190:".",191:"/",219:"[",220:"\\",221:"]",222:"'"},Qt={48:")",49:"!",50:"@",51:"#",52:"$",53:"%",54:"^",55:"&",56:"*",57:"(",186:":",187:"+",188:"<",189:"_",190:">",191:"?",219:"{",220:"|",221:"}",222:'"'}
-function Vt(e,t){return e>64&&e<91?t.shiftKey?String.fromCharCode(e):String.fromCharCode(e).toLocaleLowerCase():t.shiftKey&&Qt[e]||qt[e]}function Bt(e,t,n,r=Ut){return Promise.resolve().then(()=>{let o
-if("number"==typeof n)o={keyCode:n,which:n,key:Vt(n,r),...r}
+return Et(r,t,n).then(Te)}).then(()=>Y("triggerEvent","end",e,t,n))}X("tab","start",e=>{ht("tab",e)}),X("tap","start",e=>{ht("tap",e)}),X("triggerEvent","start",(e,t)=>{ht("triggerEvent",e,t)}),X("triggerKeyEvent","start",(e,t,n)=>{ht("triggerKeyEvent",e,t,n)})
+const Wt=Object.freeze({ctrlKey:!1,altKey:!1,shiftKey:!1,metaKey:!1}),Ht={8:"Backspace",9:"Tab",13:"Enter",16:"Shift",17:"Control",18:"Alt",20:"CapsLock",27:"Escape",32:" ",37:"ArrowLeft",38:"ArrowUp",39:"ArrowRight",40:"ArrowDown",48:"0",49:"1",50:"2",51:"3",52:"4",53:"5",54:"6",55:"7",56:"8",57:"9",65:"a",66:"b",67:"c",68:"d",69:"e",70:"f",71:"g",72:"h",73:"i",74:"j",75:"k",76:"l",77:"m",78:"n",79:"o",80:"p",81:"q",82:"r",83:"s",84:"t",85:"u",86:"v",87:"w",88:"x",89:"y",90:"z",91:"Meta",93:"Meta",186:";",187:"=",188:",",189:"-",190:".",191:"/",219:"[",220:"\\",221:"]",222:"'"},Ut={48:")",49:"!",50:"@",51:"#",52:"$",53:"%",54:"^",55:"&",56:"*",57:"(",186:":",187:"+",188:"<",189:"_",190:">",191:"?",219:"{",220:"|",221:"}",222:'"'}
+function qt(e,t){return e>64&&e<91?t.shiftKey?String.fromCharCode(e):String.fromCharCode(e).toLocaleLowerCase():t.shiftKey&&Ut[e]||Ht[e]}function Qt(e,t,n,r=Wt){return Promise.resolve().then(()=>{let o
+if("number"==typeof n)o={keyCode:n,which:n,key:qt(n,r),...r}
 else{if("string"!=typeof n||0===n.length)throw new Error("Must provide a `key` or `keyCode` to `triggerKeyEvent`")
 {const e=n[0]
 if(!e||e!==e.toUpperCase())throw new Error(`Must provide a \`key\` to \`triggerKeyEvent\` that starts with an uppercase character but you passed \`${n}\`.`)
 if(i=n,!isNaN(parseFloat(i))&&isFinite(Number(i))&&n.length>1)throw new Error(`Must provide a numeric \`keyCode\` to \`triggerKeyEvent\` but you passed \`${n}\` as a string.`)
-const t=function(e){const t=Object.keys(qt),n=t.find(t=>qt[Number(t)]===e)||t.find(t=>qt[Number(t)]===e.toLowerCase())
+const t=function(e){const t=Object.keys(Ht),n=t.find(t=>Ht[Number(t)]===e)||t.find(t=>Ht[Number(t)]===e.toLowerCase())
 return void 0!==n?parseInt(n):void 0}(n)
 o={keyCode:t,which:t,key:n,...r}}}var i
-return Pt(e,t,o)})}function zt(e,t,n,r=Ut){return Promise.resolve().then(()=>Y("triggerKeyEvent","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `triggerKeyEvent`.")
-const o=ft(e)
-if(!o){const t=xt(e)
+return Et(e,t,o)})}function Vt(e,t,n,r=Wt){return Promise.resolve().then(()=>Y("triggerKeyEvent","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `triggerKeyEvent`.")
+const o=ct(e)
+if(!o){const t=Ct(e)
 throw new Error(`Element not found when calling \`triggerKeyEvent('${t}')\`.`)}if(!t)throw new Error("Must provide an `eventType` to `triggerKeyEvent`")
-if(!vt(t)){const e=yt.join(", ")
+if(!bt(t)){const e=wt.join(", ")
 throw new Error(`Must provide an \`eventType\` of ${e} to \`triggerKeyEvent\` but you passed \`${t}\`.`)}if(M(o)&&o.disabled)throw new Error(`Can not \`triggerKeyEvent\` on disabled ${o}`)
-return Bt(o,t,n,r).then(Te)}).then(()=>Y("triggerKeyEvent","end",e,t,n))}const Xt=["text","search","url","tel","email","password"]
-function Yt(e,t,n){const r=e.getAttribute("maxlength")
-if(function(e){return!!Number(e.getAttribute("maxlength"))&&(e instanceof HTMLTextAreaElement||e instanceof HTMLInputElement&&Xt.indexOf(e.type)>-1)}(e)&&r&&t&&t.length>Number(r))throw new Error(`Can not \`${n}\` with text: '${t}' that exceeds maxlength: '${r}'.`)}function Jt(e,t){return Promise.resolve().then(()=>Y("fillIn","start",e,t)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `fillIn`.")
-const n=ft(e)
-if(!n){const t=xt(e)
+return Qt(o,t,n,r).then(Te)}).then(()=>Y("triggerKeyEvent","end",e,t,n))}const Bt=["text","search","url","tel","email","password"]
+function zt(e,t,n){const r=e.getAttribute("maxlength")
+if(function(e){return!!Number(e.getAttribute("maxlength"))&&(e instanceof HTMLTextAreaElement||e instanceof HTMLInputElement&&Bt.indexOf(e.type)>-1)}(e)&&r&&t&&t.length>Number(r))throw new Error(`Can not \`${n}\` with text: '${t}' that exceeds maxlength: '${r}'.`)}function Xt(e,t){return Promise.resolve().then(()=>Y("fillIn","start",e,t)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `fillIn`.")
+const n=ct(e)
+if(!n){const t=Ct(e)
 throw new Error(`Element not found when calling \`fillIn('${t}')\`.`)}if(null==t)throw new Error("Must provide `text` when calling `fillIn`.")
-if(M(n)){if(n.disabled)throw new Error(`Can not \`fillIn\` disabled '${xt(e)}'.`)
-if("readOnly"in n&&n.readOnly)throw new Error(`Can not \`fillIn\` readonly '${xt(e)}'.`)
-return Yt(n,t,"fillIn"),St(n).then(()=>(n.value=t,n))}if(I(n))return St(n).then(()=>(n.innerHTML=t,n))
-throw new Error("`fillIn` is only usable on form controls or contenteditable elements.")}).then(e=>Pt(e,"input").then(()=>Pt(e,"change")).then(Te)).then(()=>Y("fillIn","end",e,t))}function Gt(e,t){return`${e} when calling \`select('${xt(t)}')\`.`}function Zt(e,t,n=!1){return Promise.resolve().then(()=>Y("select","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `select`.")
+if(M(n)){if(n.disabled)throw new Error(`Can not \`fillIn\` disabled '${Ct(e)}'.`)
+if("readOnly"in n&&n.readOnly)throw new Error(`Can not \`fillIn\` readonly '${Ct(e)}'.`)
+return zt(n,t,"fillIn"),Mt(n).then(()=>(n.value=t,n))}if(I(n))return Mt(n).then(()=>(n.innerHTML=t,n))
+throw new Error("`fillIn` is only usable on form controls or contenteditable elements.")}).then(e=>Et(e,"input").then(()=>Et(e,"change")).then(Te)).then(()=>Y("fillIn","end",e,t))}function Yt(e,t){return`${e} when calling \`select('${Ct(t)}')\`.`}function Jt(e,t,n=!1){return Promise.resolve().then(()=>Y("select","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `select`.")
 if(null==t)throw new Error("Must provide an `option` or `options` to select when calling `select`.")
-const n=ft(e)
-if(!n)throw new Error(Gt("Element not found",e))
-if(!function(e){return!C(e)&&"SELECT"===e.tagName}(n))throw new Error(Gt("Element is not a HTMLSelectElement",e))
-if(n.disabled)throw new Error(Gt("Element is disabled",e))
-if(t=Array.isArray(t)?t:[t],!n.multiple&&t.length>1)throw new Error(Gt("HTMLSelectElement `multiple` attribute is set to `false` but multiple options were passed",e))
-return St(n).then(()=>n)}).then(e=>{for(let r=0;r<e.options.length;r++){const o=e.options.item(r)
-o&&(t.indexOf(o.value)>-1?o.selected=!0:n||(o.selected=!1))}return Pt(e,"input").then(()=>Pt(e,"change")).then(Te)}).then(()=>Y("select","end",e,t,n))}function en(e){if("string"==typeof e)return He().querySelectorAll(e)
-{const t=dt(e)
-if(t)return function(e){let t=ct(e)?dt(e):e
+const n=ct(e)
+if(!n)throw new Error(Yt("Element not found",e))
+if(!function(e){return!C(e)&&"SELECT"===e.tagName}(n))throw new Error(Yt("Element is not a HTMLSelectElement",e))
+if(n.disabled)throw new Error(Yt("Element is disabled",e))
+if(t=Array.isArray(t)?t:[t],!n.multiple&&t.length>1)throw new Error(Yt("HTMLSelectElement `multiple` attribute is set to `false` but multiple options were passed",e))
+return Mt(n).then(()=>n)}).then(e=>{for(let r=0;r<e.options.length;r++){const o=e.options.item(r)
+o&&(t.indexOf(o.value)>-1?o.selected=!0:n||(o.selected=!1))}return Et(e,"input").then(()=>Et(e,"change")).then(Te)}).then(()=>Y("select","end",e,t,n))}function Gt(e){if("string"==typeof e)return He().querySelectorAll(e)
+{const t=at(e)
+if(t)return function(e){let t=lt(e)?at(e):e
 if(!t)return[]
 if(t.elements)return Array.from(t.elements)
 {let e=t.element
 return e?[e]:[]}}(t)
-throw new Error("Must use a selector string or DOM element descriptor")}}function tn(e,t={}){return Promise.resolve().then(()=>{if("string"!=typeof e&&!dt(e))throw new Error("Must pass a selector or DOM element descriptor to `waitFor`.")
+throw new Error("Must use a selector string or DOM element descriptor")}}function Zt(e,t={}){return Promise.resolve().then(()=>{if("string"!=typeof e&&!at(e))throw new Error("Must pass a selector or DOM element descriptor to `waitFor`.")
 const{timeout:n=1e3,count:r=null}=t
 let o,{timeoutMessage:i}=t
-return i||(i=`waitFor timed out waiting for selector "${xt(e)}"`),o=null!==r?()=>{const t=Array.from(en(e))
-if(t.length===r)return t}:()=>ft(e),j(o,{timeout:n,timeoutMessage:i})})}function nn(e){if(!e)throw new Error("Must pass a selector to `find`.")
+return i||(i=`waitFor timed out waiting for selector "${Ct(e)}"`),o=null!==r?()=>{const t=Array.from(Gt(e))
+if(t.length===r)return t}:()=>ct(e),j(o,{timeout:n,timeoutMessage:i})})}function en(e){if(!e)throw new Error("Must pass a selector to `find`.")
 if(arguments.length>1)throw new Error("The `find` test helper only takes a single argument.")
-return ft(e)}function rn(e){if(!e)throw new Error("Must pass a selector to `findAll`.")
+return ct(e)}function tn(e){if(!e)throw new Error("Must pass a selector to `findAll`.")
 if(arguments.length>1)throw new Error("The `findAll` test helper only takes a single argument.")
-return Array.from(en(e))}function on(e,t,n={}){return Promise.resolve().then(()=>Y("typeIn","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `typeIn`.")
-const r=ft(e)
-if(!r){const t=xt(e)
+return Array.from(Gt(e))}function nn(e,t,n={}){return Promise.resolve().then(()=>Y("typeIn","start",e,t,n)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `typeIn`.")
+const r=ct(e)
+if(!r){const t=Ct(e)
 throw new Error(`Element not found when calling \`typeIn('${t}')\``)}if(C(r)||!M(r)&&!I(r))throw new Error("`typeIn` is only usable on form controls or contenteditable elements.")
 if(null==t)throw new Error("Must provide `text` when calling `typeIn`.")
-if(M(r)){if(r.disabled)throw new Error(`Can not \`typeIn\` disabled '${xt(e)}'.`)
-if("readOnly"in r&&r.readOnly)throw new Error(`Can not \`typeIn\` readonly '${xt(e)}'.`)}const{delay:o=50}=n
-return St(r).then(()=>function(e,t,n){const r=t.split("").map(t=>function(e,t){const n={shiftKey:t===t.toUpperCase()&&t!==t.toLowerCase()},r=t.toUpperCase()
-return function(){return Promise.resolve().then(()=>Bt(e,"keydown",r,n)).then(()=>Bt(e,"keypress",r,n)).then(()=>{if(M(e)){const n=e.value+t
-Yt(e,n,"typeIn"),e.value=n}else{const n=e.innerHTML+t
-e.innerHTML=n}return Pt(e,"input")}).then(()=>Bt(e,"keyup",r,n))}}(e,t))
-return r.reduce((e,t)=>e.then(()=>function(e){return new Promise(t=>{setTimeout(t,e)})}(n)).then(t),Promise.resolve())}(r,t,o)).then(()=>Pt(r,"change")).then(Te).then(()=>Y("typeIn","end",e,t,n))})}function sn(e,t){return`${e} when calling \`scrollTo('${xt(t)}')\`.`}function un(e,t,n){return Promise.resolve().then(()=>Y("scrollTo","start",e)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `scrollTo`.")
+if(M(r)){if(r.disabled)throw new Error(`Can not \`typeIn\` disabled '${Ct(e)}'.`)
+if("readOnly"in r&&r.readOnly)throw new Error(`Can not \`typeIn\` readonly '${Ct(e)}'.`)}const{delay:o=50}=n
+return Mt(r).then(()=>function(e,t,n){const r=t.split("").map(t=>function(e,t){const n={shiftKey:t===t.toUpperCase()&&t!==t.toLowerCase()},r=t.toUpperCase()
+return function(){return Promise.resolve().then(()=>Qt(e,"keydown",r,n)).then(()=>Qt(e,"keypress",r,n)).then(()=>{if(M(e)){const n=e.value+t
+zt(e,n,"typeIn"),e.value=n}else{const n=e.innerHTML+t
+e.innerHTML=n}return Et(e,"input")}).then(()=>Qt(e,"keyup",r,n))}}(e,t))
+return r.reduce((e,t)=>e.then(()=>function(e){return new Promise(t=>{setTimeout(t,e)})}(n)).then(t),Promise.resolve())}(r,t,o)).then(()=>Et(r,"change")).then(Te).then(()=>Y("typeIn","end",e,t,n))})}function rn(e,t){return`${e} when calling \`scrollTo('${Ct(t)}')\`.`}function on(e,t,n){return Promise.resolve().then(()=>Y("scrollTo","start",e)).then(()=>{if(!e)throw new Error("Must pass an element, selector, or descriptor to `scrollTo`.")
 if(void 0===t||void 0===n)throw new Error("Must pass both x and y coordinates to `scrollTo`.")
-const r=ft(e)
-if(!r)throw new Error(sn("Element not found",e))
+const r=ct(e)
+if(!r)throw new Error(rn("Element not found",e))
 if(!k(r)){let t
-throw t=C(r)?"Document":r.nodeType,new Error(sn(`"target" must be an element, but was a ${t}`,e))}return r.scrollTop=n,r.scrollLeft=t,Pt(r,"scroll").then(Te)}).then(()=>Y("scrollTo","end",e))}X("fillIn","start",(e,t)=>{mt("fillIn",e,t)}),X("typeIn","start",(e,t)=>{mt("typeIn",e,t)})}}])
+throw t=C(r)?"Document":r.nodeType,new Error(rn(`"target" must be an element, but was a ${t}`,e))}return r.scrollTop=n,r.scrollLeft=t,Et(r,"scroll").then(Te)}).then(()=>Y("scrollTo","end",e))}X("fillIn","start",(e,t)=>{ht("fillIn",e,t)}),X("typeIn","start",(e,t)=>{ht("typeIn",e,t)})}}])
