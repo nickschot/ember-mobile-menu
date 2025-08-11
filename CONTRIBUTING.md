@@ -13,6 +13,7 @@
 
 ## Running tests
 
+* `cd test-app` – Move to the test-app directory
 * `ember test` – Runs the test suite on the current Ember version
 * `ember test --server` – Runs the test suite in "watch mode"
 * `ember try:each` – Runs the test suite against multiple Ember versions
