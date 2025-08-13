@@ -6,7 +6,8 @@ import { modifier as eModifier } from 'ember-modifier';
 import { TrackedSet } from 'tracked-built-ins';
 
 import MobileMenu from './mobile-menu.gts';
-import { normalizeCoordinates,
+import {
+  normalizeCoordinates,
   scaleCorrection,
 } from '../utils/normalize-coordinates';
 
@@ -36,7 +37,7 @@ const transitioningWaiter = buildWaiter(
 );
 
 interface MobileMenuWrapperSignature {
-  Element: HTMLDivElement
+  Element: HTMLDivElement;
   Args: {
     openDetectionWidth?: number;
     capture?: boolean;
@@ -45,45 +46,49 @@ interface MobileMenuWrapperSignature {
     triggerVelocity?: number;
   };
   Blocks: {
-    default: [{
-      MobileMenu: WithBoundArgs<typeof MobileMenu,
-        'isDragging' |
-        'isTransitioning' |
-        'position' |
-        'animationDisabled' |
-        'embed' |
-        'parentBoundingClientRect' |
-        'parent' |
-        'register' |
-        'unregister' |
-        'onClose' |
-        'onOpen' |
-        'onPanStart' |
-        'onPan' |
-        'onPanEnd' |
-        'capture' |
-        'preventScroll' |
-        'onTransitionEnd'
-      >
-      Toggle: WithBoundArgs<typeof ToggleComponent, 'onClick'>
-      Content: WithBoundArgs<typeof ContentComponent,
-        'shadowEnabled' |
-        'position' |
-        'mode' |
-        'isOpen' |
-        'onPanStart' |
-        'onPan' |
-        'onPanEnd' |
-        'capture' |
-        'preventScroll' |
-        'onClose'
-      >
-      position: number
-      actions: {
-        toggle: (target?: 'left' | 'right') => void,
-        close: (menu?: MobileMenu, animate?: boolean) => void
-      }
-    }];
+    default: [
+      {
+        MobileMenu: WithBoundArgs<
+          typeof MobileMenu,
+          | 'isDragging'
+          | 'isTransitioning'
+          | 'position'
+          | 'animationDisabled'
+          | 'embed'
+          | 'parentBoundingClientRect'
+          | 'parent'
+          | 'register'
+          | 'unregister'
+          | 'onClose'
+          | 'onOpen'
+          | 'onPanStart'
+          | 'onPan'
+          | 'onPanEnd'
+          | 'capture'
+          | 'preventScroll'
+          | 'onTransitionEnd'
+        >;
+        Toggle: WithBoundArgs<typeof ToggleComponent, 'onClick'>;
+        Content: WithBoundArgs<
+          typeof ContentComponent,
+          | 'shadowEnabled'
+          | 'position'
+          | 'mode'
+          | 'isOpen'
+          | 'onPanStart'
+          | 'onPan'
+          | 'onPanEnd'
+          | 'capture'
+          | 'preventScroll'
+          | 'onClose'
+        >;
+        position: number;
+        actions: {
+          toggle: (target?: 'left' | 'right') => void;
+          close: (menu?: MobileMenu, animate?: boolean) => void;
+        };
+      },
+    ];
   };
 }
 
@@ -102,8 +107,6 @@ interface MobileMenuWrapperSignature {
  * @public
  */
 export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignature> {
-
-
   /**
    * Current BoundingClientRect of the mobile menu wrapper root element
    *
@@ -112,7 +115,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
    * @default null
    * @private
    */
-  @tracked boundingClientRect? : DOMRect;
+  @tracked boundingClientRect?: DOMRect;
 
   @tracked children = new TrackedSet<MobileMenu>();
   @tracked position = 0;
@@ -131,7 +134,11 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
     return getOwner(this)?.lookup('service:fastboot');
   }
   get isFastBoot() {
-    return this.fastboot && 'isFastBoot' in this.fastboot && !!this.fastboot?.isFastBoot;
+    return (
+      this.fastboot &&
+      'isFastBoot' in this.fastboot &&
+      !!this.fastboot?.isFastBoot
+    );
   }
 
   /**
@@ -304,7 +311,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
   };
 
   didPanStart = (e: TouchData) => {
-    if (!this.boundingClientRect) return
+    if (!this.boundingClientRect) return;
     // Always start the panning waiter when pan starts - this ensures settled() waits
     this._panningWaiterToken = panningWaiter.beginAsync();
 
@@ -355,7 +362,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
   };
 
   didPan = (e: TouchData) => {
-    if (!this.boundingClientRect) return
+    if (!this.boundingClientRect) return;
     if (this.dragging) {
       this.updatePosition(
         scaleCorrection(
@@ -365,10 +372,10 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
         ),
       );
     }
-  }
+  };
 
   didPanEnd = (e: TouchData) => {
-    if (!this.boundingClientRect) return
+    if (!this.boundingClientRect) return;
     if (this.dragging) {
       this.dragging = false;
       const pan = scaleCorrection(
@@ -388,7 +395,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
 
         const condition =
           (isLeft && !this.fromOpen) || (this.fromOpen && !isLeft);
-        const vx = condition ? velocityX : - (velocityX || 0);
+        const vx = condition ? velocityX : -(velocityX || 0);
         let dx = condition ? distanceX : -distanceX;
 
         // default menu dx correction
@@ -402,7 +409,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
 
         // the pan action is over, cleanup and set the correct final menu position
         if (!this.fromOpen) {
-          if (vx && vx > this.triggerVelocity || dx > width / 2) {
+          if ((vx && vx > this.triggerVelocity) || dx > width / 2) {
             this.open(menu);
             // Don't end panning waiter yet - transition will take over
             return;
@@ -415,7 +422,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
           if (
             this.mode === 'default'
               ? (vx && vx > this.triggerVelocity && dx > 0) || dx > width / 2
-              : vx && vx > this.triggerVelocity || dx > width / 2
+              : (vx && vx > this.triggerVelocity) || dx > width / 2
           ) {
             this.close(menu);
             // Don't end panning waiter yet - transition will take over
@@ -436,9 +443,14 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
     }
   };
 
-  setPosition = (menu?: MobileMenu | null, targetPosition = 'open', animate = true) => {
+  setPosition = (
+    menu?: MobileMenu | null,
+    targetPosition = 'open',
+    animate = true,
+  ) => {
     // For closing, we might not have a menu reference, so use any menu with transitioning state
-    const targetMenu = menu || this.childMenus.find((m) => m.args.isTransitioning);
+    const targetMenu =
+      menu || this.childMenus.find((m) => m.args.isTransitioning);
 
     const toValue =
       targetPosition === 'close'
@@ -480,7 +492,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
   scaleX = 1;
   scaleY = 1;
 
-  onResize = ({target}: ResizeObserverEntry) => {
+  onResize = ({ target }: ResizeObserverEntry) => {
     if (!target || !(target instanceof Element)) {
       return;
     }
@@ -502,7 +514,10 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
    * @private
    */
   get _isIOSbrowser() {
-      return isIOSDevice && !(window.navigator as Navigator & { standalone?: boolean }).standalone;
+    return (
+      isIOSDevice &&
+      !(window.navigator as Navigator & { standalone?: boolean }).standalone
+    );
   }
 
   get _windowWidth() {

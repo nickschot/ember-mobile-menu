@@ -12,13 +12,13 @@ import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
 import type { TouchData } from '../../utils/normalize-coordinates';
 
 interface TrayComponentSignature {
-  Element: HTMLDivElement
+  Element: HTMLDivElement;
   Args: {
     width?: number;
     isLeft?: boolean;
     position?: number;
     shadowEnabled?: boolean;
-    mode: "default" | "push" | "ios" | "reveal" | "squeeze" | "squeeze-reveal";
+    mode: 'default' | 'push' | 'ios' | 'reveal' | 'squeeze' | 'squeeze-reveal';
     isClosed?: boolean;
     preventScroll?: boolean;
     embed?: boolean;

@@ -10,12 +10,18 @@ const MODES = new Map([
   ['push', (p: number) => `transform: translateX(${p}px);`],
   ['reveal', (p: number) => `transform: translateX(${p}px);`],
   ['ios', (p: number) => `transform: translateX(${p}px);`],
-  ['squeeze', (p: number, side: 'left' | 'right') => `margin-${side}: ${Math.abs(p)}px;`],
-  ['squeeze-reveal', (p: number, side: 'left' | 'right') => `margin-${side}: ${Math.abs(p)}px;`],
+  [
+    'squeeze',
+    (p: number, side: 'left' | 'right') => `margin-${side}: ${Math.abs(p)}px;`,
+  ],
+  [
+    'squeeze-reveal',
+    (p: number, side: 'left' | 'right') => `margin-${side}: ${Math.abs(p)}px;`,
+  ],
 ]);
 
 interface ContentComponentSignature {
-  Element: HTMLDivElement
+  Element: HTMLDivElement;
   Args: {
     mode?: string;
     position?: number;

@@ -11,6 +11,7 @@
   },
   "compilerOptions": {
     "allowJs": true,
+    "declaration": true,
     "declarationDir": "declarations",
 
     /**

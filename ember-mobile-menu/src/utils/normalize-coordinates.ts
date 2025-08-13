@@ -18,7 +18,9 @@ interface TouchCurrent extends XY {
 export interface TouchData {
   initial: XY & { timeStamp?: number };
   current: TouchCurrent;
-  cache?: { velocity: { distanceX: number; distanceY: number; timeStamp: number } };
+  cache?: {
+    velocity: { distanceX: number; distanceY: number; timeStamp: number };
+  };
   timeStamp?: number;
   originalEvent?: PointerEvent;
   panStarted?: boolean;
