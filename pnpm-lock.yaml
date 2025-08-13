@@ -193,7 +193,7 @@ importers:
         version: 2.3.0(@babel/core@7.28.0)
       ember-cached-decorator-polyfill:
         specifier: ^1.0.2
-        version: 1.0.2(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
+        version: 1.0.2(@babel/core@7.28.0)(ember-source@6.6.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
       ember-gesture-modifiers:
         specifier: ^5.0.0 || ^6.0.0
         version: 6.1.0(@babel/core@7.28.0)(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(ember-source@6.6.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
