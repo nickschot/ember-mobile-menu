@@ -141,8 +141,8 @@ importers:
         specifier: 10.1.8
         version: 10.1.8(eslint@9.31.0)
       eslint-plugin-ember:
-        specifier: 12.6.0
-        version: 12.6.0(@babel/core@7.28.0)(eslint@9.31.0)
+        specifier: 12.7.0
+        version: 12.7.0(@babel/core@7.28.0)(eslint@9.31.0)
       eslint-plugin-n:
         specifier: 17.21.3
         version: 17.21.3(eslint@9.31.0)
@@ -253,8 +253,8 @@ importers:
         specifier: 10.1.8
         version: 10.1.8(eslint@9.31.0)
       eslint-plugin-ember:
-        specifier: 12.6.0
-        version: 12.6.0(@babel/core@7.28.0)(eslint@9.31.0)
+        specifier: 12.7.0
+        version: 12.7.0(@babel/core@7.28.0)(eslint@9.31.0)
       eslint-plugin-import:
         specifier: 2.32.0
         version: 2.32.0(eslint@9.31.0)
@@ -391,8 +391,8 @@ importers:
         specifier: 10.1.8
         version: 10.1.8(eslint@9.31.0)
       eslint-plugin-ember:
-        specifier: 12.6.0
-        version: 12.6.0(@babel/core@7.28.0)(eslint@9.31.0)
+        specifier: 12.7.0
+        version: 12.7.0(@babel/core@7.28.0)(eslint@9.31.0)
       eslint-plugin-n:
         specifier: 17.21.3
         version: 17.21.3(eslint@9.31.0)
@@ -4601,8 +4601,8 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
 
-  eslint-plugin-ember@12.6.0:
-    resolution: {integrity: sha512-axb6l5iUwW08mjSWDY+/aVUG4PS7kJTM+gXOSP1ev9aVy5bphaVJ3yFCSd81BPvqiD8IkCa+K9R6pwhsfLtnfA==}
+  eslint-plugin-ember@12.7.0:
+    resolution: {integrity: sha512-QkKzUzmWjSjscJLNYlkPv1ug5B5/Ec/7/MEEjDZxthzHO9VhnyMZ0shwvCztLTvB5D7LO67E7Zmpwb4YyBoFMA==}
     engines: {node: 18.* || 20.* || >= 21}
     peerDependencies:
       '@typescript-eslint/parser': '*'
@@ -15231,7 +15231,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-ember@12.6.0(@babel/core@7.28.0)(eslint@9.31.0):
+  eslint-plugin-ember@12.7.0(@babel/core@7.28.0)(eslint@9.31.0):
     dependencies:
       '@ember-data/rfc395-data': 0.0.4
       css-tree: 3.1.0
