@@ -66,10 +66,7 @@ export default class MaskComponent extends Component {
   get style() {
     let style = '';
 
-    style +=
-      this.isClosed
-        ? 'visibility: hidden;'
-        : 'visibility: visible;';
+    style += this.isClosed ? 'visibility: hidden;' : 'visibility: visible;';
 
     // Normalize position to 0-1 range (position is in pixels, width gives us the scale)
     const normalizedPosition =
