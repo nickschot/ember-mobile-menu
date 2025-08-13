@@ -32,7 +32,7 @@ export default {
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
     // not everything in publicEntrypoints necessarily needs to go here.
-    addon.appReexports(['components/**/*.gts']),
+    addon.appReexports(['components/**/*.js']),
 
     // Follow the V2 Addon rules about dependencies. Your code can import from
     // `dependencies` and `peerDependencies` as well as standard Ember-provided
@@ -52,7 +52,6 @@ export default {
     }),
 
     // Ensure that standalone .hbs files are properly integrated as Javascript.
-    addon.hbs(),
 
     // Ensure that .gts files are properly integrated as Javascript
     addon.gjs(),
@@ -67,15 +66,17 @@ export default {
     // to leave alone and keep in the published output.
     addon.keepAssets(['**/*.css']),
 
-    // Remove leftover build artifacts when starting a new build.
-    addon.clean(),
-
-    // Copy README and LICENSE into published package
+    // Copy README, LICENSE and themes into published package
     copy({
       targets: [
         { src: 'README.md', dest: 'dist' },
         { src: 'LICENSE.md', dest: 'dist' },
+        { src: 'src/themes/android.css', dest: 'dist/themes' },
       ],
+      hook: 'writeBundle',
     }),
+
+    // Remove leftover build artifacts when starting a new build.
+    addon.clean(),
   ],
 };
