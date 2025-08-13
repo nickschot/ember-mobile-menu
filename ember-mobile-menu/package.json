@@ -57,7 +57,7 @@
   "devDependencies": {
     "@babel/core": "7.28.0",
     "@babel/eslint-parser": "7.28.0",
-    "@babel/runtime": "7.27.6",
+    "@babel/runtime": "7.28.2",
     "@embroider/addon-dev": "7.1.5",
     "@eslint/js": "9.31.0",
     "@rollup/plugin-babel": "6.0.4",
