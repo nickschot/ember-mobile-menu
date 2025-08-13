@@ -7,12 +7,24 @@
   touch-action: pan-y;
   background: #fff;
   will-change: transform;
+  
+  /* Declarative shadow with position-based opacity */
+  --tray-position: 0; /* 0-1 normalized position from JS */
+  --tray-shadow-opacity: calc(var(--tray-position) * 0.3); /* Scale 0-1 to 0-0.3 */
 }
 
 /* Apply spring transition by default */
 .mobile-menu__tray {
-  transition: transform var(--mobile-menu-spring-duration)
-    var(--mobile-menu-spring-timing);
+  transition: 
+    transform var(--mobile-menu-spring-duration) var(--mobile-menu-spring-timing),
+    box-shadow var(--mobile-menu-spring-duration) var(--mobile-menu-spring-timing);
+}
+
+/* Shadow for specific modes - will be controlled by --tray-position from JS */
+.mobile-menu--default .mobile-menu__tray,
+.mobile-menu--push .mobile-menu__tray,
+.mobile-menu--squeeze .mobile-menu__tray {
+  box-shadow: 0 0 10px rgba(0, 0, 0, var(--tray-shadow-opacity, 0));
 }
 
 /* No transition when dragging or animation disabled */

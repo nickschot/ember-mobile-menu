@@ -71,12 +71,13 @@ export default class TrayComponent extends Component {
       ? `left: -${offset}px; transform: translateX(${translation}px);`
       : `right: -${offset}px; transform: translateX(${translation}px);`;
 
+    // Set position for declarative shadow opacity calculation
     if (
       this.args.shadowEnabled &&
-      ['default', 'push', 'squeeze'].includes(this.args.mode) &&
-      !this.args.isClosed
+      ['default', 'push', 'squeeze'].includes(this.args.mode)
     ) {
-      style += `box-shadow: 0 0 10px rgba(0,0,0,${0.3});`;
+      const normalizedPosition = this.width > 0 ? Math.abs(this.position) / this.width : 0;
+      style += `--tray-position: ${normalizedPosition};`;
     }
 
     return htmlSafe(style);

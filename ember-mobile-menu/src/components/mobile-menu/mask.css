@@ -10,13 +10,42 @@
   height: 100vh;
   /* Avoid Chrome to see Safari hack */
   background: rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transition: none;
   touch-action: pan-y;
   will-change: opacity;
   visibility: hidden;
   outline: none;
   -webkit-tap-highlight-color: transparent;
+
+  /* Declarative opacity with dead zone using CSS calc() */
+  --mask-position: 0; /* 0-1 normalized position from JS */
+  --mask-opacity-offset: 0.1; /* 10% dead zone */
+  --mask-invert: 0; /* 0 = normal, 1 = inverted */
+
+  /* Calculate opacity with dead zone and optional inversion */
+  opacity: calc(
+    (1 - var(--mask-invert)) * max(0,
+      (var(--mask-position) - var(--mask-opacity-offset)) /
+      (1 - var(--mask-opacity-offset))
+    ) +
+    var(--mask-invert) * (1 - max(0,
+      (var(--mask-position) - var(--mask-opacity-offset)) /
+      (1 - var(--mask-opacity-offset))
+    ))
+  );
+
+  /* Smooth opacity transition using spring timing */
+  transition: opacity var(--mobile-menu-spring-duration) var(--mobile-menu-spring-timing);
+}
+
+/* When not dragging, use CSS transitions for smooth opacity changes */
+.mobile-menu:not(.mobile-menu--dragging) .mobile-menu__mask {
+  transition: opacity var(--mobile-menu-spring-duration) var(--mobile-menu-spring-timing);
+}
+
+/* When dragging, no transition for immediate response */
+.mobile-menu--dragging .mobile-menu__mask,
+.mobile-menu--animation-disabled .mobile-menu__mask {
+  transition: none;
 }
 @supports (-webkit-touch-callout: none) {
   .mobile-menu__mask {

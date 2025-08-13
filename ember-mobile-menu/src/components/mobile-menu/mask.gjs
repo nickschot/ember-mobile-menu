@@ -16,19 +16,15 @@ const _fn = () => {};
  * @private
  */
 export default class MaskComponent extends Component {
+
   /**
-   * Offset (or "deadzone") used when calculating what opacity the mask should
-   * currently be.
-   *
-   * Example: the default value is 0.1. This means the mask will only become
-   * visible after the position is over 10% of the screen width.
-   *
-   * @argument maskOpacityOffset
+   * @argument width
    * @type number
-   * @default 0.1
+   * @default 300
+   * @protected
    */
-  get maskOpacityOffset() {
-    return this.args.maskOpacityOffset ?? 0.1;
+  get width() {
+    return this.args.width ?? 300;
   }
 
   /**
@@ -76,17 +72,12 @@ export default class MaskComponent extends Component {
         ? 'visibility: hidden;'
         : 'visibility: visible;';
 
-    let opacity =
-      this.position > this.maskOpacityOffset
-        ? (this.position - this.maskOpacityOffset) /
-          (1 - this.maskOpacityOffset)
-        : 0;
+    // Normalize position to 0-1 range (position is in pixels, width gives us the scale)
+    const normalizedPosition = this.width > 0 ? Math.abs(this.position) / this.width : 0;
 
-    if (this.args.invertOpacity) {
-      opacity = 1 - opacity;
-    }
-
-    style += `opacity: ${opacity};`;
+    // Set normalized position and invert flag - CSS calc() handles dead zone calculation
+    style += `--mask-position: ${normalizedPosition}; `;
+    style += `--mask-invert: ${this.args.invertOpacity ? 1 : 0};`;
 
     return htmlSafe(style);
   }

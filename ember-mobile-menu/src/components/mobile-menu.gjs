@@ -217,10 +217,6 @@ export default class MobileMenu extends Component {
     return this.type === 'right';
   }
 
-  get relativePosition() {
-    return Math.abs(this.position) / this._width;
-  }
-
   get invertOpacity() {
     return ['ios', 'reveal', 'squeeze-reveal'].includes(this.args.mode);
   }
@@ -307,7 +303,8 @@ export default class MobileMenu extends Component {
         {{#if this.maskEnabled}}
           <MaskComponent
             @isOpen={{this.isOpen}}
-            @position={{this.relativePosition}}
+            @position={{this.position}}
+            @width={{this._width}}
             @invertOpacity={{this.invertOpacity}}
             @onClick={{@onClose}}
             @onPanStart={{@onPanStart}}

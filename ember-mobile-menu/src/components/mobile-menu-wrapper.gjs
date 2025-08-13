@@ -44,7 +44,6 @@ const transitioningWaiter = buildWaiter(
  * @yield {MobileMenuToggle component} wrapper.Toggle
  * @yield {Hash} wrapper.actions
  * @yield {number} position Current position of the active menu in px.
- * @yield {number} relativePosition Current position of the active menu between 0 and 1.
  * @yield {Action} wrapper.actions.toggle
  * @yield {Action} wrapper.actions.close
  * @public
@@ -170,10 +169,6 @@ export default class MobileMenuWrapper extends Component {
     );
   }
 
-  get requiresUpdatedPosition() {
-    return this.mode !== 'default';
-  }
-
   @action
   registerChild(component) {
     assert(
@@ -208,12 +203,6 @@ export default class MobileMenuWrapper extends Component {
       this.isNotClosed &&
       this.activeMenu?.maskEnabled
     );
-  }
-
-  get relativePosition() {
-    return this.activeMenu
-      ? Math.abs(this.position) / this.activeMenu._width
-      : 0;
   }
 
   @action
@@ -555,7 +544,6 @@ export default class MobileMenuWrapper extends Component {
             onClose=this.close
           )
           position=this.position
-          relativePosition=this.relativePosition
           actions=(hash toggle=this.toggle close=this.close)
         )
       }}
