@@ -4,7 +4,6 @@ import { modifier as eModifier } from 'ember-modifier';
 import {
   disableBodyScroll,
   enableBodyScroll,
-  // @ts-expect-error body-scroll-lock is not typed
 } from '../../utils/body-scroll-lock.js';
 import './tray.css';
 // @ts-expect-error ember-gesture-modifiers is not typed

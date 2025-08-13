@@ -1,5 +1,4 @@
 import { babel } from '@rollup/plugin-babel';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy';
 import { Addon } from '@embroider/addon-dev/rollup';
 import { dirname } from 'path';
@@ -13,6 +12,7 @@ const addon = new Addon({
 
 const rootDirectory = dirname(fileURLToPath(import.meta.url));
 const babelConfig = resolve(rootDirectory, './babel.publish.config.cjs');
+const tsConfig = resolve(rootDirectory, './tsconfig.publish.json');
 
 export default {
   // This provides defaults that work well alongside `publicEntrypoints` below.
@@ -39,11 +39,6 @@ export default {
     // package names.
     addon.dependencies(),
 
-    // Resolve TypeScript files without explicit extensions
-    nodeResolve({
-      extensions: ['.js', '.ts', '.gts', '.gjs'],
-    }),
-
     // This babel config should *not* apply presets or compile away ES modules.
     // It exists only to provide development niceties for you, like automatic
     // template colocation.
@@ -63,7 +58,10 @@ export default {
     addon.gjs(),
 
     // Generate TypeScript declarations
-    addon.declarations('declarations'),
+    addon.declarations(
+      'declarations',
+      `pnpm glint --declaration --project ${tsConfig}`,
+    ),
 
     // addons are allowed to contain imports of .css files, which we want rollup
     // to leave alone and keep in the published output.
