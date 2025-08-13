@@ -69,6 +69,7 @@ jobs:
           - ember-lts-5.4
           - ember-lts-5.8
           - ember-lts-5.12
+          - ember-lts-6.4
           - ember-release
           - ember-classic
           - ember-default-with-jquery
@@ -89,7 +90,9 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --no-frozen-lockfile
       - name: Run Tests
-        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+        run: |
+          rm ../pnpm-lock.yaml
+          ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
         working-directory: test-app
 
   allowed-fail-try-scenarios:
@@ -121,7 +124,9 @@ jobs:
         run: pnpm install --no-frozen-lockfile
       - name: Run Tests
         id: tests
-        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+        run: |
+          rm ../pnpm-lock.yaml
+          ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
         continue-on-error: true
         working-directory: test-app
       - uses: mainmatter/continue-on-error-comment@v1
