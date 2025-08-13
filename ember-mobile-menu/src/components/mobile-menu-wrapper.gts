@@ -14,7 +14,8 @@ import { getOwner } from '@ember/owner';
 import { assert } from '@ember/debug';
 import './mobile-menu-wrapper.css';
 import { onResize } from 'ember-primitives/on-resize';
-import { bodyClass } from 'ember-primitives/helpers/body-class';import { hash } from '@ember/helper';
+import { bodyClass } from 'ember-primitives/helpers/body-class';
+import { hash } from '@ember/helper';
 
 import MobileMenuComponent from './mobile-menu.gts';
 import ToggleComponent from './mobile-menu-toggle.gts';
