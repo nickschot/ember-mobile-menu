@@ -3,7 +3,6 @@ import copy from 'rollup-plugin-copy';
 import { Addon } from '@embroider/addon-dev/rollup';
 import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
-import typescript from '@rollup/plugin-typescript';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -12,7 +11,6 @@ const addon = new Addon({
 
 const rootDirectory = dirname(fileURLToPath(import.meta.url));
 const babelConfig = resolve(rootDirectory, './babel.publish.config.cjs');
-const tsConfig = resolve(rootDirectory, './tsconfig.publish.json');
 
 export default {
   // This provides defaults that work well alongside `publicEntrypoints` below.
@@ -35,15 +33,6 @@ export default {
     addon.appReexports([
       'components/**/*.gts',
     ]),
-
-    typescript({
-      tsconfig: './tsconfig.json',
-      declaration: true,
-      declarationMap: true,
-      sourceMap: true,
-      outDir: 'dist',
-      declarationDir: 'dist',
-    }),
 
 
     // Follow the V2 Addon rules about dependencies. Your code can import from
@@ -70,8 +59,7 @@ export default {
     addon.gjs(),
 
     addon.declarations(
-      'declarations',
-      `npx glint --declaration --project ${tsConfig}`,
+      'declarations'
     ),
 
     // addons are allowed to contain imports of .css files, which we want rollup
