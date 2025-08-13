@@ -17,12 +17,14 @@
   "author": "Nick Schot <nick@sophorasoft.nl>",
   "homepage": "https://nickschot.github.io/ember-mobile-menu",
   "exports": {
+    ".": "./dist/index.js",
     "./*": "./dist/*.js",
     "./addon-main.js": "./addon-main.cjs",
     "./themes/*": "./dist/themes/*.css"
   },
   "files": [
     "addon-main.cjs",
+    "declarations",
     "dist"
   ],
   "scripts": {
