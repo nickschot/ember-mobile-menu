@@ -303,6 +303,7 @@ export default class MobileMenu extends Component {
         {{#if this.maskEnabled}}
           <MaskComponent
             @isOpen={{this.isOpen}}
+            @isClosed={{this.isClosed}}
             @position={{this.position}}
             @width={{this._width}}
             @invertOpacity={{this.invertOpacity}}

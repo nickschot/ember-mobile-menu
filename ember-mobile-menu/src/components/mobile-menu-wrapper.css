@@ -99,7 +99,7 @@ body.mobile-menu--prevent-scroll {
 }
 
 /* No transition when dragging or animation disabled */
-.mobile-menu--dragging .mobile-menu-wrapper__content,
-.mobile-menu--animation-disabled .mobile-menu-wrapper__content {
+.mobile-menu--dragging + .mobile-menu-wrapper__content,
+.mobile-menu--animation-disabled + .mobile-menu-wrapper__content {
   transition: none;
 }

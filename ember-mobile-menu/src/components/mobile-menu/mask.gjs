@@ -67,7 +67,7 @@ export default class MaskComponent extends Component {
     let style = '';
 
     style +=
-      !this.isOpen && this.position === 0
+      this.isClosed
         ? 'visibility: hidden;'
         : 'visibility: visible;';
 
