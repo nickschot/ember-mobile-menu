@@ -46,17 +46,16 @@
     "@ember/test-waiters": "^3.0.0 || ^4.0.0",
     "@embroider/addon-shim": "^1.8.9",
     "decorator-transforms": "^2.2.2",
-    "ember-cached-decorator-polyfill": "^1.0.2",
     "ember-modifier": "^4.2.2",
     "ember-gesture-modifiers": "^5.0.0 || ^6.0.0",
-    "ember-on-resize-modifier": "^2.0.0",
-    "ember-set-body-class": "^1.0.1",
+    "ember-primitives": ">= 0.32.0",
     "tracked-built-ins": "^3.0.0 || ^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.28.0",
     "@babel/eslint-parser": "7.28.0",
     "@babel/runtime": "7.27.6",
+    "@ember/app-tsconfig": "1.0.3",
     "@embroider/addon-dev": "7.1.5",
     "@eslint/js": "9.31.0",
     "@glint/core": "^2.0.0-alpha.3",
@@ -65,6 +64,7 @@
     "@glint/template": "^1.6.0-alpha.1",
     "@glimmer/component": "2.0.0",
     "@rollup/plugin-babel": "6.0.4",
+    "@rollup/plugin-typescript": "12.1.4",
     "babel-plugin-ember-template-compilation": "3.0.0",
     "concurrently": "9.2.0",
     "ember-source": "6.5.0",
@@ -79,6 +79,7 @@
     "prettier-plugin-ember-template-tag": "2.0.6",
     "rollup": "4.45.1",
     "rollup-plugin-copy": "3.5.0"
+
   },
   "peerDependencies": {
     "@glimmer/component": "^1.0.4 || >=2.0.0"

@@ -13,11 +13,8 @@ import { normalizeCoordinates,
 import { getOwner } from '@ember/owner';
 import { assert } from '@ember/debug';
 import './mobile-menu-wrapper.css';
-// @ts-expect-error ember-on-resize-modifier is not typed, see https://github.com/nickschot/ember-mobile-menu/pull/1156
-import onResize from 'ember-on-resize-modifier/modifiers/on-resize';
-// @ts-expect-error ember-set-body-class is not typed, see https://github.com/nickschot/ember-mobile-menu/pull/1156
-import setBodyClass from 'ember-set-body-class/helpers/set-body-class';
-import { hash } from '@ember/helper';
+import { onResize } from 'ember-primitives/on-resize';
+import { bodyClass } from 'ember-primitives/helpers/body-class';import { hash } from '@ember/helper';
 
 import MobileMenuComponent from './mobile-menu.gts';
 import ToggleComponent from './mobile-menu-toggle.gts';
@@ -482,7 +479,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
   scaleX = 1;
   scaleY = 1;
 
-  onResize = ({ target }: Event) => {
+  onResize = ({target}: ResizeObserverEntry) => {
     if (!target || !(target instanceof Element)) {
       return;
     }
@@ -548,7 +545,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
 
   <template>
     {{#if this.preventBodyScroll}}
-      {{setBodyClass "mobile-menu--prevent-scroll"}}
+      {{bodyClass "mobile-menu--prevent-scroll"}}
     {{/if}}
 
     <div
