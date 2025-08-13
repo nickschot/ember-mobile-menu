@@ -16,7 +16,6 @@ const _fn = () => {};
  * @private
  */
 export default class MaskComponent extends Component {
-
   /**
    * @argument width
    * @type number
@@ -73,7 +72,8 @@ export default class MaskComponent extends Component {
         : 'visibility: visible;';
 
     // Normalize position to 0-1 range (position is in pixels, width gives us the scale)
-    const normalizedPosition = this.width > 0 ? Math.abs(this.position) / this.width : 0;
+    const normalizedPosition =
+      this.width > 0 ? Math.abs(this.position) / this.width : 0;
 
     // Set normalized position and invert flag - CSS calc() handles dead zone calculation
     style += `--mask-position: ${normalizedPosition}; `;

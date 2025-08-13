@@ -76,7 +76,8 @@ export default class TrayComponent extends Component {
       this.args.shadowEnabled &&
       ['default', 'push', 'squeeze'].includes(this.args.mode)
     ) {
-      const normalizedPosition = this.width > 0 ? Math.abs(this.position) / this.width : 0;
+      const normalizedPosition =
+        this.width > 0 ? Math.abs(this.position) / this.width : 0;
       style += `--tray-position: ${normalizedPosition};`;
     }
 

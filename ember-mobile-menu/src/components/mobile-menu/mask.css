@@ -23,23 +23,32 @@
 
   /* Calculate opacity with dead zone and optional inversion */
   opacity: calc(
-    (1 - var(--mask-invert)) * max(0,
-      (var(--mask-position) - var(--mask-opacity-offset)) /
-      (1 - var(--mask-opacity-offset))
-    ) +
-    var(--mask-invert) * (1 - max(0,
-      (var(--mask-position) - var(--mask-opacity-offset)) /
-      (1 - var(--mask-opacity-offset))
-    ))
+    (1 - var(--mask-invert)) *
+      max(
+        0,
+        (var(--mask-position) - var(--mask-opacity-offset)) /
+          (1 - var(--mask-opacity-offset))
+      ) +
+      var(--mask-invert) *
+      (
+        1 -
+          max(
+            0,
+            (var(--mask-position) - var(--mask-opacity-offset)) /
+              (1 - var(--mask-opacity-offset))
+          )
+      )
   );
 
   /* Smooth opacity transition using spring timing */
-  transition: opacity var(--mobile-menu-spring-duration) var(--mobile-menu-spring-timing);
+  transition: opacity var(--mobile-menu-spring-duration)
+    var(--mobile-menu-spring-timing);
 }
 
 /* When not dragging, use CSS transitions for smooth opacity changes */
 .mobile-menu:not(.mobile-menu--dragging) .mobile-menu__mask {
-  transition: opacity var(--mobile-menu-spring-duration) var(--mobile-menu-spring-timing);
+  transition: opacity var(--mobile-menu-spring-duration)
+    var(--mobile-menu-spring-timing);
 }
 
 /* When dragging, no transition for immediate response */
