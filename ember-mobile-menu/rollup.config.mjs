@@ -1,8 +1,10 @@
 import { babel } from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy';
 import { Addon } from '@embroider/addon-dev/rollup';
-import { fileURLToPath } from 'node:url';
-import { resolve, dirname } from 'node:path';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { resolve } from 'path';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -37,6 +39,11 @@ export default {
     // package names.
     addon.dependencies(),
 
+    // Resolve TypeScript files without explicit extensions
+    nodeResolve({
+      extensions: ['.js', '.ts', '.gts', '.gjs'],
+    }),
+
     // This babel config should *not* apply presets or compile away ES modules.
     // It exists only to provide development niceties for you, like automatic
     // template colocation.
@@ -55,8 +62,8 @@ export default {
     // Ensure that .gts files are properly integrated as Javascript
     addon.gjs(),
 
-    // Use TypeScript for declaration generation instead of Glint
-    // addon.declarations('declarations'),
+    // Generate TypeScript declarations
+    addon.declarations('declarations'),
 
     // addons are allowed to contain imports of .css files, which we want rollup
     // to leave alone and keep in the published output.
@@ -65,11 +72,11 @@ export default {
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),
 
-    // Copy Readme and License into published package
+    // Copy README and LICENSE into published package
     copy({
       targets: [
-        { src: '../README.md', dest: '.' },
-        { src: '../LICENSE.md', dest: '.' },
+        { src: 'README.md', dest: 'dist' },
+        { src: 'LICENSE.md', dest: 'dist' },
       ],
     }),
   ],

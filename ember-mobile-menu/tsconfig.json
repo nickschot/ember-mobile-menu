@@ -12,6 +12,8 @@
   "compilerOptions": {
     "rootDir": ".",
     "target": "es2016",
+    "noEmit": true,
+    "skipLibCheck": true,
     "types": ["ember-source/types"]
   }
 }
