@@ -1,74 +1,16 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { cached, tracked } from '@glimmer/tracking';
+import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 import './mobile-menu.css';
-import { registerDestructor } from '@ember/destroyable';
 import MaskComponent from './mobile-menu/mask.gjs';
 import TrayComponent from './mobile-menu/tray.gjs';
 import { hash } from '@ember/helper';
 import { effect } from './utils.js';
+import { on } from '@ember/modifier';
 
 const _fn = function () {};
-class StateResource {
-  @tracked _open = false;
-  @tracked _closed = true;
-  @tracked _dragging = false;
-  @tracked _transitioning = false;
-
-  _useState;
-
-  constructor(owner, useState = () => {}) {
-    this._useState = useState;
-
-    registerDestructor(owner, () => {
-      this._useState = undefined;
-    });
-  }
-
-  @cached
-  get current() {
-    let [position, isDragging, width] = this._useState();
-
-    this._dragging = position !== 0 && isDragging;
-    let open = !this._dragging && Math.abs(position) === width;
-    let closed = !this._dragging && position === 0;
-
-    effect(() => {
-      this.maybeToggle(open, closed);
-    });
-    this._transitioning = !this._dragging && !this._open && !this._closed;
-
-    return {
-      open: this._open,
-      closed: this._closed,
-      dragging: this._dragging,
-      transitioning: this._transitioning,
-    };
-  }
-
-  get open() {
-    return this.current.open;
-  }
-  get closed() {
-    return this.current.closed;
-  }
-  get dragging() {
-    return this.current.dragging;
-  }
-  get transitioning() {
-    return this.current.transitioning;
-  }
-
-  maybeToggle(open, closed) {
-    if (this._open !== open) {
-      this._open = open;
-    } else if (this.closed !== closed) {
-      this._closed = closed;
-    }
-  }
-}
 
 /**
  * Menu component
@@ -77,11 +19,8 @@ class StateResource {
  * @public
  */
 export default class MobileMenu extends Component {
-  state = new StateResource(this, () => [
-    this.position,
-    this.args.isDragging,
-    this._width,
-  ]);
+  @tracked _open = false;
+  @tracked _closed = true;
 
   /**
    * The type of menu. Currently 'left' and 'right' are supported.
@@ -238,6 +177,8 @@ export default class MobileMenu extends Component {
       typeof this.args.unregister === 'function',
     );
 
+    // Registration handled in template with effect
+
     if (this.args.parent?.isFastBoot && this.args.isOpen) {
       this.args.parent._activeMenu = this;
       this.open(false);
@@ -246,6 +187,7 @@ export default class MobileMenu extends Component {
 
   willDestroy() {
     this.args.unregister(this);
+
     super.willDestroy(...arguments);
   }
 
@@ -253,13 +195,28 @@ export default class MobileMenu extends Component {
     return this.args.parent?.isFastBoot || this.args.parentBoundingClientRect;
   }
 
+  get isOpen() {
+    return (
+      !this.args.isDragging &&
+      !this.args.isTransitioning &&
+      Math.abs(this.position) === this._width
+    );
+  }
+  get isClosed() {
+    return (
+      !this.args.isDragging && !this.args.isTransitioning && this.position === 0
+    );
+  }
+
   get classNames() {
     let classes = `mobile-menu mobile-menu--${this.mode}`;
     if (this.isLeft) classes += ' mobile-menu--left';
     if (this.isRight) classes += ' mobile-menu--right';
-    if (this.state.dragging) classes += ' mobile-menu--dragging';
-    if (this.state.open) classes += ' mobile-menu--open';
-    if (this.state.transitioning) classes += ' mobile-menu--transitioning';
+    if (this.args.isDragging) classes += ' mobile-menu--dragging';
+    if (this.isOpen) classes += ' mobile-menu--open';
+    if (this.args.isTransitioning) classes += ' mobile-menu--transitioning';
+    if (this.args.animationDisabled)
+      classes += ' mobile-menu--animation-disabled';
     return classes;
   }
 
@@ -296,7 +253,7 @@ export default class MobileMenu extends Component {
 
   get style() {
     let styles = '';
-    if (!this.maskEnabled && this.state.open) {
+    if (!this.maskEnabled && this.isOpen) {
       styles = `width: ${this._width}px;`;
     }
     return htmlSafe(styles);
@@ -304,14 +261,15 @@ export default class MobileMenu extends Component {
 
   @action
   open(animate) {
-    this.onOpen(this, 0, animate);
+    this.onOpen(this, animate);
   }
 
   @action
   close(animate) {
-    if (!this.hasRendered) return;
+    // Only skip close if we haven't rendered AND we're trying to animate
+    if (!this.hasRendered && animate) return;
 
-    this.onClose(this, 0, animate);
+    this.onClose(this, animate);
   }
 
   hasRendered = false;
@@ -342,21 +300,24 @@ export default class MobileMenu extends Component {
     }
   }
 
+  @action
+  handleTransitionEnd() {
+    this.args.onTransitionEnd?.();
+  }
+
   <template>
     {{#if this.renderMenu}}
       {{effect @register this}}
       {{effect this.openOrClose @isOpen}}
-      {{effect this.close this.type}}
-      {{effect this.setRendered}}
 
       <div
         class={{this.classNames}}
         style={{this.style}}
-        aria-hidden={{if this.state.closed "true"}}
+        aria-hidden={{if this.isClosed "true"}}
       >
         {{#if this.maskEnabled}}
           <MaskComponent
-            @isOpen={{this.state.open}}
+            @isOpen={{this.isOpen}}
             @position={{this.relativePosition}}
             @invertOpacity={{this.invertOpacity}}
             @onClick={{@onClose}}
@@ -376,12 +337,13 @@ export default class MobileMenu extends Component {
           @shadowEnabled={{this.shadowEnabled}}
           @mode={{@mode}}
           @embed={{@embed}}
-          @isClosed={{this.state.closed}}
+          @isClosed={{this.isClosed}}
           @onPanStart={{@onPanStart}}
           @onPan={{@onPan}}
           @onPanEnd={{@onPanEnd}}
           @capture={{@capture}}
           @preventScroll={{@preventScroll}}
+          {{on "transitionend" this.handleTransitionEnd}}
         >
           {{yield (hash actions=(hash open=this.open close=this.close))}}
         </TrayComponent>

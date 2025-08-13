@@ -194,9 +194,6 @@ importers:
       ember-cached-decorator-polyfill:
         specifier: ^1.0.2
         version: 1.0.2(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
-      ember-concurrency:
-        specifier: ^3.0.0 || ^4.0.0
-        version: 4.0.4(@babel/core@7.28.0)
       ember-gesture-modifiers:
         specifier: ^5.0.0 || ^6.0.0
         version: 6.1.0(@babel/core@7.28.0)(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
@@ -212,9 +209,6 @@ importers:
       tracked-built-ins:
         specifier: ^3.0.0 || ^4.0.0
         version: 4.0.0(@babel/core@7.28.0)
-      wobble:
-        specifier: ^1.5.1
-        version: 1.5.1
     devDependencies:
       '@babel/core':
         specifier: 7.28.0
@@ -3806,9 +3800,6 @@ packages:
     resolution: {integrity: sha512-BzRPQuY1ip+qDonAOz42gRm/pg9F768C+npV/4JOsxRC2sq+Rlk+Q4ZCAsOhnIaMrgarILY+RMUIvMmmX1qAEA==}
     engines: {node: '>=4'}
 
-  decorator-transforms@1.2.1:
-    resolution: {integrity: sha512-UUtmyfdlHvYoX3VSG1w5rbvBQ2r5TX1JsE4hmKU9snleFymadA3VACjl6SRfi9YgBCSjBbfQvR1bs9PRW9yBKw==}
-
   decorator-transforms@2.3.0:
     resolution: {integrity: sha512-jo8c1ss9yFPudHuYYcrJ9jpkDZIoi+lOGvt+Uyp9B+dz32i50icRMx9Bfa8hEt7TnX1FyKWKkjV+cUdT/ep2kA==}
 
@@ -4228,15 +4219,6 @@ packages:
     engines: {node: 16.* || >= 18}
     peerDependencies:
       ember-source: ^3.28.0 || ^4.0.0 || >=5.0.0
-
-  ember-concurrency@4.0.4:
-    resolution: {integrity: sha512-Y+PwbFE2r3+ANlT0lTBNokLXTRFLV6lnGkZ8u5tDhND5o2wD1wkh9JdP8KZ8aJ+J0dmhncVGQNi+Dbbtc6xTfg==}
-    engines: {node: 16.* || >= 18}
-    peerDependencies:
-      '@glint/template': '>= 1.0.0'
-    peerDependenciesMeta:
-      '@glint/template':
-        optional: true
 
   ember-data@5.6.0:
     resolution: {integrity: sha512-nFFHhAD06C6DM2iD/UQFe+XKPEh27ALudZVZ6CipCAn598i8gfnm5k09ZZiW/YYpU0+4DAqtf91LwZN2e+O3vw==}
@@ -8828,9 +8810,6 @@ packages:
 
   wide-align@1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
-
-  wobble@1.5.1:
-    resolution: {integrity: sha512-vQD1uu0yXhZWfQJKVf2UVNb3AVnD0qXAbcIqG6Aw02ABLVm77xz6KcLuduWSwOiOMNh8TjZqouZsHTJWTdLwVQ==}
 
   word-wrap@1.2.5:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
@@ -13554,13 +13533,6 @@ snapshots:
     dependencies:
       mimic-response: 1.0.1
 
-  decorator-transforms@1.2.1(@babel/core@7.28.0):
-    dependencies:
-      '@babel/plugin-syntax-decorators': 7.27.1(@babel/core@7.28.0)
-      babel-import-util: 2.1.1
-    transitivePeerDependencies:
-      - '@babel/core'
-
   decorator-transforms@2.3.0(@babel/core@7.28.0):
     dependencies:
       '@babel/plugin-syntax-decorators': 7.27.1(@babel/core@7.28.0)
@@ -14609,17 +14581,6 @@ snapshots:
       ember-cli-htmlbars: 6.3.0
       ember-compatibility-helpers: 1.2.7(@babel/core@7.28.0)
       ember-source: 6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - supports-color
-
-  ember-concurrency@4.0.4(@babel/core@7.28.0):
-    dependencies:
-      '@babel/helper-module-imports': 7.27.1
-      '@babel/helper-plugin-utils': 7.27.1
-      '@babel/types': 7.28.1
-      '@embroider/addon-shim': 1.10.0
-      decorator-transforms: 1.2.1(@babel/core@7.28.0)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -20272,8 +20233,6 @@ snapshots:
   wide-align@1.1.5:
     dependencies:
       string-width: 4.2.3
-
-  wobble@1.5.1: {}
 
   word-wrap@1.2.5: {}
 

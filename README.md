@@ -11,7 +11,6 @@ Requirements
 ------------------------------------------------------------------------------
 * Ember.js v3.28 or above
 * Ember CLI v3.12 or above
-* ember-concurrency v3.x or v4.x
 * tracked-built-ins v3.x
 * ember-auto-import v2.x
 

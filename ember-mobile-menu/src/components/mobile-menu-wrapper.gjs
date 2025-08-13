@@ -12,9 +12,6 @@ import normalizeCoordinates, {
 
 import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
-import { waitFor } from '@ember/test-waiters';
-import { task } from 'ember-concurrency';
-import Spring from '../spring.js';
 import './mobile-menu-wrapper.css';
 import onResize from 'ember-on-resize-modifier/modifiers/on-resize';
 import setBodyClass from 'ember-set-body-class/helpers/set-body-class';
@@ -23,6 +20,7 @@ import { hash } from '@ember/helper';
 import MobileMenuComponent from './mobile-menu.gjs';
 import ToggleComponent from './mobile-menu-toggle.gjs';
 import ContentComponent from './mobile-menu-wrapper/content.gjs';
+import { buildWaiter } from '@ember/test-waiters';
 
 const isIOSDevice =
   typeof window !== 'undefined' &&
@@ -30,6 +28,11 @@ const isIOSDevice =
   (/iP(ad|hone|od)/.test(window.navigator.platform) ||
     (window.navigator.platform === 'MacIntel' &&
       window.navigator.maxTouchPoints > 1));
+
+const panningWaiter = buildWaiter('ember-mobile-menu:menu--panning');
+const transitioningWaiter = buildWaiter(
+  'ember-mobile-menu:menu--transitioning',
+);
 
 /**
  * Wrapper component for menu's. Provides pan recognition and management.
@@ -67,10 +70,13 @@ export default class MobileMenuWrapper extends Component {
   @tracked children = new TrackedSet();
   @tracked position = 0;
   @tracked dragging = false;
+  @tracked transitioning = false;
+  @tracked animationDisabled = false;
+  _panningWaiterToken = null;
+  _transitioningWaiterToken = null;
   fromPosition = 0;
   fromOpen = false;
   defaultMenuDx = 0;
-  preservedVelocity = 0;
   _activeMenu = null; // used only in case a menu is set to open in a fastboot environment
 
   /**
@@ -132,7 +138,7 @@ export default class MobileMenuWrapper extends Component {
    * @private
    */
   get activeMenu() {
-    if (this.isFastBoot && !this.children.length && this._activeMenu) {
+    if (this.isFastBoot && !this.children.size && this._activeMenu) {
       return this._activeMenu;
     }
 
@@ -146,11 +152,11 @@ export default class MobileMenuWrapper extends Component {
   }
 
   get isOpen() {
-    return !!this.activeMenu?.state.open;
+    return !!this.activeMenu?.isOpen;
   }
 
   get isNotClosed() {
-    return this.activeMenu && !this.activeMenu.state.closed;
+    return this.activeMenu && !this.activeMenu.isClosed;
   }
 
   get mode() {
@@ -223,8 +229,12 @@ export default class MobileMenuWrapper extends Component {
     }
 
     if (targetMenu) {
-      this.close();
-      if (this.activeMenu !== targetMenu) {
+      if (this.activeMenu === targetMenu) {
+        // Target menu is already open, just close it
+        this.close();
+      } else {
+        // Switch to target menu
+        this.close();
         this.open(targetMenu);
       }
     }
@@ -233,70 +243,40 @@ export default class MobileMenuWrapper extends Component {
   @action
   updatePosition(pan) {
     const {
-      initial: { x: initialX },
       current: { distanceX },
     } = pan;
+    const distance = distanceX + this.fromPosition;
 
-    let distance = distanceX + this.fromPosition;
-    if (this.dragging && this.fromOpen) {
-      const menu = this.fromMenu;
-
-      // default menu dx correction
-      if (this.mode === 'default') {
-        if (menu.isLeft && initialX > menu._width) {
-          this.defaultMenuDx = initialX - menu._width;
-          if (initialX + distanceX > menu._width) {
-            return;
-          }
-        } else if (
-          menu.isRight &&
-          initialX < this.boundingClientRect.width - menu._width
-        ) {
-          this.defaultMenuDx =
-            initialX - (this.boundingClientRect.width - menu._width);
-          if (
-            initialX + distanceX <
-            this.boundingClientRect.width - menu._width
-          ) {
-            return;
-          }
+    // Simple position update - CSS transitions will handle smooth animation
+    if (this.dragging) {
+      const menu =
+        this.fromMenu || (distance > 0 ? this.leftMenu : this.rightMenu);
+      if (menu) {
+        // Clamp position to menu bounds
+        if (menu.isLeft) {
+          this.position = Math.min(Math.max(distance, 0), menu._width);
         } else {
-          this.defaultMenuDx = 0;
+          this.position = Math.max(Math.min(distance, 0), -menu._width);
         }
-
-        distance += this.defaultMenuDx;
       }
-
-      if (menu.isLeft) {
-        this.position = Math.min(Math.max(distance, 0), menu._width);
-      } else {
-        this.position = Math.max(Math.min(distance, 0), -1 * menu._width);
-      }
-    } else if (
-      this.dragging &&
-      ((this.leftMenu && distance > 0) || (this.rightMenu && distance < 0))
-    ) {
-      const menu = distance > 0 ? this.leftMenu : this.rightMenu;
-      this.position =
-        Math.min(Math.max(Math.abs(distance), 0), menu._width) *
-        (distance > 0 ? 1 : -1);
-    } else if (this.position !== 0) {
-      this.position = 0;
     }
   }
 
   @action
   didPanStart(e) {
-    if (this.finishTransitionTask.isRunning) {
-      this.finishTransitionTask.cancelAll();
-      this.preservedVelocity = 0;
-    }
+    // Always start the panning waiter when pan starts - this ensures settled() waits
+    this._panningWaiterToken = panningWaiter.beginAsync();
 
     // don't conflict with iOS browser's drag to go back/forward functionality
     if (
       this._isIOSbrowser &&
       (e.initial.x < 15 || e.initial.x > this._windowWidth - 15)
     ) {
+      // Still end the waiter even if we don't process the pan
+      if (this._panningWaiterToken) {
+        panningWaiter.endAsync(this._panningWaiterToken);
+        this._panningWaiterToken = null;
+      }
       return;
     }
 
@@ -320,6 +300,16 @@ export default class MobileMenuWrapper extends Component {
       this.fromPosition = this.position;
       this.dragging = true;
       this.updatePosition(pan);
+      // End any ongoing transitions since dragging takes over position control
+      if (this.activeMenu?.handleTransitionEnd) {
+        this.activeMenu.handleTransitionEnd();
+      }
+    } else {
+      // Pan didn't trigger dragging, so end the waiter immediately
+      if (this._panningWaiterToken) {
+        panningWaiter.endAsync(this._panningWaiterToken);
+        this._panningWaiterToken = null;
+      }
     }
   }
 
@@ -345,7 +335,7 @@ export default class MobileMenuWrapper extends Component {
         this.scaleX,
         this.scaleY,
       );
-      const menu = this.activeMenu;
+      const menu = this.fromMenu || this.activeMenu;
 
       if (menu) {
         const {
@@ -372,9 +362,13 @@ export default class MobileMenuWrapper extends Component {
         // the pan action is over, cleanup and set the correct final menu position
         if (!this.fromOpen) {
           if (vx > this.triggerVelocity || dx > width / 2) {
-            this.open(menu, velocityX);
+            this.open(menu);
+            // Don't end panning waiter yet - transition will take over
+            return;
           } else {
-            this.close(menu, velocityX);
+            this.close(menu);
+            // Don't end panning waiter yet - transition will take over
+            return;
           }
         } else {
           if (
@@ -382,59 +376,67 @@ export default class MobileMenuWrapper extends Component {
               ? (vx > this.triggerVelocity && dx > 0) || dx > width / 2
               : vx > this.triggerVelocity || dx > width / 2
           ) {
-            this.close(menu, velocityX);
+            this.close(menu);
+            // Don't end panning waiter yet - transition will take over
+            return;
           } else {
-            this.open(menu, velocityX);
+            this.open(menu);
+            // Don't end panning waiter yet - transition will take over
+            return;
           }
         }
       }
     }
-  }
 
-  @task({ restartable: true })
-  @waitFor
-  *finishTransitionTask(
-    menu,
-    targetPosition = 'open',
-    currentVelocity = 0,
-    animate = true,
-  ) {
-    const fromValue = this.position;
-    const toValue =
-      targetPosition === 'close' ? 0 : (menu.isLeft ? 1 : -1) * menu._width;
-
-    if (fromValue !== toValue && animate) {
-      const spring = new Spring((s) => (this.position = s.currentValue), {
-        stiffness: 1000,
-        mass: 3,
-        damping: 500,
-        overshootClamping: true,
-
-        fromValue,
-        toValue,
-        initialVelocity: this.preservedVelocity || currentVelocity,
-      });
-
-      try {
-        yield spring.start();
-      } finally {
-        spring.stop();
-        this.preservedVelocity = spring.currentVelocity;
-      }
-    } else {
-      this.position = toValue;
-      this.preservedVelocity = 0;
+    // End panning waiter only if no transition was triggered
+    if (this._panningWaiterToken) {
+      panningWaiter.endAsync(this._panningWaiterToken);
+      this._panningWaiterToken = null;
     }
   }
 
   @action
-  open(menu = this.activeMenu, currentVelocity, animate) {
-    this.finishTransitionTask.perform(menu, 'open', currentVelocity, animate);
+  setPosition(menu, targetPosition = 'open', animate = true) {
+    // For closing, we might not have a menu reference, so use any menu with transitioning state
+    const targetMenu = menu || this.childMenus.find((m) => m.isTransitioning);
+
+    const toValue =
+      targetPosition === 'close'
+        ? 0
+        : targetMenu
+          ? (targetMenu.isLeft ? 1 : -1) * targetMenu._width
+          : 0;
+
+    const wasAlreadyAtTarget = this.position === toValue;
+
+    if (!animate || wasAlreadyAtTarget) {
+      // Set position immediately without animation
+      this.animationDisabled = true;
+      this.position = toValue;
+      this.animationDisabled = false;
+      // Ensure transitioning state is cleared
+      this.transitioning = false;
+      return;
+    }
+
+    // Start the transition waiter, but only if we don't already have one
+    if (!this._transitioningWaiterToken) {
+      this._transitioningWaiterToken = transitioningWaiter.beginAsync();
+    }
+
+    // Set position to trigger transition - CSS events will handle waiter lifecycle
+    this.transitioning = true;
+    this.position = toValue;
   }
 
   @action
-  close(menu = this.activeMenu, currentVelocity, animate) {
-    this.finishTransitionTask.perform(menu, 'close', currentVelocity, animate);
+  open(menu = this.activeMenu, animate = true) {
+    this.setPosition(menu, 'open', animate);
+  }
+
+  @action
+  close(menu = this.activeMenu, animate = true) {
+    this.setPosition(menu, 'close', animate);
   }
 
   scaleX = 1;
@@ -472,6 +474,37 @@ export default class MobileMenuWrapper extends Component {
     this.updateScale(element);
   });
 
+  @action
+  onTransitionEnd() {
+    if (this._transitioningWaiterToken) {
+      transitioningWaiter.endAsync(this._transitioningWaiterToken);
+      this._transitioningWaiterToken = null;
+    }
+
+    // Also end any pending panning waiter since the pan-to-transition sequence is complete
+    if (this._panningWaiterToken) {
+      panningWaiter.endAsync(this._panningWaiterToken);
+      this._panningWaiterToken = null;
+    }
+
+    this.transitioning = false;
+  }
+
+  willDestroy() {
+    // Clean up any pending waiters
+    if (this._panningWaiterToken) {
+      panningWaiter.endAsync(this._panningWaiterToken);
+      this._panningWaiterToken = null;
+    }
+
+    if (this._transitioningWaiterToken) {
+      transitioningWaiter.endAsync(this._transitioningWaiterToken);
+      this._transitioningWaiterToken = null;
+    }
+
+    super.willDestroy(...arguments);
+  }
+
   <template>
     {{#if this.preventBodyScroll}}
       {{setBodyClass "mobile-menu--prevent-scroll"}}
@@ -489,7 +522,9 @@ export default class MobileMenuWrapper extends Component {
           MobileMenu=(component
             MobileMenuComponent
             isDragging=this.dragging
+            isTransitioning=this.transitioning
             position=this.position
+            animationDisabled=this.animationDisabled
             embed=this.embed
             parentBoundingClientRect=this.boundingClientRect
             parent=this
@@ -502,6 +537,7 @@ export default class MobileMenuWrapper extends Component {
             onPanEnd=this.didPanEnd
             capture=this.capture
             preventScroll=this.preventScroll
+            onTransitionEnd=this.onTransitionEnd
           )
           Toggle=(component ToggleComponent onClick=this.toggle)
           Content=(component
