@@ -7,7 +7,7 @@
     --mobile-menu-z-index: 2000;
 
     /* Fallback timing function for browsers without linear() support */
-    --mobile-menu-spring-timing: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --mobile-menu-spring-timing: cubic-bezier(0.20, 0.90, 0.22, 1);
 
     /* Wobble Spring: mass=3, stiffness=1000, damping=500, overshootClamping=true */
     /* Natural duration: 506ms */
