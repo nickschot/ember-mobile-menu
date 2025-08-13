@@ -6,7 +6,7 @@ function a(e){l=e,i()||o(e.Resolver.create({namespace:e}))}function c(){return l
 function f(e,t){const n=d.VERSION.split("-")[0]?.split(".")
 if(!n||!n[0]||!n[1])throw new Error("`Ember.VERSION` is not set.")
 const r=parseInt(n[0],10),o=parseInt(n[1],10)
-return r>e||r===e&&o>=t}var h=n(1223),p=n(4471),m=n.n(p),g=n(4540),w=n.n(g),b=n(9311),y=n(6751)
+return r>e||r===e&&o>=t}var h=n(1223),p=n(4471),m=n.n(p),g=n(4540),w=n.n(g),b=n(9311),y=n(9132)
 const v=m().extend(y.RegistryProxyMixin,y.ContainerProxyMixin,{_emberTestHelpersMockOwner:!0,unregister(e){this.__container__.reset(e),this.__registry__.unregister(e)}})
 function E(e,t){if(e)return e.boot().then(e=>e.buildInstance().boot())
 if(!t)throw new Error("You must set up the ember-test-helpers environment with either `setResolver` or `setApplication` before running any tests.")
