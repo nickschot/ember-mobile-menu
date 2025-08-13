@@ -20,7 +20,6 @@ import onResize from 'ember-on-resize-modifier/modifiers/on-resize';
 import setBodyClass from 'ember-set-body-class/helpers/set-body-class';
 import { hash } from '@ember/helper';
 
-
 import MobileMenuComponent from './mobile-menu.gts';
 import ToggleComponent from './mobile-menu-toggle.gts';
 import ContentComponent from './mobile-menu-wrapper/content.gts';

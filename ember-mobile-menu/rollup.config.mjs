@@ -77,6 +77,5 @@ export default {
       ],
       hook: 'writeBundle',
     }),
-
   ],
 };

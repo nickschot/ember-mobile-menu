@@ -285,7 +285,7 @@ export default class MobileMenu extends Component<MobileMenuSignature> {
   hasRendered = false;
 
   openOrClose = (open?: boolean) => {
-    let animate = this.hasRendered;
+    const animate = this.hasRendered;
 
     if (open) {
       this.open(animate);

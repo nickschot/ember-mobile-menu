@@ -4,11 +4,12 @@ import { modifier as eModifier } from 'ember-modifier';
 import {
   disableBodyScroll,
   enableBodyScroll,
+  // @ts-expect-error body-scroll-lock is not typed
 } from '../../utils/body-scroll-lock.js';
 import './tray.css';
 // @ts-expect-error ember-gesture-modifiers is not typed
 import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
-import type { TouchData } from '../../utils/normalize-coordinates';
+import type { TouchData } from '../../utils/normalize-coordinates.ts';
 
 interface TrayComponentSignature {
   Element: HTMLDivElement;
@@ -107,20 +108,20 @@ export default class TrayComponent extends Component<TrayComponentSignature> {
     return htmlSafe(style);
   }
 
-  lockBodyScroll = eModifier((element) => {
-    let { isClosed, preventScroll, embed } = this.args;
+  lockBodyScroll = eModifier((element: HTMLElement) => {
+    const { isClosed, preventScroll, embed } = this.args;
 
     if (preventScroll && !embed) {
       if (isClosed) {
-        enableBodyScroll(element);
+        enableBodyScroll?.(element);
       } else {
-        disableBodyScroll(element);
+        disableBodyScroll?.(element);
       }
     }
 
     return () => {
       if (preventScroll && !embed) {
-        enableBodyScroll(element);
+        enableBodyScroll?.(element);
       }
     };
   });
