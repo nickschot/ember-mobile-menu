@@ -114,7 +114,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
    * @default null
    * @private
    */
-  @tracked boundingClientRect = null;
+  @tracked boundingClientRect? : DOMRect;
 
   @tracked children = new TrackedSet<MobileMenu>();
   @tracked position = 0;
@@ -306,6 +306,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
   };
 
   didPanStart = (e: TouchData) => {
+    if (!this.boundingClientRect) return
     // Always start the panning waiter when pan starts - this ensures settled() waits
     this._panningWaiterToken = panningWaiter.beginAsync();
 
@@ -356,6 +357,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
   };
 
   didPan = (e: TouchData) => {
+    if (!this.boundingClientRect) return
     if (this.dragging) {
       this.updatePosition(
         scaleCorrection(
@@ -368,6 +370,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
   }
 
   didPanEnd = (e: TouchData) => {
+    if (!this.boundingClientRect) return
     if (this.dragging) {
       this.dragging = false;
       const pan = scaleCorrection(
@@ -480,11 +483,15 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
   scaleY = 1;
 
   onResize = ({ target }: Event) => {
+    if (!target || !(target instanceof Element)) {
+      return;
+    }
     this.boundingClientRect = target?.getBoundingClientRect();
     this.updateScale(target);
   };
 
   updateScale = (element: Element) => {
+    if (!this.boundingClientRect) return;
     this.scaleX = this.boundingClientRect.width / element.clientWidth;
     this.scaleY = this.boundingClientRect.height / element.clientHeight;
   };

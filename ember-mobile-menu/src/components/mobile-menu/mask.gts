@@ -4,7 +4,7 @@ import './mask.css';
 import { on } from '@ember/modifier';
 // @ts-expect-error ember-gesture-modifiers is not t
 import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
-import type { PanLike } from '../../utils/normalize-coordinates';
+import type { TouchData } from '../../utils/normalize-coordinates';
 
 const _fn = () => {};
 
@@ -19,9 +19,9 @@ interface MaskComponentSignature {
     capture?: boolean;
     preventScroll?: boolean;
     onClick?: () => void;
-    onPan?: (e: PanLike) => void;
-    onPanEnd?: (e: PanLike) => void;
-    onPanStart?: (e: PanLike) => void;
+    onPan?: (e: TouchData) => void;
+    onPanEnd?: (e: TouchData) => void;
+    onPanStart?: (e: TouchData) => void;
   };
 }
 

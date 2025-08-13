@@ -37,6 +37,7 @@
     "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
+    "lint:types": "tsc --noEmit",
     "prepack": "rollup --config",
     "start": "rollup --config --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
@@ -92,14 +93,6 @@
     "version": 2,
     "type": "addon",
     "main": "addon-main.cjs",
-    "app-js": {
-      "./components/mobile-menu-toggle.js": "./dist/_app_/components/mobile-menu-toggle.js",
-      "./components/mobile-menu-wrapper.js": "./dist/_app_/components/mobile-menu-wrapper.js",
-      "./components/mobile-menu-wrapper/content.js": "./dist/_app_/components/mobile-menu-wrapper/content.js",
-      "./components/mobile-menu.js": "./dist/_app_/components/mobile-menu.js",
-      "./components/mobile-menu/mask.js": "./dist/_app_/components/mobile-menu/mask.js",
-      "./components/mobile-menu/tray.js": "./dist/_app_/components/mobile-menu/tray.js",
-      "./components/utils.js": "./dist/_app_/components/utils.js"
-    }
+    "app-js": {}
   }
 }

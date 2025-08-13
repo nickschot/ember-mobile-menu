@@ -4,7 +4,7 @@ import { waitForPromise } from '@ember/test-waiters';
  *
  * This version ties in to the waiter system
  */
-export function effect(fn, ...args) {
+export function effect(fn: Function, ...args: any[]) {
   waitForPromise(
     (async () => {
       /**
