@@ -1,26 +1,29 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import type { WithBoundArgs } from '@glint/template';
 
 import { modifier as eModifier } from 'ember-modifier';
-import { action } from '@ember/object';
 import { TrackedSet } from 'tracked-built-ins';
 
-import MobileMenu from './mobile-menu.gjs';
-import normalizeCoordinates, {
+import MobileMenu from './mobile-menu.gts';
+import { normalizeCoordinates,
   scaleCorrection,
-} from '../utils/normalize-coordinates.js';
+} from '../utils/normalize-coordinates';
 
-import { getOwner } from '@ember/application';
+import { getOwner } from '@ember/owner';
 import { assert } from '@ember/debug';
 import './mobile-menu-wrapper.css';
+// @ts-expect-error ember-on-resize-modifier is not typed, see https://github.com/nickschot/ember-mobile-menu/pull/1156
 import onResize from 'ember-on-resize-modifier/modifiers/on-resize';
+// @ts-expect-error ember-set-body-class is not typed, see https://github.com/nickschot/ember-mobile-menu/pull/1156
 import setBodyClass from 'ember-set-body-class/helpers/set-body-class';
 import { hash } from '@ember/helper';
 
-import MobileMenuComponent from './mobile-menu.gjs';
-import ToggleComponent from './mobile-menu-toggle.gjs';
-import ContentComponent from './mobile-menu-wrapper/content.gjs';
+import MobileMenuComponent from './mobile-menu.gts';
+import ToggleComponent from './mobile-menu-toggle.gts';
+import ContentComponent from './mobile-menu-wrapper/content.gts';
 import { buildWaiter } from '@ember/test-waiters';
+import { TouchData } from '../utils/normalize-coordinates';
 
 const isIOSDevice =
   typeof window !== 'undefined' &&
@@ -33,6 +36,24 @@ const panningWaiter = buildWaiter('ember-mobile-menu:menu--panning');
 const transitioningWaiter = buildWaiter(
   'ember-mobile-menu:menu--transitioning',
 );
+
+interface MobileMenuWrapperSignature {
+  Element: HTMLDivElement
+  Args: {
+    openDetectionWidth?: number;
+    capture?: boolean;
+    preventScroll?: boolean;
+    embed?: boolean;
+    triggerVelocity?: number;
+  };
+  Blocks: {
+    default: [{
+      MobileMenu: typeof MobileMenu
+      Toggle: typeof ToggleComponent
+      Content: typeof ContentComponent
+    }];
+  };
+}
 
 /**
  * Wrapper component for menu's. Provides pan recognition and management.
@@ -48,13 +69,8 @@ const transitioningWaiter = buildWaiter(
  * @yield {Action} wrapper.actions.close
  * @public
  */
-export default class MobileMenuWrapper extends Component {
-  get fastboot() {
-    return getOwner(this).lookup('service:fastboot');
-  }
-  get isFastBoot() {
-    return !!this.fastboot?.isFastBoot;
-  }
+export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignature> {
+
 
   /**
    * Current BoundingClientRect of the mobile menu wrapper root element
@@ -71,12 +87,20 @@ export default class MobileMenuWrapper extends Component {
   @tracked dragging = false;
   @tracked transitioning = false;
   @tracked animationDisabled = false;
-  _panningWaiterToken = null;
-  _transitioningWaiterToken = null;
+  _panningWaiterToken: unknown = null;
+  _transitioningWaiterToken: unknown = null;
   fromPosition = 0;
   fromOpen = false;
   defaultMenuDx = 0;
   _activeMenu = null; // used only in case a menu is set to open in a fastboot environment
+  fromMenu = null;
+
+  get fastboot() {
+    return getOwner(this)?.lookup('service:fastboot');
+  }
+  get isFastBoot() {
+    return 'isFastBoot' in this.fastboot && !!this.fastboot?.isFastBoot;
+  }
 
   /**
    * Horizontal width of the detection zone in pixels. Set to -1 to use full width.
@@ -169,20 +193,18 @@ export default class MobileMenuWrapper extends Component {
     );
   }
 
-  @action
-  registerChild(component) {
+  registerChild = (component) => {
     assert(
       'component was already registered as a child',
       !this.children.has(component),
     );
 
     this.children.add(component);
-  }
+  };
 
-  @action
-  unregisterChild(component) {
+  unregisterChild = (component) => {
     this.children.delete(component);
-  }
+  };
 
   get childMenus() {
     return [...this.children].filter((view) => view instanceof MobileMenu);
@@ -205,8 +227,7 @@ export default class MobileMenuWrapper extends Component {
     );
   }
 
-  @action
-  toggle(target) {
+  toggle = (target) => {
     let targetMenu = this.leftMenu;
 
     if (target === 'right') {
@@ -227,10 +248,9 @@ export default class MobileMenuWrapper extends Component {
         this.open(targetMenu);
       }
     }
-  }
+  };
 
-  @action
-  updatePosition(pan) {
+  updatePosition = (pan) => {
     const {
       current: { distanceX },
     } = pan;
@@ -249,10 +269,9 @@ export default class MobileMenuWrapper extends Component {
         }
       }
     }
-  }
+  };
 
-  @action
-  didPanStart(e) {
+  didPanStart = (e: TouchData) => {
     // Always start the panning waiter when pan starts - this ensures settled() waits
     this._panningWaiterToken = panningWaiter.beginAsync();
 
@@ -300,10 +319,9 @@ export default class MobileMenuWrapper extends Component {
         this._panningWaiterToken = null;
       }
     }
-  }
+  };
 
-  @action
-  didPan(e) {
+  didPan = (e: TouchData) => {
     if (this.dragging) {
       this.updatePosition(
         scaleCorrection(
@@ -315,8 +333,7 @@ export default class MobileMenuWrapper extends Component {
     }
   }
 
-  @action
-  didPanEnd(e) {
+  didPanEnd = (e: TouchData) => {
     if (this.dragging) {
       this.dragging = false;
       const pan = scaleCorrection(
@@ -382,12 +399,11 @@ export default class MobileMenuWrapper extends Component {
       panningWaiter.endAsync(this._panningWaiterToken);
       this._panningWaiterToken = null;
     }
-  }
+  };
 
-  @action
-  setPosition(menu, targetPosition = 'open', animate = true) {
+  setPosition = (menu, targetPosition = 'open', animate = true) => {
     // For closing, we might not have a menu reference, so use any menu with transitioning state
-    const targetMenu = menu || this.childMenus.find((m) => m.isTransitioning);
+    const targetMenu = menu || this.childMenus.find((m) => m.args.isTransitioning);
 
     const toValue =
       targetPosition === 'close'
@@ -416,32 +432,28 @@ export default class MobileMenuWrapper extends Component {
     // Set position to trigger transition - CSS events will handle waiter lifecycle
     this.transitioning = true;
     this.position = toValue;
-  }
+  };
 
-  @action
-  open(menu = this.activeMenu, animate = true) {
+  open = (menu = this.activeMenu, animate = true) => {
     this.setPosition(menu, 'open', animate);
-  }
+  };
 
-  @action
-  close(menu = this.activeMenu, animate = true) {
+  close = (menu = this.activeMenu, animate = true) => {
     this.setPosition(menu, 'close', animate);
-  }
+  };
 
   scaleX = 1;
   scaleY = 1;
 
-  @action
-  onResize({ target }) {
+  onResize = ({ target }) => {
     this.boundingClientRect = target.getBoundingClientRect();
     this.updateScale(target);
-  }
+  };
 
-  @action
-  updateScale(element) {
+  updateScale = (element) => {
     this.scaleX = this.boundingClientRect.width / element.clientWidth;
     this.scaleY = this.boundingClientRect.height / element.clientHeight;
-  }
+  };
 
   /**
    * Detect if the user is using the app from a browser on iOS
@@ -451,7 +463,7 @@ export default class MobileMenuWrapper extends Component {
    * @private
    */
   get _isIOSbrowser() {
-    return isIOSDevice && !window.navigator.standalone;
+      return isIOSDevice && !(window.navigator as Navigator & { standalone?: boolean }).standalone;
   }
 
   get _windowWidth() {
@@ -463,8 +475,7 @@ export default class MobileMenuWrapper extends Component {
     this.updateScale(element);
   });
 
-  @action
-  onTransitionEnd() {
+  onTransitionEnd = () => {
     if (this._transitioningWaiterToken) {
       transitioningWaiter.endAsync(this._transitioningWaiterToken);
       this._transitioningWaiterToken = null;
@@ -477,7 +488,7 @@ export default class MobileMenuWrapper extends Component {
     }
 
     this.transitioning = false;
-  }
+  };
 
   willDestroy() {
     // Clean up any pending waiters
@@ -491,7 +502,7 @@ export default class MobileMenuWrapper extends Component {
       this._transitioningWaiterToken = null;
     }
 
-    super.willDestroy(...arguments);
+    super.willDestroy();
   }
 
   <template>

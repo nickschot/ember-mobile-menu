@@ -6,7 +6,30 @@ import {
   enableBodyScroll,
 } from '../../utils/body-scroll-lock.js';
 import './tray.css';
+// @ts-expect-error ember-gesture-modifiers is not typed
 import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
+import { TouchData } from '../../utils/normalize-coordinates';
+
+interface TrayComponentSignature {
+  Element: HTMLDivElement
+  Args: {
+    width?: number;
+    isLeft?: boolean;
+    position?: number;
+    shadowEnabled?: boolean;
+    mode?: string;
+    isClosed?: boolean;
+    preventScroll?: boolean;
+    embed?: boolean;
+    capture?: boolean;
+    onPanStart?: (e: TouchData) => void;
+    onPan?: (e: TouchData) => void;
+    onPanEnd?: (e: TouchData) => void;
+  };
+  Blocks: {
+    default: [];
+  };
+}
 
 /**
  * The tray that resides within the menu. Menu content is placed in here.
@@ -17,7 +40,7 @@ import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
  * @private
  * @hide
  */
-export default class TrayComponent extends Component {
+export default class TrayComponent extends Component<TrayComponentSignature> {
   /**
    * Width of the menu in px.
    *

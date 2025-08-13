@@ -1,16 +1,47 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 import './mobile-menu.css';
-import MaskComponent from './mobile-menu/mask.gjs';
-import TrayComponent from './mobile-menu/tray.gjs';
+import MaskComponent from './mobile-menu/mask.gts';
+import TrayComponent from './mobile-menu/tray.gts';
 import { hash } from '@ember/helper';
-import { effect } from './utils.js';
+import { effect } from './utils';
 import { on } from '@ember/modifier';
+import { TouchData } from '../utils/normalize-coordinates';
+import type MobileMenuWrapper from './mobile-menu-wrapper.gts';
 
 const _fn = function () {};
+
+interface MobileMenuSignature {
+  Args: {
+    type?: 'left' | 'right';
+    mode?: 'default' | 'push' | 'ios' | 'reveal' | 'squeeze' | 'squeeze-reveal';
+    width?: number;
+    maxWidth?: number;
+    maskEnabled?: boolean;
+    shadowEnabled?: boolean;
+    isOpen?: boolean;
+    isDragging?: boolean;
+    isTransitioning?: boolean;
+    animationDisabled?: boolean;
+    position?: number;
+    parentBoundingClientRect?: DOMRect | null;
+    register: (menu: MobileMenu) => void;
+    unregister: (menu: MobileMenu) => void;
+    onToggle?: (isOpen: boolean) => void;
+    onOpen?: (menu: MobileMenu, animate?: boolean) => void;
+    onClose?: (menu?: MobileMenu, animate?: boolean) => void;
+    onTransitionEnd?: () => void;
+    capture?: boolean;
+    preventScroll?: boolean;
+    onPan?: (event: TouchData) => void;
+    onPanStart?: (event: TouchData) => void;
+    onPanEnd?: (event: TouchData) => void;
+    embed?: boolean;
+    parent: typeof MobileMenuWrapper;
+  };
+}
 
 /**
  * Menu component
@@ -18,7 +49,7 @@ const _fn = function () {};
  * @class MobileMenu
  * @public
  */
-export default class MobileMenu extends Component {
+export default class MobileMenu extends Component<MobileMenuSignature> {
   @tracked _open = false;
   @tracked _closed = true;
 
@@ -121,9 +152,6 @@ export default class MobileMenu extends Component {
    * @type Function
    * @protected
    */
-  get onOpen() {
-    return this.args.onOpen ?? _fn;
-  }
 
   /**
    * Hook fired when the menu is closed. You can pass in an action. The menu instance will be passed to the action.
@@ -132,9 +160,6 @@ export default class MobileMenu extends Component {
    * @type Action
    * @protected
    */
-  get onClose() {
-    return this.args.onClose ?? _fn;
-  }
 
   /**
    * @argument position
@@ -142,8 +167,9 @@ export default class MobileMenu extends Component {
    * @protected
    */
   get position() {
+    if (!this.args.position) return 0;
     return (this.isLeft && this.args.position > 0) ||
-      (this.isRight && this.args.position < 0)
+      (this.isRight && this.args.position && this.args.position < 0)
       ? this.args.position
       : 0;
   }
@@ -177,7 +203,7 @@ export default class MobileMenu extends Component {
   willDestroy() {
     this.args.unregister(this);
 
-    super.willDestroy(...arguments);
+    super.willDestroy();
   }
 
   get renderMenu() {
@@ -244,23 +270,20 @@ export default class MobileMenu extends Component {
     return htmlSafe(styles);
   }
 
-  @action
-  open(animate) {
-    this.onOpen(this, animate);
-  }
+  open = (animate) => {
+    this.args.onOpen?.(this, animate);
+  };
 
-  @action
-  close(animate) {
+  close = (animate?: boolean) => {
     // Only skip close if we haven't rendered AND we're trying to animate
     if (!this.hasRendered && animate) return;
 
-    this.onClose(this, animate);
-  }
+    this.args.onClose?.(this, animate);
+  };
 
   hasRendered = false;
 
-  @action
-  openOrClose(open) {
+  openOrClose = (open) => {
     let animate = this.hasRendered;
 
     if (open) {
@@ -270,25 +293,23 @@ export default class MobileMenu extends Component {
     }
 
     this.onToggle(open);
-  }
+  };
 
-  @action
-  closeFromLinkTo() {
+  closeFromLinkTo = () => {
     if (!['squeeze', 'squeeze-reveal'].includes(this.mode)) {
       this.close();
     }
-  }
+  };
 
-  @action setRendered() {
+  setRendered = () => {
     if (!this.hasRendered) {
       this.hasRendered = true;
     }
-  }
+  };
 
-  @action
-  handleTransitionEnd() {
+  handleTransitionEnd = () => {
     this.args.onTransitionEnd?.();
-  }
+  };
 
   <template>
     {{#if this.renderMenu}}

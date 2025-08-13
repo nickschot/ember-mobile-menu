@@ -1,7 +1,9 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
+// @ts-expect-error ember-gesture-modifiers is not typed
 import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
-import MaskComponent from '../mobile-menu/mask.gjs';
+import MaskComponent from '../mobile-menu/mask.gts';
+import { TouchData } from '../../utils/normalize-coordinates';
 
 const MODES = new Map([
   ['default', () => ''],
@@ -12,11 +14,30 @@ const MODES = new Map([
   ['squeeze-reveal', (p, side) => `margin-${side}: ${Math.abs(p)}px;`],
 ]);
 
+interface ContentComponentSignature {
+  Element: HTMLDivElement
+  Args: {
+    mode?: string;
+    position?: number;
+    shadowEnabled?: boolean;
+    isOpen?: boolean;
+    preventScroll?: boolean;
+    capture?: boolean;
+    onClose?: () => void;
+    onPanStart?: (e: TouchData) => void;
+    onPan?: (e: TouchData) => void;
+    onPanEnd?: (e: TouchData) => void;
+  };
+  Blocks: {
+    default: [];
+  };
+}
+
 /**
  * @class ContentComponent
  * @private
  */
-export default class ContentComponent extends Component {
+export default class ContentComponent extends Component<ContentComponentSignature> {
   /**
    * @argument mode
    * @type string
