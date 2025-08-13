@@ -7,7 +7,7 @@ import './mobile-menu.css';
 import MaskComponent from './mobile-menu/mask.gts';
 import TrayComponent from './mobile-menu/tray.gts';
 import { hash } from '@ember/helper';
-import { effect } from './utils';
+import { effect } from './utils.ts';
 import { on } from '@ember/modifier';
 import type { TouchData } from '../utils/normalize-coordinates';
 import type MobileMenuWrapper from './mobile-menu-wrapper.gts';

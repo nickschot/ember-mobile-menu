@@ -9,7 +9,7 @@ import MobileMenu from './mobile-menu.gts';
 import {
   normalizeCoordinates,
   scaleCorrection,
-} from '../utils/normalize-coordinates';
+} from '../utils/normalize-coordinates.ts';
 
 import { getOwner } from '@ember/owner';
 import { assert } from '@ember/debug';
