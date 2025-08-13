@@ -56,9 +56,6 @@ importers:
       '@glimmer/component':
         specifier: 1.1.2
         version: 1.1.2(@babel/core@7.28.0)
-      '@glimmer/tracking':
-        specifier: 1.1.2
-        version: 1.1.2
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -309,9 +306,6 @@ importers:
       '@glimmer/component':
         specifier: 1.1.2
         version: 1.1.2(@babel/core@7.28.0)
-      '@glimmer/tracking':
-        specifier: 1.1.2
-        version: 1.1.2
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
