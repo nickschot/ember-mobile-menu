@@ -12,8 +12,8 @@
   "compilerOptions": {
     "rootDir": ".",
     "target": "es2016",
+    "types": ["ember-source/types", "vite/client", "@embroider/core/virtual"],
     "noEmit": true,
-    "skipLibCheck": true,
-    "types": ["ember-source/types"]
+    "skipLibCheck": true
   }
 }

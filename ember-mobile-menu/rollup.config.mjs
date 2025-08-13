@@ -66,6 +66,8 @@ export default {
     // to leave alone and keep in the published output.
     addon.keepAssets(['**/*.css']),
 
+    // Remove leftover build artifacts when starting a new build.
+    addon.clean(),
     // Copy README, LICENSE and themes into published package
     copy({
       targets: [
@@ -76,7 +78,5 @@ export default {
       hook: 'writeBundle',
     }),
 
-    // Remove leftover build artifacts when starting a new build.
-    addon.clean(),
   ],
 };
