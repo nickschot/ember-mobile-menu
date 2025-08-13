@@ -58,9 +58,7 @@ export default {
     // Ensure that .gts files are properly integrated as Javascript
     addon.gjs(),
 
-    addon.declarations(
-      'declarations'
-    ),
+    addon.declarations('declarations'),
 
     // addons are allowed to contain imports of .css files, which we want rollup
     // to leave alone and keep in the published output.
