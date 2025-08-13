@@ -40,7 +40,7 @@ class StateResource {
 
   currentCache = createCache(() => {
     let state = this._useState();
-    return this.calculateCurrent(state);
+    return this.calculateCurrent(...state);
   });
 
   get current() {
