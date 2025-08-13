@@ -191,9 +191,6 @@ importers:
       decorator-transforms:
         specifier: ^2.2.2
         version: 2.3.0(@babel/core@7.28.0)
-      ember-cached-decorator-polyfill:
-        specifier: ^1.0.2
-        version: 1.0.2(@babel/core@7.28.0)(ember-source@6.6.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
       ember-gesture-modifiers:
         specifier: ^5.0.0 || ^6.0.0
         version: 6.1.0(@babel/core@7.28.0)(@ember/test-helpers@5.2.2(@babel/core@7.28.0))(ember-source@6.6.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
@@ -4000,12 +3997,6 @@ packages:
   ember-cache-primitive-polyfill@1.0.1:
     resolution: {integrity: sha512-hSPcvIKarA8wad2/b6jDd/eU+OtKmi6uP+iYQbzi5TQpjsqV6b4QdRqrLk7ClSRRKBAtdTuutx+m+X+WlEd2lw==}
     engines: {node: 10.* || >= 12}
-
-  ember-cached-decorator-polyfill@1.0.2:
-    resolution: {integrity: sha512-hUX6OYTKltAPAu8vsVZK02BfMTV0OUXrPqvRahYPhgS7D0I6joLjlskd7mhqJMcaXLywqceIy8/s+x8bxF8bpQ==}
-    engines: {node: 14.* || >= 16}
-    peerDependencies:
-      ember-source: ^3.13.0 || ^4.0.0 || >= 5.0.0
 
   ember-cli-addon-docs-yuidoc@1.1.0:
     resolution: {integrity: sha512-Cx8znIPNJA/mlpKdS/F+lRTExuTzvUIkk1Nr6FNWfaNJlrFAtaN6QgSEcGi09lHdjNOcgFvuriPMoW1Y9XHAiA==}
@@ -13876,20 +13867,6 @@ snapshots:
       silent-error: 1.1.1
     transitivePeerDependencies:
       - '@babel/core'
-      - supports-color
-
-  ember-cached-decorator-polyfill@1.0.2(@babel/core@7.28.0)(ember-source@6.6.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5)):
-    dependencies:
-      '@embroider/macros': 1.18.0
-      '@glimmer/tracking': 1.1.2
-      babel-import-util: 1.4.1
-      ember-cache-primitive-polyfill: 1.0.1(@babel/core@7.28.0)
-      ember-cli-babel: 7.26.11
-      ember-cli-babel-plugin-helpers: 1.1.1
-      ember-source: 6.6.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@glint/template'
       - supports-color
 
   ember-cli-addon-docs-yuidoc@1.1.0:
