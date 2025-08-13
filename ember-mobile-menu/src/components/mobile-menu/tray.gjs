@@ -54,10 +54,6 @@ export default class TrayComponent extends Component {
     return this.args.position ?? 0;
   }
 
-  get progress() {
-    return Math.abs(this.position) / this.width;
-  }
-
   get style() {
     let style = `width: ${this.width}px;`;
 
@@ -78,9 +74,9 @@ export default class TrayComponent extends Component {
     if (
       this.args.shadowEnabled &&
       ['default', 'push', 'squeeze'].includes(this.args.mode) &&
-      this.progress > 0
+      !this.args.isClosed
     ) {
-      style += `box-shadow: 0 0 10px rgba(0,0,0,${0.3 * this.progress});`;
+      style += `box-shadow: 0 0 10px rgba(0,0,0,${0.3});`;
     }
 
     return htmlSafe(style);

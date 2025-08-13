@@ -89,17 +89,6 @@ export default class MobileMenu extends Component {
   }
 
   /**
-   * The default swipe velocity needed to fully open the menu.
-   *
-   * @argument triggerVelocity
-   * @type Number
-   * @default 0.3
-   */
-  get triggerVelocity() {
-    return this.args.triggerVelocity ?? 0.3;
-  }
-
-  /**
    * @argument isOpen
    * @type boolean
    * @default false
