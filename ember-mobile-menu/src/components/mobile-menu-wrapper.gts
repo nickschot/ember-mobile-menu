@@ -23,7 +23,7 @@ import MobileMenuComponent from './mobile-menu.gts';
 import ToggleComponent from './mobile-menu-toggle.gts';
 import ContentComponent from './mobile-menu-wrapper/content.gts';
 import { buildWaiter } from '@ember/test-waiters';
-import { TouchData } from '../utils/normalize-coordinates';
+import type { TouchData } from '../utils/normalize-coordinates';
 
 const isIOSDevice =
   typeof window !== 'undefined' &&
@@ -48,9 +48,43 @@ interface MobileMenuWrapperSignature {
   };
   Blocks: {
     default: [{
-      MobileMenu: typeof MobileMenu
-      Toggle: typeof ToggleComponent
-      Content: typeof ContentComponent
+      MobileMenu: WithBoundArgs<typeof MobileMenu,
+        'isDragging' |
+        'isTransitioning' |
+        'position' |
+        'animationDisabled' |
+        'embed' |
+        'parentBoundingClientRect' |
+        'parent' |
+        'register' |
+        'unregister' |
+        'onClose' |
+        'onOpen' |
+        'onPanStart' |
+        'onPan' |
+        'onPanEnd' |
+        'capture' |
+        'preventScroll' |
+        'onTransitionEnd'
+      >
+      Toggle: WithBoundArgs<typeof ToggleComponent, 'onClick'>
+      Content: WithBoundArgs<typeof ContentComponent,
+        'shadowEnabled' |
+        'position' |
+        'mode' |
+        'isOpen' |
+        'onPanStart' |
+        'onPan' |
+        'onPanEnd' |
+        'capture' |
+        'preventScroll' |
+        'onClose'
+      >
+      position: number
+      actions: {
+        toggle: (target?: 'left' | 'right') => void,
+        close: (menu?: MobileMenu, animate?: boolean) => void
+      }
     }];
   };
 }
@@ -82,7 +116,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
    */
   @tracked boundingClientRect = null;
 
-  @tracked children = new TrackedSet();
+  @tracked children = new TrackedSet<MobileMenu>();
   @tracked position = 0;
   @tracked dragging = false;
   @tracked transitioning = false;
@@ -92,14 +126,14 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
   fromPosition = 0;
   fromOpen = false;
   defaultMenuDx = 0;
-  _activeMenu = null; // used only in case a menu is set to open in a fastboot environment
-  fromMenu = null;
+  _activeMenu: null | MobileMenu = null; // used only in case a menu is set to open in a fastboot environment
+  fromMenu: null | MobileMenu = null;
 
   get fastboot() {
     return getOwner(this)?.lookup('service:fastboot');
   }
   get isFastBoot() {
-    return 'isFastBoot' in this.fastboot && !!this.fastboot?.isFastBoot;
+    return this.fastboot && 'isFastBoot' in this.fastboot && !!this.fastboot?.isFastBoot;
   }
 
   /**
@@ -183,7 +217,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
   }
 
   get mode() {
-    return this.activeMenu?.mode;
+    return this.activeMenu?.mode || 'default';
   }
 
   get contentShadowEnabled() {
@@ -193,7 +227,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
     );
   }
 
-  registerChild = (component) => {
+  registerChild = (component: MobileMenu) => {
     assert(
       'component was already registered as a child',
       !this.children.has(component),
@@ -202,7 +236,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
     this.children.add(component);
   };
 
-  unregisterChild = (component) => {
+  unregisterChild = (component: MobileMenu) => {
     this.children.delete(component);
   };
 
@@ -227,7 +261,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
     );
   }
 
-  toggle = (target) => {
+  toggle = (target?: 'left' | 'right') => {
     let targetMenu = this.leftMenu;
 
     if (target === 'right') {
@@ -250,7 +284,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
     }
   };
 
-  updatePosition = (pan) => {
+  updatePosition = (pan: TouchData) => {
     const {
       current: { distanceX },
     } = pan;
@@ -353,7 +387,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
 
         const condition =
           (isLeft && !this.fromOpen) || (this.fromOpen && !isLeft);
-        const vx = condition ? velocityX : -velocityX;
+        const vx = condition ? velocityX : - (velocityX || 0);
         let dx = condition ? distanceX : -distanceX;
 
         // default menu dx correction
@@ -367,7 +401,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
 
         // the pan action is over, cleanup and set the correct final menu position
         if (!this.fromOpen) {
-          if (vx > this.triggerVelocity || dx > width / 2) {
+          if (vx && vx > this.triggerVelocity || dx > width / 2) {
             this.open(menu);
             // Don't end panning waiter yet - transition will take over
             return;
@@ -379,8 +413,8 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
         } else {
           if (
             this.mode === 'default'
-              ? (vx > this.triggerVelocity && dx > 0) || dx > width / 2
-              : vx > this.triggerVelocity || dx > width / 2
+              ? (vx && vx > this.triggerVelocity && dx > 0) || dx > width / 2
+              : vx && vx > this.triggerVelocity || dx > width / 2
           ) {
             this.close(menu);
             // Don't end panning waiter yet - transition will take over
@@ -401,7 +435,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
     }
   };
 
-  setPosition = (menu, targetPosition = 'open', animate = true) => {
+  setPosition = (menu?: MobileMenu | null, targetPosition = 'open', animate = true) => {
     // For closing, we might not have a menu reference, so use any menu with transitioning state
     const targetMenu = menu || this.childMenus.find((m) => m.args.isTransitioning);
 
@@ -445,12 +479,12 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
   scaleX = 1;
   scaleY = 1;
 
-  onResize = ({ target }) => {
-    this.boundingClientRect = target.getBoundingClientRect();
+  onResize = ({ target }: Event) => {
+    this.boundingClientRect = target?.getBoundingClientRect();
     this.updateScale(target);
   };
 
-  updateScale = (element) => {
+  updateScale = (element: Element) => {
     this.scaleX = this.boundingClientRect.width / element.clientWidth;
     this.scaleY = this.boundingClientRect.height / element.clientHeight;
   };
@@ -545,8 +579,7 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
             shadowEnabled=this.contentShadowEnabled
             position=this.position
             mode=this.mode
-            isOpen=this.activeMenu
-            maskEnabled=this.activeMenu.maskEnabled
+            isOpen=this.isOpen
             onPanStart=this.didPanStart
             onPan=this.didPan
             onPanEnd=this.didPanEnd

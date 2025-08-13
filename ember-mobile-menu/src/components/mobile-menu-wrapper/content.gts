@@ -3,15 +3,15 @@ import { htmlSafe } from '@ember/template';
 // @ts-expect-error ember-gesture-modifiers is not typed
 import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
 import MaskComponent from '../mobile-menu/mask.gts';
-import { TouchData } from '../../utils/normalize-coordinates';
+import type { TouchData } from '../../utils/normalize-coordinates';
 
 const MODES = new Map([
   ['default', () => ''],
-  ['push', (p) => `transform: translateX(${p}px);`],
-  ['reveal', (p) => `transform: translateX(${p}px);`],
-  ['ios', (p) => `transform: translateX(${p}px);`],
-  ['squeeze', (p, side) => `margin-${side}: ${Math.abs(p)}px;`],
-  ['squeeze-reveal', (p, side) => `margin-${side}: ${Math.abs(p)}px;`],
+  ['push', (p: number) => `transform: translateX(${p}px);`],
+  ['reveal', (p: number) => `transform: translateX(${p}px);`],
+  ['ios', (p: number) => `transform: translateX(${p}px);`],
+  ['squeeze', (p: number, side: 'left' | 'right') => `margin-${side}: ${Math.abs(p)}px;`],
+  ['squeeze-reveal', (p: number, side: 'left' | 'right') => `margin-${side}: ${Math.abs(p)}px;`],
 ]);
 
 interface ContentComponentSignature {
@@ -49,10 +49,10 @@ export default class ContentComponent extends Component<ContentComponentSignatur
 
   get style() {
     let styles = '';
-    if (this.args.position > 0) {
-      styles = MODES.get(this.mode)(this.args.position, 'left');
-    } else if (this.args.position < 0) {
-      styles = MODES.get(this.mode)(this.args.position, 'right');
+    if (this.args.position && this.args.position > 0) {
+      styles = MODES.get(this.mode)?.(this.args.position, 'left') || '';
+    } else if (this.args.position && this.args.position < 0) {
+      styles = MODES.get(this.mode)?.(this.args.position, 'right') || '';
     }
 
     return htmlSafe(styles);

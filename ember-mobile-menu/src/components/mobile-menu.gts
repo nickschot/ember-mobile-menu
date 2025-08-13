@@ -2,13 +2,14 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
+import type Owner from '@ember/owner';
 import './mobile-menu.css';
 import MaskComponent from './mobile-menu/mask.gts';
 import TrayComponent from './mobile-menu/tray.gts';
 import { hash } from '@ember/helper';
 import { effect } from './utils';
 import { on } from '@ember/modifier';
-import { TouchData } from '../utils/normalize-coordinates';
+import type { TouchData } from '../utils/normalize-coordinates';
 import type MobileMenuWrapper from './mobile-menu-wrapper.gts';
 
 const _fn = function () {};
@@ -29,7 +30,7 @@ interface MobileMenuSignature {
     parentBoundingClientRect?: DOMRect | null;
     register: (menu: MobileMenu) => void;
     unregister: (menu: MobileMenu) => void;
-    onToggle?: (isOpen: boolean) => void;
+    onToggle?: (isOpen?: boolean) => void;
     onOpen?: (menu: MobileMenu, animate?: boolean) => void;
     onClose?: (menu?: MobileMenu, animate?: boolean) => void;
     onTransitionEnd?: () => void;
@@ -39,7 +40,7 @@ interface MobileMenuSignature {
     onPanStart?: (event: TouchData) => void;
     onPanEnd?: (event: TouchData) => void;
     embed?: boolean;
-    parent: typeof MobileMenuWrapper;
+    parent: MobileMenuWrapper;
   };
 }
 
@@ -180,8 +181,8 @@ export default class MobileMenu extends Component<MobileMenuSignature> {
    * @protected
    */
 
-  constructor() {
-    super(...arguments);
+  constructor(owner: Owner, args: MobileMenuSignature['Args']) {
+    super(owner, args);
 
     assert(
       'register function argument not passed. You should not be using <MobileMenu/> directly.',
@@ -244,7 +245,7 @@ export default class MobileMenu extends Component<MobileMenuSignature> {
   }
 
   get invertOpacity() {
-    return ['ios', 'reveal', 'squeeze-reveal'].includes(this.args.mode);
+    return ['ios', 'reveal', 'squeeze-reveal'].includes(this.mode);
   }
 
   /**
@@ -270,7 +271,7 @@ export default class MobileMenu extends Component<MobileMenuSignature> {
     return htmlSafe(styles);
   }
 
-  open = (animate) => {
+  open = (animate?: boolean) => {
     this.args.onOpen?.(this, animate);
   };
 
@@ -283,7 +284,7 @@ export default class MobileMenu extends Component<MobileMenuSignature> {
 
   hasRendered = false;
 
-  openOrClose = (open) => {
+  openOrClose = (open?: boolean) => {
     let animate = this.hasRendered;
 
     if (open) {
@@ -343,7 +344,7 @@ export default class MobileMenu extends Component<MobileMenuSignature> {
           @isLeft={{this.isLeft}}
           @position={{this.position}}
           @shadowEnabled={{this.shadowEnabled}}
-          @mode={{@mode}}
+          @mode={{this.mode}}
           @embed={{@embed}}
           @isClosed={{this.isClosed}}
           @onPanStart={{@onPanStart}}

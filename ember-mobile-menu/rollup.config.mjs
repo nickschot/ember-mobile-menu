@@ -3,6 +3,7 @@ import copy from 'rollup-plugin-copy';
 import { Addon } from '@embroider/addon-dev/rollup';
 import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
+import typescript from '@rollup/plugin-typescript';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -37,6 +38,16 @@ export default {
       'modifiers/**/*.js',
       'services/**/*.js',
     ]),
+
+    typescript({
+      tsconfig: './tsconfig.json',
+      declaration: true,
+      declarationMap: true,
+      sourceMap: true,
+      outDir: 'dist',
+      declarationDir: 'dist',
+    }),
+
 
     // Follow the V2 Addon rules about dependencies. Your code can import from
     // `dependencies` and `peerDependencies` as well as standard Ember-provided

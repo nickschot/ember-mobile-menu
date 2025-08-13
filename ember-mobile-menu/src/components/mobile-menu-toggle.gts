@@ -10,7 +10,18 @@ const _fn = () => {};
  * @class MobileMenuToggle
  * @public
  */
-export default class MobileMenuToggle extends Component {
+
+interface MobileMenuToggleSignature {
+  Element: HTMLButtonElement;
+  Args: {
+    target: 'left' | 'right';
+    onClick?: (target: 'left' | 'right') => void;
+  };
+  Blocks: {
+    default: [];
+  };
+}
+export default class MobileMenuToggle extends Component<MobileMenuToggleSignature> {
   /**
    * Target menu for the toggle
    *
@@ -25,7 +36,7 @@ export default class MobileMenuToggle extends Component {
    * @type function
    */
   get onClick() {
-    return () => this.args.onClick(this.args.target) ?? _fn;
+    return () => this.args.onClick?.(this.args.target) ?? _fn;
   }
 
   <template>
