@@ -194,7 +194,6 @@ export default class MobileMenuWrapper extends Component {
     return this.childMenus.find((menu) => menu.isRight);
   }
 
-
   get relativePosition() {
     return this.activeMenu
       ? Math.abs(this.position) / this.activeMenu._width
@@ -466,7 +465,6 @@ export default class MobileMenuWrapper extends Component {
   });
 
   <template>
-
     <div
       class="mobile-menu-wrapper
         {{if this.embed 'mobile-menu-wrapper--embedded'}}"
