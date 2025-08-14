@@ -14,8 +14,8 @@ const _fn = () => {};
 interface MobileMenuToggleSignature {
   Element: HTMLButtonElement;
   Args: {
-    target: 'left' | 'right';
-    onClick?: (target: 'left' | 'right') => void;
+    target?: 'left' | 'right';
+    onClick?: (target?: 'left' | 'right') => void;
   };
   Blocks: {
     default: [];
