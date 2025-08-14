@@ -8,7 +8,8 @@
   }
 }
 
-body.mobile-menu--prevent-scroll {
+/* Prevent body scroll when any non-embedded mobile menu is open with mask enabled */
+body:has(.mobile-menu-wrapper:not(.mobile-menu-wrapper--embedded) .mobile-menu--open .mobile-menu__mask) {
   overflow: hidden;
 }
 
