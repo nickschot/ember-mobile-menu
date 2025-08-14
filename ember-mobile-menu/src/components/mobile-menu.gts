@@ -15,6 +15,7 @@ import type MobileMenuWrapper from './mobile-menu-wrapper.gts';
 const _fn = function () {};
 
 interface MobileMenuSignature {
+  Element: HTMLDivElement;
   Args: {
     type?: 'left' | 'right';
     mode?: 'default' | 'push' | 'ios' | 'reveal' | 'squeeze' | 'squeeze-reveal';
@@ -41,6 +42,16 @@ interface MobileMenuSignature {
     onPanEnd?: (event: TouchData) => void;
     embed?: boolean;
     parent: MobileMenuWrapper;
+  };
+  Blocks: {
+    default: [
+      {
+        actions: {
+          open: (animate?: boolean) => void;
+          close: (animate?: boolean) => void;
+        };
+      },
+    ];
   };
 }
 
@@ -316,6 +327,7 @@ export default class MobileMenu extends Component<MobileMenuSignature> {
     {{#if this.renderMenu}}
       {{effect @register this}}
       {{effect this.openOrClose @isOpen}}
+      {{effect this.setRendered}}
 
       <div
         class={{this.classNames}}
