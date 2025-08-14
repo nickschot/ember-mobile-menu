@@ -8,10 +8,6 @@
   }
 }
 
-body.mobile-menu--prevent-scroll {
-  overflow: hidden;
-}
-
 .mobile-menu-wrapper {
   overflow: hidden;
   width: var(--mobile-menu-wrapper-width);
