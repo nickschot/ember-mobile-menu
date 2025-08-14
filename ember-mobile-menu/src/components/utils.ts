@@ -4,9 +4,9 @@ import { waitForPromise } from '@ember/test-waiters';
  *
  * This version ties in to the waiter system
  */
-export function effect(
-  fn: (...args: unknown[]) => Promise<unknown>,
-  ...args: unknown[]
+export function effect<T extends unknown[]>(
+  fn: (...args: T) => Promise<unknown> | void,
+  ...args: T
 ) {
   void waitForPromise(
     (async () => {
