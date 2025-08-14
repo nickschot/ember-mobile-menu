@@ -23,29 +23,85 @@ const MODES = new Map([
 interface ContentComponentSignature {
   Element: HTMLDivElement;
   Args: {
-    /** Animation and positioning mode for content transformation. @default 'default' */
+    /**
+     * Animation and positioning mode for content transformation.
+     *
+     * @argument mode
+     * @type {String}
+     * @default 'default'
+     */
     mode?: 'default' | 'push' | 'ios' | 'reveal' | 'squeeze' | 'squeeze-reveal';
-    /** Current position of the active menu in pixels for content transformation. */
+    /**
+     * Current position of the active menu in pixels for content transformation.
+     *
+     * @argument position
+     * @type {Number}
+     */
     position?: number;
-    /** Whether to display a shadow on the content (used in certain modes). */
+    /**
+     * Whether to display a shadow on the content (used in certain modes).
+     *
+     * @argument shadowEnabled
+     * @type {Boolean}
+     */
     shadowEnabled?: boolean;
-    /** Whether any menu is currently open (used for mask rendering). */
+    /**
+     * Whether any menu is currently open (used for mask rendering).
+     *
+     * @argument isOpen
+     * @type {Boolean}
+     */
     isOpen?: boolean;
-    /** If true, prevents page scroll during pan gestures. Helps avoid conflicts with menu gestures. */
+    /**
+     * If true, prevents page scroll during pan gestures. Helps avoid conflicts with menu gestures.
+     *
+     * @argument preventScroll
+     * @type {Boolean}
+     */
     preventScroll?: boolean;
-    /** If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures. */
+    /**
+     * If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures.
+     *
+     * @argument capture
+     * @type {Boolean}
+     */
     capture?: boolean;
-    /** Handler called to close the active menu. */
+    /**
+     * Handler called to close the active menu.
+     *
+     * @argument onClose
+     * @type {Function}
+     */
     onClose?: () => void;
-    /** Handler for pan gesture start events. */
+    /**
+     * Handler for pan gesture start events.
+     *
+     * @argument onPanStart
+     * @type {Function}
+     */
     onPanStart?: (e: TouchData) => void;
-    /** Handler for pan gesture events during dragging. */
+    /**
+     * Handler for pan gesture events during dragging.
+     *
+     * @argument onPan
+     * @type {Function}
+     */
     onPan?: (e: TouchData) => void;
-    /** Handler for pan gesture end events. */
+    /**
+     * Handler for pan gesture end events.
+     *
+     * @argument onPanEnd
+     * @type {Function}
+     */
     onPanEnd?: (e: TouchData) => void;
   };
   Blocks: {
-    /** Main application content is yielded here. */
+    /**
+     * Main application content is yielded here.
+     *
+     * @property default
+     * @type {Array}
+     */
     default: [];
   };
 }

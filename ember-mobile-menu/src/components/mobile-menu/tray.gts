@@ -13,33 +13,101 @@ import type { TouchData } from '../../utils/normalize-coordinates.ts';
 interface TrayComponentSignature {
   Element: HTMLDivElement;
   Args: {
-    /** Width of the menu in pixels. @default 300 */
+    /**
+     * Width of the menu in pixels.
+     *
+     * @argument width
+     * @type {Number}
+     * @default 300
+     */
     width?: number;
-    /** Whether this is a left-side menu (false for right-side). @default true */
+    /**
+     * Whether this is a left-side menu (false for right-side).
+     *
+     * @argument isLeft
+     * @type {Boolean}
+     * @default true
+     */
     isLeft?: boolean;
-    /** Current position of the menu in pixels from its closed position. @default 0 */
+    /**
+     * Current position of the menu in pixels from its closed position.
+     *
+     * @argument position
+     * @type {Number}
+     * @default 0
+     */
     position?: number;
-    /** Whether to display a shadow on the tray. */
+    /**
+     * Whether to display a shadow on the tray.
+     *
+     * @argument shadowEnabled
+     * @type {Boolean}
+     */
     shadowEnabled?: boolean;
-    /** Animation and positioning mode for the menu. */
+    /**
+     * Animation and positioning mode for the menu.
+     *
+     * @argument mode
+     * @type {String}
+     */
     mode: 'default' | 'push' | 'ios' | 'reveal' | 'squeeze' | 'squeeze-reveal';
-    /** Whether the menu is in closed state (used for body scroll management). */
+    /**
+     * Whether the menu is in closed state (used for body scroll management).
+     *
+     * @argument isClosed
+     * @type {Boolean}
+     */
     isClosed?: boolean;
-    /** If true, prevents page scroll when the menu is open. Helps avoid conflicts with menu gestures. */
+    /**
+     * If true, prevents page scroll when the menu is open. Helps avoid conflicts with menu gestures.
+     *
+     * @argument preventScroll
+     * @type {Boolean}
+     */
     preventScroll?: boolean;
-    /** If true, renders in embedded mode without full-screen behavior. */
+    /**
+     * If true, renders in embedded mode without full-screen behavior.
+     *
+     * @argument embed
+     * @type {Boolean}
+     */
     embed?: boolean;
-    /** If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures. */
+    /**
+     * If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures.
+     *
+     * @argument capture
+     * @type {Boolean}
+     */
     capture?: boolean;
-    /** Handler for pan gesture start events. */
+    /**
+     * Handler for pan gesture start events.
+     *
+     * @argument onPanStart
+     * @type {Function}
+     */
     onPanStart?: (e: TouchData) => void;
-    /** Handler for pan gesture events during dragging. */
+    /**
+     * Handler for pan gesture events during dragging.
+     *
+     * @argument onPan
+     * @type {Function}
+     */
     onPan?: (e: TouchData) => void;
-    /** Handler for pan gesture end events. */
+    /**
+     * Handler for pan gesture end events.
+     *
+     * @argument onPanEnd
+     * @type {Function}
+     */
     onPanEnd?: (e: TouchData) => void;
   };
   Blocks: {
-    /** Menu content is yielded here. */
+    /**
+     * Menu content is yielded here.
+     *
+     * @property default
+     * @type {Array}
+     */
     default: [];
   };
 }

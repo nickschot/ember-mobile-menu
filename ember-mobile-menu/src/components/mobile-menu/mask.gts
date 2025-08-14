@@ -11,27 +11,85 @@ const _fn = () => {};
 interface MaskComponentSignature {
   Element: HTMLButtonElement;
   Args: {
-    /** Width of the associated menu for opacity calculations. @default 300 */
+    /**
+     * Width of the associated menu for opacity calculations.
+     *
+     * @argument width
+     * @type {Number}
+     * @default 300
+     */
     width?: number;
-    /** If true, inverts the opacity calculation for certain menu modes like 'ios' and 'reveal'. */
+    /**
+     * If true, inverts the opacity calculation for certain menu modes like 'ios' and 'reveal'.
+     *
+     * @argument invertOpacity
+     * @type {Boolean}
+     */
     invertOpacity?: boolean;
-    /** Whether the associated menu is fully open. @default false */
+    /**
+     * Whether the associated menu is fully open.
+     *
+     * @argument isOpen
+     * @type {Boolean}
+     * @default false
+     */
     isOpen?: boolean;
-    /** Whether the associated menu is fully closed (used for visibility control). */
+    /**
+     * Whether the associated menu is fully closed (used for visibility control).
+     *
+     * @argument isClosed
+     * @type {Boolean}
+     */
     isClosed?: boolean;
-    /** Current position of the menu in pixels for opacity calculations. @default 0 */
+    /**
+     * Current position of the menu in pixels for opacity calculations.
+     *
+     * @argument position
+     * @type {Number}
+     * @default 0
+     */
     position?: number;
-    /** If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures. */
+    /**
+     * If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures.
+     *
+     * @argument capture
+     * @type {Boolean}
+     */
     capture?: boolean;
-    /** If true, prevents page scroll during pan gestures. Helps avoid conflicts with menu gestures. */
+    /**
+     * If true, prevents page scroll during pan gestures. Helps avoid conflicts with menu gestures.
+     *
+     * @argument preventScroll
+     * @type {Boolean}
+     */
     preventScroll?: boolean;
-    /** Handler called when the mask is clicked to close the menu. @default function(){} */
+    /**
+     * Handler called when the mask is clicked to close the menu.
+     *
+     * @argument onClick
+     * @type {Function}
+     */
     onClick?: () => void;
-    /** Handler for pan gesture events during dragging. */
+    /**
+     * Handler for pan gesture events during dragging.
+     *
+     * @argument onPan
+     * @type {Function}
+     */
     onPan?: (e: TouchData) => void;
-    /** Handler for pan gesture end events. */
+    /**
+     * Handler for pan gesture end events.
+     *
+     * @argument onPanEnd
+     * @type {Function}
+     */
     onPanEnd?: (e: TouchData) => void;
-    /** Handler for pan gesture start events. */
+    /**
+     * Handler for pan gesture start events.
+     *
+     * @argument onPanStart
+     * @type {Function}
+     */
     onPanStart?: (e: TouchData) => void;
   };
   Blocks?: never;

@@ -7,16 +7,30 @@ const _fn = () => {};
 /**
  * A toggle component to open or close a menu.
  *
+ * Provides a button that can target specific menus (left or right) and fires
+ * a click handler when activated.
+ *
  * @class MobileMenuToggle
+ * @extends Component
  * @public
  */
 
 interface MobileMenuToggleSignature {
   Element: HTMLButtonElement;
   Args: {
-    /** Target menu for the toggle */
+    /**
+     * Target menu for the toggle
+     *
+     * @argument target
+     * @type {String}
+     */
     target?: 'left' | 'right';
-    /** Hook fired when the toggle is clicked. */
+    /**
+     * Hook fired when the toggle is clicked.
+     *
+     * @argument onClick
+     * @type {Function}
+     */
     onClick?: (target?: 'left' | 'right') => void;
   };
   Blocks: {

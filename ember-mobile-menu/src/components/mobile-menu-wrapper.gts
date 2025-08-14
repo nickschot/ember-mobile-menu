@@ -58,21 +58,56 @@ const transitioningWaiter = buildWaiter(
 interface MobileMenuWrapperSignature {
   Element: HTMLDivElement;
   Args: {
-    /** Horizontal width of the detection zone for edge gestures in pixels. Set to -1 to use full width. @default 15 */
+    /**
+     * Horizontal widthy of the detection zone for edge gestures in pixels. Set to -1 to use full width.
+     *
+     * @argument openDetectionWidth
+     * @type {Number}
+     * @default 15
+     */
     openDetectionWidth?: number;
-    /** If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures. @default true */
+    /**
+     * If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures.
+     *
+     * @argument capture
+     * @type {Boolean}
+     * @default true
+     */
     capture?: boolean;
-    /** If true, prevents page scroll when a menu is open. Helps avoid conflicts with menu gestures. @default true */
+    /**
+     * If true, prevents page scroll when a menu is open. Helps avoid conflicts with menu gestures.
+     *
+     * @argument preventScroll
+     * @type {Boolean}
+     * @default true
+     */
     preventScroll?: boolean;
-    /** If true, renders menus in embedded mode without full-screen behavior. @default false */
+    /**
+     * If true, renders menus in embedded mode without full-screen behavior.
+     *
+     * @argument embed
+     * @type {Boolean}
+     * @default false
+     */
     embed?: boolean;
-    /** Velocity threshold (in units per ms) for triggering menu open/close during pan gestures. @default 0.3 */
+    /**
+     * Velocity threshold (in units per ms) for triggering menu open/close during pan gestures.
+     *
+     * @argument triggerVelocity
+     * @type {Number}
+     * @default 0.3
+     */
     triggerVelocity?: number;
   };
   Blocks: {
     default: [
       {
-        /** MobileMenu component with bound wrapper state and event handlers. */
+        /**
+         * MobileMenu component with bound wrapper state and event handlers.
+         *
+         * @property MobileMenu
+         * @type {Component}
+         */
         MobileMenu: WithBoundArgs<
           typeof MobileMenu,
           | 'isDragging'
@@ -93,9 +128,19 @@ interface MobileMenuWrapperSignature {
           | 'preventScroll'
           | 'onTransitionEnd'
         >;
-        /** Toggle component with bound click handler. */
+        /**
+         * Toggle component with bound click handler.
+         *
+         * @property Toggle
+         * @type {Component}
+         */
         Toggle: WithBoundArgs<typeof ToggleComponent, 'onClick'>;
-        /** Content component with bound wrapper state and event handlers. */
+        /**
+         * Content component with bound wrapper state and event handlers.
+         *
+         * @property Content
+         * @type {Component}
+         */
         Content: WithBoundArgs<
           typeof ContentComponent,
           | 'shadowEnabled'
@@ -109,12 +154,27 @@ interface MobileMenuWrapperSignature {
           | 'preventScroll'
           | 'onClose'
         >;
-        /** Current position of the active menu in pixels from its closed position. */
+        /**
+         * Current position of the active menu in pixels from its closed position.
+         *
+         * @property position
+         * @type {Number}
+         */
         position: number;
         actions: {
-          /** Toggles the specified menu (or auto-detects if only one exists). */
+          /**
+           * Toggles the specified menu (or auto-detects if only one exists).
+           *
+           * @property toggle
+           * @type {Function}
+           */
           toggle: (target?: 'left' | 'right') => void;
-          /** Closes the specified menu (or the active menu if none specified). */
+          /**
+           * Closes the specified menu (or the active menu if none specified).
+           *
+           * @property close
+           * @type {Function}
+           */
           close: (menu?: MobileMenu, animate?: boolean) => void;
         };
       },
