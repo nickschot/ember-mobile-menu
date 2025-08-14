@@ -11,18 +11,30 @@ const _fn = () => {};
 interface MaskComponentSignature {
   Element: HTMLButtonElement;
   Args: {
+    /** Width of the associated menu for opacity calculations. @default 300 */
     width?: number;
+    /** If true, inverts the opacity calculation for certain menu modes like 'ios' and 'reveal'. */
     invertOpacity?: boolean;
+    /** Whether the associated menu is fully open. @default false */
     isOpen?: boolean;
+    /** Whether the associated menu is fully closed (used for visibility control). */
     isClosed?: boolean;
+    /** Current position of the menu in pixels for opacity calculations. @default 0 */
     position?: number;
+    /** If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures. */
     capture?: boolean;
+    /** If true, prevents page scroll during pan gestures. Helps avoid conflicts with menu gestures. */
     preventScroll?: boolean;
+    /** Handler called when the mask is clicked to close the menu. @default function(){} */
     onClick?: () => void;
+    /** Handler for pan gesture events during dragging. */
     onPan?: (e: TouchData) => void;
+    /** Handler for pan gesture end events. */
     onPanEnd?: (e: TouchData) => void;
+    /** Handler for pan gesture start events. */
     onPanStart?: (e: TouchData) => void;
   };
+  Blocks?: never;
 }
 
 /**
@@ -35,49 +47,18 @@ interface MaskComponentSignature {
  * @private
  */
 export default class MaskComponent extends Component<MaskComponentSignature> {
-  /**
-   * @argument width
-   * @type number
-   * @default 300
-   * @protected
-   */
   get width() {
     return this.args.width ?? 300;
   }
 
-  /**
-   * @argument invertOpacity
-   * @type boolean
-   * @default undefined
-   * @protected
-   */
-
-  /**
-   * @argument isOpen
-   * @type boolean
-   * @default false
-   * @protected
-   */
   get isOpen() {
     return this.args.isOpen ?? false;
   }
 
-  /**
-   * @argument position
-   * @type number
-   * @default 0
-   * @protected
-   */
   get position() {
     return this.args.position ?? 0;
   }
 
-  /**
-   * @argument onClick
-   * @type function
-   * @default function(){}
-   * @protected
-   */
   get onClick() {
     return this.args.onClick ?? _fn;
   }

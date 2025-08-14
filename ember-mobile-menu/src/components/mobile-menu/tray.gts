@@ -13,20 +13,33 @@ import type { TouchData } from '../../utils/normalize-coordinates.ts';
 interface TrayComponentSignature {
   Element: HTMLDivElement;
   Args: {
+    /** Width of the menu in pixels. @default 300 */
     width?: number;
+    /** Whether this is a left-side menu (false for right-side). @default true */
     isLeft?: boolean;
+    /** Current position of the menu in pixels from its closed position. @default 0 */
     position?: number;
+    /** Whether to display a shadow on the tray. */
     shadowEnabled?: boolean;
+    /** Animation and positioning mode for the menu. */
     mode: 'default' | 'push' | 'ios' | 'reveal' | 'squeeze' | 'squeeze-reveal';
+    /** Whether the menu is in closed state (used for body scroll management). */
     isClosed?: boolean;
+    /** If true, prevents page scroll when the menu is open. Helps avoid conflicts with menu gestures. */
     preventScroll?: boolean;
+    /** If true, renders in embedded mode without full-screen behavior. */
     embed?: boolean;
+    /** If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures. */
     capture?: boolean;
+    /** Handler for pan gesture start events. */
     onPanStart?: (e: TouchData) => void;
+    /** Handler for pan gesture events during dragging. */
     onPan?: (e: TouchData) => void;
+    /** Handler for pan gesture end events. */
     onPanEnd?: (e: TouchData) => void;
   };
   Blocks: {
+    /** Menu content is yielded here. */
     default: [];
   };
 }
@@ -41,38 +54,14 @@ interface TrayComponentSignature {
  * @hide
  */
 export default class TrayComponent extends Component<TrayComponentSignature> {
-  /**
-   * Width of the menu in px.
-   *
-   * @property width
-   * @type Number
-   * @default 300
-   * @private
-   */
   get width() {
     return this.args.width ?? 300;
   }
 
-  /**
-   * Whether the menu is a left menu (otherwise it's a right menu)
-   *
-   * @property isLeft
-   * @type Boolean
-   * @default true
-   * @private
-   */
   get isLeft() {
     return this.args.isLeft ?? true;
   }
 
-  /**
-   * Current relative position of the menu in px.
-   *
-   * @property position
-   * @type Number
-   * @default 0
-   * @private
-   */
   get position() {
     return this.args.position ?? 0;
   }

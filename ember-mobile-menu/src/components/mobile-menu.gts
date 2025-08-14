@@ -17,37 +17,64 @@ const _fn = function () {};
 interface MobileMenuSignature {
   Element: HTMLDivElement;
   Args: {
+    /** The type of menu. Currently 'left' and 'right' are supported. @default 'left' */
     type?: 'left' | 'right';
+    /** Sets the mode of the menu. Currently 'default', 'push', 'ios', 'reveal', 'squeeze' and 'squeeze-reveal' are supported. @default 'default' */
     mode?: 'default' | 'push' | 'ios' | 'reveal' | 'squeeze' | 'squeeze-reveal';
+    /** The percentage of the screen the menu will take when opened. Range: 0-100. @default 85 */
     width?: number;
+    /** The maximum width of the menu in pixels. Set to -1 to disable. @default 300 */
     maxWidth?: number;
+    /** Whether or not a mask is added when the menu is opened. @default true */
     maskEnabled?: boolean;
+    /** Whether or not a shadow is added to the menu. @default true */
     shadowEnabled?: boolean;
+    /** Controls whether the menu is open or closed. @default false */
     isOpen?: boolean;
+    /** Internal state indicating if the menu is currently being dragged by the user. */
     isDragging?: boolean;
+    /** Internal state indicating if the menu is currently transitioning between states. */
     isTransitioning?: boolean;
+    /** Temporarily disables CSS transitions for immediate position changes. */
     animationDisabled?: boolean;
+    /** Current position of the menu in pixels from its closed position. */
     position?: number;
+    /** The bounding rectangle of the parent wrapper element for position calculations. */
     parentBoundingClientRect?: DOMRect | null;
+    /** Function to register this menu with its parent wrapper. */
     register: (menu: MobileMenu) => void;
+    /** Function to unregister this menu from its parent wrapper. */
     unregister: (menu: MobileMenu) => void;
+    /** Hook which is called after the transition with the new menu isOpen state. */
     onToggle?: (isOpen?: boolean) => void;
+    /** Hook fired when the menu is opened. The menu instance will be passed to the action. */
     onOpen?: (menu: MobileMenu, animate?: boolean) => void;
+    /** Hook fired when the menu is closed. The menu instance will be passed to the action. */
     onClose?: (menu?: MobileMenu, animate?: boolean) => void;
+    /** Hook fired when CSS transitions end. */
     onTransitionEnd?: () => void;
+    /** If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures. @default true */
     capture?: boolean;
+    /** If true, prevents page scroll when the menu is open. Helps avoid conflicts with menu gestures. @default false */
     preventScroll?: boolean;
+    /** Handler for pan gesture events during menu dragging. */
     onPan?: (event: TouchData) => void;
+    /** Handler for pan gesture start events. */
     onPanStart?: (event: TouchData) => void;
+    /** Handler for pan gesture end events. */
     onPanEnd?: (event: TouchData) => void;
+    /** If true, renders the menu in embedded mode without full-screen behavior. @default false */
     embed?: boolean;
+    /** Reference to the parent MobileMenuWrapper component. */
     parent: MobileMenuWrapper;
   };
   Blocks: {
     default: [
       {
         actions: {
+          /** Opens the menu. Pass false to skip animation. */
           open: (animate?: boolean) => void;
+          /** Closes the menu. Pass false to skip animation. */
           close: (animate?: boolean) => void;
         };
       },
@@ -65,119 +92,38 @@ export default class MobileMenu extends Component<MobileMenuSignature> {
   @tracked _open = false;
   @tracked _closed = true;
 
-  /**
-   * The type of menu. Currently 'left' and 'right' are supported.
-   *
-   * @argument type
-   * @type String
-   * @default 'left'
-   */
   get type() {
     return this.args.type ?? 'left';
   }
 
-  /**
-   * Sets the mode of the menu. Currently 'default', 'push', 'ios', 'reveal', 'squeeze' and 'squeeze-reveal' are supported.
-   *
-   * @argument mode
-   * @type string
-   * @default 'default'
-   */
   get mode() {
     return this.args.mode ?? 'default';
   }
 
-  /**
-   * The percentage of the screen the menu will take when opened.
-   *
-   * @argument width
-   * @type Number [0-100]
-   * @default 85
-   */
   get width() {
     return this.args.width ?? 85;
   }
 
-  /**
-   * The maximum width of the menu in pixels. Set to -1 to disable;
-   *
-   * @argument maxWidth
-   * @type Number
-   * @default 300
-   */
   get maxWidth() {
     return this.args.maxWidth ?? 300;
   }
 
-  /**
-   * Whether or not a mask is added when the menu is opened.
-   *
-   * @argument maskEnabled
-   * @type Boolean
-   * @default true
-   */
   get maskEnabled() {
     return this.args.maskEnabled ?? true;
   }
 
-  /**
-   * Whether or not a shadow is added to the menu.
-   *
-   * @argument shadowEnabled
-   * @type Boolean
-   * @default true
-   */
   get shadowEnabled() {
     return this.args.shadowEnabled ?? true;
   }
 
-  /**
-   * @argument isOpen
-   * @type boolean
-   * @default false
-   */
-
-  /**
-   * Hook which is called after the transition with the new menu isOpen state.
-   *
-   * @argument onToggle
-   * @type Function
-   */
   get onToggle() {
     return this.args.onToggle ?? _fn;
   }
 
-  /**
-   * @argument embed
-   * @type boolean
-   * @default false
-   * @protected
-   */
   get embed() {
     return this.args.embed ?? false;
   }
 
-  /**
-   * Hook fired when the menu is opened. You can pass in an action. The menu instance will be passed to the action.
-   *
-   * @argument onOpen
-   * @type Function
-   * @protected
-   */
-
-  /**
-   * Hook fired when the menu is closed. You can pass in an action. The menu instance will be passed to the action.
-   *
-   * @argument onClose
-   * @type Action
-   * @protected
-   */
-
-  /**
-   * @argument position
-   * @type number
-   * @protected
-   */
   get position() {
     if (!this.args.position) return 0;
     return (this.isLeft && this.args.position > 0) ||
@@ -185,12 +131,6 @@ export default class MobileMenu extends Component<MobileMenuSignature> {
       ? this.args.position
       : 0;
   }
-
-  /**
-   * @argument isDragging
-   * @type boolean
-   * @protected
-   */
 
   constructor(owner: Owner, args: MobileMenuSignature['Args']) {
     super(owner, args);
@@ -259,13 +199,6 @@ export default class MobileMenu extends Component<MobileMenuSignature> {
     return ['ios', 'reveal', 'squeeze-reveal'].includes(this.mode);
   }
 
-  /**
-   * Current menu width in px
-   *
-   * @property _width
-   * @return {Boolean}
-   * @private
-   */
   get _width() {
     const width = this.args.parentBoundingClientRect
       ? (this.width / 100) * this.args.parentBoundingClientRect.width

@@ -14,7 +14,9 @@ const _fn = () => {};
 interface MobileMenuToggleSignature {
   Element: HTMLButtonElement;
   Args: {
+    /** Target menu for the toggle */
     target?: 'left' | 'right';
+    /** Hook fired when the toggle is clicked. */
     onClick?: (target?: 'left' | 'right') => void;
   };
   Blocks: {
@@ -22,19 +24,6 @@ interface MobileMenuToggleSignature {
   };
 }
 export default class MobileMenuToggle extends Component<MobileMenuToggleSignature> {
-  /**
-   * Target menu for the toggle
-   *
-   * @argument target
-   * @type String 'left' or 'right'
-   */
-
-  /**
-   * Hook fired when the toggle is clicked. You can pass in an action.
-   *
-   * @argument onClick
-   * @type function
-   */
   get onClick() {
     return () => this.args.onClick?.(this.args.target) ?? _fn;
   }

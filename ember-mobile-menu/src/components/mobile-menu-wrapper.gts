@@ -58,15 +58,21 @@ const transitioningWaiter = buildWaiter(
 interface MobileMenuWrapperSignature {
   Element: HTMLDivElement;
   Args: {
+    /** Horizontal width of the detection zone for edge gestures in pixels. Set to -1 to use full width. @default 15 */
     openDetectionWidth?: number;
+    /** If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures. @default true */
     capture?: boolean;
+    /** If true, prevents page scroll when a menu is open. Helps avoid conflicts with menu gestures. @default true */
     preventScroll?: boolean;
+    /** If true, renders menus in embedded mode without full-screen behavior. @default false */
     embed?: boolean;
+    /** Velocity threshold (in units per ms) for triggering menu open/close during pan gestures. @default 0.3 */
     triggerVelocity?: number;
   };
   Blocks: {
     default: [
       {
+        /** MobileMenu component with bound wrapper state and event handlers. */
         MobileMenu: WithBoundArgs<
           typeof MobileMenu,
           | 'isDragging'
@@ -87,7 +93,9 @@ interface MobileMenuWrapperSignature {
           | 'preventScroll'
           | 'onTransitionEnd'
         >;
+        /** Toggle component with bound click handler. */
         Toggle: WithBoundArgs<typeof ToggleComponent, 'onClick'>;
+        /** Content component with bound wrapper state and event handlers. */
         Content: WithBoundArgs<
           typeof ContentComponent,
           | 'shadowEnabled'
@@ -101,9 +109,12 @@ interface MobileMenuWrapperSignature {
           | 'preventScroll'
           | 'onClose'
         >;
+        /** Current position of the active menu in pixels from its closed position. */
         position: number;
         actions: {
+          /** Toggles the specified menu (or auto-detects if only one exists). */
           toggle: (target?: 'left' | 'right') => void;
+          /** Closes the specified menu (or the active menu if none specified). */
           close: (menu?: MobileMenu, animate?: boolean) => void;
         };
       },
@@ -126,14 +137,6 @@ interface MobileMenuWrapperSignature {
  * @public
  */
 export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignature> {
-  /**
-   * Current BoundingClientRect of the mobile menu wrapper root element
-   *
-   * @property boundingClientRect
-   * @type {DOMRect}
-   * @default null
-   * @private
-   */
   @tracked boundingClientRect?: DOMRect;
 
   @tracked children = new TrackedSet<MobileMenu>();
@@ -160,48 +163,18 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
     );
   }
 
-  /**
-   * Horizontal width of the detection zone in pixels. Set to -1 to use full width.
-   *
-   * @argument openDetectionWidth
-   * @type Number
-   * @default 15
-   */
   get openDetectionWidth() {
     return this.args.openDetectionWidth ?? 15;
   }
 
-  /**
-   * If true the capture phase will be used for the event, giving it precedence over events in the (default)
-   * bubble phase. This is handy for menus as they are usually defined high in the dom, are opened with edge gestures
-   * and thus must take precedence over deeper nested elements by using the capture phase.
-   *
-   * See <https://www.w3.org/TR/DOM-Level-3-Events/#event-flow> for more details.
-   *
-   * @argument capture
-   * @type Boolean
-   * @default true
-   */
   get capture() {
     return this.args.capture ?? true;
   }
 
-  /**
-   * If true, the component tries to prevent scroll when a menu is open
-   *
-   * @argument preventScroll
-   * @type Boolean
-   * @default false
-   */
   get preventScroll() {
     return this.args.preventScroll ?? true;
   }
 
-  /**
-   * @argument embed
-   * @type Boolean
-   * @default false
-   */
   get embed() {
     return this.args.embed ?? false;
   }
@@ -210,14 +183,6 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
     return this.args.triggerVelocity ?? 0.3;
   }
 
-  /**
-   * The currently active menu component.
-   *
-   * @property activeMenu
-   * @type MobileMenu
-   * @default null
-   * @private
-   */
   get activeMenu() {
     if (this.isFastBoot && !this.children.size && this._activeMenu) {
       return this._activeMenu;
@@ -525,13 +490,6 @@ export default class MobileMenuWrapper extends Component<MobileMenuWrapperSignat
     this.scaleY = this.boundingClientRect.height / element.clientHeight;
   };
 
-  /**
-   * Detect if the user is using the app from a browser on iOS
-   *
-   * @method _isIOSbrowser
-   * @return {Boolean} Returns true when the user is using iOS and is inside a browser
-   * @private
-   */
   get _isIOSbrowser() {
     return (
       isIOSDevice &&

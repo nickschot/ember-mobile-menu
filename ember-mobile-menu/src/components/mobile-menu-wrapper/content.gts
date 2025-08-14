@@ -23,18 +23,29 @@ const MODES = new Map([
 interface ContentComponentSignature {
   Element: HTMLDivElement;
   Args: {
-    mode?: string;
+    /** Animation and positioning mode for content transformation. @default 'default' */
+    mode?: 'default' | 'push' | 'ios' | 'reveal' | 'squeeze' | 'squeeze-reveal';
+    /** Current position of the active menu in pixels for content transformation. */
     position?: number;
+    /** Whether to display a shadow on the content (used in certain modes). */
     shadowEnabled?: boolean;
+    /** Whether any menu is currently open (used for mask rendering). */
     isOpen?: boolean;
+    /** If true, prevents page scroll during pan gestures. Helps avoid conflicts with menu gestures. */
     preventScroll?: boolean;
+    /** If true, uses capture phase for pan events, giving precedence over bubble phase events. Useful for edge gestures. */
     capture?: boolean;
+    /** Handler called to close the active menu. */
     onClose?: () => void;
+    /** Handler for pan gesture start events. */
     onPanStart?: (e: TouchData) => void;
+    /** Handler for pan gesture events during dragging. */
     onPan?: (e: TouchData) => void;
+    /** Handler for pan gesture end events. */
     onPanEnd?: (e: TouchData) => void;
   };
   Blocks: {
+    /** Main application content is yielded here. */
     default: [];
   };
 }
@@ -44,11 +55,6 @@ interface ContentComponentSignature {
  * @private
  */
 export default class ContentComponent extends Component<ContentComponentSignature> {
-  /**
-   * @argument mode
-   * @type string
-   * @protected
-   */
   get mode() {
     return this.args.mode ?? 'default';
   }
