@@ -11,7 +11,24 @@ import {
   scaleCorrection,
 } from '../utils/normalize-coordinates.ts';
 
-import { getOwner } from '@ember/owner';
+// To support both ember-source < 4.11 and ember-source >= 7.0,
+// we need to account for the differences in the getOwner API.
+// see https://deprecations.emberjs.com/id/deprecate-import-get-owner-from-ember
+// this can be simplified when support for ember-source < 4.11 is dropped
+import {
+  macroCondition,
+  dependencySatisfies,
+  importSync,
+} from '@embroider/macros';
+
+import type { getOwner as GetOwnerType } from '@ember/owner';
+const getOwner: typeof GetOwnerType = macroCondition(
+  dependencySatisfies('ember-source', '>= 4.11'),
+)
+  ? (importSync('@ember/owner') as typeof import('@ember/owner')).getOwner
+  : (importSync('@ember/application') as typeof import('@ember/owner'))
+      .getOwner;
+
 import { assert } from '@ember/debug';
 import './mobile-menu-wrapper.css';
 // @ts-expect-error ember-on-resize-modifier is not typed, see https://github.com/nickschot/ember-mobile-menu/pull/1156
