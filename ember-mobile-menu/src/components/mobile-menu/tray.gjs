@@ -1,10 +1,5 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
-import { modifier as eModifier } from 'ember-modifier';
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-} from '../../utils/body-scroll-lock.js';
 import './tray.css';
 import didPan from 'ember-gesture-modifiers/modifiers/did-pan';
 
@@ -86,24 +81,6 @@ export default class TrayComponent extends Component {
     return htmlSafe(style);
   }
 
-  lockBodyScroll = eModifier((element) => {
-    let { isClosed, preventScroll, embed } = this.args;
-
-    if (preventScroll && !embed) {
-      if (isClosed) {
-        enableBodyScroll(element);
-      } else {
-        disableBodyScroll(element);
-      }
-    }
-
-    return () => {
-      if (preventScroll && !embed) {
-        enableBodyScroll(element);
-      }
-    };
-  });
-
   <template>
     <div
       class="mobile-menu__tray"
@@ -115,7 +92,6 @@ export default class TrayComponent extends Component {
         capture=@capture
         preventScroll=@preventScroll
       }}
-      {{this.lockBodyScroll}}
       ...attributes
     >
       {{yield}}
