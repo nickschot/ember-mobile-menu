@@ -1,4 +1,4 @@
-(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[416],{1058:(t,e,i)=>{"use strict"
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[743],{1058:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>D})
 var n=i(8855),o=i.n(n),s=i(473),r=i(4938),a=i(4471),l=i(8369),d=i(2711)
 function u(t,e){return{...t,initial:{...t.initial,x:t.initial.x-e.x,y:t.initial.x-e.x},current:{...t.current,x:t.current.x-e.x,y:t.current.x-e.x}}}function h(t,e,i){return{...t,current:{...t.current,distance:t.current.distance/((e+i)/2),distanceX:t.current.distanceX/e,distanceY:t.current.distanceY/i}}}var c=i(2294),p=i(1603),g=i(2186),m=i(1313),f=i(341)
@@ -87,7 +87,7 @@ const d=()=>{}
 class u extends(s()){get onClick(){return()=>this.args.onClick(this.args.target)??d}}n=u,(0,a.setComponentTemplate)((0,l.createTemplateFactory)({id:"I+Mg7MYq",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__toggle"],[24,4,"button"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[12],[1,"\\n      "],[18,2,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-toggle.js",scope:()=>[r.on],isStrictMode:!0}),n)},5008:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{effect:()=>o})
 var n=i(2186)
-function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},6953:function(t,e){window._eai_r=require,window._eai_d=define},8917:(t,e,i)=>{"use strict"
+function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},5062:function(t,e){window._eai_r=require,window._eai_d=define},8917:(t,e,i)=>{"use strict"
 i.r(e)},9514:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>c})
 var n,o=i(8855),s=i.n(o),r=i(7970),a=i(2377),l=i(312),d=i(2663),u=i(1465)
