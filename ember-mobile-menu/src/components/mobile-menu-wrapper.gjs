@@ -13,7 +13,7 @@ import normalizeCoordinates, {
 import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
 import { waitFor } from '@ember/test-waiters';
-import { task } from 'ember-concurrency';
+import { restartableTask } from 'ember-concurrency';
 import Spring from '../spring.js';
 import './mobile-menu-wrapper.css';
 import onResize from 'ember-on-resize-modifier/modifiers/on-resize';
@@ -391,41 +391,43 @@ export default class MobileMenuWrapper extends Component {
     }
   }
 
-  @task({ restartable: true })
-  @waitFor
-  *finishTransitionTask(
-    menu,
-    targetPosition = 'open',
-    currentVelocity = 0,
-    animate = true,
-  ) {
-    const fromValue = this.position;
-    const toValue =
-      targetPosition === 'close' ? 0 : (menu.isLeft ? 1 : -1) * menu._width;
+  finishTransitionTask = restartableTask(
+    waitFor(
+      async (
+        menu,
+        targetPosition = 'open',
+        currentVelocity = 0,
+        animate = true,
+      ) => {
+        const fromValue = this.position;
+        const toValue =
+          targetPosition === 'close' ? 0 : (menu.isLeft ? 1 : -1) * menu._width;
 
-    if (fromValue !== toValue && animate) {
-      const spring = new Spring((s) => (this.position = s.currentValue), {
-        stiffness: 1000,
-        mass: 3,
-        damping: 500,
-        overshootClamping: true,
+        if (fromValue !== toValue && animate) {
+          const spring = new Spring((s) => (this.position = s.currentValue), {
+            stiffness: 1000,
+            mass: 3,
+            damping: 500,
+            overshootClamping: true,
 
-        fromValue,
-        toValue,
-        initialVelocity: this.preservedVelocity || currentVelocity,
-      });
+            fromValue,
+            toValue,
+            initialVelocity: this.preservedVelocity || currentVelocity,
+          });
 
-      try {
-        yield spring.start();
-      } finally {
-        spring.stop();
-        this.preservedVelocity = spring.currentVelocity;
-      }
-    } else {
-      this.position = toValue;
-      this.preservedVelocity = 0;
-    }
-  }
+          try {
+            await spring.start();
+          } finally {
+            spring.stop();
+            this.preservedVelocity = spring.currentVelocity;
+          }
+        } else {
+          this.position = toValue;
+          this.preservedVelocity = 0;
+        }
+      },
+    ),
+  );
 
   @action
   open(menu = this.activeMenu, currentVelocity, animate) {
