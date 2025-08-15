@@ -5,6 +5,45 @@
 
     --mobile-menu-height: 100vh;
     --mobile-menu-z-index: 2000;
+
+    /* Fallback timing function for browsers without linear() support */
+    --mobile-menu-spring-timing: cubic-bezier(0.2, 0.9, 0.22, 1);
+
+    /* Wobble Spring: mass=3, stiffness=1000, damping=500, overshootClamping=true */
+    /* Natural duration: 506ms */
+    --mobile-menu-spring-timing: linear(
+      0 0%,
+      0.0352 3.4%,
+      0.1288 6.9%,
+      0.2389 10.3%,
+      0.3589 13.8%,
+      0.4654 17.2%,
+      0.5659 20.7%,
+      0.6477 24.1%,
+      0.7204 27.6%,
+      0.777 31%,
+      0.8233 34.5%,
+      0.8627 37.9%,
+      0.8924 41.4%,
+      0.9172 44.8%,
+      0.9356 48.3%,
+      0.9509 51.7%,
+      0.962 55.2%,
+      0.9712 58.6%,
+      0.9779 62.1%,
+      0.9833 65.5%,
+      0.9872 69%,
+      0.9902 72.4%,
+      0.9927 75.9%,
+      0.9944 79.3%,
+      0.9958 82.8%,
+      0.9968 86.2%,
+      0.9976 89.7%,
+      0.9982 93.1%,
+      0.9987 96.6%,
+      1 100%
+    );
+    --mobile-menu-spring-duration: 506ms;
   }
 }
 
@@ -42,6 +81,13 @@ body.mobile-menu--prevent-scroll {
   will-change: transform, margin-left, margin-right;
   z-index: 1;
   touch-action: pan-y;
+  transition:
+    transform var(--mobile-menu-spring-duration)
+      var(--mobile-menu-spring-timing),
+    margin-left var(--mobile-menu-spring-duration)
+      var(--mobile-menu-spring-timing),
+    margin-right var(--mobile-menu-spring-duration)
+      var(--mobile-menu-spring-timing);
 }
 .mobile-menu-wrapper__content--shadow {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -50,4 +96,10 @@ body.mobile-menu--prevent-scroll {
 .mobile-menu-wrapper__content--reveal,
 .mobile-menu-wrapper__content--squeeze-reveal {
   z-index: 2;
+}
+
+/* No transition when dragging or animation disabled */
+.mobile-menu--dragging + .mobile-menu-wrapper__content,
+.mobile-menu--animation-disabled + .mobile-menu-wrapper__content {
+  transition: none;
 }
