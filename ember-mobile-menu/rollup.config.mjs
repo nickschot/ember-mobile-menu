@@ -1,11 +1,18 @@
 import { babel } from '@rollup/plugin-babel';
 import copy from 'rollup-plugin-copy';
 import { Addon } from '@embroider/addon-dev/rollup';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { resolve } from 'path';
 
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist',
 });
+
+const rootDirectory = dirname(fileURLToPath(import.meta.url));
+const babelConfig = resolve(rootDirectory, './babel.publish.config.cjs');
+const tsConfig = resolve(rootDirectory, './tsconfig.publish.json');
 
 export default {
   // This provides defaults that work well alongside `publicEntrypoints` below.
@@ -25,12 +32,7 @@ export default {
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
     // not everything in publicEntrypoints necessarily needs to go here.
-    addon.appReexports([
-      'components/**/*.js',
-      'helpers/**/*.js',
-      'modifiers/**/*.js',
-      'services/**/*.js',
-    ]),
+    addon.appReexports(['components/**/*.js']),
 
     // Follow the V2 Addon rules about dependencies. Your code can import from
     // `dependencies` and `peerDependencies` as well as standard Ember-provided
@@ -44,15 +46,21 @@ export default {
     // By default, this will load the actual babel config from the file
     // babel.config.json.
     babel({
-      extensions: ['.js', '.gjs'],
+      extensions: ['.js', '.gjs', '.ts', '.gts'],
       babelHelpers: 'bundled',
+      configFile: babelConfig,
     }),
 
     // Ensure that standalone .hbs files are properly integrated as Javascript.
-    addon.hbs(),
 
-    // Ensure that .gjs files are properly integrated as Javascript
+    // Ensure that .gts files are properly integrated as Javascript
     addon.gjs(),
+
+    // Generate TypeScript declarations
+    addon.declarations(
+      'declarations',
+      `pnpm glint --declaration --project ${tsConfig}`,
+    ),
 
     // addons are allowed to contain imports of .css files, which we want rollup
     // to leave alone and keep in the published output.
@@ -60,13 +68,14 @@ export default {
 
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),
-
-    // Copy Readme and License into published package
+    // Copy README, LICENSE and themes into published package
     copy({
       targets: [
-        { src: '../README.md', dest: '.' },
-        { src: '../LICENSE.md', dest: '.' },
+        { src: 'README.md', dest: 'dist' },
+        { src: 'LICENSE.md', dest: 'dist' },
+        { src: 'src/themes/android.css', dest: 'dist/themes' },
       ],
+      hook: 'writeBundle',
     }),
   ],
 };

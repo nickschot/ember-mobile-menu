@@ -19,23 +19,38 @@ import ember from 'eslint-plugin-ember/recommended';
 import importPlugin from 'eslint-plugin-import';
 import n from 'eslint-plugin-n';
 import globals from 'globals';
+import ts from 'typescript-eslint';
 
 const esmParserOptions = {
   ecmaFeatures: { modules: true },
   ecmaVersion: 'latest',
 };
 
-export default [
+const tsParserOptions = {
+  projectService: true,
+  project: true,
+  tsconfigRootDir: import.meta.dirname,
+};
+
+const config = [
   js.configs.recommended,
   prettier,
   ember.configs.base,
   ember.configs.gjs,
+  ember.configs.gts,
   /**
    * Ignores must be in their own object
    * https://eslint.org/docs/latest/use/configure/ignore
    */
   {
-    ignores: ['dist/', 'declarations/', 'node_modules/', 'coverage/', '!**/.*'],
+    ignores: [
+      'dist/',
+      'dist-*/',
+      'declarations/',
+      'node_modules/',
+      'coverage/',
+      '!**/.*',
+    ],
   },
   /**
    * https://eslint.org/docs/latest/use/configure/configuration-files#configuring-linter-options
@@ -47,8 +62,18 @@ export default [
   },
   {
     files: ['**/*.js'],
+    ignores: ['**/body-scroll-lock.js'],
     languageOptions: {
       parser: babelParser,
+    },
+  },
+  {
+    files: ['**/body-scroll-lock.js'],
+    languageOptions: {
+      parserOptions: esmParserOptions,
+      globals: {
+        ...globals.browser,
+      },
     },
   },
   {
@@ -59,6 +84,14 @@ export default [
         ...globals.browser,
       },
     },
+  },
+  {
+    files: ['**/*.{ts,gts}'],
+    languageOptions: {
+      parser: ember.parser,
+      parserOptions: tsParserOptions,
+    },
+    extends: [...ts.configs.recommendedTypeChecked, ember.configs.gts],
   },
   {
     files: ['src/**/*'],
@@ -76,9 +109,8 @@ export default [
   {
     files: [
       '**/*.cjs',
-      '.prettierrc.js',
-      '.stylelintrc.js',
-      '.template-lintrc.js',
+      '.prettierrc.cjs',
+      '.template-lintrc.cjs',
       'addon-main.cjs',
     ],
     plugins: {
@@ -112,3 +144,5 @@ export default [
     },
   },
 ];
+
+export default ts.config(...config);
