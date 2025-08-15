@@ -2,6 +2,7 @@
   "plugins": [
     "ember-cached-decorator-polyfill/babel-plugin",
     "@embroider/addon-dev/template-colocation-plugin",
+    "ember-concurrency/async-arrow-task-transform",
     [
       "babel-plugin-ember-template-compilation",
       {
