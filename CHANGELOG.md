@@ -1,5 +1,31 @@
 # Changelog
 
+## Release (2025-08-15)
+
+* ember-mobile-menu 6.0.0 (major)
+
+#### :boom: Breaking Change
+* `ember-mobile-menu`
+  * [#1160](https://github.com/nickschot/ember-mobile-menu/pull/1160) Remove @ember/render-modifiers ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :rocket: Enhancement
+* `ember-mobile-menu`
+  * [#1158](https://github.com/nickschot/ember-mobile-menu/pull/1158) Remove unneeded peers ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :memo: Documentation
+* [#1244](https://github.com/nickschot/ember-mobile-menu/pull/1244) Update CONTRIBUTING.md to reflect practice in v2 addon ([@johanrd](https://github.com/johanrd))
+
+#### :house: Internal
+* [#1161](https://github.com/nickschot/ember-mobile-menu/pull/1161) Fix floating dependencies test ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* [#1129](https://github.com/nickschot/ember-mobile-menu/pull/1129) Docs smoke test & lint config fixes ([@nickschot](https://github.com/nickschot))
+* [#1128](https://github.com/nickschot/ember-mobile-menu/pull/1128) Fix addon-docs deployment ([@nickschot](https://github.com/nickschot))
+* [#1124](https://github.com/nickschot/ember-mobile-menu/pull/1124) Get rid of dependenciesMeta injected and use pnpm flags only when needed in CI ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 3
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+- [@johanrd](https://github.com/johanrd)
+
 ## Release (2025-02-25)
 
 ember-mobile-menu 5.3.0 (minor)
