@@ -47,10 +47,9 @@
     "decorator-transforms": "^2.2.2",
     "ember-cached-decorator-polyfill": "^1.0.2",
     "ember-concurrency": "^3.0.0 || ^4.0.0",
-    "ember-modifier": "^4.2.2",
     "ember-gesture-modifiers": "^5.0.0 || ^6.0.0",
+    "ember-modifier": "^4.2.2",
     "ember-on-resize-modifier": "^2.0.0",
-    "ember-set-body-class": "^1.0.1",
     "tracked-built-ins": "^3.0.0 || ^4.0.0",
     "wobble": "^1.5.1"
   },

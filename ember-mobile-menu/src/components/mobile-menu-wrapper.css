@@ -8,7 +8,12 @@
   }
 }
 
-body.mobile-menu--prevent-scroll {
+/* Prevent body scroll when any non-embedded mobile menu is open with mask enabled */
+body:has(
+  .mobile-menu-wrapper:not(.mobile-menu-wrapper--embedded)
+    .mobile-menu--open
+    .mobile-menu__mask
+) {
   overflow: hidden;
 }
 
@@ -42,6 +47,7 @@ body.mobile-menu--prevent-scroll {
   will-change: transform, margin-left, margin-right;
   z-index: 1;
   touch-action: pan-y;
+  overscroll-behavior: contain;
 }
 .mobile-menu-wrapper__content--shadow {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
