@@ -25,14 +25,14 @@
     "test:ember": "ember test"
   },
   "devDependencies": {
-    "@babel/core": "7.28.0",
+    "@babel/core": "7.28.3",
     "@babel/eslint-parser": "7.28.0",
     "@babel/plugin-proposal-decorators": "7.28.0",
     "@ember/optional-features": "2.2.0",
     "@ember/string": "4.0.1",
     "@ember/test-helpers": "5.2.2",
     "@embroider/test-setup": "4.0.0",
-    "@eslint/js": "9.31.0",
+    "@eslint/js": "9.33.0",
     "@glimmer/component": "1.1.2",
     "@glimmer/tracking": "1.1.2",
     "broccoli-asset-rev": "3.0.0",
@@ -60,7 +60,7 @@
     "ember-template-imports": "4.3.0",
     "ember-template-lint": "7.9.2",
     "ember-try": "4.0.0",
-    "eslint": "9.31.0",
+    "eslint": "9.33.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-ember": "12.7.0",
     "eslint-plugin-n": "17.21.3",
@@ -72,11 +72,11 @@
     "prettier-plugin-ember-template-tag": "2.1.0",
     "qunit": "2.24.1",
     "qunit-dom": "3.4.0",
-    "stylelint": "16.22.0",
+    "stylelint": "16.23.1",
     "stylelint-config-standard": "38.0.0",
     "stylelint-prettier": "5.0.3",
     "tracked-built-ins": "4.0.0",
-    "webpack": "5.100.2"
+    "webpack": "5.101.2"
   },
   "engines": {
     "node": ">= 18"
