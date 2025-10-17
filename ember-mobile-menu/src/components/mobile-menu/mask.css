@@ -13,6 +13,7 @@
   opacity: 0;
   transition: none;
   touch-action: pan-y;
+  overscroll-behavior: contain;
   will-change: opacity;
   visibility: hidden;
   outline: none;
