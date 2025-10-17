@@ -20,26 +20,4 @@ module('Integration | Component | mobile-menu/tray', function (hooks) {
 
     assert.strictEqual(this.element.textContent.trim(), 'template block text');
   });
-
-  test('it cleans up body-scroll-lock after undrendering', async function (assert) {
-    this.set('showMenu', true);
-    this.set('isClosed', true);
-
-    await render(
-      hbs`{{#if this.showMenu}}<MobileMenu::Tray @preventScroll={{true}} @embed={{false}} @isClosed={{this.isClosed}}/>{{/if}}`,
-    );
-    assert.strictEqual(document.body.style.overflow, '');
-
-    this.set('isClosed', false);
-    assert.strictEqual(document.body.style.overflow, 'hidden');
-
-    this.set('isClosed', true);
-    assert.strictEqual(document.body.style.overflow, '');
-
-    this.set('isClosed', false);
-    assert.strictEqual(document.body.style.overflow, 'hidden');
-
-    this.set('showMenu', false);
-    assert.strictEqual(document.body.style.overflow, '');
-  });
 });

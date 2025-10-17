@@ -8,8 +8,20 @@
   }
 }
 
-body.mobile-menu--prevent-scroll {
+/* Prevent body scroll when any non-embedded mobile menu is open or transitioning with mask enabled */
+body:has(
+  .mobile-menu-wrapper:not(.mobile-menu-wrapper--embedded)
+    .mobile-menu--open
+    .mobile-menu__mask
+),
+body:has(
+  .mobile-menu-wrapper:not(.mobile-menu-wrapper--embedded)
+    .mobile-menu--transitioning
+    .mobile-menu__mask
+) {
+  touch-action: none;
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .mobile-menu-wrapper {
@@ -42,6 +54,13 @@ body.mobile-menu--prevent-scroll {
   will-change: transform, margin-left, margin-right;
   z-index: 1;
   touch-action: pan-y;
+  overscroll-behavior: contain;
+}
+.mobile-menu--open ~ .mobile-menu-wrapper__content,
+.mobile-menu--transitioning ~ .mobile-menu-wrapper__content {
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
 }
 .mobile-menu-wrapper__content--shadow {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);

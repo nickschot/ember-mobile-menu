@@ -17,7 +17,6 @@ import { restartableTask } from 'ember-concurrency';
 import Spring from '../spring.js';
 import './mobile-menu-wrapper.css';
 import onResize from 'ember-on-resize-modifier/modifiers/on-resize';
-import { bodyClass } from 'ember-primitives/helpers/body-class';
 import { hash } from '@ember/helper';
 
 import MobileMenuComponent from './mobile-menu.gjs';
@@ -193,15 +192,6 @@ export default class MobileMenuWrapper extends Component {
 
   get rightMenu() {
     return this.childMenus.find((menu) => menu.isRight);
-  }
-
-  get preventBodyScroll() {
-    return (
-      this.preventScroll &&
-      !this.embed &&
-      this.isNotClosed &&
-      this.activeMenu?.maskEnabled
-    );
   }
 
   get relativePosition() {
@@ -475,10 +465,6 @@ export default class MobileMenuWrapper extends Component {
   });
 
   <template>
-    {{#if this.preventBodyScroll}}
-      {{bodyClass "mobile-menu--prevent-scroll"}}
-    {{/if}}
-
     <div
       class="mobile-menu-wrapper
         {{if this.embed 'mobile-menu-wrapper--embedded'}}"
