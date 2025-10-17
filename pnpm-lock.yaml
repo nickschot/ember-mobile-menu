@@ -111,8 +111,8 @@ importers:
         specifier: workspace:*
         version: link:../ember-mobile-menu
       ember-page-title:
-        specifier: 9.0.2
-        version: 9.0.2
+        specifier: 9.0.3
+        version: 9.0.3
       ember-qunit:
         specifier: 8.1.1
         version: 8.1.1(@ember/test-helpers@5.2.2(@babel/core@7.28.4))(ember-source@6.6.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))(qunit@2.24.1)
@@ -361,8 +361,8 @@ importers:
         specifier: 4.2.2
         version: 4.2.2(@babel/core@7.28.4)
       ember-page-title:
-        specifier: 9.0.2
-        version: 9.0.2
+        specifier: 9.0.3
+        version: 9.0.3
       ember-qunit:
         specifier: 8.1.1
         version: 8.1.1(@ember/test-helpers@5.2.2(@babel/core@7.28.4))(ember-source@6.6.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))(qunit@2.24.1)
@@ -4400,8 +4400,8 @@ packages:
     resolution: {integrity: sha512-7mcD7CNbiCaZEIASWlRz/Wmn47afCMSFTdQJSSUe0WCgnXxn9DVoqZ39B7ZuddTHa0V6otTFrV/lIRYpggQ+eg==}
     engines: {node: 12.* || 14.* || >= 16}
 
-  ember-page-title@9.0.2:
-    resolution: {integrity: sha512-ACklH6hemNB6tDAiwGo4e0tFIqVrAkTNqRmlLtLABlh+GynH7xkWm9q4fyc4Ysg9R1jP8OrsKcxWRittshRatA==}
+  ember-page-title@9.0.3:
+    resolution: {integrity: sha512-fedRHUsvq8tIZgOii8jTrfAyeq+la/9H5eAzhNNwEyzo7nDMmqK2SxsyBUGXprd8fOacsPabLlzlucMi/4mUpA==}
     engines: {node: 16.* || >= 18}
 
   ember-primitives@0.40.0:
@@ -15672,7 +15672,7 @@ snapshots:
       - supports-color
       - webpack
 
-  ember-page-title@9.0.2:
+  ember-page-title@9.0.3:
     dependencies:
       '@embroider/addon-shim': 1.10.0
       '@simple-dom/document': 1.4.0
