@@ -17,7 +17,7 @@ import { restartableTask } from 'ember-concurrency';
 import Spring from '../spring.js';
 import './mobile-menu-wrapper.css';
 import onResize from 'ember-on-resize-modifier/modifiers/on-resize';
-import setBodyClass from 'ember-set-body-class/helpers/set-body-class';
+import { bodyClass } from 'ember-primitives/helpers/body-class';
 import { hash } from '@ember/helper';
 
 import MobileMenuComponent from './mobile-menu.gjs';
@@ -476,7 +476,7 @@ export default class MobileMenuWrapper extends Component {
 
   <template>
     {{#if this.preventBodyScroll}}
-      {{setBodyClass "mobile-menu--prevent-scroll"}}
+      {{bodyClass "mobile-menu--prevent-scroll"}}
     {{/if}}
 
     <div
