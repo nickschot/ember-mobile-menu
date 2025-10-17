@@ -66,6 +66,7 @@ export default {
       targets: [
         { src: '../README.md', dest: '.' },
         { src: '../LICENSE.md', dest: '.' },
+        { src: './src/themes/**/*.css', dest: './dist' },
       ],
     }),
   ],

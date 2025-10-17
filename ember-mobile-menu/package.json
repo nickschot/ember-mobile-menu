@@ -20,7 +20,7 @@
     ".": "./dist/index.js",
     "./*": "./dist/*.js",
     "./addon-main.js": "./addon-main.cjs",
-    "./themes/*": "./dist/themes/*.css"
+    "./themes/*": "./dist/*.css"
   },
   "files": [
     "addon-main.cjs",
