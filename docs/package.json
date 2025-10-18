@@ -78,7 +78,7 @@
     "qunit-dom": "3.4.0",
     "sass": "1.90.0",
     "tracked-built-ins": "4.0.0",
-    "webpack": "5.101.2"
+    "webpack": "5.101.3"
   },
   "engines": {
     "node": "18.* || >= 20"
