@@ -1,7 +1,7 @@
-(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[303],{1970:(t,e,i)=>{"use strict"
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[370],{1970:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{effect:()=>o})
 var n=i(2186)
-function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},2356:function(t,e){window._eai_r=require,window._eai_d=define},3316:(t,e,i)=>{"use strict"
+function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},3316:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>c})
 var n,o=i(8855),s=i.n(o),r=i(7970),a=i(2377),l=i(2315),d=i(2663),u=i(1465)
 const h=()=>{}
@@ -94,7 +94,7 @@ return"ios"===this.args.mode?(e/=3,i/=3):["reveal","squeeze-reveal"].includes(th
 i.r(e),i.d(e,{default:()=>u})
 var n,o=i(8855),s=i.n(o),r=i(2377),a=i(2663),l=i(1465)
 const d=()=>{}
-class u extends(s()){get onClick(){return()=>this.args.onClick(this.args.target)??d}}n=u,(0,a.setComponentTemplate)((0,l.createTemplateFactory)({id:"I+Mg7MYq",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__toggle"],[24,4,"button"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[12],[1,"\\n      "],[18,2,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-toggle.js",scope:()=>[r.on],isStrictMode:!0}),n)},7637:(t,e,i)=>{"use strict"
+class u extends(s()){get onClick(){return()=>this.args.onClick(this.args.target)??d}}n=u,(0,a.setComponentTemplate)((0,l.createTemplateFactory)({id:"I+Mg7MYq",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__toggle"],[24,4,"button"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[12],[1,"\\n      "],[18,2,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-toggle.js",scope:()=>[r.on],isStrictMode:!0}),n)},6173:function(t,e){window._eai_r=require,window._eai_d=define},7637:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>c})
 var n,o=i(8855),s=i.n(o),r=i(7970),a=i(2315),l=i(3316),d=i(2663),u=i(1465)
 const h=new Map([["default",()=>""],["push",t=>`transform: translateX(${t}px);`],["reveal",t=>`transform: translateX(${t}px);`],["ios",t=>`transform: translateX(${t}px);`],["squeeze",(t,e)=>`margin-${e}: ${Math.abs(t)}px;`],["squeeze-reveal",(t,e)=>`margin-${e}: ${Math.abs(t)}px;`]])
