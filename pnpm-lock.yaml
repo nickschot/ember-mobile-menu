@@ -144,8 +144,8 @@ importers:
         specifier: 12.7.4
         version: 12.7.4(@babel/core@7.28.4)(eslint@9.33.0)
       eslint-plugin-n:
-        specifier: 17.21.3
-        version: 17.21.3(eslint@9.33.0)
+        specifier: 17.23.1
+        version: 17.23.1(eslint@9.33.0)
       eslint-plugin-prettier:
         specifier: 5.5.4
         version: 5.5.4(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.33.0))(eslint@9.33.0)(prettier@3.6.2)
@@ -259,8 +259,8 @@ importers:
         specifier: 2.32.0
         version: 2.32.0(eslint@9.33.0)
       eslint-plugin-n:
-        specifier: 17.21.3
-        version: 17.21.3(eslint@9.33.0)
+        specifier: 17.23.1
+        version: 17.23.1(eslint@9.33.0)
       globals:
         specifier: 16.3.0
         version: 16.3.0
@@ -394,8 +394,8 @@ importers:
         specifier: 12.7.4
         version: 12.7.4(@babel/core@7.28.4)(eslint@9.33.0)
       eslint-plugin-n:
-        specifier: 17.21.3
-        version: 17.21.3(eslint@9.33.0)
+        specifier: 17.23.1
+        version: 17.23.1(eslint@9.33.0)
       eslint-plugin-prettier:
         specifier: 5.5.4
         version: 5.5.4(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.33.0))(eslint@9.33.0)(prettier@3.6.2)
@@ -4717,8 +4717,8 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  eslint-plugin-n@17.21.3:
-    resolution: {integrity: sha512-MtxYjDZhMQgsWRm/4xYLL0i2EhusWT7itDxlJ80l1NND2AL2Vi5Mvneqv/ikG9+zpran0VsVRXTEHrpLmUZRNw==}
+  eslint-plugin-n@17.23.1:
+    resolution: {integrity: sha512-68PealUpYoHOBh332JLLD9Sj7OQUDkFpmcfqt8R9sySfFSeuGJjMTJQvCRRB96zO3A/PELRLkPrzsHmzEFQQ5A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.23.0'
@@ -15563,7 +15563,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-n@17.21.3(eslint@9.33.0):
+  eslint-plugin-n@17.23.1(eslint@9.33.0):
     dependencies:
       '@eslint-community/eslint-utils': 4.7.0(eslint@9.33.0)
       enhanced-resolve: 5.18.2
