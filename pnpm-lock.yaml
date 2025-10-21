@@ -235,8 +235,8 @@ importers:
         specifier: 6.1.0
         version: 6.1.0(@babel/core@7.28.4)(rollup@4.52.5)
       babel-plugin-ember-template-compilation:
-        specifier: 2.4.1
-        version: 2.4.1
+        specifier: 3.0.1
+        version: 3.0.1
       concurrently:
         specifier: 9.2.1
         version: 9.2.1
@@ -12134,7 +12134,7 @@ snapshots:
 
   babel-plugin-ember-template-compilation@3.0.1:
     dependencies:
-      '@glimmer/syntax': 0.94.9
+      '@glimmer/syntax': 0.95.0
       babel-import-util: 3.0.1
       import-meta-resolve: 4.2.0
 
