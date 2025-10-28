@@ -1,4 +1,4 @@
-(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[722],{138:(t,e,i)=>{"use strict"
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[645],{138:(t,e,i)=>{"use strict"
 i.r(e)},2097:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>T})
 var n,o,s=i(8855),r=i.n(s),a=i(4471),l=i(473),d=i(1603),u=i(7970),h=i(1130),c=i(5156),p=i(3695),g=i(6712),m=i(6482),f=i(2663),b=i(363),v=i(1465)
@@ -32,7 +32,7 @@ let d,u,h,c=[],p=!1,g=-1
 const m=t=>c.some(e=>!(!e.options.allowTouchMove||!e.options.allowTouchMove(t))),f=t=>{const e=t||window.event
 return!!m(e.target)||e.touches.length>1||(e.preventDefault&&e.preventDefault(),!1)},b=t=>{t?(c=c.filter(e=>e.targetElement!==t),l&&(t.ontouchstart=null,t.ontouchmove=null,p&&0===c.length&&(document.removeEventListener("touchmove",f,a?{passive:!1}:void 0),p=!1)),l?(()=>{if(void 0!==u){const t=-parseInt(document.body.style.top,10),e=-parseInt(document.body.style.left,10)
 document.body.style.position=u.position,document.body.style.top=u.top,document.body.style.left=u.left,window.scrollTo(e,t),u=void 0}})():(void 0!==h&&(document.body.style.paddingRight=h,h=void 0),void 0!==d&&(document.body.style.overflow=d,d=void 0))):console.error("enableBodyScroll unsuccessful - targetElement must be provided when calling enableBodyScroll on IOS devices.")}
-var v,y=i(116),w=i(2663),M=i(1465)
+var v,y=i(1611),w=i(2663),M=i(1465)
 class P extends(o()){constructor(...t){var e,i,n
 super(...t),e=this,i="lockBodyScroll",n=(0,r.modifier)(t=>{let{isClosed:e,preventScroll:i,embed:n}=this.args
 return i&&!n&&(e?b(t):(t=>{if(!t)return void console.error("disableBodyScroll unsuccessful - targetElement must be provided when calling disableBodyScroll on IOS devices.")
@@ -50,22 +50,22 @@ if(void 0!==e){var i=e.call(t,"string")
 if("object"!=typeof i)return i
 throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t)
 return"symbol"==typeof e?e:e+""}(i))in e?Object.defineProperty(e,i,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[i]=n}get width(){return this.args.width??300}get isLeft(){return this.args.isLeft??!0}get position(){return this.args.position??0}get progress(){return Math.abs(this.position)/this.width}get style(){let t=`width: ${this.width}px;`,e=this.width,i=this.position
-return"ios"===this.args.mode?(e/=3,i/=3):["reveal","squeeze-reveal"].includes(this.args.mode)&&(e=0,i=0),t+=this.isLeft?`left: -${e}px; transform: translateX(${i}px);`:`right: -${e}px; transform: translateX(${i}px);`,this.args.shadowEnabled&&["default","push","squeeze"].includes(this.args.mode)&&this.progress>0&&(t+=`box-shadow: 0 0 10px rgba(0,0,0,${.3*this.progress});`),(0,s.htmlSafe)(t)}}v=P,(0,w.setComponentTemplate)((0,M.createTemplateFactory)({id:"g6Ud0FO+",block:'[[[1,"\\n    "],[11,0],[24,0,"mobile-menu__tray"],[16,5,[30,0,["style"]]],[17,1],[4,[32,0],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[4,[30,0,["lockBodyScroll"]],null,null],[12],[1,"\\n      "],[18,7,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/tray.js",scope:()=>[y.default],isStrictMode:!0}),v)},5156:(t,e,i)=>{"use strict"
+return"ios"===this.args.mode?(e/=3,i/=3):["reveal","squeeze-reveal"].includes(this.args.mode)&&(e=0,i=0),t+=this.isLeft?`left: -${e}px; transform: translateX(${i}px);`:`right: -${e}px; transform: translateX(${i}px);`,this.args.shadowEnabled&&["default","push","squeeze"].includes(this.args.mode)&&this.progress>0&&(t+=`box-shadow: 0 0 10px rgba(0,0,0,${.3*this.progress});`),(0,s.htmlSafe)(t)}}v=P,(0,w.setComponentTemplate)((0,M.createTemplateFactory)({id:"g6Ud0FO+",block:'[[[1,"\\n    "],[11,0],[24,0,"mobile-menu__tray"],[16,5,[30,0,["style"]]],[17,1],[4,[32,0],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[4,[30,0,["lockBodyScroll"]],null,null],[12],[1,"\\n      "],[18,7,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/tray.js",scope:()=>[y.default],isStrictMode:!0}),v)},4785:function(t,e){window._eai_r=require,window._eai_d=define},5156:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>c})
-var n,o=i(8855),s=i.n(o),r=i(7970),a=i(2377),l=i(116),d=i(2663),u=i(1465)
+var n,o=i(8855),s=i.n(o),r=i(7970),a=i(2377),l=i(1611),d=i(2663),u=i(1465)
 const h=()=>{}
 class c extends(s()){get maskOpacityOffset(){return this.args.maskOpacityOffset??.1}get isOpen(){return this.args.isOpen??!1}get position(){return this.args.position??0}get onClick(){return this.args.onClick??h}get style(){let t=""
 t+=this.isOpen||0!==this.position?"visibility: visible;":"visibility: hidden;"
 let e=this.position>this.maskOpacityOffset?(this.position-this.maskOpacityOffset)/(1-this.maskOpacityOffset):0
 return this.args.invertOpacity&&(e=1-e),t+=`opacity: ${e};`,(0,r.htmlSafe)(t)}}n=c,(0,d.setComponentTemplate)((0,u.createTemplateFactory)({id:"wYevBVaj",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__mask"],[16,5,[30,0,["style"]]],[24,4,"button"],[24,"aria-label","Close"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[4,[32,1],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[12],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll"],[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/mask.js",scope:()=>[a.on,l.default],isStrictMode:!0}),n)},5877:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>c})
-var n,o=i(8855),s=i.n(o),r=i(7970),a=i(116),l=i(5156),d=i(2663),u=i(1465)
+var n,o=i(8855),s=i.n(o),r=i(7970),a=i(1611),l=i(5156),d=i(2663),u=i(1465)
 const h=new Map([["default",()=>""],["push",t=>`transform: translateX(${t}px);`],["reveal",t=>`transform: translateX(${t}px);`],["ios",t=>`transform: translateX(${t}px);`],["squeeze",(t,e)=>`margin-${e}: ${Math.abs(t)}px;`],["squeeze-reveal",(t,e)=>`margin-${e}: ${Math.abs(t)}px;`]])
 class c extends(s()){get mode(){return this.args.mode??"default"}get style(){let t=""
 return this.args.position>0?t=h.get(this.mode)(this.args.position,"left"):this.args.position<0&&(t=h.get(this.mode)(this.args.position,"right")),(0,r.htmlSafe)(t)}get mask(){return["reveal","ios"].includes(this.mode)}}n=c,(0,d.setComponentTemplate)((0,u.createTemplateFactory)({id:"hhXIKWs2",block:'[[[1,"\\n    "],[11,0],[16,0,[29,["mobile-menu-wrapper__content\\n        ",[52,[30,1],"mobile-menu-wrapper__content--shadow"],"\\n        mobile-menu-wrapper__content--",[30,0,["mode"]]]]],[16,5,[30,0,["style"]]],[17,2],[4,[32,0],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,3],[30,4],[30,5],[30,6],[30,7]]]],[12],[1,"\\n      "],[18,10,null],[1,"\\n\\n"],[41,[30,0,["mask"]],[[[1,"        "],[8,[32,1],null,[["@isOpen","@onClick"],[[30,8],[30,9]]],null],[1,"\\n"]],[]],null],[1,"    "],[13],[1,"\\n  "]],["@shadowEnabled","&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll","@isOpen","@onClose","&default"],["if","yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-wrapper/content.js",scope:()=>[a.default,l.default],isStrictMode:!0}),n)},6482:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{effect:()=>o})
 var n=i(2186)
-function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},7710:function(t,e){window._eai_r=require,window._eai_d=define},9848:(t,e,i)=>{"use strict"
+function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},9848:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>j})
 var n=i(5004),o=i(8855),s=i.n(o),r=i(473),a=i(8766),l=i(4471),d=i(3133),u=i(2097)
 function h(t,e){return{...t,initial:{...t.initial,x:t.initial.x-e.x,y:t.initial.x-e.x},current:{...t.current,x:t.current.x-e.x,y:t.current.x-e.x}}}function c(t,e,i){return{...t,current:{...t.current,distance:t.current.distance/((e+i)/2),distanceX:t.current.distanceX/e,distanceY:t.current.distanceY/i}}}var p=i(2294),g=i(1603),m=i(2186),f=(i(92),i(2439))
@@ -79,7 +79,7 @@ return"symbol"==typeof e?e:e+""}(n="spring"))in i?Object.defineProperty(i,n,{val
 const{onStop:s=()=>{},...r}=e,a={stiffness:100,damping:10,mass:1,restVelocityThreshold:.01,restDisplacementThreshold:.01,...r}
 this.spring=new f.c(a),this.spring.onUpdate(t),this.spring.onStop(()=>{this.promise.resolve(),s()})}start(){return this.promise=null,new Promise(t=>{this.promise={resolve:t}
 const{fromValue:e,toValue:i,initialVelocity:n}=this.spring._config
-e!==i||0!==n?this.spring.start():this.promise.resolve()})}stop(){this.spring.stop()}get currentVelocity(){return this.spring.currentVelocity}}var v,y=i(3698),w=i.n(y),M=i(4092),P=i(6712),S=i(3130),_=i(5877),k=i(2663),C=i(363),x=i(1465)
+e!==i||0!==n?this.spring.start():this.promise.resolve()})}stop(){this.spring.stop()}get currentVelocity(){return this.spring.currentVelocity}}var v,y=i(3698),w=i.n(y),M=i(8159),P=i(6712),S=i(3130),_=i(5877),k=i(2663),C=i(363),x=i(1465)
 function T(t,e,i){return(e=function(t){var e=function(t){if("object"!=typeof t||!t)return t
 var e=t[Symbol.toPrimitive]
 if(void 0!==e){var i=e.call(t,"string")
