@@ -16,7 +16,7 @@ import { waitFor } from '@ember/test-waiters';
 import { restartableTask } from 'ember-concurrency';
 import Spring from '../spring.js';
 import './mobile-menu-wrapper.css';
-import onResize from 'ember-on-resize-modifier/modifiers/on-resize';
+import { onResize } from 'ember-primitives/on-resize';
 import { bodyClass } from 'ember-primitives/helpers/body-class';
 import { hash } from '@ember/helper';
 
