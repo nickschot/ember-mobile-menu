@@ -26,8 +26,8 @@
   "pnpm": {
     "overrides": {
       "@handlebars/parser": "2.0.0",
-      "@ember/test-helpers": "5.2.2",
-      "@ember/test-waiters": "4.1.0"
+      "@ember/test-helpers": "5.4.0",
+      "@ember/test-waiters": "4.1.1"
     },
     "patchedDependencies": {
       "ember-app-scheduler": "patches/ember-app-scheduler.patch"
