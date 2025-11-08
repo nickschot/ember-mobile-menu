@@ -70,7 +70,6 @@ jobs:
           - ember-lts-5.8
           - ember-lts-5.12
           - ember-release
-          - ember-classic
 
     steps:
       - uses: actions/checkout@v4
