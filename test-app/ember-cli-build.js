@@ -3,7 +3,9 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 const { compatBuild } = require('@embroider/compat');
 
-const needsOwnerPolyfill = process.env.NEEDS_OWNER_POLYFILL === true;
+const needsOwnerPolyfill = process.env.NEEDS_OWNER_POLYFILL === 'true';
+
+console.log(`Needs owner polyfill? ${needsOwnerPolyfill}`);
 
 module.exports = async function (defaults) {
   const { buildOnce } = await import('@embroider/vite');
