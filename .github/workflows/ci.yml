@@ -133,13 +133,18 @@ jobs:
         with:
           node-version: 20.x
           cache: pnpm
-      - name: Install Dependencies
-        run: pnpm install --no-frozen-lockfile --ignore-scripts
+      - run: echo "inject-workspace-packages=true" >> .npmrc
+      - run: echo "sync-injected-deps-after-scripts[]=build" >> .npmrc
+      - run: cat .npmrc
+
       - name: Download built package from cache
         uses: actions/download-artifact@v4
         with:
           name: dist
           path: ${{ env.dist }}
+
+      - name: Install Dependencies
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: test-app
@@ -169,13 +174,15 @@ jobs:
       - run: echo "inject-workspace-packages=true" >> .npmrc
       - run: echo "sync-injected-deps-after-scripts[]=build" >> .npmrc
       - run: cat .npmrc
-      - name: Install Dependencies
-        run: pnpm install --no-frozen-lockfile --ignore-scripts
+
       - name: Download built package from cache
         uses: actions/download-artifact@v4
         with:
           name: dist
           path: ${{ env.dist }}
+
+      - name: Install Dependencies
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
       - name: Run Tests
         id: tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
