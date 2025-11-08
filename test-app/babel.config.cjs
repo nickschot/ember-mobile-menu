@@ -3,6 +3,8 @@ const {
   templateCompatSupport,
 } = require('@embroider/compat/babel');
 
+const needsOwnerPolyfill = process.env.NEEDS_OWNER_POLYFILL === 'true';
+
 module.exports = {
   plugins: [
     [
@@ -13,6 +15,14 @@ module.exports = {
         allowDeclareFields: true,
       },
     ],
+    needsOwnerPolyfill
+      ? [
+          require.resolve(
+            'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner',
+          ),
+          {},
+        ]
+      : null,
     [
       'babel-plugin-ember-template-compilation',
       {
@@ -40,7 +50,7 @@ module.exports = {
         useESModules: true,
         regenerator: false,
       },
-    ],
+    ].filter(Boolean),
     ...babelCompatSupport(),
   ],
 
