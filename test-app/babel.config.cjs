@@ -16,12 +16,7 @@ module.exports = {
       },
     ],
     needsOwnerPolyfill
-      ? [
-          require.resolve(
-            'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner',
-          ),
-          {},
-        ]
+      ? 'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner'
       : null,
     [
       'babel-plugin-ember-template-compilation',
@@ -50,9 +45,9 @@ module.exports = {
         useESModules: true,
         regenerator: false,
       },
-    ].filter(Boolean),
+    ],
     ...babelCompatSupport(),
-  ],
+  ].filter(Boolean),
 
   generatorOpts: {
     compact: false,
