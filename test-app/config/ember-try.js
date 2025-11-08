@@ -13,7 +13,6 @@ module.exports = async function () {
           devDependencies: {
             'ember-cli': '~4.12.0',
             'ember-source': '~3.28.0',
-            'ember-resolver': '^8.0.0',
             'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner':
               '^1.0.0',
             'babel-plugin-undeprecate-inject-from-at-ember-service': '^1.0.0',
@@ -29,7 +28,6 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~4.4.0',
-            'ember-resolver': '^11.0.0',
             'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner':
               '^1.0.0',
             'babel-plugin-undeprecate-inject-from-at-ember-service': '^1.0.0',
@@ -45,7 +43,6 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~4.8.0',
-            'ember-resolver': '^11.0.0',
             'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner':
               '^1.0.0',
             'babel-plugin-undeprecate-inject-from-at-ember-service': '^1.0.0',
