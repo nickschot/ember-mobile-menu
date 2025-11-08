@@ -4,6 +4,7 @@ const {
 } = require('@embroider/compat/babel');
 
 const needsOwnerPolyfill = process.env.NEEDS_OWNER_POLYFILL === 'true';
+const needsServicePolyfill = process.env.NEEDS_SERVICE_POLYFILL === 'true';
 
 module.exports = {
   plugins: [
@@ -17,6 +18,9 @@ module.exports = {
     ],
     needsOwnerPolyfill
       ? 'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner'
+      : null,
+    needsServicePolyfill
+      ? 'babel-plugin-undeprecate-inject-from-at-ember-service'
       : null,
     [
       'babel-plugin-ember-template-compilation',

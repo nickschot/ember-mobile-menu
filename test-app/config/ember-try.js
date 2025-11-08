@@ -16,10 +16,12 @@ module.exports = async function () {
             'ember-resolver': '^8.0.0',
             'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner':
               '^1.0.0',
+            'babel-plugin-undeprecate-inject-from-at-ember-service': '^1.0.0',
           },
         },
         env: {
           NEEDS_OWNER_POLYFILL: 'true',
+          NEEDS_SERVICE_POLYFILL: 'true',
         },
       },
       {
@@ -30,10 +32,12 @@ module.exports = async function () {
             'ember-resolver': '^11.0.0',
             'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner':
               '^1.0.0',
+            'babel-plugin-undeprecate-inject-from-at-ember-service': '^1.0.0',
           },
         },
         env: {
           NEEDS_OWNER_POLYFILL: 'true',
+          NEEDS_SERVICE_POLYFILL: 'true',
         },
       },
       {
@@ -44,10 +48,12 @@ module.exports = async function () {
             'ember-resolver': '^11.0.0',
             'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner':
               '^1.0.0',
+            'babel-plugin-undeprecate-inject-from-at-ember-service': '^1.0.0',
           },
         },
         env: {
           NEEDS_OWNER_POLYFILL: 'true',
+          NEEDS_SERVICE_POLYFILL: 'true',
         },
       },
       {
