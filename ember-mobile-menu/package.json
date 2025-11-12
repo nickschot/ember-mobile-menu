@@ -44,6 +44,7 @@
   "dependencies": {
     "@ember/test-waiters": "^3.0.0 || ^4.0.0",
     "@embroider/addon-shim": "^1.8.9",
+    "@glimmer/component": "^1.0.4 || >=2.0.0",
     "decorator-transforms": "^2.2.2",
     "ember-cached-decorator-polyfill": "^1.0.2",
     "ember-concurrency": "^3.0.0 || ^4.0.0",
@@ -75,9 +76,6 @@
     "prettier-plugin-ember-template-tag": "2.1.0",
     "rollup": "4.52.5",
     "rollup-plugin-copy": "3.5.0"
-  },
-  "peerDependencies": {
-    "@glimmer/component": "^1.0.4 || >=2.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
