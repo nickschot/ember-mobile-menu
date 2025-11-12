@@ -339,9 +339,6 @@ importers:
       decorator-transforms:
         specifier: ^2.3.0
         version: 2.3.0(@babel/core@7.28.5)
-      ember-auto-import:
-        specifier: 2.11.2
-        version: 2.11.2(webpack@5.102.1)
       ember-cli:
         specifier: 6.8.0
         version: 6.8.0(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
