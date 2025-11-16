@@ -147,15 +147,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --no-frozen-lockfile --ignore-scripts
       - name: Run Tests
-<<<<<<< HEAD
-        run: |
-          rm ../pnpm-lock.yaml
-          ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
-||||||| 234e01d
-        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
-=======
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
->>>>>>> origin/master
         working-directory: test-app
 
   allowed-fail-try-scenarios:
@@ -194,15 +186,7 @@ jobs:
         run: pnpm install --no-frozen-lockfile --ignore-scripts
       - name: Run Tests
         id: tests
-<<<<<<< HEAD
-        run: |
-          rm ../pnpm-lock.yaml
-          ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
-||||||| 234e01d
-        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
-=======
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
->>>>>>> origin/master
         continue-on-error: true
         working-directory: test-app
       - uses: mainmatter/continue-on-error-comment@v1
