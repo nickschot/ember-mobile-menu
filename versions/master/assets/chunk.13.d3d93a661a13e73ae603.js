@@ -154,7 +154,7 @@ const t=function(e){return e[ze]=!0,e}(e)
 return Promise.resolve().then(()=>{const{owner:e}=t
 e._emberTestHelpersMockOwner&&(e.lookup("event_dispatcher:main")||We.EventDispatcher.create()).setup({},"#ember-testing")
 const n=e.factoryFor?e.factoryFor("view:-outlet"):e._lookupFactory("view:-outlet"),r=e.lookup("-environment:main"),o=e.lookup("template:-outlet"),i=n.create({template:o,environment:r})
-return e.register("-top-level-view:main",{create:()=>i}),Ze(Ve).then(()=>((0,h.run)(i,"appendTo",He()),Te()))}).then(()=>(Object.defineProperty(t,"element",{configurable:!0,enumerable:!0,value:He(),writable:!1}),t))}Ge=(0,n(9232).A)(n(8935)).renderSettled
+return e.register("-top-level-view:main",{create:()=>i}),Ze(Ve).then(()=>((0,h.run)(i,"appendTo",He()),Te()))}).then(()=>(Object.defineProperty(t,"element",{configurable:!0,enumerable:!0,value:He(),writable:!1}),t))}Ge=(0,n(7778).A)(n(8935)).renderSettled
 var nt=Ge
 function rt(){return nt()}const ot=Object.freeze({isValid:!0,message:null}),it=Object.freeze({isValid:!1,message:"error handler should have re-thrown the provided error"})
 function st(e=(0,A.getOnerror)()){if(null==e)return ot
