@@ -206,9 +206,6 @@ importers:
       ember-modifier:
         specifier: ^4.2.2
         version: 4.2.2(@babel/core@7.28.5)
-      ember-on-resize-modifier:
-        specifier: ^2.0.0
-        version: 2.0.2(@babel/core@7.28.5)
       ember-primitives:
         specifier: ^0.40.0
         version: 0.40.0(@babel/core@7.28.5)(@ember/test-helpers@5.4.0(@babel/core@7.28.5))(@ember/test-waiters@3.1.0)(@glimmer/component@2.0.0)(ember-modifier@4.2.2(@babel/core@7.28.5))(ember-resources@7.0.7(@glimmer/component@2.0.0))(ember-source@6.8.1(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -4735,10 +4732,6 @@ packages:
   ember-modifier@4.2.2:
     resolution: {integrity: sha512-pPYBAGyczX0hedGWQFQOEiL9s45KS9efKxJxUQkMLjQyh+1Uef1mcmAGsdw2KmvNupITkE/nXxmVO1kZ9tt3ag==}
 
-  ember-on-resize-modifier@2.0.2:
-    resolution: {integrity: sha512-7mcD7CNbiCaZEIASWlRz/Wmn47afCMSFTdQJSSUe0WCgnXxn9DVoqZ39B7ZuddTHa0V6otTFrV/lIRYpggQ+eg==}
-    engines: {node: 12.* || 14.* || >= 16}
-
   ember-page-title@9.0.3:
     resolution: {integrity: sha512-fedRHUsvq8tIZgOii8jTrfAyeq+la/9H5eAzhNNwEyzo7nDMmqK2SxsyBUGXprd8fOacsPabLlzlucMi/4mUpA==}
     engines: {node: 16.* || >= 18}
@@ -4774,10 +4767,6 @@ packages:
   ember-resize-observer-polyfill@0.0.1:
     resolution: {integrity: sha512-8rKUXhvya+E5zeIO+7fNeIi3mN19UT0Spj0B9o7grURtHuoyPuUWMrESKoEOH2RlhLImLDI578s5YV0dHGHP/A==}
     engines: {node: 10.* || >= 12}
-
-  ember-resize-observer-service@1.1.0:
-    resolution: {integrity: sha512-/vbfxtHSyOGSNdjPKL8X3SyvUnYo3z88sJtD/bLJ0ZGhqVPaXCmtSkLyr/Fh75ckJDixRFxK4i4zEUSlrbk0PA==}
-    engines: {node: 12.* || 14.* || >= 16}
 
   ember-resolver@13.1.1:
     resolution: {integrity: sha512-rA4RDuTm/F9AzYX2+g7EY3QWU48kyF9+Ck8IE8VQipnlwv2Q42kdRWiw7hfeQbRxx6XoSZCak6nzAG9ePd/+Ug==}
@@ -14937,49 +14926,6 @@ snapshots:
       - webpack-cli
       - webpack-command
 
-  ember-auto-import@2.11.2:
-    dependencies:
-      '@babel/core': 7.28.5
-      '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.28.5)
-      '@babel/plugin-proposal-decorators': 7.28.0(@babel/core@7.28.5)
-      '@babel/plugin-proposal-private-methods': 7.18.6(@babel/core@7.28.5)
-      '@babel/plugin-transform-class-static-block': 7.28.3(@babel/core@7.28.5)
-      '@babel/preset-env': 7.28.5(@babel/core@7.28.5)
-      '@embroider/macros': 1.19.2
-      '@embroider/shared-internals': 2.9.1
-      babel-loader: 8.4.1(@babel/core@7.28.5)(webpack@4.47.0)
-      babel-plugin-ember-modules-api-polyfill: 3.5.0
-      babel-plugin-ember-template-compilation: 2.4.1
-      babel-plugin-htmlbars-inline-precompile: 5.3.1
-      babel-plugin-syntax-dynamic-import: 6.18.0
-      broccoli-debug: 0.6.5
-      broccoli-funnel: 3.0.8
-      broccoli-merge-trees: 4.2.0
-      broccoli-plugin: 4.0.7
-      broccoli-source: 3.0.1
-      css-loader: 5.2.7(webpack@5.102.1)
-      debug: 4.4.3
-      fs-extra: 10.1.0
-      fs-tree-diff: 2.0.1
-      handlebars: 4.7.8
-      is-subdir: 1.2.0
-      js-string-escape: 1.0.1
-      lodash: 4.17.21
-      mini-css-extract-plugin: 2.9.4(webpack@5.102.1)
-      minimatch: 3.1.2
-      parse5: 6.0.1
-      pkg-entry-points: 1.1.1
-      resolve: 1.22.11
-      resolve-package-path: 4.0.3
-      semver: 7.7.3
-      style-loader: 2.0.0(webpack@5.102.1)
-      typescript-memoize: 1.1.1
-      walk-sync: 3.0.0
-    transitivePeerDependencies:
-      - '@glint/template'
-      - supports-color
-      - webpack
-
   ember-auto-import@2.11.2(webpack@5.102.1):
     dependencies:
       '@babel/core': 7.28.5
@@ -15902,19 +15848,6 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-on-resize-modifier@2.0.2(@babel/core@7.28.5):
-    dependencies:
-      ember-auto-import: 2.11.2
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
-      ember-modifier: 4.2.2(@babel/core@7.28.5)
-      ember-resize-observer-service: 1.1.0
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@glint/template'
-      - supports-color
-      - webpack
-
   ember-page-title@9.0.3:
     dependencies:
       '@embroider/addon-shim': 1.10.0
@@ -15981,13 +15914,6 @@ snapshots:
       - supports-color
       - webpack-cli
       - webpack-command
-
-  ember-resize-observer-service@1.1.0:
-    dependencies:
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
-    transitivePeerDependencies:
-      - supports-color
 
   ember-resolver@13.1.1:
     dependencies:
