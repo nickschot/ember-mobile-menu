@@ -79,6 +79,32 @@ jobs:
           path: ${{ env.dist }}
       - name: Run Tests
         run: pnpm test:ember
+        working-directory: test-app
+
+  docs_test:
+    name: "Docs' Tests"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: ["build"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Download built package from cache
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: ${{ env.dist }}
+      - name: Run Tests
+        run: pnpm test:ember
+        working-directory: docs
 
   floating:
     name: "Floating Dependencies"
@@ -105,6 +131,7 @@ jobs:
           path: ${{ env.dist }}
       - name: Run Tests
         run: pnpm test:ember
+        working-directory: test-app
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
