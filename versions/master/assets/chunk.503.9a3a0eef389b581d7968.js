@@ -1,9 +1,9 @@
-/*! For license information please see chunk.503.77c5d76f484df48a4d13.js.LICENSE.txt */
+/*! For license information please see chunk.503.9a3a0eef389b581d7968.js.LICENSE.txt */
 (globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[503],{92:(e,t,r)=>{"use strict"
 r(1223),r(6644)
 var n=r(4689)
 n._d,r(4670)
-var i=r(1603),s=r(4202)
+var i=r(1603),s=r(1821)
 function o(e,t,r,n=[],o=s.Ag){let a,{initializer:c,get:l,value:u}=r;(0,i.deprecate)("Using @task decorator (or any of its variants) is deprecated. Please use modern `taskName = task(async () => {})` syntax instead",!1,{id:"ember-concurrency.deprecate-decorator-task",for:"ember-concurrency",since:"4.0.5",until:"5.0.0"}),c?a=c.call(void 0):l?a=l.call(void 0):u&&(a=u),a.displayName=`${t} (task)`
 let d=new WeakMap,h=new o(t,a,n[0]||{})
 return h._setupEmberKVO(e),{get(){let e=d.get(this)
@@ -726,7 +726,25 @@ const s=e.highlight(t.text,i,t.lang||"")
 if(s instanceof Promise)throw new Error("markedHighlight is not set to async but the highlight function is async. Set the async option to true on markedHighlight to await the async highlight function.")
 n(t)(s)},useNewRenderer:!0,renderer:{code(t,n,i){"object"==typeof t&&(i=t.escaped,n=t.lang,t=t.text)
 const s=r(n),o=s?e.langPrefix+u(s):e.emptyLangClass,a=o?` class="${o}"`:""
-return t=t.replace(/\n$/,""),`<pre><code${a}>${i?t:u(t,!0)}\n</code></pre>`}}}}},1912:(e,t,r)=>{"use strict"
+return t=t.replace(/\n$/,""),`<pre><code${a}>${i?t:u(t,!0)}\n</code></pre>`}}}}},1821:(e,t,r)=>{"use strict"
+r.d(t,{Ag:()=>y,Zm:()=>m})
+var n=r(8892),i=r(345)
+const s=new class{step(){return i.su}}
+class o{makeReducer(){return s}}var a=r(3431),c=r(450),l=r(8946),u=r(9674),d=r(5360),h=r(5558),p=r(5986)
+function f(e,t,r){return(t=function(e){var t=function(e){if("object"!=typeof e||!e)return e
+var t=e[Symbol.toPrimitive]
+if(void 0!==t){var r=t.call(e,"string")
+if("object"!=typeof r)return r
+throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e)
+return"symbol"==typeof t?t:t+""}(t))in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}const g={enqueue:(e,t)=>t&&e.setBufferPolicy(a.A),evented:(e,t)=>t&&e.setEvented(t),debug:(e,t)=>t&&e.setDebug(t),drop:(e,t)=>t&&e.setBufferPolicy(c.A),group:(e,t)=>e.setGroup(t),keepLatest:(e,t)=>t&&e.setBufferPolicy(l.A),maxConcurrency:(e,t)=>e.setMaxConcurrency(t),onState:(e,t)=>e.setOnState(t),restartable:(e,t)=>t&&e.setBufferPolicy(u.A)}
+function m(e,t){if(g[e])throw new Error(`A modifier with the name '${e}' has already been defined.`)
+g[e]=t}let y=class{constructor(e="<unknown>",t=null,r={}){f(this,"env",p.U),f(this,"_debug",null),f(this,"_enabledModifiers",[]),f(this,"_hasSetConcurrencyConstraint",!1),f(this,"_hasSetBufferPolicy",!1),f(this,"_hasEnabledEvents",!1),f(this,"_maxConcurrency",null),f(this,"_onStateCallback",(e,t)=>t.setState(e)),f(this,"_schedulerPolicyClass",o),f(this,"_taskGroupPath",null),this.name=e,this.taskDefinition=t,this.options=r,this._processModifierOptions(r)}createTask(e){let t=this.getTaskOptions(e)
+return new d.Y(Object.assign({generatorFactory:t=>this.taskDefinition.apply(e,t)},t))}createTaskGroup(e){let t=this.getTaskOptions(e)
+return new h.N(t)}getModifier(e){if(function(e){return e in g}(e))return g[e].bind(null,this)}getOptions(){return this.options}getScheduler(e,t){return new n.A(e,t)}getTaskOptions(e){let t,r,n=this._onStateCallback
+if(this._taskGroupPath){if(t=e[this._taskGroupPath],!(t instanceof h.N))throw new Error(`Expected group '${this._taskGroupPath}' to be defined but was not found.`)
+r=t.scheduler}else{let e=new this._schedulerPolicyClass(this._maxConcurrency)
+r=this.getScheduler(e,n&&"function"==typeof n)}return{context:e,debug:this._debug,env:this.env,name:this.name,group:t,scheduler:r,hasEnabledEvents:this._hasEnabledEvents,onStateCallback:n,enabledModifiers:this._enabledModifiers,modifierOptions:this.getOptions()}}setBufferPolicy(e){return function(e){if(e._hasSetBufferPolicy)throw new Error(`Cannot set multiple buffer policies on a task or task group. ${e._schedulerPolicyClass} has already been set for task or task group '${e.name}'`)}(this),this._hasSetBufferPolicy=!0,this._hasSetConcurrencyConstraint=!0,this._schedulerPolicyClass=e,function(e){if(e._hasSetConcurrencyConstraint&&e._taskGroupPath)throw new Error("Cannot use both 'group' and other concurrency-constraining task modifiers (e.g. 'drop', 'enqueue', 'restartable')")}(this),this}setDebug(e){return this._debug=e,this}setEvented(e){return this._hasEnabledEvents=e,this}setMaxConcurrency(e){return this._hasSetConcurrencyConstraint=!0,this._maxConcurrency=e,this}setGroup(e){return this._taskGroupPath=e,this}setName(e){return this.name=e,this}setOnState(e){return this._onStateCallback=e,this}setTaskDefinition(e){return this.taskDefinition=e,this}_processModifierOptions(e){if(e)for(let t of Object.keys(e)){let r=e[t],n=this.getModifier(t)
+"function"==typeof n&&n(r)&&this._enabledModifiers.push(t)}}}},1912:(e,t,r)=>{"use strict"
 r.d(t,{A:()=>n})
 class n{constructor(e){this.maxConcurrency=e||1}}},1932:(e,t,r)=>{"use strict"
 r.d(t,{Jn:()=>s,Vt:()=>a,W5:()=>n,aV:()=>c,f6:()=>o,iw:()=>i,qs:()=>l})
@@ -1991,25 +2009,7 @@ return"HASH{"+r.join(", ")+"}"},_.prototype.HashPair=function(e){return e.key+"=
 var D={}
 for(var q in n)Object.prototype.hasOwnProperty.call(n,q)&&(D[q]=n[q])
 function M(e,t){return"Program"===e.type?e:(b.yy=D,b.yy.locInfo=function(e){return new k(t&&t.srcName,e)},b.parse(e))}function L(e,t){var r=M(e,t)
-return new y(t).accept(r)}},4202:(e,t,r)=>{"use strict"
-r.d(t,{Ag:()=>y,Zm:()=>m})
-var n=r(8892),i=r(345)
-const s=new class{step(){return i.su}}
-class o{makeReducer(){return s}}var a=r(3431),c=r(450),l=r(8946),u=r(9674),d=r(5360),h=r(5558),p=r(5986)
-function f(e,t,r){return(t=function(e){var t=function(e){if("object"!=typeof e||!e)return e
-var t=e[Symbol.toPrimitive]
-if(void 0!==t){var r=t.call(e,"string")
-if("object"!=typeof r)return r
-throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e)
-return"symbol"==typeof t?t:t+""}(t))in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}const g={enqueue:(e,t)=>t&&e.setBufferPolicy(a.A),evented:(e,t)=>t&&e.setEvented(t),debug:(e,t)=>t&&e.setDebug(t),drop:(e,t)=>t&&e.setBufferPolicy(c.A),group:(e,t)=>e.setGroup(t),keepLatest:(e,t)=>t&&e.setBufferPolicy(l.A),maxConcurrency:(e,t)=>e.setMaxConcurrency(t),onState:(e,t)=>e.setOnState(t),restartable:(e,t)=>t&&e.setBufferPolicy(u.A)}
-function m(e,t){if(g[e])throw new Error(`A modifier with the name '${e}' has already been defined.`)
-g[e]=t}let y=class{constructor(e="<unknown>",t=null,r={}){f(this,"env",p.U),f(this,"_debug",null),f(this,"_enabledModifiers",[]),f(this,"_hasSetConcurrencyConstraint",!1),f(this,"_hasSetBufferPolicy",!1),f(this,"_hasEnabledEvents",!1),f(this,"_maxConcurrency",null),f(this,"_onStateCallback",(e,t)=>t.setState(e)),f(this,"_schedulerPolicyClass",o),f(this,"_taskGroupPath",null),this.name=e,this.taskDefinition=t,this.options=r,this._processModifierOptions(r)}createTask(e){let t=this.getTaskOptions(e)
-return new d.Y(Object.assign({generatorFactory:t=>this.taskDefinition.apply(e,t)},t))}createTaskGroup(e){let t=this.getTaskOptions(e)
-return new h.N(t)}getModifier(e){if(function(e){return e in g}(e))return g[e].bind(null,this)}getOptions(){return this.options}getScheduler(e,t){return new n.A(e,t)}getTaskOptions(e){let t,r,n=this._onStateCallback
-if(this._taskGroupPath){if(t=e[this._taskGroupPath],!(t instanceof h.N))throw new Error(`Expected group '${this._taskGroupPath}' to be defined but was not found.`)
-r=t.scheduler}else{let e=new this._schedulerPolicyClass(this._maxConcurrency)
-r=this.getScheduler(e,n&&"function"==typeof n)}return{context:e,debug:this._debug,env:this.env,name:this.name,group:t,scheduler:r,hasEnabledEvents:this._hasEnabledEvents,onStateCallback:n,enabledModifiers:this._enabledModifiers,modifierOptions:this.getOptions()}}setBufferPolicy(e){return function(e){if(e._hasSetBufferPolicy)throw new Error(`Cannot set multiple buffer policies on a task or task group. ${e._schedulerPolicyClass} has already been set for task or task group '${e.name}'`)}(this),this._hasSetBufferPolicy=!0,this._hasSetConcurrencyConstraint=!0,this._schedulerPolicyClass=e,function(e){if(e._hasSetConcurrencyConstraint&&e._taskGroupPath)throw new Error("Cannot use both 'group' and other concurrency-constraining task modifiers (e.g. 'drop', 'enqueue', 'restartable')")}(this),this}setDebug(e){return this._debug=e,this}setEvented(e){return this._hasEnabledEvents=e,this}setMaxConcurrency(e){return this._hasSetConcurrencyConstraint=!0,this._maxConcurrency=e,this}setGroup(e){return this._taskGroupPath=e,this}setName(e){return this.name=e,this}setOnState(e){return this._onStateCallback=e,this}setTaskDefinition(e){return this.taskDefinition=e,this}_processModifierOptions(e){if(e)for(let t of Object.keys(e)){let r=e[t],n=this.getModifier(t)
-"function"==typeof n&&n(r)&&this._enabledModifiers.push(t)}}}},4213:function(e,t,r){"use strict"
+return new y(t).accept(r)}},4213:function(e,t,r){"use strict"
 var n,i=this&&this.__extends||(n=function(e,t){return n=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])},n(e,t)},function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Class extends value "+String(t)+" is not a constructor or null")
 function r(){this.constructor=e}n(e,t),e.prototype=null===t?Object.create(t):(r.prototype=t.prototype,new r)}),s=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}}
 Object.defineProperty(t,"__esModule",{value:!0})
@@ -4735,7 +4735,7 @@ else if(e)throw e},e.prototype.addNode=function(e){var t=this.tagStack[this.tagS
 this.options.withStartIndices&&(e.startIndex=this.parser.startIndex),this.options.withEndIndices&&(e.endIndex=this.parser.endIndex),t.children.push(e),r&&(e.prev=r,r.next=e),e.parent=t,this.lastNode=null},e}()
 t.DomHandler=c,t.default=c},9339:(e,t,r)=>{"use strict"
 r.d(t,{A:()=>v})
-var n=r(1603),i=r(4471),s=r(4505),o=r(123),a=r(1223),c=r(4202),l=r(6644),u=r(8892)
+var n=r(1603),i=r(4471),s=r(4505),o=r(123),a=r(1223),c=r(1821),l=r(6644),u=r(8892)
 class d extends u.A{scheduleRefresh(){(0,a.once)(this,this.refresh)}}var h=r(2182),p=r(6e3),f=r(4670)
 let g=0
 function m(e,t,r,n,i,s){if(r&&r.length>0)for(let o=0;o<r.length;++o){let a=r[o],c="__ember_concurrency_handler_"+g++
