@@ -1,5 +1,39 @@
 # Changelog
 
+## Release (2025-11-21)
+
+* ember-mobile-menu 6.0.0 (major)
+
+#### :boom: Breaking Change
+* `ember-mobile-menu`
+  * [#1160](https://github.com/nickschot/ember-mobile-menu/pull/1160) Remove @ember/render-modifiers ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :rocket: Enhancement
+* Other
+  * [#1310](https://github.com/nickschot/ember-mobile-menu/pull/1310) Add 6.4 and 6.8 to LTS testing ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* `ember-mobile-menu`
+  * [#1270](https://github.com/nickschot/ember-mobile-menu/pull/1270) Replace ember-on-resize-modifier with ember-primitives (v2) version ([@nickschot](https://github.com/nickschot))
+  * [#1269](https://github.com/nickschot/ember-mobile-menu/pull/1269) Replace ember-set-body-class with ember-primitives (v2) version ([@nickschot](https://github.com/nickschot))
+  * [#1245](https://github.com/nickschot/ember-mobile-menu/pull/1245) Deprecate decorator syntax of ember-concurrency  ([@johanrd](https://github.com/johanrd))
+  * [#1158](https://github.com/nickschot/ember-mobile-menu/pull/1158) Remove unneeded peers ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :memo: Documentation
+* [#1244](https://github.com/nickschot/ember-mobile-menu/pull/1244) Update CONTRIBUTING.md to reflect practice in v2 addon ([@johanrd](https://github.com/johanrd))
+
+#### :house: Internal
+* `ember-mobile-menu`
+  * [#1303](https://github.com/nickschot/ember-mobile-menu/pull/1303) Update test-app to Vite ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* Other
+  * [#1161](https://github.com/nickschot/ember-mobile-menu/pull/1161) Fix floating dependencies test ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1129](https://github.com/nickschot/ember-mobile-menu/pull/1129) Docs smoke test & lint config fixes ([@nickschot](https://github.com/nickschot))
+  * [#1128](https://github.com/nickschot/ember-mobile-menu/pull/1128) Fix addon-docs deployment ([@nickschot](https://github.com/nickschot))
+  * [#1124](https://github.com/nickschot/ember-mobile-menu/pull/1124) Get rid of dependenciesMeta injected and use pnpm flags only when needed in CI ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 3
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+- [@johanrd](https://github.com/johanrd)
+
 ## Release (2025-02-25)
 
 ember-mobile-menu 5.3.0 (minor)
