@@ -25,7 +25,30 @@
   },
   "pnpm": {
     "overrides": {
-      "@handlebars/parser": "2.0.0"
+      "@handlebars/parser": "2.0.0",
+      "@ember/test-helpers": "5.4.0",
+      "@ember/test-waiters": "4.1.1"
+    },
+    "patchedDependencies": {
+      "ember-app-scheduler": "patches/ember-app-scheduler.patch"
+    },
+    "packageExtensions": {
+      "ember-app-scheduler": {
+        "dependencies": {
+          "@ember/test-waiters": "*",
+          "ember-auto-import": "*"
+        }
+      },
+      "ember-tether": {
+        "peerDependencies": {
+          "ember-source": "*"
+        }
+      },
+      "@ember/render-modifiers": {
+        "peerDependencies": {
+          "ember-source": "*"
+        }
+      }
     }
   },
   "devDependencies": {
