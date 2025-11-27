@@ -49,7 +49,7 @@ jobs:
         # lerna-changelog can discover what's changed since the last release
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 18
 
