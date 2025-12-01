@@ -1,4 +1,4 @@
-(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[917],{138:(t,e,i)=>{"use strict"
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[999],{138:(t,e,i)=>{"use strict"
 i.r(e)},2097:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>x})
 var n,o,s=i(5247),r=i(4471),a=i(473),l=i(1603),d=i(7970),u=i(1130),h=i(5156),c=i(3695),p=i(6712),g=i(6482),m=i(5606),f=i(2663),b=i(363),v=i(1465)
@@ -49,7 +49,7 @@ if(void 0!==e){var i=e.call(t,"string")
 if("object"!=typeof i)return i
 throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t)
 return"symbol"==typeof e?e:e+""}(i))in e?Object.defineProperty(e,i,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[i]=n}get width(){return this.args.width??300}get isLeft(){return this.args.isLeft??!0}get position(){return this.args.position??0}get progress(){return Math.abs(this.position)/this.width}get style(){let t=`width: ${this.width}px;`,e=this.width,i=this.position
-return"ios"===this.args.mode?(e/=3,i/=3):["reveal","squeeze-reveal"].includes(this.args.mode)&&(e=0,i=0),t+=this.isLeft?`left: -${e}px; transform: translateX(${i}px);`:`right: -${e}px; transform: translateX(${i}px);`,this.args.shadowEnabled&&["default","push","squeeze"].includes(this.args.mode)&&this.progress>0&&(t+=`box-shadow: 0 0 10px rgba(0,0,0,${.3*this.progress});`),(0,o.htmlSafe)(t)}}b=M,(0,y.setComponentTemplate)((0,w.createTemplateFactory)({id:"g6Ud0FO+",block:'[[[1,"\\n    "],[11,0],[24,0,"mobile-menu__tray"],[16,5,[30,0,["style"]]],[17,1],[4,[32,0],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[4,[30,0,["lockBodyScroll"]],null,null],[12],[1,"\\n      "],[18,7,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/tray.js",scope:()=>[v.default],isStrictMode:!0}),b)},4817:function(t,e){window._eai_r=require,window._eai_d=define},5156:(t,e,i)=>{"use strict"
+return"ios"===this.args.mode?(e/=3,i/=3):["reveal","squeeze-reveal"].includes(this.args.mode)&&(e=0,i=0),t+=this.isLeft?`left: -${e}px; transform: translateX(${i}px);`:`right: -${e}px; transform: translateX(${i}px);`,this.args.shadowEnabled&&["default","push","squeeze"].includes(this.args.mode)&&this.progress>0&&(t+=`box-shadow: 0 0 10px rgba(0,0,0,${.3*this.progress});`),(0,o.htmlSafe)(t)}}b=M,(0,y.setComponentTemplate)((0,w.createTemplateFactory)({id:"g6Ud0FO+",block:'[[[1,"\\n    "],[11,0],[24,0,"mobile-menu__tray"],[16,5,[30,0,["style"]]],[17,1],[4,[32,0],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[4,[30,0,["lockBodyScroll"]],null,null],[12],[1,"\\n      "],[18,7,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/tray.js",scope:()=>[v.default],isStrictMode:!0}),b)},5156:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>h})
 var n,o=i(5247),s=i(7970),r=i(2377),a=i(211),l=i(2663),d=i(1465)
 const u=()=>{}
@@ -64,7 +64,7 @@ class h extends o.A{get mode(){return this.args.mode??"default"}get style(){let 
 return this.args.position>0?t=u.get(this.mode)(this.args.position,"left"):this.args.position<0&&(t=u.get(this.mode)(this.args.position,"right")),(0,s.htmlSafe)(t)}get mask(){return["reveal","ios"].includes(this.mode)}}n=h,(0,l.setComponentTemplate)((0,d.createTemplateFactory)({id:"hhXIKWs2",block:'[[[1,"\\n    "],[11,0],[16,0,[29,["mobile-menu-wrapper__content\\n        ",[52,[30,1],"mobile-menu-wrapper__content--shadow"],"\\n        mobile-menu-wrapper__content--",[30,0,["mode"]]]]],[16,5,[30,0,["style"]]],[17,2],[4,[32,0],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,3],[30,4],[30,5],[30,6],[30,7]]]],[12],[1,"\\n      "],[18,10,null],[1,"\\n\\n"],[41,[30,0,["mask"]],[[[1,"        "],[8,[32,1],null,[["@isOpen","@onClick"],[[30,8],[30,9]]],null],[1,"\\n"]],[]],null],[1,"    "],[13],[1,"\\n  "]],["@shadowEnabled","&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll","@isOpen","@onClose","&default"],["if","yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-wrapper/content.js",scope:()=>[r.default,a.default],isStrictMode:!0}),n)},6482:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{effect:()=>o})
 var n=i(5116)
-function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},9848:(t,e,i)=>{"use strict"
+function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},8771:function(t,e){window._eai_r=require,window._eai_d=define},9848:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>W})
 var n=i(5004),o=i(5247),s=i(473),r=i(8766),a=i(4471),l=i(3133),d=i(2097)
 function u(t,e){return{...t,initial:{...t.initial,x:t.initial.x-e.x,y:t.initial.x-e.x},current:{...t.current,x:t.current.x-e.x,y:t.current.x-e.x}}}function h(t,e,i){return{...t,current:{...t.current,distance:t.current.distance/((e+i)/2),distanceX:t.current.distanceX/e,distanceY:t.current.distanceY/i}}}var c=i(2294),p=i(1603),g=i(5116),m=(i(92),i(2439))
@@ -78,7 +78,7 @@ return"symbol"==typeof e?e:e+""}(n="spring"))in i?Object.defineProperty(i,n,{val
 const{onStop:s=()=>{},...r}=e,a={stiffness:100,damping:10,mass:1,restVelocityThreshold:.01,restDisplacementThreshold:.01,...r}
 this.spring=new m.c(a),this.spring.onUpdate(t),this.spring.onStop(()=>{this.promise.resolve(),s()})}start(){return this.promise=null,new Promise(t=>{this.promise={resolve:t}
 const{fromValue:e,toValue:i,initialVelocity:n}=this.spring._config
-e!==i||0!==n?this.spring.start():this.promise.resolve()})}stop(){this.spring.stop()}get currentVelocity(){return this.spring.currentVelocity}}var b,v=i(8603),y=i(6272),w=i(6712),M=i(3130),P=i(5877),S=i(2663),_=i(363),k=i(1465)
+e!==i||0!==n?this.spring.start():this.promise.resolve()})}stop(){this.spring.stop()}get currentVelocity(){return this.spring.currentVelocity}}var b,v=i(9699),y=i(8764),w=i(6712),M=i(3130),P=i(5877),S=i(2663),_=i(363),k=i(1465)
 function C(t,e,i){return(e=function(t){var e=function(t){if("object"!=typeof t||!t)return t
 var e=t[Symbol.toPrimitive]
 if(void 0!==e){var i=e.call(t,"string")
