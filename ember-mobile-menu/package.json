@@ -49,7 +49,7 @@
     "ember-concurrency": "^3.0.0 || ^4.0.0",
     "ember-gesture-modifiers": "^5.0.0 || ^6.0.0",
     "ember-modifier": "^4.2.2",
-    "ember-primitives": "^0.40.0",
+    "ember-primitives": "^0.46.0",
     "tracked-built-ins": "^3.0.0 || ^4.0.0",
     "wobble": "^1.5.1"
   },
