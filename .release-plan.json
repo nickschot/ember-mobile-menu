@@ -1,17 +1,26 @@
 {
   "solution": {
     "ember-mobile-menu": {
-      "impact": "minor",
-      "oldVersion": "5.2.0",
-      "newVersion": "5.3.0",
+      "impact": "major",
+      "oldVersion": "5.3.0",
+      "newVersion": "6.0.0",
+      "tagName": "latest",
       "constraints": [
+        {
+          "impact": "major",
+          "reason": "Appears in changelog section :boom: Breaking Change"
+        },
         {
           "impact": "minor",
           "reason": "Appears in changelog section :rocket: Enhancement"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./ember-mobile-menu/package.json"
     }
   },
-  "description": "## Release (2025-02-25)\n\nember-mobile-menu 5.3.0 (minor)\n\n#### :rocket: Enhancement\n* `ember-mobile-menu`\n  * [#1084](https://github.com/nickschot/ember-mobile-menu/pull/1084) Convert to GJS components ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 1\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n"
+  "description": "## Release (2025-12-01)\n\n* ember-mobile-menu 6.0.0 (major)\n\n#### :boom: Breaking Change\n* `ember-mobile-menu`\n  * [#1160](https://github.com/nickschot/ember-mobile-menu/pull/1160) Remove @ember/render-modifiers ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### :rocket: Enhancement\n* `ember-mobile-menu`\n  * [#1156](https://github.com/nickschot/ember-mobile-menu/pull/1156) Remove v1 addons: test-waiters and cached-decorator-polyfill ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#1270](https://github.com/nickschot/ember-mobile-menu/pull/1270) Replace ember-on-resize-modifier with ember-primitives (v2) version ([@nickschot](https://github.com/nickschot))\n  * [#1269](https://github.com/nickschot/ember-mobile-menu/pull/1269) Replace ember-set-body-class with ember-primitives (v2) version ([@nickschot](https://github.com/nickschot))\n  * [#1245](https://github.com/nickschot/ember-mobile-menu/pull/1245) Deprecate decorator syntax of ember-concurrency  ([@johanrd](https://github.com/johanrd))\n  * [#1158](https://github.com/nickschot/ember-mobile-menu/pull/1158) Remove unneeded peers ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n* Other\n  * [#1310](https://github.com/nickschot/ember-mobile-menu/pull/1310) Add 6.4 and 6.8 to LTS testing ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### :memo: Documentation\n* [#1244](https://github.com/nickschot/ember-mobile-menu/pull/1244) Update CONTRIBUTING.md to reflect practice in v2 addon ([@johanrd](https://github.com/johanrd))\n\n#### :house: Internal\n* `ember-mobile-menu`\n  * [#1303](https://github.com/nickschot/ember-mobile-menu/pull/1303) Update test-app to Vite ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n* Other\n  * [#1161](https://github.com/nickschot/ember-mobile-menu/pull/1161) Fix floating dependencies test ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#1129](https://github.com/nickschot/ember-mobile-menu/pull/1129) Docs smoke test & lint config fixes ([@nickschot](https://github.com/nickschot))\n  * [#1128](https://github.com/nickschot/ember-mobile-menu/pull/1128) Fix addon-docs deployment ([@nickschot](https://github.com/nickschot))\n  * [#1124](https://github.com/nickschot/ember-mobile-menu/pull/1124) Get rid of dependenciesMeta injected and use pnpm flags only when needed in CI ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 3\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n- [@johanrd](https://github.com/johanrd)\n"
 }
