@@ -46,7 +46,7 @@
     "@embroider/addon-shim": "^1.8.9",
     "@glimmer/component": "^1.0.4 || >=2.0.0",
     "decorator-transforms": "^2.2.2",
-    "ember-concurrency": "^3.0.0 || ^4.0.0",
+    "ember-concurrency": "^5.0.0",
     "ember-gesture-modifiers": "^5.0.0 || ^6.0.0",
     "ember-modifier": "^4.2.2",
     "ember-primitives": "^0.46.0",
