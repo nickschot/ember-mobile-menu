@@ -1,5 +1,10 @@
 # Changelog
 
+
+
+
+
+
 ## Release (2025-12-01)
 
 * ember-mobile-menu 6.0.0 (major)
