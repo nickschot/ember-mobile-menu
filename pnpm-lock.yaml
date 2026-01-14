@@ -30,8 +30,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0(prettier@3.6.2)
       release-plan:
-        specifier: 0.17.2
-        version: 0.17.2
+        specifier: 0.17.4
+        version: 0.17.4
 
   docs:
     devDependencies:
@@ -3448,10 +3448,6 @@ packages:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
 
-  chalk@5.4.1:
-    resolution: {integrity: sha512-zgVZuo2WcZgfUEmsn6eO3kINexW8RAE4maiQ8QNs8CtpPCSyMiYsULR3HQYkm3w8FIA3SberyMJMSldGsW+U3w==}
-    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-
   chalk@5.6.2:
     resolution: {integrity: sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
@@ -5397,8 +5393,8 @@ packages:
     resolution: {integrity: sha512-8aCohiDo4jwjOwma4FmYFd3i97urZulL8XL24nIPxuE+GZnfsAyy/g2Shqx6OjUiFKUXZM+Yy+KHnOmmA3FVcg==}
     engines: {node: '>= 4.0'}
 
-  github-changelog@2.1.1:
-    resolution: {integrity: sha512-MRJXYVBJi5EUtIvaMokAIMAOmDwx8EtO2xK2yhK/jSHQBRGVwuhVGYhSCWPSnku8MTtL4mfk2qFNqUhx2ZC98A==}
+  github-changelog@2.1.4:
+    resolution: {integrity: sha512-mZQF/YC9OR8XMGpYlLQqG66RiKwlaQZ7rXTZug28oOYkzOXd0acszuvYHVzPlYmns1aDDSwQkbzFxNOYpWhmig==}
     engines: {node: 18.* || 20.* || >= 22}
     hasBin: true
 
@@ -7550,8 +7546,8 @@ packages:
     resolution: {integrity: sha512-cnE+y8bz4NhMjISKbgeVJtqNbtf5QpjZP+Bslo+UqkIt9QPnX9q095eiRRASJG1/tz6dlNr6Z5NsBiWYokp6EQ==}
     hasBin: true
 
-  release-plan@0.17.2:
-    resolution: {integrity: sha512-LgE/3CU8sFZt28uJR886xvWdw/CL0g5g5YSFTAJUvUy5qdERZdcc1pu317nKpYFs/yEDjiUasLj3rxnXBJf1zA==}
+  release-plan@0.17.4:
+    resolution: {integrity: sha512-CK+RrsvP6JXysgFuqUoOvprAT95J5x8usHzAQh3M1RMQqFScnAyfY6lb1LBsjqW/HUsvLjkLfSp8dJseRHEpEw==}
     hasBin: true
 
   remote-git-tags@3.0.0:
@@ -14244,8 +14240,6 @@ snapshots:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
-  chalk@5.4.1: {}
-
   chalk@5.6.2: {}
 
   chardet@0.7.0: {}
@@ -17133,7 +17127,7 @@ snapshots:
 
   git-repo-info@2.1.1: {}
 
-  github-changelog@2.1.1:
+  github-changelog@2.1.4:
     dependencies:
       '@manypkg/get-packages': 2.2.2
       chalk: 4.1.2
@@ -19399,21 +19393,21 @@ snapshots:
     dependencies:
       jsesc: 3.0.2
 
-  release-plan@0.17.2:
+  release-plan@0.17.4:
     dependencies:
       '@manypkg/get-packages': 2.2.2
       '@npmcli/package-json': 6.2.0
       '@octokit/rest': 21.1.1
       assert-never: 1.4.0
-      chalk: 5.4.1
+      chalk: 5.6.2
       cli-highlight: 2.1.11
       execa: 9.6.0
       fs-extra: 11.3.0
-      github-changelog: 2.1.1
+      github-changelog: 2.1.4
       js-yaml: 4.1.0
       latest-version: 9.0.0
       parse-github-repo-url: 1.4.1
-      semver: 7.7.2
+      semver: 7.7.3
       yargs: 17.7.2
     transitivePeerDependencies:
       - bluebird
