@@ -1,4 +1,4 @@
-(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[195],{138:(t,e,i)=>{"use strict"
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[998],{138:(t,e,i)=>{"use strict"
 i.r(e)},699:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>M})
 var n=i(7973),o=i(7970),s=i(3946)
@@ -31,7 +31,7 @@ return"ios"===this.args.mode?(e/=3,i/=3):["reveal","squeeze-reveal"].includes(th
 i.r(e),i.d(e,{default:()=>d})
 var n,o=i(7973),s=i(2377),r=i(2663),a=i(1465)
 const l=()=>{}
-class d extends o.A{get onClick(){return()=>this.args.onClick(this.args.target)??l}}n=d,(0,r.setComponentTemplate)((0,a.createTemplateFactory)({id:"I+Mg7MYq",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__toggle"],[24,4,"button"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[12],[1,"\\n      "],[18,2,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-toggle.js",scope:()=>[s.on],isStrictMode:!0}),n)},3645:(t,e,i)=>{"use strict"
+class d extends o.A{get onClick(){return()=>this.args.onClick(this.args.target)??l}}n=d,(0,r.setComponentTemplate)((0,a.createTemplateFactory)({id:"I+Mg7MYq",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__toggle"],[24,4,"button"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[12],[1,"\\n      "],[18,2,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-toggle.js",scope:()=>[s.on],isStrictMode:!0}),n)},3611:function(t,e){window._eai_r=require,window._eai_d=define},3645:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>W})
 var n=i(9880),o=i(7973),s=i(473),r=i(3946),a=i(4471),l=i(5387),d=i(9674)
 function u(t,e){return{...t,initial:{...t.initial,x:t.initial.x-e.x,y:t.initial.x-e.x},current:{...t.current,x:t.current.x-e.x,y:t.current.x-e.x}}}function h(t,e,i){return{...t,current:{...t.current,distance:t.current.distance/((e+i)/2),distanceX:t.current.distanceX/e,distanceY:t.current.distanceY/i}}}var c=i(2294),p=i(1603),g=i(718),m=(i(4394),i(618))
@@ -73,7 +73,7 @@ const u=()=>{}
 class h extends o.A{get maskOpacityOffset(){return this.args.maskOpacityOffset??.1}get isOpen(){return this.args.isOpen??!1}get position(){return this.args.position??0}get onClick(){return this.args.onClick??u}get style(){let t=""
 t+=this.isOpen||0!==this.position?"visibility: visible;":"visibility: hidden;"
 let e=this.position>this.maskOpacityOffset?(this.position-this.maskOpacityOffset)/(1-this.maskOpacityOffset):0
-return this.args.invertOpacity&&(e=1-e),t+=`opacity: ${e};`,(0,s.htmlSafe)(t)}}n=h,(0,l.setComponentTemplate)((0,d.createTemplateFactory)({id:"wYevBVaj",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__mask"],[16,5,[30,0,["style"]]],[24,4,"button"],[24,"aria-label","Close"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[4,[32,1],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[12],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll"],[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/mask.js",scope:()=>[r.on,a.default],isStrictMode:!0}),n)},8166:function(t,e){window._eai_r=require,window._eai_d=define},8654:(t,e,i)=>{"use strict"
+return this.args.invertOpacity&&(e=1-e),t+=`opacity: ${e};`,(0,s.htmlSafe)(t)}}n=h,(0,l.setComponentTemplate)((0,d.createTemplateFactory)({id:"wYevBVaj",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__mask"],[16,5,[30,0,["style"]]],[24,4,"button"],[24,"aria-label","Close"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[4,[32,1],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[12],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll"],[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/mask.js",scope:()=>[r.on,a.default],isStrictMode:!0}),n)},8654:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>h})
 var n,o=i(7973),s=i(7970),r=i(7932),a=i(6093),l=i(2663),d=i(1465)
 const u=new Map([["default",()=>""],["push",t=>`transform: translateX(${t}px);`],["reveal",t=>`transform: translateX(${t}px);`],["ios",t=>`transform: translateX(${t}px);`],["squeeze",(t,e)=>`margin-${e}: ${Math.abs(t)}px;`],["squeeze-reveal",(t,e)=>`margin-${e}: ${Math.abs(t)}px;`]])
