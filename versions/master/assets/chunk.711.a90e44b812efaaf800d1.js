@@ -1,5 +1,5 @@
-(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[928],{138:(t,e,i)=>{"use strict"
-i.r(e)},349:function(t,e){window._eai_r=require,window._eai_d=define},699:(t,e,i)=>{"use strict"
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[711],{138:(t,e,i)=>{"use strict"
+i.r(e)},699:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>M})
 var n=i(7973),o=i(7970),s=i(3946)
 let r=!1
@@ -27,7 +27,7 @@ if(void 0!==e){var i=e.call(t,"string")
 if("object"!=typeof i)return i
 throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t)
 return"symbol"==typeof e?e:e+""}(i))in e?Object.defineProperty(e,i,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[i]=n}get width(){return this.args.width??300}get isLeft(){return this.args.isLeft??!0}get position(){return this.args.position??0}get progress(){return Math.abs(this.position)/this.width}get style(){let t=`width: ${this.width}px;`,e=this.width,i=this.position
-return"ios"===this.args.mode?(e/=3,i/=3):["reveal","squeeze-reveal"].includes(this.args.mode)&&(e=0,i=0),t+=this.isLeft?`left: -${e}px; transform: translateX(${i}px);`:`right: -${e}px; transform: translateX(${i}px);`,this.args.shadowEnabled&&["default","push","squeeze"].includes(this.args.mode)&&this.progress>0&&(t+=`box-shadow: 0 0 10px rgba(0,0,0,${.3*this.progress});`),(0,o.htmlSafe)(t)}}b=M,(0,y.setComponentTemplate)((0,w.createTemplateFactory)({id:"g6Ud0FO+",block:'[[[1,"\\n    "],[11,0],[24,0,"mobile-menu__tray"],[16,5,[30,0,["style"]]],[17,1],[4,[32,0],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[4,[30,0,["lockBodyScroll"]],null,null],[12],[1,"\\n      "],[18,7,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/tray.js",scope:()=>[v.default],isStrictMode:!0}),b)},767:(t,e,i)=>{"use strict"
+return"ios"===this.args.mode?(e/=3,i/=3):["reveal","squeeze-reveal"].includes(this.args.mode)&&(e=0,i=0),t+=this.isLeft?`left: -${e}px; transform: translateX(${i}px);`:`right: -${e}px; transform: translateX(${i}px);`,this.args.shadowEnabled&&["default","push","squeeze"].includes(this.args.mode)&&this.progress>0&&(t+=`box-shadow: 0 0 10px rgba(0,0,0,${.3*this.progress});`),(0,o.htmlSafe)(t)}}b=M,(0,y.setComponentTemplate)((0,w.createTemplateFactory)({id:"g6Ud0FO+",block:'[[[1,"\\n    "],[11,0],[24,0,"mobile-menu__tray"],[16,5,[30,0,["style"]]],[17,1],[4,[32,0],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[4,[30,0,["lockBodyScroll"]],null,null],[12],[1,"\\n      "],[18,7,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/tray.js",scope:()=>[v.default],isStrictMode:!0}),b)},706:function(t,e){window._eai_r=require,window._eai_d=define},767:(t,e,i)=>{"use strict"
 i.r(e),i.d(e,{default:()=>d})
 var n,o=i(7973),s=i(2377),r=i(2663),a=i(1465)
 const l=()=>{}
