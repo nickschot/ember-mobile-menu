@@ -126,6 +126,9 @@ jobs:
           - ember-lts-6.4
           - ember-lts-6.8
           - ember-release
+          - ember-concurrency-3
+          - ember-concurrency-4
+          - ember-concurrency-5
 
     steps:
       - uses: actions/checkout@v4
