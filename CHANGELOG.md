@@ -1,5 +1,19 @@
 # Changelog
 
+## Release (2026-02-07)
+
+* ember-mobile-menu 6.1.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-mobile-menu`
+  * [#1339](https://github.com/nickschot/ember-mobile-menu/pull/1339) Widen concurrency range ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :house: Internal
+* [#1340](https://github.com/nickschot/ember-mobile-menu/pull/1340) Add renovate config catered to package dev ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## Release (2025-12-01)
 
 * ember-mobile-menu 6.0.0 (major)
