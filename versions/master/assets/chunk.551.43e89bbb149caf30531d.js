@@ -1,4 +1,4 @@
-(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[502],{92(t,e,i){"use strict"
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[551],{92(t,e,i){"use strict"
 i.r(e),i.d(e,{default:()=>x})
 var n,o,s=i(2620),r=i(4471),a=i(473),l=i(1603),d=i(7970),u=i(1130),h=i(1823),c=i(7578),p=i(6712),g=i(7219),m=i(5606),f=i(2663),b=i(5649),v=i(1465)
 function y(t,e,i){return(e=function(t){var e=function(t){if("object"!=typeof t||!t)return t
@@ -33,10 +33,10 @@ i.r(e)},5641(t,e,i){"use strict"
 i.r(e),i.d(e,{default:()=>d})
 var n,o=i(2620),s=i(2377),r=i(2663),a=i(1465)
 const l=()=>{}
-class d extends o.A{get onClick(){return()=>this.args.onClick(this.args.target)??l}}n=d,(0,r.setComponentTemplate)((0,a.createTemplateFactory)({id:"I+Mg7MYq",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__toggle"],[24,4,"button"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[12],[1,"\\n      "],[18,2,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-toggle.js",scope:()=>[s.on],isStrictMode:!0}),n)},6095(t,e){window._eai_r=require,window._eai_d=define},7219(t,e,i){"use strict"
+class d extends o.A{get onClick(){return()=>this.args.onClick(this.args.target)??l}}n=d,(0,r.setComponentTemplate)((0,a.createTemplateFactory)({id:"I+Mg7MYq",block:'[[[1,"\\n    "],[11,"button"],[24,0,"mobile-menu__toggle"],[24,4,"button"],[17,1],[4,[32,0],["click",[30,0,["onClick"]]],null],[12],[1,"\\n      "],[18,2,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu-toggle.js",scope:()=>[s.on],isStrictMode:!0}),n)},7219(t,e,i){"use strict"
 i.r(e),i.d(e,{effect:()=>o})
 var n=i(9266)
-function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},7578(t,e,i){"use strict"
+function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},7230(t,e){window._eai_r=require,window._eai_d=define},7578(t,e,i){"use strict"
 i.r(e),i.d(e,{default:()=>M})
 var n=i(2620),o=i(7970),s=i(1092)
 let r=!1
