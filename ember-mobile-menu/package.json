@@ -54,7 +54,7 @@
     "wobble": "^1.5.1"
   },
   "devDependencies": {
-    "@babel/core": "7.28.6",
+    "@babel/core": "7.29.0",
     "@babel/eslint-parser": "7.28.6",
     "@babel/runtime": "7.28.6",
     "@embroider/addon-dev": "8.1.1",
