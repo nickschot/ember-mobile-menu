@@ -11,6 +11,10 @@ on:
       - main
       - master
 
+permissions:
+  id-token: write
+  contents: read
+
 concurrency:
   group: publish-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
