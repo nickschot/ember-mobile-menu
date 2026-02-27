@@ -2,16 +2,19 @@
 
 ## Release (2026-02-27)
 
-* ember-mobile-menu 6.0.1 (patch)
+* ember-mobile-menu 6.1.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-mobile-menu`
+  * [#1339](https://github.com/nickschot/ember-mobile-menu/pull/1339) Widen concurrency range ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
 
 #### :house: Internal
-* `ember-mobile-menu`
-  * [#1352](https://github.com/nickschot/ember-mobile-menu/pull/1352) Revert "Prepare Release" 6.1.0 ([@nickschot](https://github.com/nickschot))
-* Other
-  * [#1350](https://github.com/nickschot/ember-mobile-menu/pull/1350) Remove NPM token from publish config ([@nickschot](https://github.com/nickschot))
+* [#1347](https://github.com/nickschot/ember-mobile-menu/pull/1347) Setup OIDC required permissions ([@nickschot](https://github.com/nickschot))
+* [#1340](https://github.com/nickschot/ember-mobile-menu/pull/1340) Add renovate config catered to package dev ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
 
-#### Committers: 1
+#### Committers: 2
 - Nick Schot ([@nickschot](https://github.com/nickschot))
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
 
 ## Release (2025-12-01)
 

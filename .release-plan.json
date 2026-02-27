@@ -1,18 +1,14 @@
 {
   "solution": {
     "ember-mobile-menu": {
-      "impact": "patch",
+      "impact": "minor",
       "oldVersion": "6.0.0",
-      "newVersion": "6.0.1",
+      "newVersion": "6.1.0",
       "tagName": "latest",
       "constraints": [
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
-        }
       ],
       "pkgJSONPath": "./ember-mobile-menu/package.json"
     }
   },
-  "description": "## Release (2026-02-27)\n\n* ember-mobile-menu 6.0.1 (patch)\n\n#### :house: Internal\n* `ember-mobile-menu`\n  * [#1352](https://github.com/nickschot/ember-mobile-menu/pull/1352) Revert \"Prepare Release\" 6.1.0 ([@nickschot](https://github.com/nickschot))\n* Other\n  * [#1350](https://github.com/nickschot/ember-mobile-menu/pull/1350) Remove NPM token from publish config ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 1\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n"
+  "description": "## Release (2026-02-27)\n\n* ember-mobile-menu 6.1.0 (minor)\n\n#### :rocket: Enhancement\n* `ember-mobile-menu`\n  * [#1339](https://github.com/nickschot/ember-mobile-menu/pull/1339) Widen concurrency range ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### :house: Internal\n* [#1347](https://github.com/nickschot/ember-mobile-menu/pull/1347) Setup OIDC required permissions ([@nickschot](https://github.com/nickschot))\n* [#1340](https://github.com/nickschot/ember-mobile-menu/pull/1340) Add renovate config catered to package dev ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 2\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
 }
