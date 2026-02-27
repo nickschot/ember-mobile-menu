@@ -1,6 +1,6 @@
 {
   "name": "ember-mobile-menu",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "A draggable sidebar menu for Ember.",
   "keywords": [
     "ember-addon",
