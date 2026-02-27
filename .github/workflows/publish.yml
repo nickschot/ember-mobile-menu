@@ -11,10 +11,6 @@ on:
       - main
       - master
 
-permissions:
-  id-token: write
-  contents: read
-
 concurrency:
   group: publish-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
@@ -45,6 +41,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -63,4 +60,3 @@ jobs:
 
         env:
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
