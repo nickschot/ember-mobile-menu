@@ -3291,7 +3291,9 @@ r(e,n,t.named)}}),class{})}),define("@embroider/macros/es-compat2",["exports"],f
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){return e?.__esModule?e:{default:e,...e}}}),define("@embroider/macros/runtime",["exports"],function(e){"use strict"
 function t(e){return n.packages[e]}function r(){return n.global}Object.defineProperty(e,"__esModule",{value:!0}),e.config=t,e.each=function(e){if(!Array.isArray(e))throw new Error("the argument to the each() macro must be an array")
 return e},e.getGlobalConfig=r,e.isTesting=function(){let e=n.global,t=e&&e["@embroider/macros"]
-return Boolean(t&&t.isTesting)},e.macroCondition=function(e){return e}
+return Boolean(t&&t.isTesting)},e.macroCondition=function(e){return e},e.setTesting=function(e){n.global||(n.global={})
+n.global["@embroider/macros"]||(n.global["@embroider/macros"]={})
+n.global["@embroider/macros"].isTesting=Boolean(e)}
 const n={packages:{},global:{}}
 let i="undefined"!=typeof window?window._embroider_macros_runtime_config:void 0
 if(i){let e={config:t,getGlobalConfig:r,setConfig(e,t){n.packages[e]=t},setGlobalConfig(e,t){n.global[e]=t}}
