@@ -54,7 +54,7 @@
     "ember-mobile-menu": "workspace:*",
     "ember-modifier": "4.3.0",
     "ember-qunit": "9.0.4",
-    "ember-resolver": "13.1.1",
+    "ember-resolver": "13.2.0",
     "ember-source": "6.8.3",
     "ember-source-channel-url": "3.0.0",
     "ember-template-lint": "7.9.3",
