@@ -37,7 +37,7 @@
     "overrides": {
       "@ember/test-helpers": "5.4.1",
       "@ember/test-waiters": "4.1.1",
-      "@handlebars/parser": "2.0.0"
+      "@handlebars/parser": "2.2.2"
     },
     "patchedDependencies": {
       "ember-app-scheduler": "patches/ember-app-scheduler.patch"
