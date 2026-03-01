@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2026-03-01)
+
+* ember-mobile-menu 6.1.1 (patch)
+
+#### :house: Internal
+* `ember-mobile-menu`
+  * [#1351](https://github.com/nickschot/ember-mobile-menu/pull/1351) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1352](https://github.com/nickschot/ember-mobile-menu/pull/1352) Revert "Prepare Release" 6.1.0 ([@nickschot](https://github.com/nickschot))
+* Other
+  * [#1350](https://github.com/nickschot/ember-mobile-menu/pull/1350) Remove NPM token from publish config ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 2
+- GitHub Actions [Bot] ([@github-actions](https://github.com/apps/github-actions))
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 ## Release (2026-02-27)
 
 * ember-mobile-menu 6.1.0 (minor)
