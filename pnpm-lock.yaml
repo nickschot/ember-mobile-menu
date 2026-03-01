@@ -177,8 +177,8 @@ importers:
         specifier: 3.5.0
         version: 3.5.0
       sass:
-        specifier: 1.93.3
-        version: 1.93.3
+        specifier: 1.97.3
+        version: 1.97.3
       tracked-built-ins:
         specifier: 4.0.0
         version: 4.0.0(@babel/core@7.29.0)
@@ -320,7 +320,7 @@ importers:
         version: 4.0.0(@embroider/compat@4.1.10(@embroider/core@4.2.8))(@embroider/core@4.2.8)
       '@embroider/vite':
         specifier: 1.4.2
-        version: 1.4.2(@embroider/core@4.2.8)(rollup@4.59.0)(vite@7.2.7(@types/node@24.0.13)(sass@1.93.3)(terser@5.43.1))
+        version: 1.4.2(@embroider/core@4.2.8)(rollup@4.59.0)(vite@7.2.7(@types/node@24.0.13)(sass@1.97.3)(terser@5.43.1))
       '@eslint/js':
         specifier: 9.39.3
         version: 9.39.3
@@ -431,7 +431,7 @@ importers:
         version: 4.0.0(@babel/core@7.29.0)
       vite:
         specifier: 7.2.7
-        version: 7.2.7(@types/node@24.0.13)(sass@1.93.3)(terser@5.43.1)
+        version: 7.2.7(@types/node@24.0.13)(sass@1.97.3)(terser@5.43.1)
 
 packages:
 
@@ -7864,8 +7864,8 @@ packages:
     engines: {node: 10.* || >= 12.*}
     hasBin: true
 
-  sass@1.93.3:
-    resolution: {integrity: sha512-elOcIZRTM76dvxNAjqYrucTSI0teAF/L2Lv0s6f6b7FOwcwIuA357bIE871580AjHJuSvLIRUosgV+lIWx6Rgg==}
+  sass@1.97.3:
+    resolution: {integrity: sha512-fDz1zJpd5GycprAbu4Q2PV/RprsRtKC/0z82z0JLgdytmcq0+ujJbJ/09bPGDxCLkKY3Np5cRAOcWiVkLXJURg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -9925,7 +9925,7 @@ snapshots:
     dependencies:
       '@csstools/sass-import-resolve': 1.0.0
       postcss: 8.5.6
-      sass: 1.93.3
+      sass: 1.97.3
       source-map: 0.7.4
 
   '@csstools/sass-import-resolve@1.0.0': {}
@@ -10409,7 +10409,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/vite@1.4.2(@embroider/core@4.2.8)(rollup@4.59.0)(vite@7.2.7(@types/node@24.0.13)(sass@1.93.3)(terser@5.43.1))':
+  '@embroider/vite@1.4.2(@embroider/core@4.2.8)(rollup@4.59.0)(vite@7.2.7(@types/node@24.0.13)(sass@1.97.3)(terser@5.43.1))':
     dependencies:
       '@babel/core': 7.29.0
       '@embroider/core': 4.2.8
@@ -10428,7 +10428,7 @@ snapshots:
       send: 0.18.0
       source-map-url: 0.4.1
       terser: 5.43.1
-      vite: 7.2.7(@types/node@24.0.13)(sass@1.93.3)(terser@5.43.1)
+      vite: 7.2.7(@types/node@24.0.13)(sass@1.97.3)(terser@5.43.1)
     transitivePeerDependencies:
       - '@glint/template'
       - bufferutil
@@ -18857,7 +18857,7 @@ snapshots:
       minimist: 1.2.8
       walker: 1.0.8
 
-  sass@1.93.3:
+  sass@1.97.3:
     dependencies:
       chokidar: 4.0.3
       immutable: 5.1.3
@@ -20051,7 +20051,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite@7.2.7(@types/node@24.0.13)(sass@1.93.3)(terser@5.43.1):
+  vite@7.2.7(@types/node@24.0.13)(sass@1.97.3)(terser@5.43.1):
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.3)
@@ -20062,7 +20062,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.0.13
       fsevents: 2.3.3
-      sass: 1.93.3
+      sass: 1.97.3
       terser: 5.43.1
 
   w3c-xmlserializer@5.0.0:
