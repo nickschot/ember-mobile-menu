@@ -180,8 +180,8 @@ importers:
         specifier: 1.97.3
         version: 1.97.3
       tracked-built-ins:
-        specifier: 4.0.0
-        version: 4.0.0(@babel/core@7.29.0)
+        specifier: 4.1.0
+        version: 4.1.0(@babel/core@7.29.0)
       webpack:
         specifier: 5.105.3
         version: 5.105.3
@@ -427,8 +427,8 @@ importers:
         specifier: 5.0.3
         version: 5.0.3(prettier@3.6.2)(stylelint@16.26.1)
       tracked-built-ins:
-        specifier: 4.0.0
-        version: 4.0.0(@babel/core@7.29.0)
+        specifier: 4.1.0
+        version: 4.1.0(@babel/core@7.29.0)
       vite:
         specifier: 7.3.1
         version: 7.3.1(@types/node@24.0.13)(sass@1.97.3)(terser@5.43.1)
