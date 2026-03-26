@@ -1,4 +1,4 @@
-/*! For license information please see chunk.140.e027dd0797fb224a6ff1.js.LICENSE.txt */
+/*! For license information please see chunk.140.2e864236f09644f9ea55.js.LICENSE.txt */
 (globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[140],{9113(e,t,r){"use strict"
 r.r(t),r.d(t,{BuildURLMixin:()=>h,default:()=>g})
 var n,i=r(4471),s=r.n(i),o=r(2735),a=r(5959),l=r(2181),c=r.n(l),u=r(6634)
@@ -335,7 +335,7 @@ o(e)},createMemo:(e,t,r)=>{{const i=(0,n.tagForProperty)(e,t),o=(0,s.createCache
 let a
 const l=()=>{a=(0,s.getValue)(o)}
 return()=>{const e=(0,s.track)(l)
-return(0,s.updateTag)(i,e),(0,s.consumeTag)(e),a}}},willSyncFlushWatchers:()=>!!i._backburner.currentInstance&&!0!==i._backburner._autorun,waitFor:async e=>e}}},6480(e,t,r){"use strict"
+return(0,s.updateTag)(i,e),(0,s.consumeTag)(e),a}}},willSyncFlushWatchers:()=>!!i._backburner.currentInstance&&!0!==i._backburner._autorun,waitFor:async e=>e}}},2838(e,t,r){"use strict"
 function n(e){return e?.__esModule?e:{default:e,...e}}r.d(t,{A:()=>n})},7041(e,t,r){"use strict"
 r.d(t,{A:()=>g})
 var n=r(2663),i=r(1130),s=r(1223),o=r(1115)
@@ -2617,7 +2617,7 @@ return n=i.lookup(`serializer:${t}`),void 0!==n?(r[t]=n,n):(n=r.application||i.l
 return n.normalize(i,t)}function Ce(e,t){const r=t||e,n=t?(0,K.di)(e):"application"
 this.serializerFor(n).pushPayload(this,r)}function Oe(e,t){return this._fetchManager||(this._fetchManager=new _e.F(this)),this._fetchManager.createSnapshot((0,ve.o)(e)).serialize(t)}function Ne(){for(const e in this._adapterCache){const t=this._adapterCache[e]
 "function"==typeof t.destroy&&t.destroy()}for(const e in this._serializerCache){const t=this._serializerCache[e]
-"function"==typeof t.destroy&&t.destroy()}}var De=r(5116),qe=(r(6506),r(2558)),Le=r(6480)
+"function"==typeof t.destroy&&t.destroy()}}var De=r(5116),qe=(r(6506),r(2558)),Le=r(2838)
 {let e=!1,t=!1,i=!1
 if(e=!0,!i){const{buildSignalConfig:e}=(0,Le.A)(r(2788));(0,qe.u)(e)}if(!i){const r=["Using WarpDrive with EmberJS requires configuring it to use Ember's reactivity system.","Previously this was provided by installing the package '@ember-data/tracking', but this package is now deprecated.","","To resolve this deprecation, follow these steps:",!!e&&'- remove "@ember-data/tracking" and (if needed) "@ember-data-types/tracking" from your project in both your package.json and tsconfig.json',!t&&'- add "@warp-drive/ember" to your project in your package.json (and run install)',"- add the following import to your app.js file:","","\t```","\timport '@warp-drive/ember/install';","\t```","","- mark this deprecation as resolved in your project by adding the following to your WarpDrive config in ember-cli-build.js:","","\t```",'\tconst { setConfig } = await import("@warp-drive/build-config");',"\tsetConfig(app, __dirname, {","\t  deprecations: {","\t    DEPRECATE_TRACKING_PACKAGE: false,","\t  },","\t});","\t```","","For more information, see the Package Unification RFC: https://rfcs.emberjs.com/id/1075-warp-drive-package-unification/"].filter(e=>!1!==e).join("\n");(0,n.deprecate)(r,!1,{id:"warp-drive.deprecate-tracking-package",until:"6.0.0",for:"warp-drive",since:{enabled:"5.3.4",available:"4.13"},url:"https://deprecations.emberjs.com/id/warp-drive.deprecate-tracking-package"})}}function Me(e,t,r){return(t=function(e){var t=function(e){if("object"!=typeof e||!e)return e
 var t=e[Symbol.toPrimitive]
@@ -2844,7 +2844,7 @@ throw new TypeError("@@toPrimitive must return a primitive value.")}return Strin
 return"symbol"==typeof t?t:t+""}(r="localId"))in t?Object.defineProperty(t,r,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[r]=n}compute([e]){const t=e?e.split(/\s+/):[]
 a.set(this.localId,t),d()}willDestroy(){a.delete(this.localId),d()}}const p=h},4169(e,t,r){"use strict"
 r.d(t,{E:()=>O})
-var n=r(1603),i=r(1130),s=r(6886),o=r(6480)
+var n=r(1603),i=r(1130),s=r(6886),o=r(2838)
 const a={linkOwner(e,t){const r=a.getOwner(t)
 r&&a.setOwner(e,r)}}
 a.getOwner=(0,o.A)(r(2294)).getOwner,a.setOwner=(0,o.A)(r(2294)).setOwner

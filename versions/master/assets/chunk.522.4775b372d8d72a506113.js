@@ -1,4 +1,4 @@
-(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[808],{9805(t,e,i){"use strict"
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[522],{9805(t,e,i){"use strict"
 i.r(e),i.d(e,{default:()=>d})
 var n,o=i(7041),s=i(2377),r=i(2663),a=i(1465)
 const l=()=>{}
@@ -98,5 +98,5 @@ return"symbol"==typeof e?e:e+""}(i))in e?Object.defineProperty(e,i,{value:n,enum
 return"ios"===this.args.mode?(e/=3,i/=3):["reveal","squeeze-reveal"].includes(this.args.mode)&&(e=0,i=0),t+=this.isLeft?`left: -${e}px; transform: translateX(${i}px);`:`right: -${e}px; transform: translateX(${i}px);`,this.args.shadowEnabled&&["default","push","squeeze"].includes(this.args.mode)&&this.progress>0&&(t+=`box-shadow: 0 0 10px rgba(0,0,0,${.3*this.progress});`),(0,o.htmlSafe)(t)}}b=M,(0,y.setComponentTemplate)((0,w.createTemplateFactory)({id:"g6Ud0FO+",block:'[[[1,"\\n    "],[11,0],[24,0,"mobile-menu__tray"],[16,5,[30,0,["style"]]],[17,1],[4,[32,0],null,[["onPanStart","onPan","onPanEnd","capture","preventScroll"],[[30,2],[30,3],[30,4],[30,5],[30,6]]]],[4,[30,0,["lockBodyScroll"]],null,null],[12],[1,"\\n      "],[18,7,null],[1,"\\n    "],[13],[1,"\\n  "]],["&attrs","@onPanStart","@onPan","@onPanEnd","@capture","@preventScroll","&default"],["yield"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/ember-mobile-menu/dist/components/mobile-menu/tray.js",scope:()=>[v.default],isStrictMode:!0}),b)},6852(t,e,i){"use strict"
 i.r(e),i.d(e,{effect:()=>o})
 var n=i(791)
-function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},3594(t,e,i){"use strict"
-i.r(e)},1596(t,e){window._eai_r=require,window._eai_d=define}}])
+function o(t,...e){(0,n.waitForPromise)((async()=>{await 0,await t(...e)})())}},2358(t,e,i){"use strict"
+i.r(e)},6507(t,e){window._eai_r=require,window._eai_d=define}}])
