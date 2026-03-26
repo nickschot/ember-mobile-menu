@@ -226,8 +226,8 @@ importers:
         specifier: 7.28.6
         version: 7.28.6(@babel/core@7.29.0)(eslint@9.39.4)
       '@babel/runtime':
-        specifier: 7.28.6
-        version: 7.28.6
+        specifier: 7.29.2
+        version: 7.29.2
       '@embroider/addon-dev':
         specifier: 8.1.1
         version: 8.1.1(rollup@4.59.1)
@@ -1014,8 +1014,8 @@ packages:
   '@babel/runtime@7.12.18':
     resolution: {integrity: sha512-BogPQ7ciE6SYAUPtlm9tWbgI9+2AgqSam6QivMgXgAT+fKbgppaj4ZX15MHeLC1PVF5sNk70huBu20XxWOs8Cg==}
 
-  '@babel/runtime@7.28.6':
-    resolution: {integrity: sha512-05WQkdpL9COIMz4LjTxGpPNCdlpyimKppYNoJ5Di5EUObifl8t4tuLuUBBZEpoLYOmfvIWrsp9fCl0HoPRVTdA==}
+  '@babel/runtime@7.29.2':
+    resolution: {integrity: sha512-JiDShH45zKHWyGe4ZNVRrCjBz8Nh9TMmZG1kh4QTK8hCBTWBi8Da+i7s1fJw7/lYpM4ccepSNfqzZ/QvABBi5g==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.28.6':
@@ -9843,7 +9843,7 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.13.11
 
-  '@babel/runtime@7.28.6': {}
+  '@babel/runtime@7.29.2': {}
 
   '@babel/template@7.28.6':
     dependencies:
@@ -10206,7 +10206,7 @@ snapshots:
       '@babel/plugin-syntax-typescript': 7.28.6(@babel/core@7.29.0)
       '@babel/plugin-transform-runtime': 7.29.0(@babel/core@7.29.0)
       '@babel/preset-env': 7.28.5(@babel/core@7.29.0)
-      '@babel/runtime': 7.28.6
+      '@babel/runtime': 7.29.2
       '@babel/traverse': 7.28.6
       '@embroider/core': 4.2.8
       '@embroider/macros': 1.19.4
@@ -14912,7 +14912,7 @@ snapshots:
 
   ember-primitives@0.53.1(@babel/core@7.29.0)(@ember/test-helpers@5.4.1(@babel/core@7.29.0))(@ember/test-waiters@4.1.1)(@glimmer/component@2.0.0)(ember-modifier@4.2.2(@babel/core@7.29.0))(ember-resources@7.0.7(@babel/core@7.29.0)(@glimmer/component@2.0.0)):
     dependencies:
-      '@babel/runtime': 7.28.6
+      '@babel/runtime': 7.29.2
       '@ember/test-waiters': 4.1.1
       '@embroider/addon-shim': 1.10.2
       '@embroider/macros': 1.20.0(@babel/core@7.29.0)
