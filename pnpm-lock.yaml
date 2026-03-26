@@ -210,8 +210,8 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2(@babel/core@7.29.0)
       ember-primitives:
-        specifier: ^0.53.0
-        version: 0.53.1(@babel/core@7.29.0)(@ember/test-helpers@5.4.1(@babel/core@7.29.0))(@ember/test-waiters@4.1.1)(@glimmer/component@2.0.0)(ember-modifier@4.2.2(@babel/core@7.29.0))(ember-resources@7.0.7(@babel/core@7.29.0)(@glimmer/component@2.0.0))
+        specifier: ^0.55.0
+        version: 0.55.0(@babel/core@7.29.0)(@ember/test-helpers@5.4.1(@babel/core@7.29.0))(@ember/test-waiters@4.1.1)(@glimmer/component@2.0.0)(ember-modifier@4.2.2(@babel/core@7.29.0))(ember-resources@7.0.7(@babel/core@7.29.0)(@glimmer/component@2.0.0))
       tracked-built-ins:
         specifier: ^3.0.0 || ^4.0.0
         version: 4.0.0(@babel/core@7.29.0)
@@ -4552,8 +4552,8 @@ packages:
     resolution: {integrity: sha512-fedRHUsvq8tIZgOii8jTrfAyeq+la/9H5eAzhNNwEyzo7nDMmqK2SxsyBUGXprd8fOacsPabLlzlucMi/4mUpA==}
     engines: {node: 16.* || >= 18}
 
-  ember-primitives@0.53.1:
-    resolution: {integrity: sha512-Jb5MBilMTWJFaDhw3Z/uL3s3Y+G/HzmfLX8eTECkyBoQibApuvA5CMwVHmkDU1ItvndXqBqT0ougAdLqotW+Xg==}
+  ember-primitives@0.55.0:
+    resolution: {integrity: sha512-UlSeLlU36n9Ui/plTuHo+8DyQFf11vLDXW5LaFjxDEaHokgws9OWkxOHRg0xmz3I5UeTPbkUAGsHF2u2YJwR2w==}
     hasBin: true
     peerDependencies:
       '@ember/test-helpers': 5.4.1
@@ -14900,7 +14900,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-primitives@0.53.1(@babel/core@7.29.0)(@ember/test-helpers@5.4.1(@babel/core@7.29.0))(@ember/test-waiters@4.1.1)(@glimmer/component@2.0.0)(ember-modifier@4.2.2(@babel/core@7.29.0))(ember-resources@7.0.7(@babel/core@7.29.0)(@glimmer/component@2.0.0)):
+  ember-primitives@0.55.0(@babel/core@7.29.0)(@ember/test-helpers@5.4.1(@babel/core@7.29.0))(@ember/test-waiters@4.1.1)(@glimmer/component@2.0.0)(ember-modifier@4.2.2(@babel/core@7.29.0))(ember-resources@7.0.7(@babel/core@7.29.0)(@glimmer/component@2.0.0)):
     dependencies:
       '@babel/runtime': 7.29.2
       '@ember/test-waiters': 4.1.1
