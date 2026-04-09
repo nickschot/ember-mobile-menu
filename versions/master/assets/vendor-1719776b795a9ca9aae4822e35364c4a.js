@@ -15,7 +15,7 @@ throw new TypeError("@@toPrimitive must return a primitive value.")}return("stri
  *            Portions Copyright 2008-2011 Apple Inc. All rights reserved.
  * @license   Licensed under MIT license
  *            See https://raw.github.com/emberjs/ember.js/master/LICENSE
- * @version   6.11.0
+ * @version   6.11.1
  */(function(e){"use strict"
 function t(){var e=Object.create(null)
 return e.__=void 0,delete e.__,e}var r={loader:loader,define:define,requireModule:requireModule,require:require,requirejs:requirejs}
@@ -180,7 +180,7 @@ for(let o of i){o.split(":")[0]===e&&(n[o]=!0)}return null!==this.fallback&&(t=t
 function vt([e]){let t=bt[e]
 if(t)return t
 let[r,n]=e.split(":")
-return bt[e]=y(`${r}:${n}-${yt}`)}const _t=Object.defineProperty({__proto__:null,Container:ot,INIT_FACTORY:dt,Registry:gt,getFactoryFor:pt,privatize:vt,setFactoryFor:ht},Symbol.toStringTag,{value:"Module"}),wt="6.11.0",xt=Object.defineProperty({__proto__:null,default:wt},Symbol.toStringTag,{value:"Module"}),Pt=Object.defineProperty({__proto__:null,VERSION:wt},Symbol.toStringTag,{value:"Module"}),kt=/[ _]/g,St=new ie(1e3,e=>{return(t=e,Mt.get(t)).replace(kt,"-")
+return bt[e]=y(`${r}:${n}-${yt}`)}const _t=Object.defineProperty({__proto__:null,Container:ot,INIT_FACTORY:dt,Registry:gt,getFactoryFor:pt,privatize:vt,setFactoryFor:ht},Symbol.toStringTag,{value:"Module"}),wt="6.11.1",xt=Object.defineProperty({__proto__:null,default:wt},Symbol.toStringTag,{value:"Module"}),Pt=Object.defineProperty({__proto__:null,VERSION:wt},Symbol.toStringTag,{value:"Module"}),kt=/[ _]/g,St=new ie(1e3,e=>{return(t=e,Mt.get(t)).replace(kt,"-")
 var t}),Ot=/^(-|_)+(.)?/,Et=/(.)(-|_|\.|\s)+(.)?/g,Tt=/(^|\/|\.)([a-z])/g,Ct=new ie(1e3,e=>{let t=(e,t,r)=>r?`_${r.toUpperCase()}`:"",r=(e,t,r,n)=>t+(n?n.toUpperCase():""),n=e.split("/")
 for(let i=0;i<n.length;i++)n[i]=n[i].replace(Ot,t).replace(Et,r)
 return n.join("/").replace(Tt,e=>e.toUpperCase())}),jt=/([a-z\d])([A-Z])/g,Mt=new ie(1e3,e=>e.replace(jt,"$1_$2").toLowerCase())
@@ -2716,7 +2716,7 @@ t=this._environment.hasDOM&&"string"==typeof e?document.querySelector(e):e,Pd("r
 var Gk=new WeakMap,Wk=new WeakMap
 class Qk{constructor(e,t,r){_defineProperty(this,"type","component"),_classPrivateFieldInitSpec(this,Gk,void 0),_classPrivateFieldInitSpec(this,Wk,void 0),_classPrivateFieldSet(Wk,this,()=>{let n=Bg(e.context,e.builder(e.env,r.into),e.owner,t,r?.args),i=_classPrivateFieldSet(Gk,this,n.sync())
 Wr(this,_classPrivateFieldGet(Gk,this)),_classPrivateFieldSet(Wk,this,()=>{if(!Zr(i)&&!en(i))return i.rerender({alwaysRevalidate:!1})})})}isFor(e){return!1}render(){_classPrivateFieldGet(Wk,this).call(this)}destroy(){Yr(this)}get destroyed(){return en(this)}get result(){return _classPrivateFieldGet(Gk,this)}}class Kk{constructor(e,t,r,n,i,o,s,l){_defineProperty(this,"type","classic"),_defineProperty(this,"id",void 0),_defineProperty(this,"result",void 0),_defineProperty(this,"destroyed",void 0),_defineProperty(this,"render",void 0),_defineProperty(this,"env",void 0),this.root=e,this.id=e instanceof Vk?E(e):Ab(e),this.result=void 0,this.destroyed=!1,this.env=t.env,this.render=()=>{let e=Xy(n).asLayout(),a=Lg(t,r,i,l(t.env,{element:o,nextSibling:null}),e,s),u=this.result=a.sync()
-Wr(r,u),this.render=()=>{if(!Zr(u)&&!en(u))return u.rerender({alwaysRevalidate:!1})}}}isFor(e){return this.root===e}destroy(){let{result:e,env:t}=this
+Wr(this,u),this.render=()=>{if(!Zr(u)&&!en(u))return u.rerender({alwaysRevalidate:!1})}}}isFor(e){return this.root===e}destroy(){let{result:e,env:t}=this
 this.destroyed=!0,this.root=null,this.result=void 0,this.render=void 0,void 0!==e&&Mm(t,()=>Yr(e))}}const Yk=[]
 function Jk(e){let t=Yk.indexOf(e)
 Yk.splice(t,1)}let Xk=null
@@ -2866,10 +2866,8 @@ const uO=Object.defineProperty({__proto__:null,default:aO},Symbol.toStringTag,{v
 class cO extends Fv{constructor(...e){super(...e),_defineProperty(this,"rootElement",null),_defineProperty(this,"_router",void 0)}init(e){super.init(e),this.application._watchInstance(this),this.register("-application-instance:main",this,{instantiate:!1})}_bootSync(e){return this._booted||(e=new dO(e),this.setupRegistry(e),e.rootElement?this.rootElement=e.rootElement:this.rootElement=this.application.rootElement,e.location&&hu(this.router,"location",e.location),this.application.runInstanceInitializers(this),e.isInteractive&&this.setupEventDispatcher(),this._booted=!0),this}setupRegistry(e){this.constructor.setupRegistry(this.__registry__,e)}get router(){if(!this._router){let e=this.lookup("router:main")
 this._router=e}return this._router}didCreateRootView(e){e.appendTo(this.rootElement)}startRouting(){this.router.startRouting()}setupRouter(){this.router.setupRouter()}handleURL(e){return this.setupRouter(),this.router.handleURL(e)}setupEventDispatcher(){let e=this.lookup("event_dispatcher:main"),t=uu(this.application,"customEvents"),r=uu(this,"customEvents"),n=Object.assign({},t,r)
 return e.setup(n,this.rootElement),e}getURL(){return this.router.url}visit(e){this.setupRouter()
-let t=this.__container__.lookup("-environment:main"),r=this.router,n=()=>t.options.shouldRender?Zk().then(()=>this):this,i=e=>{if(e.error&&e.error instanceof Error)throw e.error
-if("TransitionAborted"===e.name&&r._routerMicrolib.activeTransition)return r._routerMicrolib.activeTransition.then(n,i)
-throw"TransitionAborted"===e.name?new Error(e.message):e},o=uu(r,"location")
-return o.setURL(e),r.handleURL(o.getURL()).then(n,i)}willDestroy(){super.willDestroy(),this.application._unwatchInstance(this)}static setupRegistry(e,t={}){let r=t instanceof dO?t:new dO(t)
+let t=this.__container__.lookup("-environment:main"),r=this.router,n=uu(r,"location")
+return n.setURL(e),r.handleURL(n.getURL()).followRedirects().then(()=>t.options.shouldRender?Zk().then(()=>this):this,e=>{throw e.error&&e.error instanceof Error?e.error:"TransitionAborted"===e.name?new Error(e.message):e})}willDestroy(){super.willDestroy(),this.application._unwatchInstance(this)}static setupRegistry(e,t={}){let r=t instanceof dO?t:new dO(t)
 e.register("-environment:main",r.toEnvironment(),{instantiate:!1}),e.register("service:-document",r.document,{instantiate:!1}),super.setupRegistry(e,r)}}class dO{constructor(e={}){_defineProperty(this,"isInteractive",void 0),_defineProperty(this,"_renderMode",void 0),_defineProperty(this,"isBrowser",void 0),_defineProperty(this,"location",null),_defineProperty(this,"shouldRender",void 0),_defineProperty(this,"document",void 0),_defineProperty(this,"rootElement",void 0),this.isInteractive=Boolean(c),this._renderMode=e._renderMode,void 0!==e.isBrowser?this.isBrowser=Boolean(e.isBrowser):this.isBrowser=Boolean(c),this.isBrowser||(this.isInteractive=!1,this.location="none"),void 0!==e.shouldRender?this.shouldRender=Boolean(e.shouldRender):this.shouldRender=!0,this.shouldRender||(this.isInteractive=!1),e.document?this.document=e.document:this.document="undefined"!=typeof document?document:null,e.rootElement&&(this.rootElement=e.rootElement),void 0!==e.location&&(this.location=e.location),void 0!==e.isInteractive&&(this.isInteractive=Boolean(e.isInteractive))}toEnvironment(){return{...b,hasDOM:this.isBrowser,isInteractive:this.isInteractive,_renderMode:this._renderMode,options:this}}}const pO=Object.defineProperty({__proto__:null,default:cO},Symbol.toStringTag,{value:"Module"})
 class hO extends vh{init(e){super.init(e),Gu(this)}toString(){let e=uu(this,"name")||uu(this,"modulePrefix")
 if(e)return e
