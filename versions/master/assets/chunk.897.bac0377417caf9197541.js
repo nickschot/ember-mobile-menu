@@ -132,7 +132,7 @@ let n
 if(n=t&&void 0===t._emberTestHelpersMockOwner?t.rootElement:"#ember-testing",n instanceof Window&&(n=n.document),k(n)||C(n))return n
 if("string"==typeof n){const e=document.querySelector(n)
 if(e)return e
-throw new Error(`Application.rootElement (${n}) not found`)}throw new Error("Application.rootElement must be an element or a selector string")}var Ke=n(1476),He=n(1465)
+throw new Error(`Application.rootElement (${n}) not found`)}throw new Error("Application.rootElement must be an element or a selector string")}var Ke=n(9095),He=n(1465)
 const Ue=(0,He.createTemplateFactory)({id:"FR5M2YpB",block:'[[[46,[28,[37,1],null,null],null,null,null]],[],["component","-outlet"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.4.1_@babel+core@7.29.0/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),Be=(0,He.createTemplateFactory)({id:"zRWLOdCX",block:"[[],[],[]]",moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.4.1_@babel+core@7.29.0/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),qe=(0,He.createTemplateFactory)({id:"H7BCcbLw",block:'[[[8,[30,0,["ProvidedComponent"]],null,null,null]],[],[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.4.1_@babel+core@7.29.0/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),Qe=Symbol()
 function Ve(e){return ke(e)&&Qe in e}function ze(e,t){const n=e.lookup(t)
 return"function"==typeof n?n(e):n}let Xe,Ye=0
