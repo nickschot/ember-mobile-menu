@@ -1,4 +1,4 @@
-"use strict";(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[764],{5764(e,t,n){let r
+"use strict";(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[897],{7897(e,t,n){let r
 function o(e){r=e}function i(){return r}n.r(t),n.d(t,{blur:()=>_t,clearRender:()=>Je,click:()=>St,currentRouteName:()=>ce,currentURL:()=>de,doubleClick:()=>Ot,fillIn:()=>Qt,find:()=>Gt,findAll:()=>Jt,focus:()=>It,getApplication:()=>c,getContext:()=>xe,getDebugInfo:()=>ee,getDeprecations:()=>Re,getDeprecationsDuringCallback:()=>je,getResolver:()=>i,getRootElement:()=>De,getSettledState:()=>be,getTestMetadata:()=>W,getWarnings:()=>$e,getWarningsDuringCallback:()=>Ae,hasEmberVersion:()=>d,isSettled:()=>ye,pauseTest:()=>Se,registerDebugInfoHelper:()=>G,registerHook:()=>V,render:()=>Ge,rerender:()=>tt,resetOnerror:()=>Pe,resumeTest:()=>Oe,runHooks:()=>z,scrollTo:()=>tn,select:()=>zt,setApplication:()=>a,setContext:()=>Ie,setResolver:()=>o,settled:()=>ve,setupApplicationContext:()=>he,setupContext:()=>Ne,setupOnerror:()=>Te,setupRenderingContext:()=>Ze,tab:()=>At,tap:()=>Nt,teardownContext:()=>Le,triggerEvent:()=>Ft,triggerKeyEvent:()=>Ut,typeIn:()=>Zt,unsetContext:()=>Me,validateErrorHandler:()=>ot,visit:()=>ae,waitFor:()=>Yt,waitForFocus:()=>nn,waitUntil:()=>R})
 var s=n(2294),u=n.n(s)
 let l
@@ -49,7 +49,7 @@ function Q(e,t){return`${e}:${t}`}function V(e,t,n){const r=Q(e,t)
 let o=q.get(r)
 return void 0===o&&(o=new Set,q.set(r,o)),o.add(n),{unregister(){o.delete(n)}}}function z(e,t,...n){const r=q.get(Q(e,t))||new Set,o=[]
 return r.forEach(e=>{const t=e(...n)
-o.push(t)}),Promise.all(o).then(()=>{})}var X=n(7008)
+o.push(t)}),Promise.all(o).then(()=>{})}var X=n(1771)
 const Y=new Set
 function G(e){Y.add(e)}function J(e,t,n){return(t=function(e){var t=function(e){if("object"!=typeof e||!e)return e
 var t=e[Symbol.toPrimitive]
@@ -132,7 +132,7 @@ let n
 if(n=t&&void 0===t._emberTestHelpersMockOwner?t.rootElement:"#ember-testing",n instanceof Window&&(n=n.document),k(n)||C(n))return n
 if("string"==typeof n){const e=document.querySelector(n)
 if(e)return e
-throw new Error(`Application.rootElement (${n}) not found`)}throw new Error("Application.rootElement must be an element or a selector string")}var Ke=n(9095),He=n(1465)
+throw new Error(`Application.rootElement (${n}) not found`)}throw new Error("Application.rootElement must be an element or a selector string")}var Ke=n(1476),He=n(1465)
 const Ue=(0,He.createTemplateFactory)({id:"FR5M2YpB",block:'[[[46,[28,[37,1],null,null],null,null,null]],[],["component","-outlet"]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.4.1_@babel+core@7.29.0/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),Be=(0,He.createTemplateFactory)({id:"zRWLOdCX",block:"[[],[],[]]",moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.4.1_@babel+core@7.29.0/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),qe=(0,He.createTemplateFactory)({id:"H7BCcbLw",block:'[[[8,[30,0,["ProvidedComponent"]],null,null,null]],[],[]]',moduleName:"/home/runner/work/ember-mobile-menu/ember-mobile-menu/node_modules/.pnpm/@ember+test-helpers@5.4.1_@babel+core@7.29.0/node_modules/@ember/test-helpers/dist/setup-rendering-context.js",isStrictMode:!1}),Qe=Symbol()
 function Ve(e){return ke(e)&&Qe in e}function ze(e,t){const n=e.lookup(t)
 return"function"==typeof n?n(e):n}let Xe,Ye=0
@@ -155,7 +155,7 @@ const t=function(e){return e[Qe]=!0,e}(e)
 return Promise.resolve().then(()=>{const{owner:e}=t
 e._emberTestHelpersMockOwner&&(e.lookup("event_dispatcher:main")||We.EventDispatcher.create()).setup({},"#ember-testing")
 const n=e.factoryFor?e.factoryFor("view:-outlet"):e._lookupFactory("view:-outlet"),r=e.lookup("-environment:main"),o=e.lookup("template:-outlet"),i=n.create({template:o,environment:r})
-return e.register("-top-level-view:main",{create:()=>i}),Ge(Be).then(()=>((0,h.run)(i,"appendTo",De()),ve()))}).then(()=>(Object.defineProperty(t,"element",{configurable:!0,enumerable:!0,value:De(),writable:!1}),t))}Xe=(0,n(5739).A)(n(8935)).renderSettled
+return e.register("-top-level-view:main",{create:()=>i}),Ge(Be).then(()=>((0,h.run)(i,"appendTo",De()),ve()))}).then(()=>(Object.defineProperty(t,"element",{configurable:!0,enumerable:!0,value:De(),writable:!1}),t))}Xe=(0,n(6434).A)(n(8935)).renderSettled
 var et=Xe
 function tt(){return et()}const nt=Object.freeze({isValid:!0,message:null}),rt=Object.freeze({isValid:!1,message:"error handler should have re-thrown the provided error"})
 function ot(e=(0,j.getOnerror)()){if(null==e)return nt
@@ -326,7 +326,7 @@ throw t=C(r)?"Document":r.nodeType,new Error(en(`"target" must be an element, bu
 const{timeout:n=1e3}=t
 let{timeoutMessage:r}=t
 return r||(r=`waitForFocus timed out waiting for selector "${Pt(e)}"`),R(()=>{const t=ut(e)
-if(t&&t===document.activeElement)return document.activeElement},{timeout:n,timeoutMessage:r})})}V("fillIn","start",(e,t)=>{ct("fillIn",e,t)}),V("typeIn","start",(e,t)=>{ct("typeIn",e,t)})},7008(e,t,n){n.r(t),n.d(t,{_reset:()=>u,_resetWaiterNames:()=>f,buildWaiter:()=>h,getPendingWaiterState:()=>l,getWaiters:()=>s,hasPendingWaiters:()=>a,register:()=>o,unregister:()=>i,waitFor:()=>p,waitForFetch:()=>b,waitForPromise:()=>m}),n(1603)
+if(t&&t===document.activeElement)return document.activeElement},{timeout:n,timeoutMessage:r})})}V("fillIn","start",(e,t)=>{ct("fillIn",e,t)}),V("typeIn","start",(e,t)=>{ct("typeIn",e,t)})},1771(e,t,n){n.r(t),n.d(t,{_reset:()=>u,_resetWaiterNames:()=>f,buildWaiter:()=>h,getPendingWaiterState:()=>l,getWaiters:()=>s,hasPendingWaiters:()=>a,register:()=>o,unregister:()=>i,waitFor:()=>p,waitForFetch:()=>b,waitForPromise:()=>m}),n(1603)
 const r=function(){const e="TEST_WAITERS",t="undefined"!=typeof Symbol?Symbol.for(e):e,n=function(){if("undefined"!=typeof globalThis)return globalThis
 if("undefined"!=typeof self)return self
 if("undefined"!=typeof window)return window
