@@ -32,7 +32,7 @@ jobs:
           fi
       - uses: pnpm/action-setup@v4
         if: env.SHORT_CIRCUIT == 'false'
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         if: env.SHORT_CIRCUIT == 'false'
         with:
           node-version: 18
