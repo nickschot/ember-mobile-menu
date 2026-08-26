@@ -320,7 +320,7 @@ importers:
         version: 4.0.0(@embroider/compat@4.1.10(@embroider/core@4.2.8))(@embroider/core@4.2.8)
       '@embroider/vite':
         specifier: 1.4.2
-        version: 1.4.2(@embroider/core@4.2.8)(rollup@4.60.1)(vite@7.3.2(@types/node@24.0.13)(sass@1.99.0)(terser@5.43.1))
+        version: 1.4.2(@embroider/core@4.2.8)(rollup@4.60.1)(vite@7.3.5(@types/node@24.0.13)(sass@1.99.0)(terser@5.43.1))
       '@eslint/js':
         specifier: 9.39.4
         version: 9.39.4
@@ -430,8 +430,8 @@ importers:
         specifier: 4.0.0
         version: 4.0.0(@babel/core@7.29.0)
       vite:
-        specifier: 7.3.2
-        version: 7.3.2(@types/node@24.0.13)(sass@1.99.0)(terser@5.43.1)
+        specifier: 7.3.5
+        version: 7.3.5(@types/node@24.0.13)(sass@1.99.0)(terser@5.43.1)
 
 packages:
 
@@ -4894,6 +4894,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -8730,6 +8731,7 @@ packages:
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   validate-npm-package-license@3.0.4:
@@ -8747,8 +8749,8 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  vite@7.3.2:
-    resolution: {integrity: sha512-Bby3NOsna2jsjfLVOHKes8sGwgl4TT0E6vvpYgnAYDIF/tie7MRaFthmKuHx1NSXjiTueXH3do80FMQgvEktRg==}
+  vite@7.3.5:
+    resolution: {integrity: sha512-KuOaNhcnGFN2zIPGA7wRmzF+lJA1sea7rHq17aiJ++9lzY1WWG6Jpwqwe1KNbRVPIqHmr8GLYx7jbrQcN/7/ww==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -10384,7 +10386,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/vite@1.4.2(@embroider/core@4.2.8)(rollup@4.60.1)(vite@7.3.2(@types/node@24.0.13)(sass@1.99.0)(terser@5.43.1))':
+  '@embroider/vite@1.4.2(@embroider/core@4.2.8)(rollup@4.60.1)(vite@7.3.5(@types/node@24.0.13)(sass@1.99.0)(terser@5.43.1))':
     dependencies:
       '@babel/core': 7.29.0
       '@embroider/core': 4.2.8
@@ -10403,7 +10405,7 @@ snapshots:
       send: 0.18.0
       source-map-url: 0.4.1
       terser: 5.43.1
-      vite: 7.3.2(@types/node@24.0.13)(sass@1.99.0)(terser@5.43.1)
+      vite: 7.3.5(@types/node@24.0.13)(sass@1.99.0)(terser@5.43.1)
     transitivePeerDependencies:
       - '@glint/template'
       - bufferutil
@@ -19936,7 +19938,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite@7.3.2(@types/node@24.0.13)(sass@1.99.0)(terser@5.43.1):
+  vite@7.3.5(@types/node@24.0.13)(sass@1.99.0)(terser@5.43.1):
     dependencies:
       esbuild: 0.27.3
       fdir: 6.5.0(picomatch@4.0.3)
